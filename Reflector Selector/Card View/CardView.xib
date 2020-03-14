@@ -45,14 +45,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Joy" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.01" translatesAutoresizingMaskIntoConstraints="NO" id="RSg-nc-nF3">
-                    <rect key="frame" x="100" y="-96.5" width="800" height="1193"/>
+                    <rect key="frame" x="100" y="-196.5" width="800" height="1193"/>
                     <fontDescription key="fontDescription" type="system" pointSize="999"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
-                <constraint firstItem="RSg-nc-nF3" firstAttribute="centerY" secondItem="hAx-kz-WZO" secondAttribute="centerY" id="CiK-XZ-py0"/>
+                <constraint firstItem="RSg-nc-nF3" firstAttribute="centerY" secondItem="hAx-kz-WZO" secondAttribute="centerY" multiplier="0.8" id="CiK-XZ-py0"/>
                 <constraint firstItem="ndT-bm-3Li" firstAttribute="centerY" secondItem="hAx-kz-WZO" secondAttribute="centerY" id="DUA-nj-lWb"/>
                 <constraint firstItem="ndT-bm-3Li" firstAttribute="width" secondItem="hAx-kz-WZO" secondAttribute="width" id="IOW-eB-cXy"/>
                 <constraint firstItem="ndT-bm-3Li" firstAttribute="height" secondItem="hAx-kz-WZO" secondAttribute="height" id="Lbc-bm-sCT"/>

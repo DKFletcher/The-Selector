@@ -121,34 +121,34 @@
                     <viewLayoutGuide key="safeArea" id="5n8-1O-TMl"/>
                 </view>
                 <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" id="gan-GV-rty" customClass="CelebrationView" customModule="Reflector_Selector" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fg6-oq-rpF">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="S0W-au-mwX">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
                             <blurEffect style="light"/>
                         </visualEffectView>
                         <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xN4-hZ-T8E">
-                            <rect key="frame" x="22.5" y="88.5" width="255" height="423"/>
+                            <rect key="frame" x="45" y="88.5" width="510" height="423"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="Celebration Potoo" translatesAutoresizingMaskIntoConstraints="NO" id="Slb-I7-fYs">
-                                    <rect key="frame" x="0.0" y="0.0" width="255" height="207.5"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="celebration" translatesAutoresizingMaskIntoConstraints="NO" id="Slb-I7-fYs">
+                                    <rect key="frame" x="0.0" y="0.0" width="510" height="207.5"/>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="100" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X2z-iP-7C8" userLabel="Streak Stack View">
-                                    <rect key="frame" x="0.0" y="215.5" width="255" height="207.5"/>
+                                    <rect key="frame" x="0.0" y="215.5" width="510" height="207.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="751" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.0099999997764825821" translatesAutoresizingMaskIntoConstraints="NO" id="nae-Vs-f6Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="255" height="119.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="510" height="119.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="in a row!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.0099999997764825821" translatesAutoresizingMaskIntoConstraints="NO" id="3Gn-Ba-Pza">
-                                            <rect key="frame" x="0.0" y="147.5" width="255" height="60"/>
+                                            <rect key="frame" x="0.0" y="147.5" width="510" height="60"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -317,9 +317,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Celebration Potoo" width="1025" height="1024"/>
         <image name="Lesson" width="62" height="57"/>
         <image name="button outline" width="47" height="46"/>
+        <image name="celebration" width="1025" height="1024"/>
         <image name="tabBarWhale" width="50" height="30"/>
         <namedColor name="Cardeo Purple">
             <color red="0.64313725490196083" green="0.35294117647058826" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
