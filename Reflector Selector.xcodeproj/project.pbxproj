@@ -1,0 +1,925 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D6174278241688FE00DB9127 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6174277241688FE00DB9127 /* UIImage.swift */; };
+		D61A73EF240CDF6600EF0642 /* AbstractionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61A73EE240CDF6600EF0642 /* AbstractionLayer.swift */; };
+		D61A73F1240D135500EF0642 /* AbstractionLayerDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61A73F0240D135500EF0642 /* AbstractionLayerDocument.swift */; };
+		D63294E2240FCBDB008712BA /* protectingMe.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D63294DE240FCBDB008712BA /* protectingMe.pdf */; };
+		D63294E3240FCBDB008712BA /* stretchingMe.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D63294DF240FCBDB008712BA /* stretchingMe.pdf */; };
+		D63294E4240FCBDB008712BA /* meFirst.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D63294E0240FCBDB008712BA /* meFirst.pdf */; };
+		D63294E5240FCBDB008712BA /* connectingMe.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D63294E1240FCBDB008712BA /* connectingMe.pdf */; };
+		D64E5F06240E9DF40012DEF4 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EF4240E9DF30012DEF4 /* Icon-76@2x.png */; };
+		D64E5F07240E9DF40012DEF4 /* Icon-83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EF5240E9DF30012DEF4 /* Icon-83.5@2x.png */; };
+		D64E5F08240E9DF40012DEF4 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EF6240E9DF30012DEF4 /* Icon@2x.png */; };
+		D64E5F09240E9DF40012DEF4 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EF7240E9DF30012DEF4 /* Icon-Small@2x.png */; };
+		D64E5F0A240E9DF40012DEF4 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EF8240E9DF30012DEF4 /* Icon-60@3x.png */; };
+		D64E5F0B240E9DF50012DEF4 /* Icon-Small-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EF9240E9DF30012DEF4 /* Icon-Small-40@3x.png */; };
+		D64E5F0C240E9DF50012DEF4 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EFA240E9DF40012DEF4 /* Icon-60@2x.png */; };
+		D64E5F0D240E9DF50012DEF4 /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EFB240E9DF40012DEF4 /* Icon-Small-50@2x.png */; };
+		D64E5F0E240E9DF50012DEF4 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EFC240E9DF40012DEF4 /* Icon-Small@3x.png */; };
+		D64E5F0F240E9DF50012DEF4 /* Icon-Small-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EFD240E9DF40012DEF4 /* Icon-Small-40@2x.png */; };
+		D64E5F10240E9DF50012DEF4 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EFE240E9DF40012DEF4 /* iTunesArtwork@2x.png */; };
+		D64E5F11240E9DF50012DEF4 /* Icon-Small-40.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EFF240E9DF40012DEF4 /* Icon-Small-40.png */; };
+		D64E5F12240E9DF50012DEF4 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5F00240E9DF40012DEF4 /* Icon-Small.png */; };
+		D64E5F13240E9DF50012DEF4 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5F01240E9DF40012DEF4 /* Icon-76.png */; };
+		D64E5F14240E9DF50012DEF4 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5F02240E9DF40012DEF4 /* Icon.png */; };
+		D64E5F15240E9DF50012DEF4 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5F03240E9DF40012DEF4 /* Icon-72@2x.png */; };
+		D64E5F16240E9DF50012DEF4 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5F04240E9DF40012DEF4 /* Icon-Small-50.png */; };
+		D64E5F17240E9DF50012DEF4 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5F05240E9DF40012DEF4 /* Icon-72.png */; };
+		D65CA75C2418C2E300D9BC87 /* TypeSetConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CA75B2418C2E300D9BC87 /* TypeSetConstants.swift */; };
+		D65D0003240A7466006E35E5 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65D0001240A7466006E35E5 /* SettingsStoryboard.storyboard */; };
+		D65D0004240A7466006E35E5 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D0002240A7466006E35E5 /* OptionsViewController.swift */; };
+		D65D0008240A7481006E35E5 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D0006240A7481006E35E5 /* BookViewController.swift */; };
+		D65D0009240A7481006E35E5 /* Book.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65D0007240A7481006E35E5 /* Book.storyboard */; };
+		D65D0010240A74A1006E35E5 /* CardSuperview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D000B240A74A1006E35E5 /* CardSuperview.swift */; };
+		D65D0011240A74A1006E35E5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D000C240A74A1006E35E5 /* CardView.swift */; };
+		D65D0012240A74A1006E35E5 /* BackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D000D240A74A1006E35E5 /* BackCardView.swift */; };
+		D65D0013240A74A1006E35E5 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65D000E240A74A1006E35E5 /* CardView.xib */; };
+		D65D0014240A74A1006E35E5 /* FrontCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D000F240A74A1006E35E5 /* FrontCardView.swift */; };
+		D65D001A240A74BF006E35E5 /* CardSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65D0016240A74BF006E35E5 /* CardSelection.storyboard */; };
+		D65D001B240A74BF006E35E5 /* CardSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D0017240A74BF006E35E5 /* CardSelectionCell.swift */; };
+		D65D001C240A74BF006E35E5 /* CardSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D0018240A74BF006E35E5 /* CardSelectionViewController.swift */; };
+		D65D001D240A74BF006E35E5 /* CardSelectionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D0019240A74BF006E35E5 /* CardSelectionNavigationController.swift */; };
+		D65D0023240A74DE006E35E5 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D001F240A74DE006E35E5 /* ItemDetailViewController.swift */; };
+		D65D0024240A74DE006E35E5 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65D0020240A74DE006E35E5 /* Notes.storyboard */; };
+		D65D0025240A74DE006E35E5 /* ItemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D0021240A74DE006E35E5 /* ItemListTableViewCell.swift */; };
+		D65D0026240A74DE006E35E5 /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D0022240A74DE006E35E5 /* NotesTableViewController.swift */; };
+		D65D0050240A767B006E35E5 /* EmotionItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D004D240A767B006E35E5 /* EmotionItems.swift */; };
+		D65D0051240A767B006E35E5 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D004E240A767B006E35E5 /* Card.swift */; };
+		D65D0052240A767B006E35E5 /* Worksheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D004F240A767B006E35E5 /* Worksheet.swift */; };
+		D65D005D240A8F6C006E35E5 /* Content.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0053240A8F6B006E35E5 /* Content.pdf */; };
+		D65D005E240A8F6C006E35E5 /* Kind.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0054240A8F6B006E35E5 /* Kind.pdf */; };
+		D65D005F240A8F6C006E35E5 /* Playfulness.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0055240A8F6B006E35E5 /* Playfulness.pdf */; };
+		D65D0060240A8F6C006E35E5 /* Trust.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0056240A8F6B006E35E5 /* Trust.pdf */; };
+		D65D0061240A8F6C006E35E5 /* Empathetic Joy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0057240A8F6C006E35E5 /* Empathetic Joy.pdf */; };
+		D65D0062240A8F6C006E35E5 /* Responsible.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0058240A8F6C006E35E5 /* Responsible.pdf */; };
+		D65D0063240A8F6C006E35E5 /* Thankful.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0059240A8F6C006E35E5 /* Thankful.pdf */; };
+		D65D0064240A8F6C006E35E5 /* Belonging.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D005A240A8F6C006E35E5 /* Belonging.pdf */; };
+		D65D0065240A8F6C006E35E5 /* Forgiveness.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D005B240A8F6C006E35E5 /* Forgiveness.pdf */; };
+		D65D0066240A8F6C006E35E5 /* Compassionate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D005C240A8F6C006E35E5 /* Compassionate.pdf */; };
+		D65D0071240A8F77006E35E5 /* Spiteful.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0067240A8F76006E35E5 /* Spiteful.pdf */; };
+		D65D0072240A8F77006E35E5 /* Envy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0068240A8F76006E35E5 /* Envy.pdf */; };
+		D65D0073240A8F77006E35E5 /* Frustrated.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0069240A8F76006E35E5 /* Frustrated.pdf */; };
+		D65D0074240A8F77006E35E5 /* Angry.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D006A240A8F76006E35E5 /* Angry.pdf */; };
+		D65D0075240A8F77006E35E5 /* Resentful.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D006B240A8F77006E35E5 /* Resentful.pdf */; };
+		D65D0076240A8F77006E35E5 /* Contempt.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D006C240A8F77006E35E5 /* Contempt.pdf */; };
+		D65D0077240A8F77006E35E5 /* Entitled.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D006D240A8F77006E35E5 /* Entitled.pdf */; };
+		D65D0078240A8F77006E35E5 /* Gloating.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D006E240A8F77006E35E5 /* Gloating.pdf */; };
+		D65D0079240A8F77006E35E5 /* Bored.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D006F240A8F77006E35E5 /* Bored.pdf */; };
+		D65D007A240A8F77006E35E5 /* Arrogant.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0070240A8F77006E35E5 /* Arrogant.pdf */; };
+		D65D0085240A8F80006E35E5 /* Humiliated.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D007B240A8F7F006E35E5 /* Humiliated.pdf */; };
+		D65D0086240A8F80006E35E5 /* Self-Doubting.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D007C240A8F7F006E35E5 /* Self-Doubting.pdf */; };
+		D65D0087240A8F80006E35E5 /* Shame.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D007D240A8F7F006E35E5 /* Shame.pdf */; };
+		D65D0088240A8F80006E35E5 /* Inferior.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D007E240A8F7F006E35E5 /* Inferior.pdf */; };
+		D65D0089240A8F80006E35E5 /* Overwhelmed.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D007F240A8F80006E35E5 /* Overwhelmed.pdf */; };
+		D65D008A240A8F80006E35E5 /* Guilty.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0080240A8F80006E35E5 /* Guilty.pdf */; };
+		D65D008B240A8F80006E35E5 /* Lonely.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0081240A8F80006E35E5 /* Lonely.pdf */; };
+		D65D008C240A8F80006E35E5 /* Worried.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0082240A8F80006E35E5 /* Worried.pdf */; };
+		D65D008D240A8F80006E35E5 /* Embarrassed.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0083240A8F80006E35E5 /* Embarrassed.pdf */; };
+		D65D008E240A8F80006E35E5 /* Sad.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0084240A8F80006E35E5 /* Sad.pdf */; };
+		D65D0099240A8F8A006E35E5 /* Confident.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D008F240A8F89006E35E5 /* Confident.pdf */; };
+		D65D009A240A8F8A006E35E5 /* Hopeful.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0090240A8F89006E35E5 /* Hopeful.pdf */; };
+		D65D009B240A8F8A006E35E5 /* Curious.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0091240A8F89006E35E5 /* Curious.pdf */; };
+		D65D009C240A8F8A006E35E5 /* Admiring.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0092240A8F89006E35E5 /* Admiring.pdf */; };
+		D65D009D240A8F8A006E35E5 /* Bold.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0093240A8F89006E35E5 /* Bold.pdf */; };
+		D65D009E240A8F8A006E35E5 /* Joy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0094240A8F8A006E35E5 /* Joy.pdf */; };
+		D65D009F240A8F8A006E35E5 /* Proud.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0095240A8F8A006E35E5 /* Proud.pdf */; };
+		D65D00A0240A8F8A006E35E5 /* Valued.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0096240A8F8A006E35E5 /* Valued.pdf */; };
+		D65D00A1240A8F8A006E35E5 /* Determined.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0097240A8F8A006E35E5 /* Determined.pdf */; };
+		D65D00A2240A8F8A006E35E5 /* Enthusiastic.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D65D0098240A8F8A006E35E5 /* Enthusiastic.pdf */; };
+		D65DFAEA240A6F31006E35E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65DFAE8240A6F31006E35E5 /* Main.storyboard */; };
+		D65DFAEC240A6F32006E35E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65DFAEB240A6F32006E35E5 /* Assets.xcassets */; };
+		D65DFAFB240A6FBA006E35E5 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFAF7240A6FBA006E35E5 /* FileManager.swift */; };
+		D65DFAFC240A6FBA006E35E5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFAF8240A6FBA006E35E5 /* String.swift */; };
+		D65DFAFD240A6FBA006E35E5 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFAF9240A6FBA006E35E5 /* UIView.swift */; };
+		D65DFAFE240A6FBA006E35E5 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFAFA240A6FBA006E35E5 /* UIViewController.swift */; };
+		D65DFB11240A6FC9006E35E5 /* ActivityNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFB07240A6FC9006E35E5 /* ActivityNavigationController.swift */; };
+		D65DFB12240A6FC9006E35E5 /* CelebrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFB08240A6FC9006E35E5 /* CelebrationView.swift */; };
+		D65DFB13240A6FC9006E35E5 /* CloseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFB09240A6FC9006E35E5 /* CloseView.swift */; };
+		D65DFB14240A6FC9006E35E5 /* LessonImagesStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFB0B240A6FC9006E35E5 /* LessonImagesStackView.swift */; };
+		D65DFB15240A6FC9006E35E5 /* LessonImagesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65DFB0C240A6FC9006E35E5 /* LessonImagesViewController.storyboard */; };
+		D65DFB16240A6FC9006E35E5 /* LessonImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFB0D240A6FC9006E35E5 /* LessonImagesViewController.swift */; };
+		D65DFB17240A6FC9006E35E5 /* LessonNamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFB0E240A6FC9006E35E5 /* LessonNamesViewController.swift */; };
+		D65DFB18240A6FC9006E35E5 /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFB0F240A6FC9006E35E5 /* LessonViewController.swift */; };
+		D65DFB19240A6FC9006E35E5 /* MultipleChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFB10240A6FC9006E35E5 /* MultipleChoiceViewController.swift */; };
+		D65DFC95240A71FC006E35E5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFC94240A71FC006E35E5 /* TabBarController.swift */; };
+		D65DFC97240A721E006E35E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFC96240A721E006E35E5 /* AppDelegate.swift */; };
+		D65DFC99240A723C006E35E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65DFC98240A723C006E35E5 /* LaunchScreen.storyboard */; };
+		D65DFF96240A7394006E35E5 /* WorkSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65DFF92240A7394006E35E5 /* WorkSheet.storyboard */; };
+		D65DFF97240A7394006E35E5 /* WorksheetQuestionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFF93240A7394006E35E5 /* WorksheetQuestionBox.swift */; };
+		D65DFF98240A7394006E35E5 /* WorksheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFF94240A7394006E35E5 /* WorksheetViewController.swift */; };
+		D65DFF99240A7394006E35E5 /* QuestionAndAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFF95240A7394006E35E5 /* QuestionAndAnswer.swift */; };
+		D65DFF9D240A73A1006E35E5 /* AccessableInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFF9B240A73A1006E35E5 /* AccessableInputViewController.swift */; };
+		D65DFF9E240A73A1006E35E5 /* AccessibleInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65DFF9C240A73A1006E35E5 /* AccessibleInput.storyboard */; };
+		D65DFFA4240A73C1006E35E5 /* CloseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFFA0240A73C1006E35E5 /* CloseViewController.swift */; };
+		D65DFFA5240A73C1006E35E5 /* ImageServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFFA1240A73C1006E35E5 /* ImageServer.swift */; };
+		D65DFFA6240A73C1006E35E5 /* ImagingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFFA2240A73C1006E35E5 /* ImagingHelper.swift */; };
+		D65DFFA7240A73C1006E35E5 /* ImageCloseUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65DFFA3240A73C1006E35E5 /* ImageCloseUp.storyboard */; };
+		D65DFFAC240A73EA006E35E5 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFFA9240A73EA006E35E5 /* PDFViewController.swift */; };
+		D65DFFAD240A73EA006E35E5 /* PDFStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65DFFAA240A73EA006E35E5 /* PDFStoryboard.storyboard */; };
+		D67BE756241BAE0000AE2F92 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67BE755241BAE0000AE2F92 /* UIStackView.swift */; };
+		D693C75B2418A670000A6CDB /* PDFSuperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693C75A2418A670000A6CDB /* PDFSuperView.swift */; };
+		D693C75D2418A6AC000A6CDB /* HeartHandbookPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693C75C2418A6AC000A6CDB /* HeartHandbookPDF.swift */; };
+		D693C7612418A6E6000A6CDB /* LearnerLogPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693C7602418A6E6000A6CDB /* LearnerLogPDF.swift */; };
+		D6DA94252417760D00B31556 /* ChalkDusterRF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6DA9424241775C400B31556 /* ChalkDusterRF.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D6174277241688FE00DB9127 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		D61A73EE240CDF6600EF0642 /* AbstractionLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractionLayer.swift; sourceTree = "<group>"; };
+		D61A73F0240D135500EF0642 /* AbstractionLayerDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractionLayerDocument.swift; sourceTree = "<group>"; };
+		D63294DE240FCBDB008712BA /* protectingMe.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = protectingMe.pdf; path = Logbook/PDF/protectingMe.pdf; sourceTree = SOURCE_ROOT; };
+		D63294DF240FCBDB008712BA /* stretchingMe.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = stretchingMe.pdf; path = Logbook/PDF/stretchingMe.pdf; sourceTree = SOURCE_ROOT; };
+		D63294E0240FCBDB008712BA /* meFirst.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = meFirst.pdf; path = Logbook/PDF/meFirst.pdf; sourceTree = SOURCE_ROOT; };
+		D63294E1240FCBDB008712BA /* connectingMe.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = connectingMe.pdf; path = Logbook/PDF/connectingMe.pdf; sourceTree = SOURCE_ROOT; };
+		D64E5EF4240E9DF30012DEF4 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
+		D64E5EF5240E9DF30012DEF4 /* Icon-83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-83.5@2x.png"; sourceTree = "<group>"; };
+		D64E5EF6240E9DF30012DEF4 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		D64E5EF7240E9DF30012DEF4 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		D64E5EF8240E9DF30012DEF4 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
+		D64E5EF9240E9DF30012DEF4 /* Icon-Small-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-40@3x.png"; sourceTree = "<group>"; };
+		D64E5EFA240E9DF40012DEF4 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		D64E5EFB240E9DF40012DEF4 /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		D64E5EFC240E9DF40012DEF4 /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
+		D64E5EFD240E9DF40012DEF4 /* Icon-Small-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-40@2x.png"; sourceTree = "<group>"; };
+		D64E5EFE240E9DF40012DEF4 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		D64E5EFF240E9DF40012DEF4 /* Icon-Small-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-40.png"; sourceTree = "<group>"; };
+		D64E5F00240E9DF40012DEF4 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		D64E5F01240E9DF40012DEF4 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		D64E5F02240E9DF40012DEF4 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		D64E5F03240E9DF40012DEF4 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		D64E5F04240E9DF40012DEF4 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		D64E5F05240E9DF40012DEF4 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		D65CA75B2418C2E300D9BC87 /* TypeSetConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSetConstants.swift; sourceTree = "<group>"; };
+		D65D0001240A7466006E35E5 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
+		D65D0002240A7466006E35E5 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		D65D0006240A7481006E35E5 /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		D65D0007240A7481006E35E5 /* Book.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Book.storyboard; sourceTree = "<group>"; };
+		D65D000B240A74A1006E35E5 /* CardSuperview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSuperview.swift; sourceTree = "<group>"; };
+		D65D000C240A74A1006E35E5 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		D65D000D240A74A1006E35E5 /* BackCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackCardView.swift; sourceTree = "<group>"; };
+		D65D000E240A74A1006E35E5 /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		D65D000F240A74A1006E35E5 /* FrontCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontCardView.swift; sourceTree = "<group>"; };
+		D65D0016240A74BF006E35E5 /* CardSelection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CardSelection.storyboard; sourceTree = "<group>"; };
+		D65D0017240A74BF006E35E5 /* CardSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSelectionCell.swift; sourceTree = "<group>"; };
+		D65D0018240A74BF006E35E5 /* CardSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSelectionViewController.swift; sourceTree = "<group>"; };
+		D65D0019240A74BF006E35E5 /* CardSelectionNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSelectionNavigationController.swift; sourceTree = "<group>"; };
+		D65D001F240A74DE006E35E5 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		D65D0020240A74DE006E35E5 /* Notes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notes.storyboard; sourceTree = "<group>"; };
+		D65D0021240A74DE006E35E5 /* ItemListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListTableViewCell.swift; sourceTree = "<group>"; };
+		D65D0022240A74DE006E35E5 /* NotesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
+		D65D004D240A767B006E35E5 /* EmotionItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionItems.swift; sourceTree = "<group>"; };
+		D65D004E240A767B006E35E5 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		D65D004F240A767B006E35E5 /* Worksheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worksheet.swift; sourceTree = "<group>"; };
+		D65D0053240A8F6B006E35E5 /* Content.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Content.pdf; sourceTree = "<group>"; };
+		D65D0054240A8F6B006E35E5 /* Kind.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Kind.pdf; sourceTree = "<group>"; };
+		D65D0055240A8F6B006E35E5 /* Playfulness.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Playfulness.pdf; sourceTree = "<group>"; };
+		D65D0056240A8F6B006E35E5 /* Trust.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Trust.pdf; sourceTree = "<group>"; };
+		D65D0057240A8F6C006E35E5 /* Empathetic Joy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Empathetic Joy.pdf"; sourceTree = "<group>"; };
+		D65D0058240A8F6C006E35E5 /* Responsible.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Responsible.pdf; sourceTree = "<group>"; };
+		D65D0059240A8F6C006E35E5 /* Thankful.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Thankful.pdf; sourceTree = "<group>"; };
+		D65D005A240A8F6C006E35E5 /* Belonging.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Belonging.pdf; sourceTree = "<group>"; };
+		D65D005B240A8F6C006E35E5 /* Forgiveness.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Forgiveness.pdf; sourceTree = "<group>"; };
+		D65D005C240A8F6C006E35E5 /* Compassionate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Compassionate.pdf; sourceTree = "<group>"; };
+		D65D0067240A8F76006E35E5 /* Spiteful.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Spiteful.pdf; sourceTree = "<group>"; };
+		D65D0068240A8F76006E35E5 /* Envy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Envy.pdf; sourceTree = "<group>"; };
+		D65D0069240A8F76006E35E5 /* Frustrated.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Frustrated.pdf; sourceTree = "<group>"; };
+		D65D006A240A8F76006E35E5 /* Angry.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Angry.pdf; sourceTree = "<group>"; };
+		D65D006B240A8F77006E35E5 /* Resentful.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Resentful.pdf; sourceTree = "<group>"; };
+		D65D006C240A8F77006E35E5 /* Contempt.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Contempt.pdf; sourceTree = "<group>"; };
+		D65D006D240A8F77006E35E5 /* Entitled.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Entitled.pdf; sourceTree = "<group>"; };
+		D65D006E240A8F77006E35E5 /* Gloating.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Gloating.pdf; sourceTree = "<group>"; };
+		D65D006F240A8F77006E35E5 /* Bored.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Bored.pdf; sourceTree = "<group>"; };
+		D65D0070240A8F77006E35E5 /* Arrogant.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Arrogant.pdf; sourceTree = "<group>"; };
+		D65D007B240A8F7F006E35E5 /* Humiliated.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Humiliated.pdf; sourceTree = "<group>"; };
+		D65D007C240A8F7F006E35E5 /* Self-Doubting.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Self-Doubting.pdf"; sourceTree = "<group>"; };
+		D65D007D240A8F7F006E35E5 /* Shame.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Shame.pdf; sourceTree = "<group>"; };
+		D65D007E240A8F7F006E35E5 /* Inferior.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Inferior.pdf; sourceTree = "<group>"; };
+		D65D007F240A8F80006E35E5 /* Overwhelmed.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Overwhelmed.pdf; sourceTree = "<group>"; };
+		D65D0080240A8F80006E35E5 /* Guilty.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Guilty.pdf; sourceTree = "<group>"; };
+		D65D0081240A8F80006E35E5 /* Lonely.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Lonely.pdf; sourceTree = "<group>"; };
+		D65D0082240A8F80006E35E5 /* Worried.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Worried.pdf; sourceTree = "<group>"; };
+		D65D0083240A8F80006E35E5 /* Embarrassed.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Embarrassed.pdf; sourceTree = "<group>"; };
+		D65D0084240A8F80006E35E5 /* Sad.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Sad.pdf; sourceTree = "<group>"; };
+		D65D008F240A8F89006E35E5 /* Confident.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Confident.pdf; sourceTree = "<group>"; };
+		D65D0090240A8F89006E35E5 /* Hopeful.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Hopeful.pdf; sourceTree = "<group>"; };
+		D65D0091240A8F89006E35E5 /* Curious.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Curious.pdf; sourceTree = "<group>"; };
+		D65D0092240A8F89006E35E5 /* Admiring.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Admiring.pdf; sourceTree = "<group>"; };
+		D65D0093240A8F89006E35E5 /* Bold.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Bold.pdf; sourceTree = "<group>"; };
+		D65D0094240A8F8A006E35E5 /* Joy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Joy.pdf; sourceTree = "<group>"; };
+		D65D0095240A8F8A006E35E5 /* Proud.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Proud.pdf; sourceTree = "<group>"; };
+		D65D0096240A8F8A006E35E5 /* Valued.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Valued.pdf; sourceTree = "<group>"; };
+		D65D0097240A8F8A006E35E5 /* Determined.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Determined.pdf; sourceTree = "<group>"; };
+		D65D0098240A8F8A006E35E5 /* Enthusiastic.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Enthusiastic.pdf; sourceTree = "<group>"; };
+		D65DFAE1240A6F31006E35E5 /* Reflector Selector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reflector Selector.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D65DFAE9240A6F31006E35E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D65DFAEB240A6F32006E35E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D65DFAF0240A6F32006E35E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D65DFAF7240A6FBA006E35E5 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		D65DFAF8240A6FBA006E35E5 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		D65DFAF9240A6FBA006E35E5 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		D65DFAFA240A6FBA006E35E5 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		D65DFB07240A6FC9006E35E5 /* ActivityNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityNavigationController.swift; sourceTree = "<group>"; };
+		D65DFB08240A6FC9006E35E5 /* CelebrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelebrationView.swift; sourceTree = "<group>"; };
+		D65DFB09240A6FC9006E35E5 /* CloseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseView.swift; sourceTree = "<group>"; };
+		D65DFB0B240A6FC9006E35E5 /* LessonImagesStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonImagesStackView.swift; sourceTree = "<group>"; };
+		D65DFB0C240A6FC9006E35E5 /* LessonImagesViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LessonImagesViewController.storyboard; sourceTree = "<group>"; };
+		D65DFB0D240A6FC9006E35E5 /* LessonImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonImagesViewController.swift; sourceTree = "<group>"; };
+		D65DFB0E240A6FC9006E35E5 /* LessonNamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonNamesViewController.swift; sourceTree = "<group>"; };
+		D65DFB0F240A6FC9006E35E5 /* LessonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
+		D65DFB10240A6FC9006E35E5 /* MultipleChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleChoiceViewController.swift; sourceTree = "<group>"; };
+		D65DFC94240A71FC006E35E5 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		D65DFC96240A721E006E35E5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D65DFC98240A723C006E35E5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D65DFF92240A7394006E35E5 /* WorkSheet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WorkSheet.storyboard; sourceTree = "<group>"; };
+		D65DFF93240A7394006E35E5 /* WorksheetQuestionBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorksheetQuestionBox.swift; sourceTree = "<group>"; };
+		D65DFF94240A7394006E35E5 /* WorksheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorksheetViewController.swift; sourceTree = "<group>"; };
+		D65DFF95240A7394006E35E5 /* QuestionAndAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionAndAnswer.swift; sourceTree = "<group>"; };
+		D65DFF9B240A73A1006E35E5 /* AccessableInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessableInputViewController.swift; sourceTree = "<group>"; };
+		D65DFF9C240A73A1006E35E5 /* AccessibleInput.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AccessibleInput.storyboard; sourceTree = "<group>"; };
+		D65DFFA0240A73C1006E35E5 /* CloseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseViewController.swift; sourceTree = "<group>"; };
+		D65DFFA1240A73C1006E35E5 /* ImageServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageServer.swift; sourceTree = "<group>"; };
+		D65DFFA2240A73C1006E35E5 /* ImagingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagingHelper.swift; sourceTree = "<group>"; };
+		D65DFFA3240A73C1006E35E5 /* ImageCloseUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageCloseUp.storyboard; sourceTree = "<group>"; };
+		D65DFFA9240A73EA006E35E5 /* PDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		D65DFFAA240A73EA006E35E5 /* PDFStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PDFStoryboard.storyboard; sourceTree = "<group>"; };
+		D67BE755241BAE0000AE2F92 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		D693C75A2418A670000A6CDB /* PDFSuperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFSuperView.swift; sourceTree = "<group>"; };
+		D693C75C2418A6AC000A6CDB /* HeartHandbookPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartHandbookPDF.swift; sourceTree = "<group>"; };
+		D693C7602418A6E6000A6CDB /* LearnerLogPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnerLogPDF.swift; sourceTree = "<group>"; };
+		D6DA9424241775C400B31556 /* ChalkDusterRF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChalkDusterRF.ttf; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D65DFADE240A6F31006E35E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D65D0000240A7452006E35E5 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				D65D0005240A7472006E35E5 /* Book */,
+				D65D0002240A7466006E35E5 /* OptionsViewController.swift */,
+				D65D0001240A7466006E35E5 /* SettingsStoryboard.storyboard */,
+				D61A73F0240D135500EF0642 /* AbstractionLayerDocument.swift */,
+			);
+			path = Options;
+			sourceTree = "<group>";
+		};
+		D65D0005240A7472006E35E5 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				D65D0007240A7481006E35E5 /* Book.storyboard */,
+				D65D0006240A7481006E35E5 /* BookViewController.swift */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
+		D65D000A240A7488006E35E5 /* Card View */ = {
+			isa = PBXGroup;
+			children = (
+				D65D000D240A74A1006E35E5 /* BackCardView.swift */,
+				D65D000B240A74A1006E35E5 /* CardSuperview.swift */,
+				D65D000C240A74A1006E35E5 /* CardView.swift */,
+				D65D000E240A74A1006E35E5 /* CardView.xib */,
+				D65D000F240A74A1006E35E5 /* FrontCardView.swift */,
+			);
+			path = "Card View";
+			sourceTree = "<group>";
+		};
+		D65D0015240A74A8006E35E5 /* Card Index */ = {
+			isa = PBXGroup;
+			children = (
+				D65D0016240A74BF006E35E5 /* CardSelection.storyboard */,
+				D65D0017240A74BF006E35E5 /* CardSelectionCell.swift */,
+				D65D0019240A74BF006E35E5 /* CardSelectionNavigationController.swift */,
+				D65D0018240A74BF006E35E5 /* CardSelectionViewController.swift */,
+			);
+			path = "Card Index";
+			sourceTree = "<group>";
+		};
+		D65D001E240A74CB006E35E5 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				D65D001F240A74DE006E35E5 /* ItemDetailViewController.swift */,
+				D65D0021240A74DE006E35E5 /* ItemListTableViewCell.swift */,
+				D65D0020240A74DE006E35E5 /* Notes.storyboard */,
+				D65D0022240A74DE006E35E5 /* NotesTableViewController.swift */,
+			);
+			path = Notes;
+			sourceTree = "<group>";
+		};
+		D65D0027240A74F0006E35E5 /* Icon Files */ = {
+			isa = PBXGroup;
+			children = (
+				D64E5EFA240E9DF40012DEF4 /* Icon-60@2x.png */,
+				D64E5EF8240E9DF30012DEF4 /* Icon-60@3x.png */,
+				D64E5F05240E9DF40012DEF4 /* Icon-72.png */,
+				D64E5F03240E9DF40012DEF4 /* Icon-72@2x.png */,
+				D64E5F01240E9DF40012DEF4 /* Icon-76.png */,
+				D64E5EF4240E9DF30012DEF4 /* Icon-76@2x.png */,
+				D64E5EF5240E9DF30012DEF4 /* Icon-83.5@2x.png */,
+				D64E5EFF240E9DF40012DEF4 /* Icon-Small-40.png */,
+				D64E5EFD240E9DF40012DEF4 /* Icon-Small-40@2x.png */,
+				D64E5EF9240E9DF30012DEF4 /* Icon-Small-40@3x.png */,
+				D64E5F04240E9DF40012DEF4 /* Icon-Small-50.png */,
+				D64E5EFB240E9DF40012DEF4 /* Icon-Small-50@2x.png */,
+				D64E5F00240E9DF40012DEF4 /* Icon-Small.png */,
+				D64E5EF7240E9DF30012DEF4 /* Icon-Small@2x.png */,
+				D64E5EFC240E9DF40012DEF4 /* Icon-Small@3x.png */,
+				D64E5F02240E9DF40012DEF4 /* Icon.png */,
+				D64E5EF6240E9DF30012DEF4 /* Icon@2x.png */,
+				D64E5EFE240E9DF40012DEF4 /* iTunesArtwork@2x.png */,
+			);
+			path = "Icon Files";
+			sourceTree = "<group>";
+		};
+		D65D004C240A763F006E35E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D61A73EE240CDF6600EF0642 /* AbstractionLayer.swift */,
+				D65D004E240A767B006E35E5 /* Card.swift */,
+				D65D004D240A767B006E35E5 /* EmotionItems.swift */,
+				D65D004F240A767B006E35E5 /* Worksheet.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D65DFAD8240A6F31006E35E5 = {
+			isa = PBXGroup;
+			children = (
+				D65DFAE3240A6F31006E35E5 /* Reflector Selector */,
+				D65DFAE2240A6F31006E35E5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D65DFAE2240A6F31006E35E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D65DFAE1240A6F31006E35E5 /* Reflector Selector.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D65DFAE3240A6F31006E35E5 /* Reflector Selector */ = {
+			isa = PBXGroup;
+			children = (
+				D65DFC98240A723C006E35E5 /* LaunchScreen.storyboard */,
+				D65DFC94240A71FC006E35E5 /* TabBarController.swift */,
+				D65DFC96240A721E006E35E5 /* AppDelegate.swift */,
+				D65DFAE8240A6F31006E35E5 /* Main.storyboard */,
+				D65DFAEB240A6F32006E35E5 /* Assets.xcassets */,
+				D65DFAF0240A6F32006E35E5 /* Info.plist */,
+				D65D004C240A763F006E35E5 /* Model */,
+				D65DFB06240A6FC9006E35E5 /* Game Activity */,
+				D65DFF91240A737F006E35E5 /* Worksheet Activity */,
+				D65DFF9F240A73AE006E35E5 /* Image Processing */,
+				D65DFFA8240A73CD006E35E5 /* PDF Generation */,
+				D65D0000240A7452006E35E5 /* Options */,
+				D65D000A240A7488006E35E5 /* Card View */,
+				D65D0015240A74A8006E35E5 /* Card Index */,
+				D65D001E240A74CB006E35E5 /* Notes */,
+				D65DFAF6240A6FBA006E35E5 /* extensions */,
+				D65D0027240A74F0006E35E5 /* Icon Files */,
+				D6DA94232417742200B31556 /* Custom Font */,
+			);
+			path = "Reflector Selector";
+			sourceTree = "<group>";
+		};
+		D65DFAF6240A6FBA006E35E5 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D65DFAF7240A6FBA006E35E5 /* FileManager.swift */,
+				D65DFAF8240A6FBA006E35E5 /* String.swift */,
+				D65DFAF9240A6FBA006E35E5 /* UIView.swift */,
+				D65DFAFA240A6FBA006E35E5 /* UIViewController.swift */,
+				D6174277241688FE00DB9127 /* UIImage.swift */,
+				D67BE755241BAE0000AE2F92 /* UIStackView.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		D65DFB06240A6FC9006E35E5 /* Game Activity */ = {
+			isa = PBXGroup;
+			children = (
+				D65DFB0F240A6FC9006E35E5 /* LessonViewController.swift */,
+				D65DFB07240A6FC9006E35E5 /* ActivityNavigationController.swift */,
+				D65DFB08240A6FC9006E35E5 /* CelebrationView.swift */,
+				D65DFB09240A6FC9006E35E5 /* CloseView.swift */,
+				D65DFB0A240A6FC9006E35E5 /* ImagesViewController */,
+				D65DFB0E240A6FC9006E35E5 /* LessonNamesViewController.swift */,
+				D65DFB10240A6FC9006E35E5 /* MultipleChoiceViewController.swift */,
+			);
+			path = "Game Activity";
+			sourceTree = "<group>";
+		};
+		D65DFB0A240A6FC9006E35E5 /* ImagesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D65DFB0B240A6FC9006E35E5 /* LessonImagesStackView.swift */,
+				D65DFB0C240A6FC9006E35E5 /* LessonImagesViewController.storyboard */,
+				D65DFB0D240A6FC9006E35E5 /* LessonImagesViewController.swift */,
+			);
+			path = ImagesViewController;
+			sourceTree = "<group>";
+		};
+		D65DFF91240A737F006E35E5 /* Worksheet Activity */ = {
+			isa = PBXGroup;
+			children = (
+				D65DFF94240A7394006E35E5 /* WorksheetViewController.swift */,
+				D65DFF9A240A73A1006E35E5 /* Accessible Input */,
+				D65DFF92240A7394006E35E5 /* WorkSheet.storyboard */,
+				D65DFF95240A7394006E35E5 /* QuestionAndAnswer.swift */,
+				D65DFF93240A7394006E35E5 /* WorksheetQuestionBox.swift */,
+			);
+			path = "Worksheet Activity";
+			sourceTree = "<group>";
+		};
+		D65DFF9A240A73A1006E35E5 /* Accessible Input */ = {
+			isa = PBXGroup;
+			children = (
+				D65DFF9B240A73A1006E35E5 /* AccessableInputViewController.swift */,
+				D65DFF9C240A73A1006E35E5 /* AccessibleInput.storyboard */,
+			);
+			path = "Accessible Input";
+			sourceTree = "<group>";
+		};
+		D65DFF9F240A73AE006E35E5 /* Image Processing */ = {
+			isa = PBXGroup;
+			children = (
+				D65DFFA0240A73C1006E35E5 /* CloseViewController.swift */,
+				D65DFFA3240A73C1006E35E5 /* ImageCloseUp.storyboard */,
+				D65DFFA1240A73C1006E35E5 /* ImageServer.swift */,
+				D65DFFA2240A73C1006E35E5 /* ImagingHelper.swift */,
+			);
+			path = "Image Processing";
+			sourceTree = "<group>";
+		};
+		D65DFFA8240A73CD006E35E5 /* PDF Generation */ = {
+			isa = PBXGroup;
+			children = (
+				D65DFFAF240A73FF006E35E5 /* PDF Raw */,
+				D65DFFAA240A73EA006E35E5 /* PDFStoryboard.storyboard */,
+				D65DFFA9240A73EA006E35E5 /* PDFViewController.swift */,
+				D693C75A2418A670000A6CDB /* PDFSuperView.swift */,
+				D693C75C2418A6AC000A6CDB /* HeartHandbookPDF.swift */,
+				D693C7602418A6E6000A6CDB /* LearnerLogPDF.swift */,
+				D65CA75B2418C2E300D9BC87 /* TypeSetConstants.swift */,
+			);
+			path = "PDF Generation";
+			sourceTree = "<group>";
+		};
+		D65DFFAF240A73FF006E35E5 /* PDF Raw */ = {
+			isa = PBXGroup;
+			children = (
+				D63294E1240FCBDB008712BA /* connectingMe.pdf */,
+				D63294E0240FCBDB008712BA /* meFirst.pdf */,
+				D63294DE240FCBDB008712BA /* protectingMe.pdf */,
+				D63294DF240FCBDB008712BA /* stretchingMe.pdf */,
+				D65D0092240A8F89006E35E5 /* Admiring.pdf */,
+				D65D0093240A8F89006E35E5 /* Bold.pdf */,
+				D65D008F240A8F89006E35E5 /* Confident.pdf */,
+				D65D0091240A8F89006E35E5 /* Curious.pdf */,
+				D65D0097240A8F8A006E35E5 /* Determined.pdf */,
+				D65D0098240A8F8A006E35E5 /* Enthusiastic.pdf */,
+				D65D0090240A8F89006E35E5 /* Hopeful.pdf */,
+				D65D0094240A8F8A006E35E5 /* Joy.pdf */,
+				D65D0095240A8F8A006E35E5 /* Proud.pdf */,
+				D65D0096240A8F8A006E35E5 /* Valued.pdf */,
+				D65D0083240A8F80006E35E5 /* Embarrassed.pdf */,
+				D65D0080240A8F80006E35E5 /* Guilty.pdf */,
+				D65D007B240A8F7F006E35E5 /* Humiliated.pdf */,
+				D65D007E240A8F7F006E35E5 /* Inferior.pdf */,
+				D65D0081240A8F80006E35E5 /* Lonely.pdf */,
+				D65D007F240A8F80006E35E5 /* Overwhelmed.pdf */,
+				D65D0084240A8F80006E35E5 /* Sad.pdf */,
+				D65D007C240A8F7F006E35E5 /* Self-Doubting.pdf */,
+				D65D007D240A8F7F006E35E5 /* Shame.pdf */,
+				D65D0082240A8F80006E35E5 /* Worried.pdf */,
+				D65D006A240A8F76006E35E5 /* Angry.pdf */,
+				D65D0070240A8F77006E35E5 /* Arrogant.pdf */,
+				D65D006F240A8F77006E35E5 /* Bored.pdf */,
+				D65D006C240A8F77006E35E5 /* Contempt.pdf */,
+				D65D006D240A8F77006E35E5 /* Entitled.pdf */,
+				D65D0068240A8F76006E35E5 /* Envy.pdf */,
+				D65D0069240A8F76006E35E5 /* Frustrated.pdf */,
+				D65D006E240A8F77006E35E5 /* Gloating.pdf */,
+				D65D006B240A8F77006E35E5 /* Resentful.pdf */,
+				D65D0067240A8F76006E35E5 /* Spiteful.pdf */,
+				D65D005A240A8F6C006E35E5 /* Belonging.pdf */,
+				D65D005C240A8F6C006E35E5 /* Compassionate.pdf */,
+				D65D0053240A8F6B006E35E5 /* Content.pdf */,
+				D65D0057240A8F6C006E35E5 /* Empathetic Joy.pdf */,
+				D65D005B240A8F6C006E35E5 /* Forgiveness.pdf */,
+				D65D0054240A8F6B006E35E5 /* Kind.pdf */,
+				D65D0055240A8F6B006E35E5 /* Playfulness.pdf */,
+				D65D0058240A8F6C006E35E5 /* Responsible.pdf */,
+				D65D0059240A8F6C006E35E5 /* Thankful.pdf */,
+				D65D0056240A8F6B006E35E5 /* Trust.pdf */,
+			);
+			path = "PDF Raw";
+			sourceTree = "<group>";
+		};
+		D6DA94232417742200B31556 /* Custom Font */ = {
+			isa = PBXGroup;
+			children = (
+				D6DA9424241775C400B31556 /* ChalkDusterRF.ttf */,
+			);
+			path = "Custom Font";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D65DFAE0240A6F31006E35E5 /* Reflector Selector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D65DFAF3240A6F32006E35E5 /* Build configuration list for PBXNativeTarget "Reflector Selector" */;
+			buildPhases = (
+				D65DFADD240A6F31006E35E5 /* Sources */,
+				D65DFADE240A6F31006E35E5 /* Frameworks */,
+				D65DFADF240A6F31006E35E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Reflector Selector";
+			productName = "Reflector Selector";
+			productReference = D65DFAE1240A6F31006E35E5 /* Reflector Selector.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D65DFAD9240A6F31006E35E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = whatmotivateslearning;
+				TargetAttributes = {
+					D65DFAE0240A6F31006E35E5 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = D65DFADC240A6F31006E35E5 /* Build configuration list for PBXProject "Reflector Selector" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D65DFAD8240A6F31006E35E5;
+			productRefGroup = D65DFAE2240A6F31006E35E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D65DFAE0240A6F31006E35E5 /* Reflector Selector */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D65DFADF240A6F31006E35E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D64E5F14240E9DF50012DEF4 /* Icon.png in Resources */,
+				D65D0075240A8F77006E35E5 /* Resentful.pdf in Resources */,
+				D65D00A2240A8F8A006E35E5 /* Enthusiastic.pdf in Resources */,
+				D65D0013240A74A1006E35E5 /* CardView.xib in Resources */,
+				D65D0065240A8F6C006E35E5 /* Forgiveness.pdf in Resources */,
+				D64E5F0A240E9DF40012DEF4 /* Icon-60@3x.png in Resources */,
+				D65D0009240A7481006E35E5 /* Book.storyboard in Resources */,
+				D65D0099240A8F8A006E35E5 /* Confident.pdf in Resources */,
+				D64E5F15240E9DF50012DEF4 /* Icon-72@2x.png in Resources */,
+				D65D0071240A8F77006E35E5 /* Spiteful.pdf in Resources */,
+				D63294E3240FCBDB008712BA /* stretchingMe.pdf in Resources */,
+				D65D0003240A7466006E35E5 /* SettingsStoryboard.storyboard in Resources */,
+				D65D008B240A8F80006E35E5 /* Lonely.pdf in Resources */,
+				D64E5F0E240E9DF50012DEF4 /* Icon-Small@3x.png in Resources */,
+				D64E5F17240E9DF50012DEF4 /* Icon-72.png in Resources */,
+				D64E5F08240E9DF40012DEF4 /* Icon@2x.png in Resources */,
+				D64E5F11240E9DF50012DEF4 /* Icon-Small-40.png in Resources */,
+				D64E5F0C240E9DF50012DEF4 /* Icon-60@2x.png in Resources */,
+				D65DFB15240A6FC9006E35E5 /* LessonImagesViewController.storyboard in Resources */,
+				D64E5F06240E9DF40012DEF4 /* Icon-76@2x.png in Resources */,
+				D64E5F07240E9DF40012DEF4 /* Icon-83.5@2x.png in Resources */,
+				D65D0088240A8F80006E35E5 /* Inferior.pdf in Resources */,
+				D65D0076240A8F77006E35E5 /* Contempt.pdf in Resources */,
+				D65DFF9E240A73A1006E35E5 /* AccessibleInput.storyboard in Resources */,
+				D64E5F10240E9DF50012DEF4 /* iTunesArtwork@2x.png in Resources */,
+				D6DA94252417760D00B31556 /* ChalkDusterRF.ttf in Resources */,
+				D65D0074240A8F77006E35E5 /* Angry.pdf in Resources */,
+				D65D0066240A8F6C006E35E5 /* Compassionate.pdf in Resources */,
+				D65DFFAD240A73EA006E35E5 /* PDFStoryboard.storyboard in Resources */,
+				D65DFC99240A723C006E35E5 /* LaunchScreen.storyboard in Resources */,
+				D65D009D240A8F8A006E35E5 /* Bold.pdf in Resources */,
+				D64E5F09240E9DF40012DEF4 /* Icon-Small@2x.png in Resources */,
+				D65D0024240A74DE006E35E5 /* Notes.storyboard in Resources */,
+				D64E5F0D240E9DF50012DEF4 /* Icon-Small-50@2x.png in Resources */,
+				D65D00A0240A8F8A006E35E5 /* Valued.pdf in Resources */,
+				D65D0085240A8F80006E35E5 /* Humiliated.pdf in Resources */,
+				D65D005D240A8F6C006E35E5 /* Content.pdf in Resources */,
+				D63294E5240FCBDB008712BA /* connectingMe.pdf in Resources */,
+				D64E5F13240E9DF50012DEF4 /* Icon-76.png in Resources */,
+				D65D005F240A8F6C006E35E5 /* Playfulness.pdf in Resources */,
+				D64E5F0F240E9DF50012DEF4 /* Icon-Small-40@2x.png in Resources */,
+				D65D009C240A8F8A006E35E5 /* Admiring.pdf in Resources */,
+				D65D008A240A8F80006E35E5 /* Guilty.pdf in Resources */,
+				D65D008C240A8F80006E35E5 /* Worried.pdf in Resources */,
+				D63294E4240FCBDB008712BA /* meFirst.pdf in Resources */,
+				D65D009B240A8F8A006E35E5 /* Curious.pdf in Resources */,
+				D65D0089240A8F80006E35E5 /* Overwhelmed.pdf in Resources */,
+				D65D0086240A8F80006E35E5 /* Self-Doubting.pdf in Resources */,
+				D65D009A240A8F8A006E35E5 /* Hopeful.pdf in Resources */,
+				D65D00A1240A8F8A006E35E5 /* Determined.pdf in Resources */,
+				D65D0060240A8F6C006E35E5 /* Trust.pdf in Resources */,
+				D65D0073240A8F77006E35E5 /* Frustrated.pdf in Resources */,
+				D65D0061240A8F6C006E35E5 /* Empathetic Joy.pdf in Resources */,
+				D65D0062240A8F6C006E35E5 /* Responsible.pdf in Resources */,
+				D65DFAEC240A6F32006E35E5 /* Assets.xcassets in Resources */,
+				D65D009E240A8F8A006E35E5 /* Joy.pdf in Resources */,
+				D65D0063240A8F6C006E35E5 /* Thankful.pdf in Resources */,
+				D65D0087240A8F80006E35E5 /* Shame.pdf in Resources */,
+				D65DFAEA240A6F31006E35E5 /* Main.storyboard in Resources */,
+				D65D008D240A8F80006E35E5 /* Embarrassed.pdf in Resources */,
+				D65D008E240A8F80006E35E5 /* Sad.pdf in Resources */,
+				D65D0078240A8F77006E35E5 /* Gloating.pdf in Resources */,
+				D64E5F16240E9DF50012DEF4 /* Icon-Small-50.png in Resources */,
+				D65D007A240A8F77006E35E5 /* Arrogant.pdf in Resources */,
+				D65DFF96240A7394006E35E5 /* WorkSheet.storyboard in Resources */,
+				D63294E2240FCBDB008712BA /* protectingMe.pdf in Resources */,
+				D64E5F12240E9DF50012DEF4 /* Icon-Small.png in Resources */,
+				D65D005E240A8F6C006E35E5 /* Kind.pdf in Resources */,
+				D65DFFA7240A73C1006E35E5 /* ImageCloseUp.storyboard in Resources */,
+				D65D009F240A8F8A006E35E5 /* Proud.pdf in Resources */,
+				D64E5F0B240E9DF50012DEF4 /* Icon-Small-40@3x.png in Resources */,
+				D65D001A240A74BF006E35E5 /* CardSelection.storyboard in Resources */,
+				D65D0064240A8F6C006E35E5 /* Belonging.pdf in Resources */,
+				D65D0077240A8F77006E35E5 /* Entitled.pdf in Resources */,
+				D65D0079240A8F77006E35E5 /* Bored.pdf in Resources */,
+				D65D0072240A8F77006E35E5 /* Envy.pdf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D65DFADD240A6F31006E35E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D65DFFAC240A73EA006E35E5 /* PDFViewController.swift in Sources */,
+				D65DFF9D240A73A1006E35E5 /* AccessableInputViewController.swift in Sources */,
+				D65DFB17240A6FC9006E35E5 /* LessonNamesViewController.swift in Sources */,
+				D65DFB11240A6FC9006E35E5 /* ActivityNavigationController.swift in Sources */,
+				D65DFF97240A7394006E35E5 /* WorksheetQuestionBox.swift in Sources */,
+				D61A73F1240D135500EF0642 /* AbstractionLayerDocument.swift in Sources */,
+				D693C75D2418A6AC000A6CDB /* HeartHandbookPDF.swift in Sources */,
+				D65DFAFD240A6FBA006E35E5 /* UIView.swift in Sources */,
+				D65DFFA4240A73C1006E35E5 /* CloseViewController.swift in Sources */,
+				D65D0010240A74A1006E35E5 /* CardSuperview.swift in Sources */,
+				D65DFF98240A7394006E35E5 /* WorksheetViewController.swift in Sources */,
+				D693C75B2418A670000A6CDB /* PDFSuperView.swift in Sources */,
+				D65D0008240A7481006E35E5 /* BookViewController.swift in Sources */,
+				D65D0050240A767B006E35E5 /* EmotionItems.swift in Sources */,
+				D65DFC97240A721E006E35E5 /* AppDelegate.swift in Sources */,
+				D65CA75C2418C2E300D9BC87 /* TypeSetConstants.swift in Sources */,
+				D65DFC95240A71FC006E35E5 /* TabBarController.swift in Sources */,
+				D65DFB16240A6FC9006E35E5 /* LessonImagesViewController.swift in Sources */,
+				D65D0014240A74A1006E35E5 /* FrontCardView.swift in Sources */,
+				D693C7612418A6E6000A6CDB /* LearnerLogPDF.swift in Sources */,
+				D65D0011240A74A1006E35E5 /* CardView.swift in Sources */,
+				D65D001D240A74BF006E35E5 /* CardSelectionNavigationController.swift in Sources */,
+				D65DFB14240A6FC9006E35E5 /* LessonImagesStackView.swift in Sources */,
+				D65D001C240A74BF006E35E5 /* CardSelectionViewController.swift in Sources */,
+				D65D001B240A74BF006E35E5 /* CardSelectionCell.swift in Sources */,
+				D61A73EF240CDF6600EF0642 /* AbstractionLayer.swift in Sources */,
+				D65D0052240A767B006E35E5 /* Worksheet.swift in Sources */,
+				D65D0051240A767B006E35E5 /* Card.swift in Sources */,
+				D65D0023240A74DE006E35E5 /* ItemDetailViewController.swift in Sources */,
+				D6174278241688FE00DB9127 /* UIImage.swift in Sources */,
+				D65DFAFB240A6FBA006E35E5 /* FileManager.swift in Sources */,
+				D65D0025240A74DE006E35E5 /* ItemListTableViewCell.swift in Sources */,
+				D65DFB18240A6FC9006E35E5 /* LessonViewController.swift in Sources */,
+				D65DFF99240A7394006E35E5 /* QuestionAndAnswer.swift in Sources */,
+				D65DFFA6240A73C1006E35E5 /* ImagingHelper.swift in Sources */,
+				D65DFB19240A6FC9006E35E5 /* MultipleChoiceViewController.swift in Sources */,
+				D65D0012240A74A1006E35E5 /* BackCardView.swift in Sources */,
+				D67BE756241BAE0000AE2F92 /* UIStackView.swift in Sources */,
+				D65DFAFE240A6FBA006E35E5 /* UIViewController.swift in Sources */,
+				D65D0026240A74DE006E35E5 /* NotesTableViewController.swift in Sources */,
+				D65D0004240A7466006E35E5 /* OptionsViewController.swift in Sources */,
+				D65DFB12240A6FC9006E35E5 /* CelebrationView.swift in Sources */,
+				D65DFAFC240A6FBA006E35E5 /* String.swift in Sources */,
+				D65DFB13240A6FC9006E35E5 /* CloseView.swift in Sources */,
+				D65DFFA5240A73C1006E35E5 /* ImageServer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D65DFAE8240A6F31006E35E5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D65DFAE9240A6F31006E35E5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D65DFAF1240A6F32006E35E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D65DFAF2240A6F32006E35E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D65DFAF4240A6F32006E35E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86W4UT3P28;
+				INFOPLIST_FILE = "Reflector Selector/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "whatmotivateslearning.com.Reflector-Selector";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		D65DFAF5240A6F32006E35E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86W4UT3P28;
+				INFOPLIST_FILE = "Reflector Selector/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "whatmotivateslearning.com.Reflector-Selector";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D65DFADC240A6F31006E35E5 /* Build configuration list for PBXProject "Reflector Selector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D65DFAF1240A6F32006E35E5 /* Debug */,
+				D65DFAF2240A6F32006E35E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D65DFAF3240A6F32006E35E5 /* Build configuration list for PBXNativeTarget "Reflector Selector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D65DFAF4240A6F32006E35E5 /* Debug */,
+				D65DFAF5240A6F32006E35E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D65DFAD9240A6F31006E35E5 /* Project object */;
+}
