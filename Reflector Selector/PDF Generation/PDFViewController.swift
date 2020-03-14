@@ -47,7 +47,6 @@ class PDFViewController: UIViewController {
 		pdfView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
 		pdfView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
 		pdfView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-//		pdfOnScreen2(pdf: card)
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(
 			barButtonSystemItem: .action,
@@ -58,9 +57,6 @@ class PDFViewController: UIViewController {
 	}
 	
 	private func work(){
-//		let pdfCreator = PDFCreator(learner: (tabBarController as! TabBarController).learnerName)
-//		pdfCreator.emotion = card
-//		pdfCreator.learnerName = "whatmotivateslearning.com"//(tabBarController as! TabBarController).learnerName
 		switch jobs{
 		case .WorkSheet :
 			let heartHandbook = HeartHandbook(learner: (tabBarController as! TabBarController).learnerName)
@@ -102,59 +98,27 @@ class PDFViewController: UIViewController {
 	}
 	
 	private func savePDF(directory : FileManager.SearchPathDirectory, path : String) throws{
-		
-		//		do {
-		//			let directory : FileManager.SearchPathDirectory = .documentDirectory
-		//			try savePDF(directory: directory, path: folderName)} catch {
-		//			print(error)
-		//		}
-		
 		let pdfDirectoryURL = URL(
 			fileURLWithPath: path,
 			relativeTo: FileManager.default.urls(
 				for: directory,
 				in: .userDomainMask)[0]
 		)
-		
-		try? FileManager.default.createDirectory(
-			at: pdfDirectoryURL,
-			withIntermediateDirectories: true
-		)
-		
 		try nsData.write(
 			to: pdfDirectoryURL
-				.appendingPathComponent("pdfData")
 				.appendingPathExtension("pdf"),
 			options: .atomic
 		)
-		print("savePDF: \(pdfDirectoryURL.path)")
 	}
 	
 	
 	private func printTapped(){
-//		navigationController?.navigationBar.isHidden = true
-//		let printController = UIPrintInteractionController.shared
-//		let printInfo = UIPrintInfo(dictionary : nil)
-//		printInfo.duplex = .longEdge
-//		printInfo.outputType = .general
-//		printInfo.jobName = "Test"
-//		printController.printInfo = printInfo
-//		printController.printingItem = nsData
-//		printController.present(animated: true) { (controller, success, error) -> Void in
-//			self.navigationController?.navigationBar.isHidden = false
-//		}
-//
-
 			do {
+				let fileName = (tabBarController as! TabBarController).learnerName ?? "RefelctorSelector"
 				let directory : FileManager.SearchPathDirectory = .documentDirectory
-				try savePDF(directory: directory, path: folderName)} catch {
+				try savePDF(directory: directory, path: fileName)} catch {
 				print(error)
 			}
-//		do{
-//			try self .save(directory: .documentDirectory, name: "Compendiuum")
-//		} catch {
-//			print(error)
-//		}
 	}
 	
 	func save(directory: FileManager.SearchPathDirectory, name: String) throws {
@@ -162,19 +126,6 @@ class PDFViewController: UIViewController {
 		try? FileManager.default.createDirectory(at: kindDirectoryURL, withIntermediateDirectories: true)
 		try documentData.write(to: kindDirectoryURL.appendingPathComponent(name).appendingPathExtension("pdf"))
 	}
-//	func pdfOnScreen2(pdf card: Card){
-//		let pdfCreator : PDFCreator = PDFCreator(card: card)
-////		card.emotion.qanda.allSections().forEach{ $0.forEach{ $0.answer = lorem}}
-////		let documentData: Data? = pdfCreator.createNote()
-////		let documentData: Data? = pdfCreator.createWork()
-//
-//		let documentData: Data? = pdfCreator.emotionPDF()
-//		if let data = documentData, let document = PDFDocument(data: data){
-//			nsData = NSData(data: data)
-//			pdfView.document = document
-//			pdfDocument = document
-//		}
-//	}
 }
 
 extension PDFViewController{

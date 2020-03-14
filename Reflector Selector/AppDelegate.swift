@@ -696,7 +696,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				}
 			}
 		}
-		
+			func applicationDidEnterBackground(_: UIApplication){
+				print("the right place")
+//				var bg : UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
+			}
 			
 			
 			

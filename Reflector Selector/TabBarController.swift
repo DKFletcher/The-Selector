@@ -200,7 +200,6 @@ extension TabBarController{
 	}
 	
 	func changeImageDisplayed(for card: Card){
-		print("changeImageDisplayed")
 		self.emotions.filter{ $0.name == card.name}[0].emotion.custom = card.emotion.custom
 		nameToChange()
 	}
