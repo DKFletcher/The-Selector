@@ -108,7 +108,7 @@
 		D6C3B3FC241F8C2400806FE5 /* Worried.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B3F1241F8C2300806FE5 /* Worried.pdf */; };
 		D6C3B3FD241F8C2400806FE5 /* Embarrassed.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B3F2241F8C2300806FE5 /* Embarrassed.pdf */; };
 		D6C3B3FE241F8C2400806FE5 /* Shame.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B3F3241F8C2300806FE5 /* Shame.pdf */; };
-		D6C3B3FF241F8C2400806FE5 /* Self Doubting.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B3F4241F8C2300806FE5 /* Self Doubting.pdf */; };
+		D6C3B3FF241F8C2400806FE5 /* Self-Doubting.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B3F4241F8C2300806FE5 /* Self-Doubting.pdf */; };
 		D6C3B401241F8C2400806FE5 /* Humiliated.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B3F6241F8C2300806FE5 /* Humiliated.pdf */; };
 		D6C3B402241F8C2400806FE5 /* Lonely.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B3F7241F8C2300806FE5 /* Lonely.pdf */; };
 		D6C3B403241F8C2400806FE5 /* Inferior.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B3F8241F8C2300806FE5 /* Inferior.pdf */; };
@@ -234,7 +234,7 @@
 		D6C3B3F1241F8C2300806FE5 /* Worried.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Worried.pdf; path = "Cards PDF/protecting me/Worried.pdf"; sourceTree = SOURCE_ROOT; };
 		D6C3B3F2241F8C2300806FE5 /* Embarrassed.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Embarrassed.pdf; path = "Cards PDF/protecting me/Embarrassed.pdf"; sourceTree = SOURCE_ROOT; };
 		D6C3B3F3241F8C2300806FE5 /* Shame.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Shame.pdf; path = "Cards PDF/protecting me/Shame.pdf"; sourceTree = SOURCE_ROOT; };
-		D6C3B3F4241F8C2300806FE5 /* Self Doubting.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Self Doubting.pdf"; path = "Cards PDF/protecting me/Self Doubting.pdf"; sourceTree = SOURCE_ROOT; };
+		D6C3B3F4241F8C2300806FE5 /* Self-Doubting.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Self-Doubting.pdf"; path = "Cards PDF/protecting me/Self-Doubting.pdf"; sourceTree = SOURCE_ROOT; };
 		D6C3B3F6241F8C2300806FE5 /* Humiliated.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Humiliated.pdf; path = "Cards PDF/protecting me/Humiliated.pdf"; sourceTree = SOURCE_ROOT; };
 		D6C3B3F7241F8C2300806FE5 /* Lonely.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Lonely.pdf; path = "Cards PDF/protecting me/Lonely.pdf"; sourceTree = SOURCE_ROOT; };
 		D6C3B3F8241F8C2300806FE5 /* Inferior.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Inferior.pdf; path = "Cards PDF/protecting me/Inferior.pdf"; sourceTree = SOURCE_ROOT; };
@@ -505,7 +505,7 @@
 				D6C3B3F7241F8C2300806FE5 /* Lonely.pdf */,
 				D6C3B3F0241F8C2300806FE5 /* Overwhelmed.pdf */,
 				D6C3B3EF241F8C2300806FE5 /* Sad.pdf */,
-				D6C3B3F4241F8C2300806FE5 /* Self Doubting.pdf */,
+				D6C3B3F4241F8C2300806FE5 /* Self-Doubting.pdf */,
 				D6C3B3F3241F8C2300806FE5 /* Shame.pdf */,
 				D6C3B3F1241F8C2300806FE5 /* Worried.pdf */,
 				D6C3B3E1241F8B9500806FE5 /* Angry.pdf */,
@@ -605,7 +605,7 @@
 				D6C3B415241F8C5B00806FE5 /* Hopeful.pdf in Resources */,
 				D64E5F0A240E9DF40012DEF4 /* Icon-60@3x.png in Resources */,
 				D65D0009240A7481006E35E5 /* Book.storyboard in Resources */,
-				D6C3B3FF241F8C2400806FE5 /* Self Doubting.pdf in Resources */,
+				D6C3B3FF241F8C2400806FE5 /* Self-Doubting.pdf in Resources */,
 				D6C3B3D2241F8B8B00806FE5 /* Empathetic Joy.pdf in Resources */,
 				D6C3B3D4241F8B8B00806FE5 /* Thankful.pdf in Resources */,
 				D64E5F15240E9DF50012DEF4 /* Icon-72@2x.png in Resources */,

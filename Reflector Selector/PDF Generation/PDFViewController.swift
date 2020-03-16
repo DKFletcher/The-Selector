@@ -11,9 +11,13 @@ import PDFKit
 
 class PDFViewController: UIViewController {
 	
-	var pdfView: PDFView!
+//	var pdfView: PDFView!
 	
 //	var pdfCreator : PDFCreator!
+	
+	
+	@IBOutlet var pdfView: PDFView!
+	
 	
 	var pdfDocument: PDFDocument!
 	
@@ -26,6 +30,10 @@ class PDFViewController: UIViewController {
 	var documentData : Data!
 	
 	let folderName : String = "ReflectorSelector"
+	
+	var printButton : UIBarButtonItem!
+	
+	var fileButton : UIBarButtonItem!
 	
 	let directories: [FileManager.SearchPathDirectory] = [
 		.documentDirectory,
@@ -48,11 +56,10 @@ class PDFViewController: UIViewController {
 		pdfView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
 		pdfView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
 		
-		navigationItem.rightBarButtonItem = UIBarButtonItem(
-			barButtonSystemItem: .action,
-			target: self,
-			action: #selector(action)
-		)
+		self.printButton = UIBarButtonItem(image: UIImage(named: "printer"), style: .plain, target: self, action: #selector(action))
+		self.fileButton = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(action))
+		
+		
 		work()
 	}
 	
@@ -68,7 +75,6 @@ class PDFViewController: UIViewController {
 		case .HeartHandbook :
 			let heartHandbook = HeartHandbook(learner: (tabBarController as! TabBarController).learnerName)
 			documentData = heartHandbook.create(from: (tabBarController as! TabBarController).cards)
-//			documentData = pdfCreator.createWorkInfoBook(from: (tabBarController as! TabBarController).cards)
 		case .LearnerLog :
 			let learnerLog = LearnerLog(learner: (tabBarController as! TabBarController).learnerName)
 			documentData = learnerLog.create(from: (tabBarController as! TabBarController).cards)
@@ -76,15 +82,42 @@ class PDFViewController: UIViewController {
 		
 		if let data = documentData, let document = PDFDocument(data: data){
 			nsData = NSData(data: data)
-			pdfView.document = document
 			pdfDocument = document
+			pdfView.displayMode = .singlePageContinuous
+			pdfView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
+			pdfView.scaleFactor = 0.25
+			pdfView.document = document
+		}
+		
+		if jobs == PDFViewController.Jobs.LearnerLog{
+			navigationItem.rightBarButtonItem = fileButton
+//			printTapped()
+		} else {
+			navigationItem.rightBarButtonItem = printButton
+//			printHardCopy()
 		}
 	}
 	
 	@objc func action(){
-		printTapped()
+		if jobs == PDFViewController.Jobs.LearnerLog{
+			fileToApplicationDirectory()
+		} else {
+//			printHardCopy()
+			fileToApplicationDirectory()
+		}
 	}
 	
+	func printHardCopy(){
+		pdfView = nil
+		let printController = UIPrintInteractionController.shared
+		let printInfo = UIPrintInfo(dictionary : nil)
+		printInfo.duplex = .longEdge
+		printInfo.outputType = .general
+		printInfo.jobName = "Test"
+		printController.printInfo = printInfo
+		printController.printingItem = documentData
+		printController.present(animated : true, completionHandler : nil)
+	}
 	
 	func pdfOnScreen(pdf card: Card){
 		guard let path = Bundle.main.url(forResource: card.name, withExtension: "pdf") else {
@@ -112,7 +145,7 @@ class PDFViewController: UIViewController {
 	}
 	
 	
-	private func printTapped(){
+	private func fileToApplicationDirectory(){
 			do {
 				let fileName = (tabBarController as! TabBarController).learnerName ?? "RefelctorSelector"
 				let directory : FileManager.SearchPathDirectory = .documentDirectory
