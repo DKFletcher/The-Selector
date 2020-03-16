@@ -65,11 +65,11 @@ class HeartHandbook : PDFSuperView{
 			context.beginPage()
 			let imageBottom = addImage(
 				imageTop: TypeSetConstants.header,
-				image: UIImage(named: "WorkBookFrontPage")!,
+				image: UIImage(named: "Joy_3_1_750")!,
 				frontPageAdjust: TypeSetConstants.pageHeight/2 - 300.0
 				) + TypeSetConstants.standardSpacing*2
 			if let name = learnerName{
-				_=addAddvice(tag: name, position: imageBottom)
+				_=addAddvice(tag: "Reflector Selector Handbook\n"+name, position: imageBottom)
 			}
 		}
 		return data
