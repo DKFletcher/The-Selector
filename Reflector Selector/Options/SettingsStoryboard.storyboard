@@ -125,7 +125,7 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <inset key="contentEdgeInsets" minX="15" minY="10" maxX="15" maxY="10"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="Log" backgroundImage="button sellected">
+                                        <state key="normal" title="Log Book" backgroundImage="button sellected">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>

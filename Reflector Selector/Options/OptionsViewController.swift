@@ -16,18 +16,16 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate {
 	@IBOutlet var phaseTwo : UIButton!
 	@IBOutlet var phaseThree : UIButton!
 	
-	var documentData : Data!
-	
 	@IBOutlet var logBook: UIButton!
 	
 	@IBAction func logBook(_ sender: Any) {
-		performSegue(withIdentifier: "PDFSegue", sender: PDFViewController.Jobs.LearnerLog)
+		performSegue(withIdentifier: "PDFSegue", sender: PDFViewController.Jobs.Logbook)
 	}
 	
 	
 	
 	@IBAction func reflectorSelector(_ sender: Any) {
-		performSegue(withIdentifier: "PDFSegue", sender: PDFViewController.Jobs.HeartHandbook)
+		performSegue(withIdentifier: "PDFSegue", sender: PDFViewController.Jobs.Handbook)
 	}
 	
 	@IBAction func textFieldEditingDidChange(_ sender: Any) {

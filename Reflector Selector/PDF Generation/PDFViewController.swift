@@ -9,7 +9,7 @@
 import UIKit
 import PDFKit
 
-class PDFViewController: UIViewController {
+class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate {
 	
 //	var pdfView: PDFView!
 	
@@ -35,6 +35,8 @@ class PDFViewController: UIViewController {
 	
 	var fileButton : UIBarButtonItem!
 	
+	var printerName : String!
+	
 	let directories: [FileManager.SearchPathDirectory] = [
 		.documentDirectory,
 		.applicationSupportDirectory,
@@ -55,11 +57,7 @@ class PDFViewController: UIViewController {
 		pdfView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
 		pdfView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
 		pdfView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-		
-		self.printButton = UIBarButtonItem(image: UIImage(named: "printer"), style: .plain, target: self, action: #selector(action))
-		self.fileButton = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(action))
-		
-		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(action))
 		work()
 	}
 	
@@ -72,10 +70,10 @@ class PDFViewController: UIViewController {
 		case .InfoSheet :
 			let heartHandbook = HeartHandbook(learner: (tabBarController as! TabBarController).learnerName)
 			documentData = heartHandbook.createNote(for: card)
-		case .HeartHandbook :
+		case .Handbook :
 			let heartHandbook = HeartHandbook(learner: (tabBarController as! TabBarController).learnerName)
 			documentData = heartHandbook.create(from: (tabBarController as! TabBarController).cards)
-		case .LearnerLog :
+		case .Logbook :
 			let learnerLog = LearnerLog(learner: (tabBarController as! TabBarController).learnerName)
 			documentData = learnerLog.create(from: (tabBarController as! TabBarController).cards)
 		}
@@ -88,36 +86,66 @@ class PDFViewController: UIViewController {
 			pdfView.scaleFactor = 0.25
 			pdfView.document = document
 		}
-		
-		if jobs == PDFViewController.Jobs.LearnerLog{
-			navigationItem.rightBarButtonItem = fileButton
-//			printTapped()
-		} else {
-			navigationItem.rightBarButtonItem = printButton
-//			printHardCopy()
-		}
 	}
 	
 	@objc func action(){
-		if jobs == PDFViewController.Jobs.LearnerLog{
-			fileToApplicationDirectory()
-		} else {
+			let message = NSLocalizedString(jobs.rawValue, comment: "")
+			let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+		alert.addAction(UIAlertAction(title: "Save", style: .default) { [unowned self] _ in
+			self.fileToApplicationDirectory()
+		})
+		alert.addAction(UIAlertAction(title: "Print", style: .default) { [unowned self] _ in
+			self.printHardCopy()
+
+		})
+		
+			alert.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+		
+			present(alert, animated: true, completion: nil)
+		
+		
+		
+		
+		
+		
+//		if jobs == PDFViewController.Jobs.LearnerLog{
+//			fileToApplicationDirectory()
+//		} else {
 //			printHardCopy()
-			fileToApplicationDirectory()
-		}
+//			fileToApplicationDirectory()
+//		}
 	}
 	
 	func printHardCopy(){
-		pdfView = nil
+
+		let printCompletionHandler: UIPrintInteractionController.CompletionHandler = { (controller, success, error) -> Void in
+			if success {
+				// Printed successfully
+				// Remove file here ...
+				self.documentData = nil
+			} else {
+				self.documentData = nil
+				// Printing failed, report error ...
+			}
+		}
+
 		let printController = UIPrintInteractionController.shared
+		printController.showsNumberOfCopies = false
+		printController.delegate = self
+
+
 		let printInfo = UIPrintInfo(dictionary : nil)
-		printInfo.duplex = .longEdge
+//		printInfo.duplex = .longEdge
+		printInfo.orientation = .portrait
 		printInfo.outputType = .general
-		printInfo.jobName = "Test"
+		printInfo.jobName = (tabBarController as! TabBarController).learnerName ?? jobs.rawValue
+
+
 		printController.printInfo = printInfo
 		printController.printingItem = documentData
-		printController.present(animated : true, completionHandler : nil)
+		printController.present(animated : true, completionHandler : printCompletionHandler)
 	}
+	
 	
 	func pdfOnScreen(pdf card: Card){
 		guard let path = Bundle.main.url(forResource: card.name, withExtension: "pdf") else {
@@ -129,6 +157,7 @@ class PDFViewController: UIViewController {
 			pdfDocument = document
 		}
 	}
+	
 	
 	private func savePDF(directory : FileManager.SearchPathDirectory, path : String) throws{
 		let pdfDirectoryURL = URL(
@@ -162,7 +191,30 @@ class PDFViewController: UIViewController {
 }
 
 extension PDFViewController{
-	enum Jobs{
-		case WorkSheet, InfoSheet, HeartHandbook, LearnerLog
+	enum Jobs: String {
+		case WorkSheet = "Worksheet"
+		case InfoSheet = "Information sheet"
+		case Handbook = "Handbook"
+		case Logbook = "Log Book"
 	}
 }
+
+
+extension UIAlertController {
+	override open func viewDidLoad() {
+		super.viewDidLoad()
+		pruneNegativeWidthConstraints()
+	}
+	
+	func pruneNegativeWidthConstraints() {
+		for subView in self.view.subviews {
+			for constraint in subView.constraints where constraint.debugDescription.contains("width == - 16") {
+				subView.removeConstraint(constraint)
+			}
+		}
+	}
+}
+//			alert.addAction(UIAlertAction(title: "Save", style: .default) { [unowned self] _ in
+//				self.performSegue(withIdentifier: .CreateNewTicket, sender: LottoType.megaMillions.rawValue)
+//				print("SAVE")
+//			})

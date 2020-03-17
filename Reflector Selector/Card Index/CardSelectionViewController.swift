@@ -63,6 +63,7 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 //			}
 //		}
 		navigationController?.navigationBar.isHidden = true
+		
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -76,6 +77,7 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 		}
 		super.viewDidAppear(animated)
 	}
+	
 	func setCards(_ cards: [Card]){
 		cellModels = cards.map(CardSelectionCell.Model.init)
 		tableView.reloadData()
@@ -107,8 +109,20 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 	}
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		
-		return tableView.superview!.bounds.maxY / 4
+		var cellHeight = 2
+		switch UIDevice.current.orientation{
+		case .portrait:
+			cellHeight = 4
+		case .portraitUpsideDown:
+			cellHeight = 4
+		case .landscapeLeft:
+			cellHeight = 2
+		case .landscapeRight:
+			cellHeight = 2
+		default:
+			cellHeight = 2
+		}
+		return tableView.superview!.bounds.maxY / CGFloat(cellHeight)
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
