@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D6174278241688FE00DB9127 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6174277241688FE00DB9127 /* UIImage.swift */; };
 		D61A73EF240CDF6600EF0642 /* AbstractionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61A73EE240CDF6600EF0642 /* AbstractionLayer.swift */; };
-		D61A73F1240D135500EF0642 /* AbstractionLayerDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61A73F0240D135500EF0642 /* AbstractionLayerDocument.swift */; };
 		D64780432422564E00325012 /* SaveFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64780422422564E00325012 /* SaveFileViewController.swift */; };
 		D64E5F06240E9DF40012DEF4 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EF4240E9DF30012DEF4 /* Icon-76@2x.png */; };
 		D64E5F07240E9DF40012DEF4 /* Icon-83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EF5240E9DF30012DEF4 /* Icon-83.5@2x.png */; };
@@ -32,8 +31,6 @@
 		D65CA75C2418C2E300D9BC87 /* TypeSetConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CA75B2418C2E300D9BC87 /* TypeSetConstants.swift */; };
 		D65D0003240A7466006E35E5 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65D0001240A7466006E35E5 /* SettingsStoryboard.storyboard */; };
 		D65D0004240A7466006E35E5 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D0002240A7466006E35E5 /* OptionsViewController.swift */; };
-		D65D0008240A7481006E35E5 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D0006240A7481006E35E5 /* BookViewController.swift */; };
-		D65D0009240A7481006E35E5 /* Book.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65D0007240A7481006E35E5 /* Book.storyboard */; };
 		D65D0010240A74A1006E35E5 /* CardSuperview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D000B240A74A1006E35E5 /* CardSuperview.swift */; };
 		D65D0011240A74A1006E35E5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D000C240A74A1006E35E5 /* CardView.swift */; };
 		D65D0012240A74A1006E35E5 /* BackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D000D240A74A1006E35E5 /* BackCardView.swift */; };
@@ -134,7 +131,6 @@
 /* Begin PBXFileReference section */
 		D6174277241688FE00DB9127 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		D61A73EE240CDF6600EF0642 /* AbstractionLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractionLayer.swift; sourceTree = "<group>"; };
-		D61A73F0240D135500EF0642 /* AbstractionLayerDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractionLayerDocument.swift; sourceTree = "<group>"; };
 		D64780422422564E00325012 /* SaveFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFileViewController.swift; sourceTree = "<group>"; };
 		D64E5EF4240E9DF30012DEF4 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
 		D64E5EF5240E9DF30012DEF4 /* Icon-83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-83.5@2x.png"; sourceTree = "<group>"; };
@@ -157,8 +153,6 @@
 		D65CA75B2418C2E300D9BC87 /* TypeSetConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSetConstants.swift; sourceTree = "<group>"; };
 		D65D0001240A7466006E35E5 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		D65D0002240A7466006E35E5 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
-		D65D0006240A7481006E35E5 /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
-		D65D0007240A7481006E35E5 /* Book.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Book.storyboard; sourceTree = "<group>"; };
 		D65D000B240A74A1006E35E5 /* CardSuperview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSuperview.swift; sourceTree = "<group>"; };
 		D65D000C240A74A1006E35E5 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		D65D000D240A74A1006E35E5 /* BackCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackCardView.swift; sourceTree = "<group>"; };
@@ -272,21 +266,10 @@
 		D65D0000240A7452006E35E5 /* Options */ = {
 			isa = PBXGroup;
 			children = (
-				D65D0005240A7472006E35E5 /* Book */,
 				D65D0002240A7466006E35E5 /* OptionsViewController.swift */,
 				D65D0001240A7466006E35E5 /* SettingsStoryboard.storyboard */,
-				D61A73F0240D135500EF0642 /* AbstractionLayerDocument.swift */,
 			);
 			path = Options;
-			sourceTree = "<group>";
-		};
-		D65D0005240A7472006E35E5 /* Book */ = {
-			isa = PBXGroup;
-			children = (
-				D65D0007240A7481006E35E5 /* Book.storyboard */,
-				D65D0006240A7481006E35E5 /* BookViewController.swift */,
-			);
-			path = Book;
 			sourceTree = "<group>";
 		};
 		D65D000A240A7488006E35E5 /* Card View */ = {
@@ -607,7 +590,6 @@
 				D6C3B410241F8C5B00806FE5 /* Joy.pdf in Resources */,
 				D6C3B415241F8C5B00806FE5 /* Hopeful.pdf in Resources */,
 				D64E5F0A240E9DF40012DEF4 /* Icon-60@3x.png in Resources */,
-				D65D0009240A7481006E35E5 /* Book.storyboard in Resources */,
 				D6C3B3FF241F8C2400806FE5 /* Self-Doubting.pdf in Resources */,
 				D6C3B3D2241F8B8B00806FE5 /* Empathetic Joy.pdf in Resources */,
 				D6C3B3D4241F8B8B00806FE5 /* Thankful.pdf in Resources */,
@@ -692,14 +674,12 @@
 				D65DFB17240A6FC9006E35E5 /* LessonNamesViewController.swift in Sources */,
 				D65DFB11240A6FC9006E35E5 /* ActivityNavigationController.swift in Sources */,
 				D65DFF97240A7394006E35E5 /* WorksheetQuestionBox.swift in Sources */,
-				D61A73F1240D135500EF0642 /* AbstractionLayerDocument.swift in Sources */,
 				D693C75D2418A6AC000A6CDB /* HeartHandbookPDF.swift in Sources */,
 				D65DFAFD240A6FBA006E35E5 /* UIView.swift in Sources */,
 				D65DFFA4240A73C1006E35E5 /* CloseViewController.swift in Sources */,
 				D65D0010240A74A1006E35E5 /* CardSuperview.swift in Sources */,
 				D65DFF98240A7394006E35E5 /* WorksheetViewController.swift in Sources */,
 				D693C75B2418A670000A6CDB /* PDFSuperView.swift in Sources */,
-				D65D0008240A7481006E35E5 /* BookViewController.swift in Sources */,
 				D65D0050240A767B006E35E5 /* EmotionItems.swift in Sources */,
 				D65DFC97240A721E006E35E5 /* AppDelegate.swift in Sources */,
 				D65CA75C2418C2E300D9BC87 /* TypeSetConstants.swift in Sources */,

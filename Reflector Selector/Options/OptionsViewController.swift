@@ -22,8 +22,6 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate {
 		performSegue(withIdentifier: "PDFSegue", sender: PDFViewController.Jobs.Logbook)
 	}
 	
-	
-	
 	@IBAction func reflectorSelector(_ sender: Any) {
 		performSegue(withIdentifier: "PDFSegue", sender: PDFViewController.Jobs.Handbook)
 	}
@@ -32,7 +30,6 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate {
 		print("textField: \(nameField.text!)")
 	}
 
-	
 	@objc func preferredContentSizeChanged(_ notification : Notification){}
 	
 	@IBAction func phase(_ sender: UIButton) {

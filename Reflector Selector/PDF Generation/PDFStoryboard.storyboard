@@ -49,6 +49,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="trextFieldDidChange:" destination="b1w-BO-zoa" eventType="editingChanged" id="9tM-AG-P2m"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" name="Lesson Background"/>
