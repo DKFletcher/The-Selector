@@ -171,7 +171,7 @@ class WorksheetViewController: UIViewController, UIGestureRecognizerDelegate, Ac
 		if segue.identifier == "PDFSegue"{
 			if let pdfController = segue.destination as? PDFViewController{
 				pdfController.card = card as! Card
-				pdfController.jobs = .WorkSheet
+				pdfController.job = .WorkSheet
 			}
 		}
 	}

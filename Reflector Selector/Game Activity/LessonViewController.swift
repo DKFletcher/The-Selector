@@ -125,7 +125,7 @@ class LessonViewController: UIViewController, LongDelegate{
 		}
 		if segue.identifier == "PDFSegue"{
 			if let pdf = segue.destination as? PDFViewController{
-				pdf.jobs = .InfoSheet
+				pdf.job = .InfoSheet
 				pdf.card = (correctCard as! Card)
 			}
 		}

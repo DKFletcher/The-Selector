@@ -10,6 +10,7 @@
 		D6174278241688FE00DB9127 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6174277241688FE00DB9127 /* UIImage.swift */; };
 		D61A73EF240CDF6600EF0642 /* AbstractionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61A73EE240CDF6600EF0642 /* AbstractionLayer.swift */; };
 		D61A73F1240D135500EF0642 /* AbstractionLayerDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61A73F0240D135500EF0642 /* AbstractionLayerDocument.swift */; };
+		D64780432422564E00325012 /* SaveFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64780422422564E00325012 /* SaveFileViewController.swift */; };
 		D64E5F06240E9DF40012DEF4 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EF4240E9DF30012DEF4 /* Icon-76@2x.png */; };
 		D64E5F07240E9DF40012DEF4 /* Icon-83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EF5240E9DF30012DEF4 /* Icon-83.5@2x.png */; };
 		D64E5F08240E9DF40012DEF4 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EF6240E9DF30012DEF4 /* Icon@2x.png */; };
@@ -134,6 +135,7 @@
 		D6174277241688FE00DB9127 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		D61A73EE240CDF6600EF0642 /* AbstractionLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractionLayer.swift; sourceTree = "<group>"; };
 		D61A73F0240D135500EF0642 /* AbstractionLayerDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractionLayerDocument.swift; sourceTree = "<group>"; };
+		D64780422422564E00325012 /* SaveFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFileViewController.swift; sourceTree = "<group>"; };
 		D64E5EF4240E9DF30012DEF4 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
 		D64E5EF5240E9DF30012DEF4 /* Icon-83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-83.5@2x.png"; sourceTree = "<group>"; };
 		D64E5EF6240E9DF30012DEF4 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 				D693C75C2418A6AC000A6CDB /* HeartHandbookPDF.swift */,
 				D693C7602418A6E6000A6CDB /* LearnerLogPDF.swift */,
 				D65CA75B2418C2E300D9BC87 /* TypeSetConstants.swift */,
+				D64780422422564E00325012 /* SaveFileViewController.swift */,
 			);
 			path = "PDF Generation";
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				D65DFC95240A71FC006E35E5 /* TabBarController.swift in Sources */,
 				D65DFB16240A6FC9006E35E5 /* LessonImagesViewController.swift in Sources */,
 				D65D0014240A74A1006E35E5 /* FrontCardView.swift in Sources */,
+				D64780432422564E00325012 /* SaveFileViewController.swift in Sources */,
 				D693C7612418A6E6000A6CDB /* LearnerLogPDF.swift in Sources */,
 				D65D0011240A74A1006E35E5 /* CardView.swift in Sources */,
 				D65D001D240A74BF006E35E5 /* CardSelectionNavigationController.swift in Sources */,

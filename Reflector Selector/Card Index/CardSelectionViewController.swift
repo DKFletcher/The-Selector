@@ -83,7 +83,6 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 		tableView.reloadData()
 	}
 	
-	
 	func propagate(emotionSelection card: Card){
 		var cell = cellModels.filter{ $0.card == card}[0] as CardSelectionCell.Model
 		cell.card = card

@@ -11,9 +11,9 @@ import PDFKit
 
 class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate {
 	
-//	var pdfView: PDFView!
+	//	var pdfView: PDFView!
 	
-//	var pdfCreator : PDFCreator!
+	//	var pdfCreator : PDFCreator!
 	
 	
 	@IBOutlet var pdfView: PDFView!
@@ -25,7 +25,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 	
 	var nsData : NSData!
 	
-	var jobs : Jobs = .InfoSheet
+	var job : Jobs = .InfoSheet
 	
 	var documentData : Data!
 	
@@ -57,16 +57,20 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 		pdfView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
 		pdfView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
 		pdfView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(action))
+		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(
+			barButtonSystemItem: .action,
+			target: self,
+			action: #selector(action))
+		
 		work()
 	}
 	
 	private func work(){
-		switch jobs{
+		switch job{
 		case .WorkSheet :
 			let heartHandbook = HeartHandbook(learner: (tabBarController as! TabBarController).learnerName)
 			documentData = heartHandbook.createWork(for: card)
-			
 		case .InfoSheet :
 			let heartHandbook = HeartHandbook(learner: (tabBarController as! TabBarController).learnerName)
 			documentData = heartHandbook.createNote(for: card)
@@ -89,35 +93,36 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 	}
 	
 	@objc func action(){
-			let message = NSLocalizedString(jobs.rawValue, comment: "")
-			let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+		let message = NSLocalizedString(job.rawValue, comment: "")
+		let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
 		alert.addAction(UIAlertAction(title: "Save", style: .default) { [unowned self] _ in
-			self.fileToApplicationDirectory()
+			self.performSegue(withIdentifier: "FileSegue", sender: nil)
+			//			self.fileToApplicationDirectory()
 		})
 		alert.addAction(UIAlertAction(title: "Print", style: .default) { [unowned self] _ in
 			self.printHardCopy()
-
+			
 		})
 		
-			alert.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+		alert.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
 		
-			present(alert, animated: true, completion: nil)
-		
-		
+		present(alert, animated: true, completion: nil)
 		
 		
 		
 		
-//		if jobs == PDFViewController.Jobs.LearnerLog{
-//			fileToApplicationDirectory()
-//		} else {
-//			printHardCopy()
-//			fileToApplicationDirectory()
-//		}
+		
+		
+		//		if jobs == PDFViewController.Jobs.LearnerLog{
+		//			fileToApplicationDirectory()
+		//		} else {
+		//			printHardCopy()
+		//			fileToApplicationDirectory()
+		//		}
 	}
 	
 	func printHardCopy(){
-
+		
 		let printCompletionHandler: UIPrintInteractionController.CompletionHandler = { (controller, success, error) -> Void in
 			if success {
 				// Printed successfully
@@ -128,19 +133,19 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 				// Printing failed, report error ...
 			}
 		}
-
+		
 		let printController = UIPrintInteractionController.shared
 		printController.showsNumberOfCopies = false
 		printController.delegate = self
-
-
+		
+		
 		let printInfo = UIPrintInfo(dictionary : nil)
-//		printInfo.duplex = .longEdge
+		//		printInfo.duplex = .longEdge
 		printInfo.orientation = .portrait
 		printInfo.outputType = .general
-		printInfo.jobName = (tabBarController as! TabBarController).learnerName ?? jobs.rawValue
-
-
+		printInfo.jobName = (tabBarController as! TabBarController).learnerName ?? job.rawValue
+		
+		
 		printController.printInfo = printInfo
 		printController.printingItem = documentData
 		printController.present(animated : true, completionHandler : printCompletionHandler)
@@ -159,34 +164,43 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 	}
 	
 	
-	private func savePDF(directory : FileManager.SearchPathDirectory, path : String) throws{
-		let pdfDirectoryURL = URL(
-			fileURLWithPath: path,
-			relativeTo: FileManager.default.urls(
-				for: directory,
-				in: .userDomainMask)[0]
-		)
-		try nsData.write(
-			to: pdfDirectoryURL
-				.appendingPathExtension("pdf"),
-			options: .atomic
-		)
-	}
+	//	private func savePDF(directory : FileManager.SearchPathDirectory, path : String) throws{
+	//		let pdfDirectoryURL = URL(
+	//			fileURLWithPath: path,
+	//			relativeTo: FileManager.default.urls(
+	//				for: directory,
+	//				in: .userDomainMask)[0]
+	//		)
+	//		try nsData.write(
+	//			to: pdfDirectoryURL
+	//				.appendingPathExtension("pdf"),
+	//			options: .atomic
+	//		)
+	//	}
+	//
+	//
+	//	private func fileToApplicationDirectory(){
+	//			do {
+	//				let fileName = (tabBarController as! TabBarController).learnerName ?? "RefelctorSelector"
+	//				let directory : FileManager.SearchPathDirectory = .documentDirectory
+	//				try savePDF(directory: directory, path: fileName)} catch {
+	//				print(error)
+	//			}
+	//	}
+	//
+	//	func save(directory: FileManager.SearchPathDirectory, name: String) throws {
+	//		let kindDirectoryURL = URL(fileURLWithPath: "test", relativeTo: FileManager.default.urls(for: directory, in: .userDomainMask)[0])
+	//		try? FileManager.default.createDirectory(at: kindDirectoryURL, withIntermediateDirectories: true)
+	//		try documentData.write(to: kindDirectoryURL.appendingPathComponent(name).appendingPathExtension("pdf"))
+	//	}
 	
-	
-	private func fileToApplicationDirectory(){
-			do {
-				let fileName = (tabBarController as! TabBarController).learnerName ?? "RefelctorSelector"
-				let directory : FileManager.SearchPathDirectory = .documentDirectory
-				try savePDF(directory: directory, path: fileName)} catch {
-				print(error)
-			}
-	}
-	
-	func save(directory: FileManager.SearchPathDirectory, name: String) throws {
-		let kindDirectoryURL = URL(fileURLWithPath: "test", relativeTo: FileManager.default.urls(for: directory, in: .userDomainMask)[0])
-		try? FileManager.default.createDirectory(at: kindDirectoryURL, withIntermediateDirectories: true)
-		try documentData.write(to: kindDirectoryURL.appendingPathComponent(name).appendingPathExtension("pdf"))
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "FileSegue"{
+			let name = (tabBarController as! TabBarController).learnerName ?? ""
+			(segue.destination as! SaveFileViewController).fileText = name+" "+job.rawValue
+			(segue.destination as! SaveFileViewController).nsData = nsData
+		}
+		print("preparation for save file")
 	}
 }
 
@@ -214,7 +228,3 @@ extension UIAlertController {
 		}
 	}
 }
-//			alert.addAction(UIAlertAction(title: "Save", style: .default) { [unowned self] _ in
-//				self.performSegue(withIdentifier: .CreateNewTicket, sender: LottoType.megaMillions.rawValue)
-//				print("SAVE")
-//			})

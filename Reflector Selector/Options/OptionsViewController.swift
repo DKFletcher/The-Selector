@@ -56,7 +56,11 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		
 		NotificationCenter.default.addObserver(self, selector: #selector(preferredContentSizeChanged(_:)), name: UIContentSizeCategory.didChangeNotification, object: nil)
+		
+		
 		switch (self.tabBarController as! TabBarController).phase{
 		case .first: setButtons(for: phaseOne)
 		case .second: setButtons(for: phaseTwo)
@@ -109,7 +113,7 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate {
 		if segue.identifier == "PDFSegue"{
 			let pdfViewController = segue.destination as! PDFViewController
 			pdfViewController.card = (tabBarController as! TabBarController).dummy
-			pdfViewController.jobs = sender as! PDFViewController.Jobs
+			pdfViewController.job = sender as! PDFViewController.Jobs
 			
 		}
 	}
