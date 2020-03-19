@@ -290,5 +290,24 @@ class PDFSuperView {
 		let qAndAHeight = getAttributedStringHeight(qAndA) + TypeSetConstants.answerBoxHeight
 		return qAndAHeight + returnPosition < TypeSetConstants.pageHeight - TypeSetConstants.footer ? onPage() : newPage()
 	}
+	
+	func addImage(imageTop: CGFloat, image: UIImage, frontPageAdjust: CGFloat = 0.0) -> CGFloat {
+		let maxHeight = TypeSetConstants.pageHeight
+		let maxWidth = TypeSetConstants.pageWidth * 0.75
+		let aspectWidth = maxWidth / image.size.width
+		let aspectHeight = maxHeight / image.size.height
+		let aspectRatio = min(aspectWidth, aspectHeight)
+		let scaledWidth = image.size.width * aspectRatio
+		let scaledHeight = image.size.height * aspectRatio
+		let imageX = (TypeSetConstants.pageWidth - scaledWidth) / 2.0
+		let imageRect = CGRect(
+			x: imageX,
+			y: imageTop+frontPageAdjust,
+			width: scaledWidth,
+			height: scaledHeight
+		)
+		image.draw(in: imageRect)
+		return imageRect.origin.y + imageRect.size.height
+	}
 }
 

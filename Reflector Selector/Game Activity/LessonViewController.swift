@@ -52,6 +52,9 @@ class LessonViewController: UIViewController, LongDelegate{
 	@IBOutlet var stackView: UIStackView!
 	@IBOutlet var stackViewHeightConstraint: NSLayoutConstraint!
 	@IBOutlet var multipleChoiceSuperview: UIView!
+	@IBAction func instructionButton(_ sender: UIButton) {
+		performSegue(withIdentifier: "InstructionsSegue", sender: nil)
+	}
 	
 	@IBOutlet var cardSuperview: CardSuperview! {
 		didSet {

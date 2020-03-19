@@ -176,7 +176,7 @@
                     </connections>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1029" y="1112"/>
+            <point key="canvasLocation" x="1028.90625" y="1111.5234375"/>
         </scene>
         <!--PDFStoryboard-->
         <scene sceneID="yno-8z-4XH">
@@ -295,7 +295,7 @@
                 <viewControllerPlaceholder storyboardName="Notes" id="Qgf-xC-mNg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGH-Zt-ezu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1302" y="1513"/>
+            <point key="canvasLocation" x="1202" y="1481"/>
         </scene>
         <!--Reflector Selector-->
         <scene sceneID="00o-vc-4sE">

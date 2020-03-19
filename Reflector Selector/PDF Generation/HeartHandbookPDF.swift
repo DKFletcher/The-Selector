@@ -38,7 +38,7 @@ class HeartHandbook : PDFSuperView{
 		return out as Data
 	}
 	
-	func create(from book: [Card]) -> Data {
+	func handbook(from book: [Card]) -> Data {
 		var pdfData : [Data] = []
 		pdfData.append(createFrontPage())
 		EmotionItems.Quadrant.allCases.forEach{ quadrant in
@@ -52,6 +52,21 @@ class HeartHandbook : PDFSuperView{
 		}
 		return merge(pdfs: pdfData)
 	}
+
+	func infoSheet(for card: Card) -> Data {
+		var pdfData : [Data] = []
+//		EmotionItems.Quadrant.allCases.forEach{ quadrant in
+			pdfData.append(createQuad(for: card.emotion.quadrant.rawValue))//quadrant.rawValue))
+//			book.filter{ $0.emotion.quadrant == quadrant }.forEach{ emotion in
+				pdfData.append(createNote(for: card))//emotion))
+				if imageServer.customImage{
+					pdfData.append(createWork(for: card))
+				}
+//			}
+//		}
+		return merge(pdfs: pdfData)
+	}
+
 	
 	func createFrontPage() ->Data{
 		let pdfMetaData = [
@@ -120,7 +135,6 @@ class HeartHandbook : PDFSuperView{
 	}
 
 	func createWork(for emotion : Card) -> Data {
-		print("printWork")
 		let renderer = UIGraphicsPDFRenderer(bounds: TypeSetConstants.pageRect)
 		let data = renderer.pdfData { (context) in
 			drawingPDF = context
@@ -199,24 +213,5 @@ class HeartHandbook : PDFSuperView{
 																 height: titleStringSize.height)
 		attributedTitle.draw(in: titleStringRect)
 		return titleStringRect.origin.y + titleStringRect.size.height
-	}
-
-	func addImage(imageTop: CGFloat, image: UIImage, frontPageAdjust: CGFloat = 0.0) -> CGFloat {
-		let maxHeight = TypeSetConstants.pageHeight
-		let maxWidth = TypeSetConstants.pageWidth * 0.75
-		let aspectWidth = maxWidth / image.size.width
-		let aspectHeight = maxHeight / image.size.height
-		let aspectRatio = min(aspectWidth, aspectHeight)
-		let scaledWidth = image.size.width * aspectRatio
-		let scaledHeight = image.size.height * aspectRatio
-		let imageX = (TypeSetConstants.pageWidth - scaledWidth) / 2.0
-		let imageRect = CGRect(
-			x: imageX,
-			y: imageTop+frontPageAdjust,
-			width: scaledWidth,
-			height: scaledHeight
-		)
-		image.draw(in: imageRect)
-		return imageRect.origin.y + imageRect.size.height
 	}
 }
