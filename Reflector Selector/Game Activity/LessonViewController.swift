@@ -34,6 +34,9 @@ class LessonViewController: UIViewController, LongDelegate{
 		NotificationCenter.default.removeObserver(self)
 	}
 	
+	@IBAction func instructionsButton(_ sender: UIButton) {
+		performSegue(withIdentifier: "InstructionsSegue", sender: nil)
+	}
 	func navigate(to card: Card, from image: Bool, edit front: Bool) {
 		if image{
 			performSegue(withIdentifier: "CloseSegue", sender: card)

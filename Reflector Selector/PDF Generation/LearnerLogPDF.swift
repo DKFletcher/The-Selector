@@ -82,7 +82,7 @@ class LearnerLog : PDFSuperView{
 		return data
 
 	}
-	func create(from book: [Card]) -> Data{
+	func logbook(from book: [Card]) -> Data{
 //		let date = Date()
 //		let format = DateFormatter()
 //		format.dateFormat = "dd-MM-yyyy"
@@ -145,7 +145,10 @@ class LearnerLog : PDFSuperView{
 				emotion.emotion.qanda.sections().forEach{ $0.forEach {
 					let test = $0.answer
 					pagePosition = formatAnswerBook(drawing: drawingPDF, text: QuestionAnswer(question: $0.question, answer: test))
-					}}}
+				}}
+				drawingPDF.beginPage()
+				pagePosition = TypeSetConstants.header
+			}
 		}
 		return data
 	}

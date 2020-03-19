@@ -51,12 +51,24 @@
                                 </constraints>
                                 <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zy7-o6-0yu">
+                                <rect key="frame" x="635" y="82" width="121" height="41"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                <state key="normal" title="Instructions" backgroundImage="button up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="instructionsButton:" destination="L8i-LI-m1M" eventType="touchUpInside" id="gBg-IQ-kDX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="Lesson Background"/>
                         <constraints>
                             <constraint firstItem="QPD-yl-VaV" firstAttribute="leading" secondItem="KSY-TF-SeM" secondAttribute="leading" id="8XX-p9-J9p"/>
                             <constraint firstItem="KSY-TF-SeM" firstAttribute="trailing" secondItem="QPD-yl-VaV" secondAttribute="trailing" id="CPr-3J-MrP"/>
                             <constraint firstItem="QPD-yl-VaV" firstAttribute="height" secondItem="KSY-TF-SeM" secondAttribute="height" multiplier="4/5" id="UKN-V6-Wqe"/>
+                            <constraint firstItem="Zy7-o6-0yu" firstAttribute="top" secondItem="KSY-TF-SeM" secondAttribute="top" constant="12" id="UMI-ec-dIQ"/>
+                            <constraint firstItem="KSY-TF-SeM" firstAttribute="trailing" secondItem="Zy7-o6-0yu" secondAttribute="trailing" constant="12" id="Z7Z-V0-TTq"/>
                             <constraint firstItem="QPD-yl-VaV" firstAttribute="centerY" secondItem="KSY-TF-SeM" secondAttribute="centerY" id="xeB-jN-0r1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KSY-TF-SeM"/>
@@ -76,6 +88,7 @@
                         <segue destination="Qgf-xC-mNg" kind="show" identifier="NotesSegue" id="Fxw-UP-gcH"/>
                         <segue destination="IrX-vK-gUU" kind="show" identifier="CloseSegue" id="jIm-nU-L8L"/>
                         <segue destination="VZr-TK-MOx" kind="show" identifier="PDFSegue" id="EMW-SW-vjU"/>
+                        <segue destination="3Hj-Rc-Rgv" kind="show" identifier="InstructionsSegue" id="RwA-6j-mAW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBu-4O-HZT" sceneMemberID="firstResponder"/>
@@ -193,6 +206,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4V-aJ-jeB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1466" y="1034"/>
+        </scene>
+        <!--Instructions-->
+        <scene sceneID="9mn-WS-Em5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Instructions" id="3Hj-Rc-Rgv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5tH-hk-fI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1535" y="1112"/>
         </scene>
         <!--Lesson Names View Controller-->
         <scene sceneID="JTj-Lt-QCn">
@@ -320,6 +341,7 @@
     <resources>
         <image name="Lesson" width="62" height="57"/>
         <image name="button outline" width="47" height="46"/>
+        <image name="button up" width="39" height="41"/>
         <image name="celebration" width="1025" height="1024"/>
         <image name="tabBarWhale" width="50" height="30"/>
         <namedColor name="Cardeo Purple">

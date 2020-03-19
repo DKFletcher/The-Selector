@@ -78,8 +78,8 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 			let heartHandbook = HeartHandbook(learner: (tabBarController as! TabBarController).learnerName)
 			documentData = heartHandbook.handbook(from: (tabBarController as! TabBarController).cards)
 		case .Logbook :
-			let learnerLog = LearnerLog(learner: (tabBarController as! TabBarController).learnerName)
-			documentData = learnerLog.create(from: (tabBarController as! TabBarController).cards)
+			let log = LearnerLog(learner: (tabBarController as! TabBarController).learnerName)
+			documentData = log.logbook(from: (tabBarController as! TabBarController).cards)
 		}
 		
 		if let data = documentData, let document = PDFDocument(data: data){

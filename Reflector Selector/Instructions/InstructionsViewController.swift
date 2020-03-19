@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import WebKit
 
 class InstructionsViewController: UIViewController {
 
-    override func viewDidLoad() {
+	@IBOutlet var webView: WKWebView!
+	override func viewDidLoad() {
         super.viewDidLoad()
 				navigationController?.navigationBar.isHidden = false
+			if let url = Bundle.main.url(forResource: "index", withExtension: "html") {
+				webView.loadFileURL(url, allowingReadAccessTo: url.deletingLastPathComponent())
+			}
     }
 }

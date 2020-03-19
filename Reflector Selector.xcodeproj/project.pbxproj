@@ -83,6 +83,7 @@
 		D693C75B2418A670000A6CDB /* PDFSuperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693C75A2418A670000A6CDB /* PDFSuperView.swift */; };
 		D693C75D2418A6AC000A6CDB /* HeartHandbookPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693C75C2418A6AC000A6CDB /* HeartHandbookPDF.swift */; };
 		D693C7612418A6E6000A6CDB /* LearnerLogPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693C7602418A6E6000A6CDB /* LearnerLogPDF.swift */; };
+		D6BCC98124239E0D000820E0 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D6BCC95E24239E0D000820E0 /* index.html */; };
 		D6C3B3D1241F8B8B00806FE5 /* Content.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B3C7241F8B8B00806FE5 /* Content.pdf */; };
 		D6C3B3D2241F8B8B00806FE5 /* Empathetic Joy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B3C8241F8B8B00806FE5 /* Empathetic Joy.pdf */; };
 		D6C3B3D3241F8B8B00806FE5 /* Compassionate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B3C9241F8B8B00806FE5 /* Compassionate.pdf */; };
@@ -209,6 +210,7 @@
 		D693C75A2418A670000A6CDB /* PDFSuperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFSuperView.swift; sourceTree = "<group>"; };
 		D693C75C2418A6AC000A6CDB /* HeartHandbookPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartHandbookPDF.swift; sourceTree = "<group>"; };
 		D693C7602418A6E6000A6CDB /* LearnerLogPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnerLogPDF.swift; sourceTree = "<group>"; };
+		D6BCC95E24239E0D000820E0 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = Instructions/index.html; sourceTree = SOURCE_ROOT; };
 		D6C3B3C7241F8B8B00806FE5 /* Content.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Content.pdf; path = "Cards PDF/connecting me/Content.pdf"; sourceTree = SOURCE_ROOT; };
 		D6C3B3C8241F8B8B00806FE5 /* Empathetic Joy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Empathetic Joy.pdf"; path = "Cards PDF/connecting me/Empathetic Joy.pdf"; sourceTree = SOURCE_ROOT; };
 		D6C3B3C9241F8B8B00806FE5 /* Compassionate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Compassionate.pdf; path = "Cards PDF/connecting me/Compassionate.pdf"; sourceTree = SOURCE_ROOT; };
@@ -526,10 +528,19 @@
 		D677D94A24238FFC00FAF647 /* Instructions */ = {
 			isa = PBXGroup;
 			children = (
+				D6BCC93624239DAF000820E0 /* html */,
 				D677D94B2423901E00FAF647 /* Instructions.storyboard */,
 				D677D94D2423903100FAF647 /* InstructionsViewController.swift */,
 			);
 			path = Instructions;
+			sourceTree = "<group>";
+		};
+		D6BCC93624239DAF000820E0 /* html */ = {
+			isa = PBXGroup;
+			children = (
+				D6BCC95E24239E0D000820E0 /* index.html */,
+			);
+			path = html;
 			sourceTree = "<group>";
 		};
 		D6DA94232417742200B31556 /* Custom Font */ = {
@@ -624,6 +635,7 @@
 				D6C3B40F241F8C5B00806FE5 /* Valued.pdf in Resources */,
 				D6C3B3E9241F8B9500806FE5 /* Gloating.pdf in Resources */,
 				D6C3B412241F8C5B00806FE5 /* Determined.pdf in Resources */,
+				D6BCC98124239E0D000820E0 /* index.html in Resources */,
 				D64E5F08240E9DF40012DEF4 /* Icon@2x.png in Resources */,
 				D6C3B3D6241F8B8B00806FE5 /* Belonging.pdf in Resources */,
 				D64E5F11240E9DF50012DEF4 /* Icon-Small-40.png in Resources */,
