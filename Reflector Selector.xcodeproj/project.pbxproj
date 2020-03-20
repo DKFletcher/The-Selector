@@ -28,6 +28,10 @@
 		D64E5F15240E9DF50012DEF4 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5F03240E9DF40012DEF4 /* Icon-72@2x.png */; };
 		D64E5F16240E9DF50012DEF4 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5F04240E9DF40012DEF4 /* Icon-Small-50.png */; };
 		D64E5F17240E9DF50012DEF4 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5F05240E9DF40012DEF4 /* Icon-72.png */; };
+		D6583C052424A69C000D342D /* NoteBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6583C042424A69C000D342D /* NoteBookView.swift */; };
+		D6583C072424A6E0000D342D /* InstructionsHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6583C062424A6E0000D342D /* InstructionsHomeView.swift */; };
+		D6583C092424A6F8000D342D /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6583C082424A6F8000D342D /* OptionsView.swift */; };
+		D6583C0B2424A721000D342D /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6583C0A2424A721000D342D /* CreditsView.swift */; };
 		D65CA75C2418C2E300D9BC87 /* TypeSetConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CA75B2418C2E300D9BC87 /* TypeSetConstants.swift */; };
 		D65D0003240A7466006E35E5 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65D0001240A7466006E35E5 /* SettingsStoryboard.storyboard */; };
 		D65D0004240A7466006E35E5 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D0002240A7466006E35E5 /* OptionsViewController.swift */; };
@@ -83,7 +87,6 @@
 		D693C75B2418A670000A6CDB /* PDFSuperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693C75A2418A670000A6CDB /* PDFSuperView.swift */; };
 		D693C75D2418A6AC000A6CDB /* HeartHandbookPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693C75C2418A6AC000A6CDB /* HeartHandbookPDF.swift */; };
 		D693C7612418A6E6000A6CDB /* LearnerLogPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693C7602418A6E6000A6CDB /* LearnerLogPDF.swift */; };
-		D6BCC98124239E0D000820E0 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D6BCC95E24239E0D000820E0 /* index.html */; };
 		D6C3B3D1241F8B8B00806FE5 /* Content.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B3C7241F8B8B00806FE5 /* Content.pdf */; };
 		D6C3B3D2241F8B8B00806FE5 /* Empathetic Joy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B3C8241F8B8B00806FE5 /* Empathetic Joy.pdf */; };
 		D6C3B3D3241F8B8B00806FE5 /* Compassionate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B3C9241F8B8B00806FE5 /* Compassionate.pdf */; };
@@ -153,6 +156,10 @@
 		D64E5F03240E9DF40012DEF4 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		D64E5F04240E9DF40012DEF4 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		D64E5F05240E9DF40012DEF4 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		D6583C042424A69C000D342D /* NoteBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBookView.swift; sourceTree = "<group>"; };
+		D6583C062424A6E0000D342D /* InstructionsHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsHomeView.swift; sourceTree = "<group>"; };
+		D6583C082424A6F8000D342D /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
+		D6583C0A2424A721000D342D /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		D65CA75B2418C2E300D9BC87 /* TypeSetConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSetConstants.swift; sourceTree = "<group>"; };
 		D65D0001240A7466006E35E5 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		D65D0002240A7466006E35E5 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
@@ -210,7 +217,6 @@
 		D693C75A2418A670000A6CDB /* PDFSuperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFSuperView.swift; sourceTree = "<group>"; };
 		D693C75C2418A6AC000A6CDB /* HeartHandbookPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartHandbookPDF.swift; sourceTree = "<group>"; };
 		D693C7602418A6E6000A6CDB /* LearnerLogPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnerLogPDF.swift; sourceTree = "<group>"; };
-		D6BCC95E24239E0D000820E0 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = Instructions/index.html; sourceTree = SOURCE_ROOT; };
 		D6C3B3C7241F8B8B00806FE5 /* Content.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Content.pdf; path = "Cards PDF/connecting me/Content.pdf"; sourceTree = SOURCE_ROOT; };
 		D6C3B3C8241F8B8B00806FE5 /* Empathetic Joy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Empathetic Joy.pdf"; path = "Cards PDF/connecting me/Empathetic Joy.pdf"; sourceTree = SOURCE_ROOT; };
 		D6C3B3C9241F8B8B00806FE5 /* Compassionate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Compassionate.pdf; path = "Cards PDF/connecting me/Compassionate.pdf"; sourceTree = SOURCE_ROOT; };
@@ -528,19 +534,14 @@
 		D677D94A24238FFC00FAF647 /* Instructions */ = {
 			isa = PBXGroup;
 			children = (
-				D6BCC93624239DAF000820E0 /* html */,
 				D677D94B2423901E00FAF647 /* Instructions.storyboard */,
 				D677D94D2423903100FAF647 /* InstructionsViewController.swift */,
+				D6583C042424A69C000D342D /* NoteBookView.swift */,
+				D6583C062424A6E0000D342D /* InstructionsHomeView.swift */,
+				D6583C082424A6F8000D342D /* OptionsView.swift */,
+				D6583C0A2424A721000D342D /* CreditsView.swift */,
 			);
 			path = Instructions;
-			sourceTree = "<group>";
-		};
-		D6BCC93624239DAF000820E0 /* html */ = {
-			isa = PBXGroup;
-			children = (
-				D6BCC95E24239E0D000820E0 /* index.html */,
-			);
-			path = html;
 			sourceTree = "<group>";
 		};
 		D6DA94232417742200B31556 /* Custom Font */ = {
@@ -635,7 +636,6 @@
 				D6C3B40F241F8C5B00806FE5 /* Valued.pdf in Resources */,
 				D6C3B3E9241F8B9500806FE5 /* Gloating.pdf in Resources */,
 				D6C3B412241F8C5B00806FE5 /* Determined.pdf in Resources */,
-				D6BCC98124239E0D000820E0 /* index.html in Resources */,
 				D64E5F08240E9DF40012DEF4 /* Icon@2x.png in Resources */,
 				D6C3B3D6241F8B8B00806FE5 /* Belonging.pdf in Resources */,
 				D64E5F11240E9DF50012DEF4 /* Icon-Small-40.png in Resources */,
@@ -699,7 +699,9 @@
 				D65DFFAC240A73EA006E35E5 /* PDFViewController.swift in Sources */,
 				D65DFF9D240A73A1006E35E5 /* AccessableInputViewController.swift in Sources */,
 				D65DFB17240A6FC9006E35E5 /* LessonNamesViewController.swift in Sources */,
+				D6583C092424A6F8000D342D /* OptionsView.swift in Sources */,
 				D65DFB11240A6FC9006E35E5 /* ActivityNavigationController.swift in Sources */,
+				D6583C072424A6E0000D342D /* InstructionsHomeView.swift in Sources */,
 				D65DFF97240A7394006E35E5 /* WorksheetQuestionBox.swift in Sources */,
 				D693C75D2418A6AC000A6CDB /* HeartHandbookPDF.swift in Sources */,
 				D65DFAFD240A6FBA006E35E5 /* UIView.swift in Sources */,
@@ -713,6 +715,7 @@
 				D65DFC95240A71FC006E35E5 /* TabBarController.swift in Sources */,
 				D65DFB16240A6FC9006E35E5 /* LessonImagesViewController.swift in Sources */,
 				D65D0014240A74A1006E35E5 /* FrontCardView.swift in Sources */,
+				D6583C052424A69C000D342D /* NoteBookView.swift in Sources */,
 				D64780432422564E00325012 /* SaveFileViewController.swift in Sources */,
 				D693C7612418A6E6000A6CDB /* LearnerLogPDF.swift in Sources */,
 				D65D0011240A74A1006E35E5 /* CardView.swift in Sources */,
@@ -729,6 +732,7 @@
 				D65D0025240A74DE006E35E5 /* ItemListTableViewCell.swift in Sources */,
 				D65DFB18240A6FC9006E35E5 /* LessonViewController.swift in Sources */,
 				D65DFF99240A7394006E35E5 /* QuestionAndAnswer.swift in Sources */,
+				D6583C0B2424A721000D342D /* CreditsView.swift in Sources */,
 				D65DFFA6240A73C1006E35E5 /* ImagingHelper.swift in Sources */,
 				D65DFB19240A6FC9006E35E5 /* MultipleChoiceViewController.swift in Sources */,
 				D65D0012240A74A1006E35E5 /* BackCardView.swift in Sources */,

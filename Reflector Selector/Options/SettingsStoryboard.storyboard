@@ -129,7 +129,7 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <inset key="contentEdgeInsets" minX="15" minY="10" maxX="15" maxY="10"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="Log Book" backgroundImage="button sellected">
+                                        <state key="normal" title="Workbook" backgroundImage="button sellected">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -191,11 +191,11 @@
             </objects>
             <point key="canvasLocation" x="1261" y="213"/>
         </scene>
-        <!--Options-->
+        <!--Navigation Controller-->
         <scene sceneID="xGk-a6-Tvn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RBi-Do-BI9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Options" image="tabBarCog" id="Vfi-gR-Nni"/>
+                    <tabBarItem key="tabBarItem" title="" image="C1" id="Vfi-gR-Nni"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Oc6-nW-jT6">
                         <rect key="frame" x="0.0" y="20" width="768" height="50"/>
@@ -212,9 +212,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="C1" width="60" height="60"/>
         <image name="button sellected" width="39" height="41"/>
         <image name="button up" width="39" height="41"/>
-        <image name="tabBarCog" width="31" height="31"/>
         <namedColor name="Lesson Background">
             <color red="0.2199999988079071" green="0.2199999988079071" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -119,6 +119,27 @@ extension UIView {
     )
   }
 
+	func menuAnimateIn(handleCompletion: ( () -> Void )? = nil) {
+		transform = CGAffineTransform.identity.scaledBy(x: 0.5, y: 0.5)
+		alpha = 0
+		isHidden = false
+		
+		UIView.animate(
+			withDuration: 0.5,
+			delay: 0,
+			usingSpringWithDamping: 0.8,
+			initialSpringVelocity: 0.1,
+			animations: {
+				self.alpha = 1
+				self.transform = .identity
+		},
+			completion: handleCompletion.map { handleCompletion in
+				{ _ in handleCompletion() }
+			}
+		)
+	}
+
+	
   func roundCorners() {
 //    layer.cornerRadius = {
 //      let cardRadius = bounds.maxX / 6

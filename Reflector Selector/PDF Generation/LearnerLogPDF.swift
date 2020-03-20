@@ -38,7 +38,7 @@ class LearnerLog : PDFSuperView{
 			NSAttributedString.Key.paragraphStyle: paragraphStyle,
 			NSAttributedString.Key.font: bodyFont!,
 			NSAttributedString.Key.foregroundColor: UIColor.black]
-		let title = NSMutableAttributedString(string: "Reflector Selector Learner Log\n", attributes: boldAttributes)
+		let title = NSMutableAttributedString(string: "Reflector Selector Workbook\n", attributes: boldAttributes)
 		let answerAttributedString = NSAttributedString(string: name+" ", attributes: bodyAttributes)
 		//		let answerAttributedString = NSAttributedString(string: formattedDate, attributes: bodyAttributes)
 		title.append(answerAttributedString)
@@ -106,7 +106,7 @@ class LearnerLog : PDFSuperView{
 			NSAttributedString.Key.paragraphStyle: paragraphStyle,
 			NSAttributedString.Key.font: bodyFont!,
 			NSAttributedString.Key.foregroundColor: UIColor.black]
-		let title = NSMutableAttributedString(string: "Reflector Selector Learner Log\n", attributes: boldAttributes)
+		let title = NSMutableAttributedString(string: "Reflector Selector Worksheet\n", attributes: boldAttributes)
 		let answerAttributedString = NSAttributedString(string: name+" ", attributes: bodyAttributes)
 		//		let answerAttributedString = NSAttributedString(string: formattedDate, attributes: bodyAttributes)
 		title.append(answerAttributedString)

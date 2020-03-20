@@ -14,7 +14,11 @@ class TabBarController: UITabBarController {
 			setForPhase(cards: cards)
 		}
 	}
+	
+	var helpState : HelpMenuItem = .home
+	
 	var learnerName : String?
+	
 	var emotions : [Card]! {
 		didSet{
 			setForPhase(cards: emotions)

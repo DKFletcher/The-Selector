@@ -88,11 +88,11 @@
             </objects>
             <point key="canvasLocation" x="1449" y="161"/>
         </scene>
-        <!--Note Book-->
+        <!--Card Selection Navigation Controller-->
         <scene sceneID="f5d-K4-InE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ae0-WX-pMg" customClass="CardSelectionNavigationController" customModule="Reflector_Selector" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Note Book" image="Lesson" id="f5x-2T-bDz"/>
+                    <tabBarItem key="tabBarItem" title="" image="L1" id="f5x-2T-bDz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GWt-eZ-zwJ">
                         <rect key="frame" x="0.0" y="20" width="768" height="50"/>
@@ -112,7 +112,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Lesson" width="62" height="57"/>
+        <image name="L1" width="60" height="60"/>
         <namedColor name="Lesson Background">
             <color red="0.2199999988079071" green="0.2199999988079071" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

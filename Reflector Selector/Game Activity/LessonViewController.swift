@@ -180,9 +180,10 @@ class LessonViewController: UIViewController, LongDelegate{
 	}
 	
 	func animateOut(
-		view: UIView, delay: TimeInterval = 0,
-		handleCompletion: ( () -> Void )? = nil
-		) {
+		view: UIView,
+		delay: TimeInterval = 0,
+		handleCompletion: ( () -> Void )? = nil) {
+		
 		UIView.animate(
 			withDuration: 0.25,
 			delay: delay,

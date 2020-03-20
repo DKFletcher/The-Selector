@@ -318,11 +318,11 @@
             </objects>
             <point key="canvasLocation" x="1202" y="1481"/>
         </scene>
-        <!--Reflector Selector-->
+        <!--Activity Navigation Controller-->
         <scene sceneID="00o-vc-4sE">
             <objects>
                 <navigationController storyboardIdentifier="ActivityNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="8mB-3h-EVC" customClass="ActivityNavigationController" customModule="Reflector_Selector" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Reflector Selector" image="tabBarWhale" selectedImage="tabBarWhale" id="aBa-Gx-8fg"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabBarWhale" selectedImage="tabBarWhale" id="aBa-Gx-8fg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W1T-6u-4FF">
                         <rect key="frame" x="0.0" y="20" width="768" height="50"/>
