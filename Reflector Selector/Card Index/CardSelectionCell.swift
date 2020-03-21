@@ -53,14 +53,16 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
 			self.card = card
 		}
 	}
-    @IBOutlet var cardSuperView: CardSuperview!{
-        didSet{
-            cardSuperView.longDelegate = self
-        }
-    }
+	
+	@IBOutlet var cardSuperView: CardSuperview!{
+			didSet{
+					cardSuperView.longDelegate = self
+			}
+	}
 	
 	func setModel(_ model: Model) {
 		cardSuperView.setCard(model.card, side: model.side, flip: false)
+		//		accessoryView = model.selected ? UIImageView(image: UIImage(named: "Joy_3_1_100")) : nil
 		accessoryType = model.selected ? .checkmark : .none
 	}
 }

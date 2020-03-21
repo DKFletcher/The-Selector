@@ -91,37 +91,68 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dV-1B-SX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="DN5-oZ-iO1">
+                <view alpha="0.0" contentMode="scaleToFill" id="DN5-oZ-iO1">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="978"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BJ-jZ-W9M">
-                            <rect key="frame" x="12" y="32" width="576" height="200"/>
+                            <rect key="frame" x="12" y="135" width="744" height="720"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="200" id="aFE-0V-QgG"/>
-                            </constraints>
+                            <mutableString key="text">This game tests to see how much you understand about your emotions.
+
+As you progress you will eventualy have a game made up of all your own images, then the fun really starts. You can swap iPads with a partner to see who has the best reflector.
+
+Each round has an emotion card described by a picture or word and four possible choices, choose which one is right. If your stuck at a question tap the emotion card and it will flip and show the right answer.
+
+Long tap on any image to zoom in. You can also set your own content from here.
+
+Long tap on the word side of the card to see an information sheet.
+
+Tap on the purple question mark to get back to these instructions.
+
+Tap any of the icons at the top to find a description of what the icons at the bottom do.
+
+Your on the whale right now, JOY!
+</mutableString>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ohj-Z4-NGc">
-                            <rect key="frame" x="12" y="721.5" width="576" height="244.5"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflector Selector" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xjg-3f-LTz">
+                            <rect key="frame" x="0.0" y="32" width="768" height="91"/>
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="72"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfV-Fx-5kV">
+                            <rect key="frame" x="363.5" y="905" width="392.5" height="61"/>
+                            <string key="text">App by MADFullStack.com and RayWenderlich.com
+Educational Psychology by Alan McLean
+Art by Rhannon Van Muysen</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credits:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ee-cg-Tcn">
+                            <rect key="frame" x="363.5" y="875" width="76" height="22"/>
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
-                    <color key="backgroundColor" name="Lesson Background"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="cRg-ee-lCW" firstAttribute="bottom" secondItem="ohj-Z4-NGc" secondAttribute="bottom" constant="12" id="So6-iv-EZC"/>
-                        <constraint firstItem="ohj-Z4-NGc" firstAttribute="height" secondItem="DN5-oZ-iO1" secondAttribute="height" multiplier="0.25" id="TCO-B8-mtg"/>
-                        <constraint firstItem="2BJ-jZ-W9M" firstAttribute="width" secondItem="DN5-oZ-iO1" secondAttribute="width" multiplier="0.75" id="Uml-f1-Eiw"/>
-                        <constraint firstItem="ohj-Z4-NGc" firstAttribute="width" secondItem="DN5-oZ-iO1" secondAttribute="width" multiplier="0.75" id="ZGd-EJ-YFj"/>
-                        <constraint firstItem="2BJ-jZ-W9M" firstAttribute="top" secondItem="cRg-ee-lCW" secondAttribute="top" constant="12" id="iA8-jW-Nrz"/>
-                        <constraint firstItem="ohj-Z4-NGc" firstAttribute="leading" secondItem="cRg-ee-lCW" secondAttribute="leading" constant="12" id="l4J-zm-nwj"/>
+                        <constraint firstItem="Xjg-3f-LTz" firstAttribute="top" secondItem="cRg-ee-lCW" secondAttribute="top" constant="12" id="5bG-nO-A1W"/>
+                        <constraint firstItem="cRg-ee-lCW" firstAttribute="trailing" secondItem="2BJ-jZ-W9M" secondAttribute="trailing" constant="12" id="EIh-Bj-Bef"/>
+                        <constraint firstItem="2BJ-jZ-W9M" firstAttribute="top" secondItem="Xjg-3f-LTz" secondAttribute="bottom" constant="12" id="LYc-2Z-QRx"/>
+                        <constraint firstItem="Xjg-3f-LTz" firstAttribute="leading" secondItem="cRg-ee-lCW" secondAttribute="leading" id="Mpz-XK-65C"/>
+                        <constraint firstItem="cRg-ee-lCW" firstAttribute="trailing" secondItem="lfV-Fx-5kV" secondAttribute="trailing" constant="12" id="ZfR-d9-JKb"/>
+                        <constraint firstItem="cRg-ee-lCW" firstAttribute="bottom" secondItem="lfV-Fx-5kV" secondAttribute="bottom" constant="12" id="j1b-nu-VrF"/>
                         <constraint firstItem="2BJ-jZ-W9M" firstAttribute="leading" secondItem="cRg-ee-lCW" secondAttribute="leading" constant="12" id="l7P-Gl-69T"/>
+                        <constraint firstItem="2ee-cg-Tcn" firstAttribute="top" secondItem="2BJ-jZ-W9M" secondAttribute="bottom" constant="20" id="mFT-Nj-gG0"/>
+                        <constraint firstItem="cRg-ee-lCW" firstAttribute="trailing" secondItem="Xjg-3f-LTz" secondAttribute="trailing" id="oyE-9m-Xge"/>
+                        <constraint firstItem="2ee-cg-Tcn" firstAttribute="leading" secondItem="lfV-Fx-5kV" secondAttribute="leading" id="t5i-Dj-O3I"/>
+                        <constraint firstItem="lfV-Fx-5kV" firstAttribute="top" secondItem="2ee-cg-Tcn" secondAttribute="bottom" constant="8" id="uxz-tN-eUC"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="cRg-ee-lCW"/>
                 </view>
@@ -129,30 +160,81 @@
                     <rect key="frame" x="0.0" y="0.0" width="768" height="978"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Note Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv6-tx-bpS">
-                            <rect key="frame" x="11" y="32" width="135" height="36"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workbook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv6-tx-bpS">
+                            <rect key="frame" x="12" y="32" width="744" height="91"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="72"/>
+                            <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xTE-hw-j6R">
+                            <rect key="frame" x="12" y="135" width="744" height="831"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <mutableString key="text">In the Workbook area you will find an emotion card for all the emotions.
+
+If you tap on the card if will flip to show it's opposite side. You can take the card out of your game by tapping in the area outside the card. If there is no tick on the right hand side then that card is excluded from the game.
+
+Long tap on any image to zoom in. You can also set your own content here.
+Long tap on the word side of the card to show your worksheet.
+
+Each worksheet six questions. Each question has a green box around it, tap on the green box and put in the answer to your question.
+
+If you want you can print out your worksheet, press "Print" and Reflector Selector will make a pdf, you can then  either save it to your Reflector Selector folder or send it to your printer. You can also print out a blank worksheet by leaving all the answers blank.</mutableString>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Bv6-tx-bpS" firstAttribute="top" secondItem="3sS-G4-oXO" secondAttribute="top" constant="12" id="4fu-VO-TVb"/>
+                        <constraint firstItem="xTE-hw-j6R" firstAttribute="top" secondItem="Bv6-tx-bpS" secondAttribute="bottom" constant="12" id="9dC-M9-EOj"/>
+                        <constraint firstItem="3sS-G4-oXO" firstAttribute="trailing" secondItem="xTE-hw-j6R" secondAttribute="trailing" constant="12" id="ExK-pA-3iE"/>
+                        <constraint firstItem="Bv6-tx-bpS" firstAttribute="leading" secondItem="3sS-G4-oXO" secondAttribute="leading" constant="12" id="FXo-Aj-7P5"/>
+                        <constraint firstItem="3sS-G4-oXO" firstAttribute="bottom" secondItem="xTE-hw-j6R" secondAttribute="bottom" constant="12" id="h1b-fp-nhi"/>
+                        <constraint firstItem="3sS-G4-oXO" firstAttribute="trailing" secondItem="Bv6-tx-bpS" secondAttribute="trailing" constant="12" id="q7g-oi-i9g"/>
+                        <constraint firstItem="xTE-hw-j6R" firstAttribute="leading" secondItem="3sS-G4-oXO" secondAttribute="leading" constant="12" id="zjM-tz-CX6"/>
+                    </constraints>
                     <viewLayoutGuide key="safeArea" id="3sS-G4-oXO"/>
                 </view>
                 <view alpha="0.0" contentMode="scaleToFill" id="NYS-gO-fTD">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="978"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GgZ-bC-hIU">
-                            <rect key="frame" x="11" y="32" width="102" height="36"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Options" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GgZ-bC-hIU">
+                            <rect key="frame" x="12" y="32" width="744" height="91"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="72"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vqt-u8-ETz">
+                            <rect key="frame" x="12" y="135" width="744" height="831"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <mutableString key="text">The options page is where you can put in your name, select the Phase you want to work on, and make your Handbook and Workbook pdf's.
+
+When you select your phase, you change how many emotions Reflector Selector works with. 
+
+Phase 1 has 12 emotions
+Phase two has 23
+Phase 3 has 40 emotions
+
+Press the Handbook and Workbook to make both your books. Reflector Selector will take you to a screen where you can read through your books, or you can press the Action button on the top right to either print out or send your pdf to your Reflector Slector folder.</mutableString>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="GgZ-bC-hIU" firstAttribute="top" secondItem="2av-YM-TME" secondAttribute="top" constant="12" id="Cs2-oH-M1b"/>
+                        <constraint firstItem="Vqt-u8-ETz" firstAttribute="leading" secondItem="2av-YM-TME" secondAttribute="leading" constant="12" id="DRl-e2-Ful"/>
+                        <constraint firstItem="2av-YM-TME" firstAttribute="trailing" secondItem="Vqt-u8-ETz" secondAttribute="trailing" constant="12" id="UhX-Nl-sQL"/>
+                        <constraint firstItem="2av-YM-TME" firstAttribute="bottom" secondItem="Vqt-u8-ETz" secondAttribute="bottom" constant="12" id="ZLH-x2-REg"/>
+                        <constraint firstItem="GgZ-bC-hIU" firstAttribute="leading" secondItem="2av-YM-TME" secondAttribute="leading" constant="12" id="dww-gu-5gB"/>
+                        <constraint firstItem="Vqt-u8-ETz" firstAttribute="top" secondItem="GgZ-bC-hIU" secondAttribute="bottom" constant="12" id="gc7-3o-jfW"/>
+                        <constraint firstItem="2av-YM-TME" firstAttribute="trailing" secondItem="GgZ-bC-hIU" secondAttribute="trailing" constant="12" id="wI5-ha-w3i"/>
+                    </constraints>
                     <viewLayoutGuide key="safeArea" id="2av-YM-TME"/>
                 </view>
             </objects>

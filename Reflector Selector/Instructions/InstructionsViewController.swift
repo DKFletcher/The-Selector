@@ -38,21 +38,27 @@ class InstructionsViewController: UIViewController {
 	}
 	
 	private func setMenu(){
-		optionsButton.titleLabel?.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
-		notebookButton.titleLabel?.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
-		homeButton.titleLabel?.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+		optionsButton.setImage(UIImage(named: "C1_dark"), for: .normal)
+		notebookButton.setImage(UIImage(named: "L1C_dark"), for: .normal)
+		homeButton.setImage(UIImage(named: "Joy_3_1_100_dark"), for: .normal)
+//		optionsButton.titleLabel?.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+//		notebookButton.titleLabel?.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+//		homeButton.titleLabel?.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
 		homeView.alpha = 0.0
 		notebookView.alpha = 0.0
 		optionsView.alpha = 0.0
 		switch (tabBarController as! TabBarController).helpState{
 			case .home:
-				homeButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6980392157, blue: 0.1450980392, alpha: 1), for: .normal)
+				homeButton.setImage(UIImage(named: "Joy_3_1_100"), for: .normal)
+//				homeButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6980392157, blue: 0.1450980392, alpha: 1), for: .normal)
 				homeView.menuAnimateIn()
 			case .notebook:
-				notebookButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6980392157, blue: 0.1450980392, alpha: 1), for: .normal)
+				notebookButton.setImage(UIImage(named: "L1C"), for: .normal)
+//				notebookButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6980392157, blue: 0.1450980392, alpha: 1), for: .normal)
 				notebookView.menuAnimateIn()
 			case .options:
-				optionsButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6980392157, blue: 0.1450980392, alpha: 1), for: .normal)
+				optionsButton.setImage(UIImage(named: "C1C"), for: .normal)
+//				optionsButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6980392157, blue: 0.1450980392, alpha: 1), for: .normal)
 				optionsView.menuAnimateIn()
 		}
 	}

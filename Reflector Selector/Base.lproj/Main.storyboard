@@ -31,16 +31,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QPD-yl-VaV">
-                                <rect key="frame" x="0.0" y="160.5" width="768" height="723"/>
+                                <rect key="frame" x="12" y="160.5" width="744" height="723"/>
                                 <subviews>
                                     <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMf-Fl-4qR" customClass="CardSuperview" customModule="Reflector_Selector" customModuleProvider="target">
-                                        <rect key="frame" x="30.5" y="0.0" width="707" height="353.5"/>
+                                        <rect key="frame" x="18.5" y="0.0" width="707" height="353.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="TMf-Fl-4qR" secondAttribute="height" multiplier="1:0.5" id="Lc9-dz-slS"/>
                                         </constraints>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdn-d7-LCq" userLabel="Multiple Choice Superview">
-                                        <rect key="frame" x="30.5" y="369.5" width="707" height="353.5"/>
+                                        <rect key="frame" x="18.5" y="369.5" width="707" height="353.5"/>
                                         <connections>
                                             <segue destination="Pw2-6r-vp6" kind="embed" identifier="NamesSegue" id="8XM-ss-ce0"/>
                                         </connections>
@@ -52,9 +52,9 @@
                                 <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zy7-o6-0yu">
-                                <rect key="frame" x="635" y="82" width="121" height="41"/>
-                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                                <state key="normal" title="Instructions" backgroundImage="button up">
+                                <rect key="frame" x="12" y="82" width="39" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <state key="normal" title="?" backgroundImage="button up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -64,11 +64,11 @@
                         </subviews>
                         <color key="backgroundColor" name="Lesson Background"/>
                         <constraints>
-                            <constraint firstItem="QPD-yl-VaV" firstAttribute="leading" secondItem="KSY-TF-SeM" secondAttribute="leading" id="8XX-p9-J9p"/>
-                            <constraint firstItem="KSY-TF-SeM" firstAttribute="trailing" secondItem="QPD-yl-VaV" secondAttribute="trailing" id="CPr-3J-MrP"/>
+                            <constraint firstItem="QPD-yl-VaV" firstAttribute="leading" secondItem="KSY-TF-SeM" secondAttribute="leading" constant="12" id="8XX-p9-J9p"/>
+                            <constraint firstItem="KSY-TF-SeM" firstAttribute="trailing" secondItem="QPD-yl-VaV" secondAttribute="trailing" constant="12" id="CPr-3J-MrP"/>
                             <constraint firstItem="QPD-yl-VaV" firstAttribute="height" secondItem="KSY-TF-SeM" secondAttribute="height" multiplier="4/5" id="UKN-V6-Wqe"/>
                             <constraint firstItem="Zy7-o6-0yu" firstAttribute="top" secondItem="KSY-TF-SeM" secondAttribute="top" constant="12" id="UMI-ec-dIQ"/>
-                            <constraint firstItem="KSY-TF-SeM" firstAttribute="trailing" secondItem="Zy7-o6-0yu" secondAttribute="trailing" constant="12" id="Z7Z-V0-TTq"/>
+                            <constraint firstItem="Zy7-o6-0yu" firstAttribute="leading" secondItem="KSY-TF-SeM" secondAttribute="leading" constant="12" id="hjB-um-bjo"/>
                             <constraint firstItem="QPD-yl-VaV" firstAttribute="centerY" secondItem="KSY-TF-SeM" secondAttribute="centerY" id="xeB-jN-0r1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KSY-TF-SeM"/>

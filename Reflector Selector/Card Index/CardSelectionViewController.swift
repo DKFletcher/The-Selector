@@ -29,6 +29,7 @@
 import UIKit
 
 class CardSelectionViewController: UITableViewController, CardSelectionCellDelegate {
+	
 	func navigateFromCell(to card: Card, from image: Bool, edit front: Bool) {
 		if image{
 			performSegue(withIdentifier: "CloseSegue", sender: card)
@@ -42,9 +43,6 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 			}
 		}
 	}
-	
-	
-	
 	
 	var handleSelection: ((Card, _ selected: Bool) -> Void)!
 	
@@ -63,7 +61,6 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 //			}
 //		}
 		navigationController?.navigationBar.isHidden = true
-		
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -104,6 +101,7 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 		cell.cardSuperView.handleFlip = { [unowned self] destinationSide in
 			self.cellModels[indexPath.row].side = destinationSide
 		}
+//		cell.accessoryView = UIImageView(image: UIImage(named: "Joy_3_1_100"))
 		return cell
 	}
 	
