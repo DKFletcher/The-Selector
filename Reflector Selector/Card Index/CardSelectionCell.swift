@@ -56,8 +56,12 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
 	
 	@IBOutlet var cardSuperView: CardSuperview!{
 			didSet{
-					cardSuperView.longDelegate = self
+				cardSuperView.longDelegate = self
 			}
+	}
+	
+	func persistFlip(for side: CardView.Side){
+		print("persistFlip: \(side)")
 	}
 	
 	func setModel(_ model: Model) {

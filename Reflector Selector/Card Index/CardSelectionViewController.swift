@@ -123,6 +123,7 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		print("didSelectRowAt")
 		cellModels[indexPath.row].selected.toggle()
 		let model = cellModels[indexPath.row]
 		(tableView.cellForRow(at: indexPath) as! CardSelectionCell).setModel(model)

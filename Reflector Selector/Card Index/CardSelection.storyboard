@@ -42,6 +42,9 @@
                                 <constraints>
                                     <constraint firstItem="ctT-KI-05G" firstAttribute="centerX" secondItem="BIe-Xd-fRS" secondAttribute="centerX" id="4TL-Qd-2rP"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="cardSuperView" destination="ctT-KI-05G" id="Drn-nR-qSu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
