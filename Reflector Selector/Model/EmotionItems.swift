@@ -33,9 +33,10 @@ class EmotionItems{
 		case feelings, situations, behaviours, solutions
 	}
 	
-	enum Phase : Int, CaseIterable{
+	enum Phase : Int, CaseIterable, Encodable, Decodable{
 		case first, second, third
 	}
+	
 	let quadrant : Quadrant
 	
 	private var feelingsItems : [EmotionItem] = []

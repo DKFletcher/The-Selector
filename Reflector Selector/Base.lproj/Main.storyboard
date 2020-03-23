@@ -223,10 +223,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="707" height="353.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fTT-FT-sx7">
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fTT-FT-sx7">
                                 <rect key="frame" x="0.0" y="0.0" width="707" height="353.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EhT-xs-SQ8">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EhT-xs-SQ8">
                                         <rect key="frame" x="0.0" y="0.0" width="707" height="88.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <state key="normal" title="Button" backgroundImage="button outline"/>
@@ -322,7 +322,7 @@
         <scene sceneID="00o-vc-4sE">
             <objects>
                 <navigationController storyboardIdentifier="ActivityNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="8mB-3h-EVC" customClass="ActivityNavigationController" customModule="Reflector_Selector" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tabBarWhale" selectedImage="tabBarWhale" id="aBa-Gx-8fg"/>
+                    <tabBarItem key="tabBarItem" title="" image="Joy_tab" selectedImage="Joy_tab" id="aBa-Gx-8fg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W1T-6u-4FF">
                         <rect key="frame" x="0.0" y="20" width="768" height="50"/>
@@ -339,11 +339,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Joy_tab" width="65" height="40"/>
         <image name="Lesson" width="62" height="57"/>
         <image name="button outline" width="47" height="46"/>
         <image name="button up" width="39" height="41"/>
         <image name="celebration" width="1025" height="1024"/>
-        <image name="tabBarWhale" width="50" height="30"/>
         <namedColor name="Cardeo Purple">
             <color red="0.64313725490196083" green="0.35294117647058826" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

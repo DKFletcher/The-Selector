@@ -195,7 +195,7 @@
         <scene sceneID="xGk-a6-Tvn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RBi-Do-BI9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="C1" id="Vfi-gR-Nni"/>
+                    <tabBarItem key="tabBarItem" title="" image="C1_bar" selectedImage="C1_bar" id="Vfi-gR-Nni"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Oc6-nW-jT6">
                         <rect key="frame" x="0.0" y="20" width="768" height="50"/>
@@ -212,7 +212,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="C1" width="60" height="60"/>
+        <image name="C1_bar" width="30" height="30"/>
         <image name="button sellected" width="39" height="41"/>
         <image name="button up" width="39" height="41"/>
         <namedColor name="Lesson Background">

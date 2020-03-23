@@ -24,6 +24,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0a-Yh-N79">
                                         <rect key="frame" x="0.0" y="0.5" width="250.5" height="59"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="r0a-Yh-N79" secondAttribute="height" multiplier="250:59" id="Z57-LK-dUo"/>
+                                        </constraints>
                                         <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="12" maxY="0.0"/>
                                         <state key="normal" image="Joy_3_1_100">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,6 +70,16 @@
                                     <constraint firstItem="t9Z-dn-R5R" firstAttribute="centerY" secondItem="Jsy-mg-vdV" secondAttribute="centerY" id="gso-dK-BeG"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPo-De-lUT">
+                                <rect key="frame" x="12" y="40" width="39" height="41"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                <state key="normal" title="X" backgroundImage="button up">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonAction:" destination="5rB-87-xgA" eventType="touchUpInside" id="e4A-ye-VHw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="Lesson Background"/>
                         <constraints>
@@ -75,6 +88,8 @@
                             <constraint firstItem="0CE-4A-EvJ" firstAttribute="bottom" secondItem="Jsy-mg-vdV" secondAttribute="bottom" id="HhR-pl-4kO"/>
                             <constraint firstItem="0CE-4A-EvJ" firstAttribute="trailing" secondItem="Jsy-mg-vdV" secondAttribute="trailing" id="Hqo-YH-IoY"/>
                             <constraint firstItem="Jsy-mg-vdV" firstAttribute="leading" secondItem="0CE-4A-EvJ" secondAttribute="leading" id="N6J-pX-rL9"/>
+                            <constraint firstItem="HPo-De-lUT" firstAttribute="leading" secondItem="0CE-4A-EvJ" secondAttribute="leading" constant="12" id="RSe-mu-hRW"/>
+                            <constraint firstItem="HPo-De-lUT" firstAttribute="top" secondItem="boG-ND-bHH" secondAttribute="top" constant="12" id="W8c-JJ-Nhb"/>
                             <constraint firstItem="0CE-4A-EvJ" firstAttribute="trailing" secondItem="boG-ND-bHH" secondAttribute="trailing" constant="4" id="bxE-ri-4rZ"/>
                             <constraint firstItem="Jsy-mg-vdV" firstAttribute="top" secondItem="boG-ND-bHH" secondAttribute="bottom" id="z54-JY-sR1"/>
                         </constraints>
@@ -98,7 +113,7 @@
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BJ-jZ-W9M">
                             <rect key="frame" x="12" y="135" width="744" height="720"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <mutableString key="text">This game tests to see how much you understand about your emotions.
+                            <string key="text">This game tests to see how much you understand about your emotions.
 
 As you progress you will eventualy have a game made up of all your own images, then the fun really starts. You can swap iPads with a partner to see who has the best reflector.
 
@@ -113,7 +128,7 @@ Tap on the purple question mark to get back to these instructions.
 Tap any of the icons at the top to find a description of what the icons at the bottom do.
 
 Your on the whale right now, JOY!
-</mutableString>
+</string>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -170,7 +185,7 @@ Art by Rhannon Van Muysen</string>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xTE-hw-j6R">
                             <rect key="frame" x="12" y="135" width="744" height="831"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <mutableString key="text">In the Workbook area you will find an emotion card for all the emotions.
+                            <string key="text">In the Workbook area you will find an emotion card for all the emotions.
 
 If you tap on the card if will flip to show it's opposite side. You can take the card out of your game by tapping in the area outside the card. If there is no tick on the right hand side then that card is excluded from the game.
 
@@ -179,7 +194,7 @@ Long tap on the word side of the card to show your worksheet.
 
 Each worksheet six questions. Each question has a green box around it, tap on the green box and put in the answer to your question.
 
-If you want you can print out your worksheet, press "Print" and Reflector Selector will make a pdf, you can then  either save it to your Reflector Selector folder or send it to your printer. You can also print out a blank worksheet by leaving all the answers blank.</mutableString>
+If you want you can print out your worksheet, press "Print" and Reflector Selector will make a pdf, you can then  either save it to your Reflector Selector folder or send it to your printer. You can also print out a blank worksheet by leaving all the answers blank.</string>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -211,7 +226,7 @@ If you want you can print out your worksheet, press "Print" and Reflector Select
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vqt-u8-ETz">
                             <rect key="frame" x="12" y="135" width="744" height="831"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <mutableString key="text">The options page is where you can put in your name, select the Phase you want to work on, and make your Handbook and Workbook pdf's.
+                            <string key="text">The options page is where you can put in your name, select the Phase you want to work on, and make your Handbook and Workbook pdf's.
 
 When you select your phase, you change how many emotions Reflector Selector works with. 
 
@@ -219,7 +234,7 @@ Phase 1 has 12 emotions
 Phase two has 23
 Phase 3 has 40 emotions
 
-Press the Handbook and Workbook to make both your books. Reflector Selector will take you to a screen where you can read through your books, or you can press the Action button on the top right to either print out or send your pdf to your Reflector Slector folder.</mutableString>
+Press the Handbook and Workbook to make both your books. Reflector Selector will take you to a screen where you can read through your books, or you can press the Action button on the top right to either print out or send your pdf to your Reflector Slector folder.</string>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -246,6 +261,7 @@ Press the Handbook and Workbook to make both your books. Reflector Selector will
         <image name="Joy_3_1_100" width="100" height="59"/>
         <image name="Joy_3_1_750" width="750" height="438"/>
         <image name="L1C" width="60" height="60"/>
+        <image name="button up" width="39" height="41"/>
         <namedColor name="Lesson Background">
             <color red="0.2199999988079071" green="0.2199999988079071" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -28,9 +28,14 @@ class InstructionsViewController: UIViewController {
 		setMenu()
 	}
 	
+	@IBAction func closeButtonAction(_ sender: UIButton) {
+//		dismiss(animated: true, completion: nil)
+//		navigationController?.dismiss(animated: true, completion: nil)
+		navigationController?.popViewController(animated: true)
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-//		navigationController?.navigationBar.isHidden = false
 		instructionViewport.addSubview(homeView, constrainedTo: instructionViewport, widthAnchorView: instructionViewport, multiplier: 1.0)
 		instructionViewport.addSubview(notebookView, constrainedTo: instructionViewport, widthAnchorView: instructionViewport, multiplier: 1.0)
 		instructionViewport.addSubview(optionsView, constrainedTo: instructionViewport, widthAnchorView: instructionViewport, multiplier: 1.0)
@@ -41,24 +46,18 @@ class InstructionsViewController: UIViewController {
 		optionsButton.setImage(UIImage(named: "C1_dark"), for: .normal)
 		notebookButton.setImage(UIImage(named: "L1C_dark"), for: .normal)
 		homeButton.setImage(UIImage(named: "Joy_3_1_100_dark"), for: .normal)
-//		optionsButton.titleLabel?.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
-//		notebookButton.titleLabel?.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
-//		homeButton.titleLabel?.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
 		homeView.alpha = 0.0
 		notebookView.alpha = 0.0
 		optionsView.alpha = 0.0
 		switch (tabBarController as! TabBarController).helpState{
 			case .home:
 				homeButton.setImage(UIImage(named: "Joy_3_1_100"), for: .normal)
-//				homeButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6980392157, blue: 0.1450980392, alpha: 1), for: .normal)
 				homeView.menuAnimateIn()
 			case .notebook:
 				notebookButton.setImage(UIImage(named: "L1C"), for: .normal)
-//				notebookButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6980392157, blue: 0.1450980392, alpha: 1), for: .normal)
 				notebookView.menuAnimateIn()
 			case .options:
 				optionsButton.setImage(UIImage(named: "C1C"), for: .normal)
-//				optionsButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6980392157, blue: 0.1450980392, alpha: 1), for: .normal)
 				optionsView.menuAnimateIn()
 		}
 	}

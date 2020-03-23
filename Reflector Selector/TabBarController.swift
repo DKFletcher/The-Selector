@@ -77,10 +77,11 @@ class TabBarController: UITabBarController {
 				let emotion = Emotion(emotion: emotionName, work: worksheet, custom : card.emotion.custom)
 				em.append(emotion)
 			}
-			return AbstractionLayerForText(user: learnerName, emotions: em)
+			return AbstractionLayerForText(user: learnerName, emotions: em, for: phase)
 		}
 		set {
 			let storePhase = phase
+			phase = newValue.phase
 			phase = .third
 			imageServer.flushServer()
 			learnerName = newValue.name
@@ -97,7 +98,6 @@ class TabBarController: UITabBarController {
 			phase = storePhase
 		}
 	}
-	
 	var cards : [Card]! {
 		get{
 			var phaseCards : [Card] = []
@@ -169,6 +169,9 @@ extension TabBarController: UITabBarControllerDelegate {
 	}
 }
 
+
+
+
 extension TabBarController{
 	func textToChange(text changed: QuestionAnswer){
 		do{
@@ -189,12 +192,24 @@ extension TabBarController{
 		} catch { print(error)}
 	}
 	
+	func workbookToChange(workbook abstractionLayerForWorkbook : AbstractionLayerForWorkbook){
+		do {
+			let encoder = JSONEncoder()
+			let documentData = try encoder.encode(abstractionLayerForWorkbook)
+			do {
+				try self .fileSave(directory: .applicationSupportDirectory, fileName: "workbook", directoryName: "./", documentData: documentData, pathExtension: "txt")
+			} catch {
+				print(error)
+			}
+		} catch { print(error)}
+		
+	}
+	
 	func nameToChange(){
 		do {
 			let encoder = JSONEncoder()
 			let data = abstractionLayer
 			let documentData = try encoder.encode(data)
-			print("document data")
 			do{
 				try self .fileSave(directory: .applicationSupportDirectory, fileName: "worksheets", directoryName: "./", documentData: documentData, pathExtension: "txt")
 			} catch {

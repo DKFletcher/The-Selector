@@ -45,6 +45,7 @@ class LessonViewController: UIViewController, LongDelegate{
 			performSegue(withIdentifier: "PDFSegue", sender: card)
 		}
 	}
+	
 	var landscapeBackCardConstraint: NSLayoutConstraint!
 	@IBOutlet var widthRatio: NSLayoutConstraint!
 	@IBOutlet var mainStack: UIStackView!
@@ -145,6 +146,8 @@ class LessonViewController: UIViewController, LongDelegate{
 	
 	func pickNewCard() {
 		cardSuperview.learnTime = false
+		streakBrokenLabel.isHidden = false
+		streakBrokenLabel2.isHidden = false
 		let side = CardView.Side.allCases.randomElement()!
 		let correctCard = cards.randomElement()!
 		switch side {
@@ -171,6 +174,7 @@ class LessonViewController: UIViewController, LongDelegate{
 	}
 	
 	func breakStreak() {
+		print("breakStreak")
 		streakBrokenLabel.text = "\(streakCount)"
 		streakCount = 0
 		//        cardSuperview.isUserInteractionEnabled = false
