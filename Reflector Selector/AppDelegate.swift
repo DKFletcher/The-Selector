@@ -682,8 +682,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				.appendingPathExtension("txt")
 			do{
 				let jsonData = try Data(contentsOf: jsonWorkbookURL)
-//				let abstractedWorkbook = try decoder.decode(AbstractionLayerForWorkbook.self, from: jsonData)
-//				(window!.rootViewController as! TabBarController).abstractionLayerForWorkbook = abstractedWorkbook
+				let abstractedWorkbook = try decoder.decode(AbstractionLayerForWorkbook.self, from: jsonData)
+				(window!.rootViewController as! TabBarController).abstractedWorkbook = abstractedWorkbook
 			} catch {
 				print(error)
 			}

@@ -50,17 +50,27 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 		super.viewDidLoad()
 	}
 	
-	
 	override func viewWillAppear(_ animated: Bool) {
-//		tableView.visibleCells.forEach{
-//			var cell = $0 as! CardSelectionCell
-//			for cardView in cell.cardSuperView.cardViews{
-//				if cardView.side == .front{
-//					(cardView as! FrontCardView).updateImage()
-//				}
-//			}
-//		}
 		navigationController?.navigationBar.isHidden = true
+			if let book = (tabBarController as! TabBarController).abstractedWorkbook{
+				cellModels.forEach{ cell in
+					var cell = cell
+					let page = book.workBook.filter{ $0.name == cell.card.name}[0]
+					if let side = CardView.Side(rawValue: page.side.rawValue){
+						print("viewWillApear")
+						cell.selected = page.included
+						cell.side = side
+//						cell.model = CardSelectionCell.Model(
+//								card: cell.getModel().card,
+//								side: side,
+//								selected: page.included)
+////						cell.side = side
+//
+					}
+				}
+			(tabBarController as! TabBarController).abstractedWorkbook = nil
+		}
+		super.viewWillAppear(animated)
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -76,6 +86,7 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 	}
 	
 	func setCards(_ cards: [Card]){
+		
 		cellModels = cards.map(CardSelectionCell.Model.init)
 		tableView.reloadData()
 	}
@@ -92,6 +103,7 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 	}
 	
 	override func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		print("cellForRowAt")
 		let cell = tableView.dequeueReusableCell(
 			withIdentifier: "\(CardSelectionCell.self)",
 			for: indexPath
@@ -100,9 +112,19 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 		cell.delegate = self
 		cell.cardSuperView.handleFlip = { [unowned self] destinationSide in
 			self.cellModels[indexPath.row].side = destinationSide
+			self.abstract()
 		}
-//		cell.accessoryView = UIImageView(image: UIImage(named: "Joy_3_1_100"))
 		return cell
+	}
+	
+	private func abstract(){
+		var workBook = [Page]()
+		for card in cellModels{
+			if let side = Page.Side(rawValue: card.side.rawValue){
+				workBook.append(Page(onDisplay: side, inGame: card.selected, for: card.card.name))
+			}
+		}
+		(tabBarController as! TabBarController).workbookToChange(workbook: AbstractionLayerForWorkbook(for: workBook))
 	}
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

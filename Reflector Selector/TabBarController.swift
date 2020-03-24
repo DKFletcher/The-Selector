@@ -98,6 +98,10 @@ class TabBarController: UITabBarController {
 			phase = storePhase
 		}
 	}
+	
+	var abstractedWorkbook : AbstractionLayerForWorkbook?
+	
+	
 	var cards : [Card]! {
 		get{
 			var phaseCards : [Card] = []

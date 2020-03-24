@@ -243,7 +243,7 @@ extension LessonViewController: MultipleChoiceViewControllerDelegate {
 			mainStack.axis = .horizontal
 		} else {
 			if self.view.frame.height > self.view.frame.width {
-			mainStack.axis = .vertical
+				mainStack.axis = .vertical
 			}
 		}
 	}

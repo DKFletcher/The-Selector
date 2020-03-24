@@ -29,8 +29,9 @@
 import UIKit
 
 @IBDesignable class CardView: UIControl {
-  enum Side: CaseIterable {
-    case front, back
+  enum Side: String, CaseIterable {
+    case front = "front"
+		case back = "back"
   }
 
   @IBOutlet weak var otherSide: CardView!

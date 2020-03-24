@@ -112,7 +112,6 @@ struct Page: Encodable, Decodable {
 
 struct AbstractionLayerForWorkbook: Encodable, Decodable{
 	let workBook : [Page]
-	
 	init (for pages : [Page]){
 		self.workBook = pages
 	}

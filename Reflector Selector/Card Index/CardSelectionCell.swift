@@ -52,7 +52,14 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
 		init(card: Card){
 			self.card = card
 		}
+		
+		init(card: Card, side: CardView.Side, selected: Bool){
+			self.card=card
+			self.side=side
+			self.selected=selected
+		}
 	}
+	var model : Model!
 	
 	@IBOutlet var cardSuperView: CardSuperview!{
 			didSet{
@@ -60,14 +67,16 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
 			}
 	}
 	
-	func persistFlip(for side: CardView.Side){
-		print("persistFlip: \(side)")
-	}
-	
 	func setModel(_ model: Model) {
+		self.model = model
 		cardSuperView.setCard(model.card, side: model.side, flip: false)
 		//		accessoryView = model.selected ? UIImageView(image: UIImage(named: "Joy_3_1_100")) : nil
 		accessoryType = model.selected ? .checkmark : .none
+	}
+	
+	
+	func getModel() -> Model{
+		return model
 	}
 }
 
