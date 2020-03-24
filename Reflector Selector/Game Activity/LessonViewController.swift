@@ -241,13 +241,10 @@ extension LessonViewController: MultipleChoiceViewControllerDelegate {
 	@objc func rotated() {
 		if UIDevice.current.userInterfaceIdiom == .pad && UIDevice.current.orientation.isLandscape{
 			mainStack.axis = .horizontal
-//			fillBackCardHieightInLAndscape()
-//			widthRatio.isActive = false
-//			landscapeBackCardConstraint.isActive = true
 		} else {
-//			landscapeBackCardConstraint.isActive = false
-//			widthRatio.isActive = true
+			if self.view.frame.height > self.view.frame.width {
 			mainStack.axis = .vertical
+			}
 		}
 	}
 }

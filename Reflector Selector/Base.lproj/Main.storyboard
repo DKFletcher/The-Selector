@@ -35,9 +35,6 @@
                                 <subviews>
                                     <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMf-Fl-4qR" customClass="CardSuperview" customModule="Reflector_Selector" customModuleProvider="target">
                                         <rect key="frame" x="18.5" y="0.0" width="707" height="353.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="TMf-Fl-4qR" secondAttribute="height" multiplier="1:0.5" id="Lc9-dz-slS"/>
-                                        </constraints>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdn-d7-LCq" userLabel="Multiple Choice Superview">
                                         <rect key="frame" x="18.5" y="369.5" width="707" height="353.5"/>
@@ -84,7 +81,6 @@
                         <outlet property="streakBrokenLabel" destination="fGA-oI-99D" id="g6K-gg-dgZ"/>
                         <outlet property="streakBrokenLabel2" destination="mfU-S4-5zs" id="gUv-1W-Szi"/>
                         <outlet property="streakBrokenView" destination="FAp-zJ-XWL" id="OHu-BT-sNq"/>
-                        <outlet property="widthRatio" destination="Lc9-dz-slS" id="WB1-zc-Irw"/>
                         <segue destination="Qgf-xC-mNg" kind="show" identifier="NotesSegue" id="Fxw-UP-gcH"/>
                         <segue destination="IrX-vK-gUU" kind="show" identifier="CloseSegue" id="jIm-nU-L8L"/>
                         <segue destination="VZr-TK-MOx" kind="show" identifier="PDFSegue" id="EMW-SW-vjU"/>
