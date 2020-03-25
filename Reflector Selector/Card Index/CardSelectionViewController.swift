@@ -52,24 +52,6 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 	
 	override func viewWillAppear(_ animated: Bool) {
 		navigationController?.navigationBar.isHidden = true
-			if let book = (tabBarController as! TabBarController).abstractedWorkbook{
-				cellModels.forEach{ cell in
-					var cell = cell
-					let page = book.workBook.filter{ $0.name == cell.card.name}[0]
-					if let side = CardView.Side(rawValue: page.side.rawValue){
-						print("viewWillApear")
-						cell.selected = page.included
-						cell.side = side
-//						cell.model = CardSelectionCell.Model(
-//								card: cell.getModel().card,
-//								side: side,
-//								selected: page.included)
-////						cell.side = side
-//
-					}
-				}
-			(tabBarController as! TabBarController).abstractedWorkbook = nil
-		}
 		super.viewWillAppear(animated)
 	}
 	
@@ -86,8 +68,15 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 	}
 	
 	func setCards(_ cards: [Card]){
-		
 		cellModels = cards.map(CardSelectionCell.Model.init)
+		if let book = (tabBarController as! TabBarController).abstractedWorkbook{
+			for index in 0..<cellModels.count{
+				let page = book.workBook.filter{ $0.name == cellModels[index].card.name}[0]
+				if let side = CardView.Side(rawValue: page.side.rawValue){
+					cellModels[index] = CardSelectionCell.Model(card: cellModels[index].card, side: side, selected: page.included)
+				}
+			}
+		}
 		tableView.reloadData()
 	}
 	
@@ -103,7 +92,6 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 	}
 	
 	override func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		print("cellForRowAt")
 		let cell = tableView.dequeueReusableCell(
 			withIdentifier: "\(CardSelectionCell.self)",
 			for: indexPath
@@ -121,7 +109,8 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 		var workBook = [Page]()
 		for card in cellModels{
 			if let side = Page.Side(rawValue: card.side.rawValue){
-				workBook.append(Page(onDisplay: side, inGame: card.selected, for: card.card.name))
+				let page = Page(onDisplay: side, inGame: card.selected, for: card.card.name)
+				workBook.append(page)
 			}
 		}
 		(tabBarController as! TabBarController).workbookToChange(workbook: AbstractionLayerForWorkbook(for: workBook))
@@ -145,11 +134,11 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		print("didSelectRowAt")
 		cellModels[indexPath.row].selected.toggle()
 		let model = cellModels[indexPath.row]
 		(tableView.cellForRow(at: indexPath) as! CardSelectionCell).setModel(model)
 		handleSelection(model.card, model.selected)
+		abstract()
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender card: Any?) {

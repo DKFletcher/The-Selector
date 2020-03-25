@@ -56,6 +56,7 @@ class LessonViewController: UIViewController, LongDelegate{
 	@IBOutlet var stackView: UIStackView!
 	@IBOutlet var stackViewHeightConstraint: NSLayoutConstraint!
 	@IBOutlet var multipleChoiceSuperview: UIView!
+	
 	@IBAction func instructionButton(_ sender: UIButton) {
 		performSegue(withIdentifier: "InstructionsSegue", sender: nil)
 	}
@@ -88,6 +89,7 @@ class LessonViewController: UIViewController, LongDelegate{
 				(cardView as! FrontCardView).updateImage()
 			}
 		}
+		rotated()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -103,7 +105,7 @@ class LessonViewController: UIViewController, LongDelegate{
 	override func viewDidLoad() {
 		view.addSubview(
 			celebrationView,
-			constrainedTo: stackView, widthAnchorView: cardSuperview,
+			constrainedTo: view, widthAnchorView: view,
 			multiplier: 1 / stackViewHeightConstraint.multiplier
 		)
 		view.addSubview(streakBrokenView, constrainedTo: multipleChoiceSuperview)
@@ -174,7 +176,6 @@ class LessonViewController: UIViewController, LongDelegate{
 	}
 	
 	func breakStreak() {
-		print("breakStreak")
 		streakBrokenLabel.text = "\(streakCount)"
 		streakCount = 0
 		//        cardSuperview.isUserInteractionEnabled = false

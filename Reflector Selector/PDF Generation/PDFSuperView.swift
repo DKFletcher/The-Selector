@@ -18,12 +18,23 @@ class PDFSuperView {
 				- TypeSetConstants.header
 				- TypeSetConstants.footer{
 				pagePosition = TypeSetConstants.header
-				drawingPDF.beginPage()
+				beginPage = true
 			}
 		}
 	}
 	
 	var learnerName : String?
+	
+	var beginPage : Bool! {
+		didSet{
+			if !blankPage{
+				drawingPDF.beginPage()
+				blankPage = true
+			}
+		}
+	}
+	
+	var blankPage : Bool = true
 	
 	internal var drawingPDF : UIGraphicsPDFRendererContext!
 	
@@ -32,60 +43,6 @@ class PDFSuperView {
 			self.learnerName = learnName
 		}
 	}
-	
-	internal func formatAnswerBook(drawing pdf: UIGraphicsPDFRendererContext, text block: QuestionAnswer)->CGFloat{
-		func helper(startPosition: CGFloat,drawingPDF: UIGraphicsPDFRendererContext, qa: QuestionAnswer)->CGFloat{
-			var returnPosition = startPosition
-			var page = textBody3(to: qa.answer,for: qa.question,from: returnPosition)
-			func help1 () -> CGFloat {
-				drawingPDF.beginPage()
-				returnPosition = TypeSetConstants.header
-				return makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[1], question: qa.question)
-			}
-			
-			func help2()-> CGFloat{
-				returnPosition = makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[0], question: qa.question)
-				drawingPDF.beginPage()
-				returnPosition = TypeSetConstants.header
-				//				if let regex = try? NSRegularExpression(pattern: "[ ][A-Za-z0-9]+[ ]"){
-				//					page[1].removeFirstRegEx(regEx: regex)
-				//				}
-				return helper(startPosition: returnPosition, drawingPDF: drawingPDF, qa: QuestionAnswer(question: "", answer: page[1]))
-			}
-			
-			return page.count == 2 ? page[0].count == 0 ? help1() : help2() :
-				makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[0], question: qa.question)
-		}
-		return block.answer.count > 0 ? helper(startPosition: pagePosition, drawingPDF: pdf, qa: block) : blankAnswerBox(qa: block)
-	}
-	
-	//	internal func formatAnswerBook(drawing pdf: UIGraphicsPDFRendererContext, text block: QuestionAnswer)->CGFloat{
-	//		func helper(startPosition: CGFloat,drawingPDF: UIGraphicsPDFRendererContext, qa: QuestionAnswer)->CGFloat{
-	//			var returnPosition = startPosition
-	//			var page = textBody(to: qa.answer,for: qa.question,from: returnPosition)
-	//			func help1 () -> CGFloat {
-	//				drawingPDF.beginPage()
-	//				returnPosition = TypeSetConstants.header
-	//				return makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[1], question: qa.question)
-	//			}
-	//
-	//			func help2()-> CGFloat{
-	//				returnPosition = makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[0], question: qa.question)
-	//				drawingPDF.beginPage()
-	//				returnPosition = TypeSetConstants.header
-	//				if let regex = try? NSRegularExpression(pattern: "[ ][A-Za-z0-9]+[ ]"){
-	//					page[1].removeFirstRegEx(regEx: regex)
-	//				}
-	//				return helper(startPosition: returnPosition, drawingPDF: drawingPDF, qa: QuestionAnswer(question: "", answer: page[1]))
-	//			}
-	//
-	//			return page.count == 2 ? page[0].count == 0 ? help1() : help2() : makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[0], question: qa.question)
-	//		}
-	//		return block.answer.count > 0 ? helper(startPosition: pagePosition, drawingPDF: pdf, qa: block) : blankAnswerBox(qa: block)
-	//	}
-	
-	
-	
 	
 	//textBody - Interogates the string to be set and the available space to produce an array that has as its first value a string that fits the available space on page. The function needs to return the following format of array:
 	//1) ["block"] a block that fits onto the available space of one page.
@@ -248,48 +205,52 @@ class PDFSuperView {
 			width: TypeSetConstants.pageWidth - TypeSetConstants.margin*2,
 			height: qAndAHeight)
 		qAndA.draw(in: textRect)
+		blankPage = false
 		return textRect.origin.y + textRect.size.height
 	}
 	
-	private func blankAnswerBox(qa: QuestionAnswer)->CGFloat{
-		
-		var returnPosition = pagePosition + TypeSetConstants.standardSpacing
-		func onPage() -> CGFloat{
-			let context = drawingPDF.cgContext
-			context.setFillColor(UIColor.blue.cgColor)
-			context.setLineWidth(TypeSetConstants.answerBoxLineWidth)
-			let rect = CGRect(
-				x: TypeSetConstants.margin,
-				y: returnPosition,
-				width: TypeSetConstants.pageWidth - TypeSetConstants.margin * 2,
-				height: TypeSetConstants.answerBoxHeight)
-			context.addRect(rect)
-			context.drawPath(using: .stroke)
-			let boldFont = UIFont.systemFont(
-				ofSize: TypeSetConstants.bodyFontSize,
-				weight: .heavy)
-			let paragraphStyle = NSMutableParagraphStyle()
-			paragraphStyle.alignment = .left
-			paragraphStyle.lineBreakMode = .byWordWrapping
-			let boldAttributes: [NSAttributedString.Key: Any] = [
-				NSAttributedString.Key.paragraphStyle: paragraphStyle,
-				NSAttributedString.Key.font: boldFont,
-				NSAttributedString.Key.foregroundColor: UIColor.darkGray]
-			let qAndA = NSMutableAttributedString(string: qa.question, attributes: boldAttributes)
-			qAndA.draw(in: rect.insetBy(dx: TypeSetConstants.answerBoxTextInset, dy: TypeSetConstants.answerBoxTextInset))
-			return returnPosition + TypeSetConstants.answerBoxHeight + TypeSetConstants.standardSpacing
-		}
-		
-		func newPage() -> CGFloat{
-			returnPosition = TypeSetConstants.header
-			drawingPDF.beginPage()
-			return onPage()
-		}
-		
-		let qAndA = makeAttributedString(question: qa.question, answer: "")
-		let qAndAHeight = getAttributedStringHeight(qAndA) + TypeSetConstants.answerBoxHeight
-		return qAndAHeight + returnPosition < TypeSetConstants.pageHeight - TypeSetConstants.footer ? onPage() : newPage()
-	}
+//	private func blankAnswerBox(qa: QuestionAnswer)->CGFloat{
+//
+//		var returnPosition = pagePosition + TypeSetConstants.standardSpacing
+//
+//		func onPage() -> CGFloat{
+//			let context = drawingPDF.cgContext
+//			context.setFillColor(UIColor.blue.cgColor)
+//			context.setLineWidth(TypeSetConstants.answerBoxLineWidth)
+//			let rect = CGRect(
+//				x: TypeSetConstants.margin,
+//				y: returnPosition,
+//				width: TypeSetConstants.pageWidth - TypeSetConstants.margin * 2,
+//				height: TypeSetConstants.answerBoxHeight)
+//			context.addRect(rect)
+//			context.drawPath(using: .stroke)
+//			blankPage = false
+//			let boldFont = UIFont.systemFont(
+//				ofSize: TypeSetConstants.bodyFontSize,
+//				weight: .heavy)
+//			let paragraphStyle = NSMutableParagraphStyle()
+//			paragraphStyle.alignment = .left
+//			paragraphStyle.lineBreakMode = .byWordWrapping
+//			let boldAttributes: [NSAttributedString.Key: Any] = [
+//				NSAttributedString.Key.paragraphStyle: paragraphStyle,
+//				NSAttributedString.Key.font: boldFont,
+//				NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+//			let qAndA = NSMutableAttributedString(string: qa.question, attributes: boldAttributes)
+//			qAndA.draw(in: rect.insetBy(dx: TypeSetConstants.answerBoxTextInset, dy: TypeSetConstants.answerBoxTextInset))
+//			blankPage = false
+//			return returnPosition + TypeSetConstants.answerBoxHeight + TypeSetConstants.standardSpacing
+//		}
+//
+//		func newPage() -> CGFloat{
+//			returnPosition = TypeSetConstants.header
+//			beginPage = true
+//			return onPage()
+//		}
+//
+//		let qAndA = makeAttributedString(question: qa.question, answer: "")
+//		let qAndAHeight = getAttributedStringHeight(qAndA) + TypeSetConstants.answerBoxHeight
+//		return qAndAHeight + returnPosition < TypeSetConstants.pageHeight - TypeSetConstants.footer ? onPage() : newPage()
+//	}
 	
 	func addImage(imageTop: CGFloat, image: UIImage, frontPageAdjust: CGFloat = 0.0) -> CGFloat {
 		let maxHeight = TypeSetConstants.pageHeight
@@ -307,6 +268,7 @@ class PDFSuperView {
 			height: scaledHeight
 		)
 		image.draw(in: imageRect)
+		blankPage = false
 		return imageRect.origin.y + imageRect.size.height
 	}
 }

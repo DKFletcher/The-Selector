@@ -15,8 +15,6 @@ class HeartHandbook : PDFSuperView{
 		super.init(learner: name)
 	}
 	
-	
-	
 	func merge(pdfs: [Data]) -> Data {
 		let out = NSMutableData()
 		UIGraphicsBeginPDFContextToData(out, .zero, nil)
@@ -45,7 +43,7 @@ class HeartHandbook : PDFSuperView{
 			pdfData.append(createQuad(for: quadrant.rawValue))
 			book.filter{ $0.emotion.quadrant == quadrant }.forEach{ emotion in
 				pdfData.append(createNote(for: emotion))
-				if imageServer.customImage{
+				if emotion.emotion.custom{
 					pdfData.append(createWork(for: emotion))
 				}
 			}
@@ -55,15 +53,11 @@ class HeartHandbook : PDFSuperView{
 
 	func infoSheet(for card: Card) -> Data {
 		var pdfData : [Data] = []
-//		EmotionItems.Quadrant.allCases.forEach{ quadrant in
-			pdfData.append(createQuad(for: card.emotion.quadrant.rawValue))//quadrant.rawValue))
-//			book.filter{ $0.emotion.quadrant == quadrant }.forEach{ emotion in
-				pdfData.append(createNote(for: card))//emotion))
-				if imageServer.customImage{
-					pdfData.append(createWork(for: card))
-				}
-//			}
-//		}
+		pdfData.append(createQuad(for: card.emotion.quadrant.rawValue))
+			pdfData.append(createNote(for: card))//emotion))
+			if card.emotion.custom{
+				pdfData.append(createWork(for: card))
+			}
 		return merge(pdfs: pdfData)
 	}
 
@@ -77,7 +71,9 @@ class HeartHandbook : PDFSuperView{
 		format.documentInfo = pdfMetaData as [String: Any]
 		let renderer = UIGraphicsPDFRenderer(bounds: TypeSetConstants.pageRect, format: format)
 		let data = renderer.pdfData { (context) in
-			context.beginPage()
+			drawingPDF = context
+			blankPage = false
+			beginPage = true
 			let imageBottom = addImage(
 				imageTop: TypeSetConstants.header,
 				image: UIImage(named: "Joy_3_1_750")!,
@@ -135,10 +131,12 @@ class HeartHandbook : PDFSuperView{
 	}
 
 	func createWork(for emotion : Card) -> Data {
+		print("createWork")
 		let renderer = UIGraphicsPDFRenderer(bounds: TypeSetConstants.pageRect)
 		let data = renderer.pdfData { (context) in
 			drawingPDF = context
-			drawingPDF.beginPage()
+			beginPage = true
+			blankPage = false
 			learnerName = emotion.name.uppercased()
 			pagePosition = addTitle(card: emotion)
 			pagePosition = addImage(
@@ -177,6 +175,7 @@ class HeartHandbook : PDFSuperView{
 			height: ceil(rect.height)
 		)
 		attributed.draw(in: textRect)
+		blankPage = false
 		return textRect.origin.y + ceil(textRect.size.height)
 	}
 
@@ -193,6 +192,7 @@ class HeartHandbook : PDFSuperView{
 																 y: TypeSetConstants.header, width: titleStringSize.width,
 																 height: titleStringSize.height)
 		attributedTitle.draw(in: titleStringRect)
+		blankPage = false
 		return titleStringRect.origin.y + titleStringRect.size.height
 	}
 
@@ -212,6 +212,7 @@ class HeartHandbook : PDFSuperView{
 																 y: TypeSetConstants.header, width: titleStringSize.width,
 																 height: titleStringSize.height)
 		attributedTitle.draw(in: titleStringRect)
+		blankPage = false
 		return titleStringRect.origin.y + titleStringRect.size.height
 	}
 }

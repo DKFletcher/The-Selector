@@ -657,6 +657,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				)
 				].map(Card.init)
 		
+		
+		
+		
 		let documentsPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)[0]
 		let url = URL(fileURLWithPath: documentsPath)
 		let fileManager = FileManager.default
@@ -676,6 +679,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			} catch {
 				print(error)
 			}
+
+			
+			
 			
 			let jsonWorkbookURL = FileManager.applicationSupportDirectoryURL
 				.appendingPathComponent("workbook")
@@ -687,6 +693,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			} catch {
 				print(error)
 			}
+			
+			
+			
+			
 			
 			var emotionsImages : [String] = []
 			while let element = enumerator.nextObject() as? String { guard element.hasSuffix(".img") else { continue }
