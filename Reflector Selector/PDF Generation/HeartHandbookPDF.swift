@@ -50,17 +50,40 @@ class HeartHandbook : PDFSuperView{
 		}
 		return merge(pdfs: pdfData)
 	}
-
+	
 	func infoSheet(for card: Card) -> Data {
 		var pdfData : [Data] = []
+		pdfData.append(createFrontInfoPack(for: card))
 		pdfData.append(createQuad(for: card.emotion.quadrant.rawValue))
-			pdfData.append(createNote(for: card))//emotion))
-			if card.emotion.custom{
-				pdfData.append(createWork(for: card))
-			}
+		pdfData.append(createNote(for: card))
+//		if card.emotion.custom{
+//			pdfData.append(createWork(for: card))
+//		}
 		return merge(pdfs: pdfData)
 	}
 
+	func createFrontInfoPack(for card : Card) ->Data{
+		let pdfMetaData = [
+			kCGPDFContextCreator: "Reflector Selector Info Pack for \(card.name)",
+			kCGPDFContextAuthor: "MADFullStack.com"
+		]
+		let format = UIGraphicsPDFRendererFormat()
+		format.documentInfo = pdfMetaData as [String: Any]
+		let renderer = UIGraphicsPDFRenderer(bounds: TypeSetConstants.pageRect, format: format)
+		let data = renderer.pdfData { (context) in
+			drawingPDF = context
+			beginPage = true
+			let imageBottom = addImage(
+				imageTop: TypeSetConstants.header,
+				image: UIImage(named: "Joy_3_1_750")!,
+				frontPageAdjust: TypeSetConstants.pageHeight/2 - 300.0
+				) + TypeSetConstants.standardSpacing*2
+			if let name = learnerName{
+				_=addAddvice(tag: "Information Pack for \(card.name)\n"+name, position: imageBottom)
+			}
+		}
+		return data
+	}
 	
 	func createFrontPage() ->Data{
 		let pdfMetaData = [
@@ -72,7 +95,6 @@ class HeartHandbook : PDFSuperView{
 		let renderer = UIGraphicsPDFRenderer(bounds: TypeSetConstants.pageRect, format: format)
 		let data = renderer.pdfData { (context) in
 			drawingPDF = context
-			blankPage = false
 			beginPage = true
 			let imageBottom = addImage(
 				imageTop: TypeSetConstants.header,
@@ -85,7 +107,7 @@ class HeartHandbook : PDFSuperView{
 		}
 		return data
 	}
-
+	
 	func createQuad(for quad: String) -> Data {
 		let out = NSMutableData()
 		UIGraphicsBeginPDFContextToData(out, .zero, nil)
@@ -107,7 +129,7 @@ class HeartHandbook : PDFSuperView{
 		UIGraphicsEndPDFContext()
 		return out as Data
 	}
-
+	
 	func createNote(for emotion: Card) -> Data {
 		let out = NSMutableData()
 		UIGraphicsBeginPDFContextToData(out, .zero, nil)
@@ -129,14 +151,12 @@ class HeartHandbook : PDFSuperView{
 		UIGraphicsEndPDFContext()
 		return out as Data
 	}
-
+	
 	func createWork(for emotion : Card) -> Data {
-		print("createWork")
 		let renderer = UIGraphicsPDFRenderer(bounds: TypeSetConstants.pageRect)
 		let data = renderer.pdfData { (context) in
 			drawingPDF = context
 			beginPage = true
-			blankPage = false
 			learnerName = emotion.name.uppercased()
 			pagePosition = addTitle(card: emotion)
 			pagePosition = addImage(
@@ -146,7 +166,7 @@ class HeartHandbook : PDFSuperView{
 		}
 		return data
 	}
-
+	
 	private func addAddvice(tag line : String, position top : CGFloat) -> CGFloat{
 		let tagLineFont = UIFont.systemFont(ofSize: TypeSetConstants.tagLineFontSize, weight: .medium)
 		
@@ -175,10 +195,9 @@ class HeartHandbook : PDFSuperView{
 			height: ceil(rect.height)
 		)
 		attributed.draw(in: textRect)
-		blankPage = false
 		return textRect.origin.y + ceil(textRect.size.height)
 	}
-
+	
 	
 	func addTitle() -> CGFloat {
 		let titleFont = UIFont.systemFont(ofSize: 50.0, weight: .bold)
@@ -192,10 +211,9 @@ class HeartHandbook : PDFSuperView{
 																 y: TypeSetConstants.header, width: titleStringSize.width,
 																 height: titleStringSize.height)
 		attributedTitle.draw(in: titleStringRect)
-		blankPage = false
 		return titleStringRect.origin.y + titleStringRect.size.height
 	}
-
+	
 	func addTitle(card : Card) -> CGFloat {
 		let titleFont = UIFont(name: "Chalkduster", size: TypeSetConstants.tagLineFontSize)
 		let paragraphStyle = NSMutableParagraphStyle()
@@ -212,7 +230,6 @@ class HeartHandbook : PDFSuperView{
 																 y: TypeSetConstants.header, width: titleStringSize.width,
 																 height: titleStringSize.height)
 		attributedTitle.draw(in: titleStringRect)
-		blankPage = false
 		return titleStringRect.origin.y + titleStringRect.size.height
 	}
 }

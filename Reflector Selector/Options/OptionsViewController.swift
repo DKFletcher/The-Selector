@@ -48,6 +48,7 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate {
 			}
 			phaseOn(phase: phaseSet)
 			(self.tabBarController as! TabBarController).phase = phaseSet
+			(tabBarController as! TabBarController).optionsChanged()
 		}
 	}
 	
@@ -74,7 +75,7 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate {
 	
 	@objc func textFieldDidChange(_ textField: UITextField) {
 		(tabBarController as! TabBarController).learnerName = textField.text
-		(tabBarController as! TabBarController).nameToChange()
+		(tabBarController as! TabBarController).optionsChanged()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

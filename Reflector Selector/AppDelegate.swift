@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				stage : .third,
 				ring: .stretchingMe,
 				worksheet : Worksheet(topLeft: [QuestionAnswer(question : "What makes you feel admiration?", answer : testAnswer)],
-															topRight: [QuestionAnswer(question : "When have you felt admiriation what was happening?", answer : testAnswer)],
+															topRight: [QuestionAnswer(question : "When have you felt admiration what was happening?", answer : testAnswer)],
 															middleLeft: [QuestionAnswer(question : "For me admiration is…", answer : testAnswer)],
 															middleRight: [QuestionAnswer(question: "What does feeling admiration make you do?", answer: testAnswer)],
 															bottomLeft: [QuestionAnswer(question : "How do you know when you are feeling admiration?", answer : testAnswer)],
@@ -253,7 +253,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 															middleLeft: [QuestionAnswer(question : "For me feeling excited is...", answer : testAnswer)],
 															middleRight: [QuestionAnswer(question: "What does feeling excitement make you do?", answer: testAnswer)],
 															bottomLeft: [QuestionAnswer(question : "How do you know when you are feeling excited?", answer : testAnswer)],
-															bottomRight: [QuestionAnswer(question : "How do you get the nost from a sense of excitement?", answer : testAnswer)])
+															bottomRight: [QuestionAnswer(question : "How do you get the most from a sense of excitement?", answer : testAnswer)])
 				),
 			 
 			 EmotionItems(
@@ -602,7 +602,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				ring: .connectingMe,
 				worksheet : Worksheet(topLeft: [QuestionAnswer(question : "What makes you feel thankful?", answer : testAnswer)],
 															topRight: [QuestionAnswer(question : "When have you felt thankful what was happening?", answer : testAnswer)],
-															middleLeft: [QuestionAnswer(question : "For me feelinf thankful is...", answer : testAnswer)],
+															middleLeft: [QuestionAnswer(question : "For me feeling thankful is...", answer : testAnswer)],
 															middleRight: [QuestionAnswer(question: "What does feeling thankful make you do?", answer: testAnswer)],
 															bottomLeft: [QuestionAnswer(question : "How do you know when you are feeling thankful?", answer : testAnswer)],
 															bottomRight: [QuestionAnswer(question : "How do you get the most from feeling gratitude?", answer : testAnswer)])
@@ -706,12 +706,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				let jsonImagesURL = FileManager.applicationSupportDirectoryURL
 					.appendingPathComponent(image)
 				do{
-					print(image)
+//					print(image)
 					let jsonData = try Data(contentsOf: jsonImagesURL)
-					print("jsonData: \(jsonData.count)")
+//					print("jsonData: \(jsonData.count)")
 					let abstractedImage = try decoder.decode(AbstractionLayerForImage.self, from: jsonData)
-					print("abstractedImage: \(abstractedImage.image.emotion)")
-					print()
+//					print("abstractedImage: \(abstractedImage.image.emotion)")
+//					print()
 					(window!.rootViewController as! TabBarController).setAbstractionLayerForImage(image: abstractedImage)
 				} catch {
 					print(error)

@@ -113,7 +113,7 @@
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BJ-jZ-W9M">
                             <rect key="frame" x="12" y="135" width="744" height="739"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <string key="text">Reflector Selector aims to improve what you understand and can communicate about your emotions and how to use your emotions to guide and help you in life.
+                            <mutableString key="text">Reflector Selector aims to improve what you understand and can communicate about your emotions and how to use your emotions to guide and help you in life.
 
 As you progress through Reflector Selector you will have made: 
   -a game that works with all your own images
@@ -131,14 +131,14 @@ Long tap on the image side of a card to zoom in.
 When you are on the zoom in screen you can also change the image.
 You can do this by using the icons on the top right of the zoom screen.
 
-INFORMATION SHEETS
-Long tap on the word side of the card to see information sheets about the emotion for the round. Select the action button to save or print.
+INFORMATION PACKS
+Long tap on the word side of the card to see all the information in the handbook about the emotion for the round. Select the action button to save or print.
 
 INSTRUCTIONS
 On the game screen tap "?" at the top left to get back to these instructions and tap the "x" to close the instructions.
 Tap any of the icons at the top of the instructions to find a description of what the icons at the bottom do. Your on the whale right now, JOY!
 
-</string>
+</mutableString>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -210,7 +210,11 @@ You can do this by using the icons on the top right of the zoom screen.
 WORKSHEETS
 Long tap on the word side of a card to show a worksheet with six questions.
 On the worksheet screen each question has a green box around it, tap on the green box and answer the question.
-To print out your worksheet just select the "Print" and Reflector Selector will make a pdf. Select the action button on the top right to save or print. You can also make a paper version of a worksheet by leaving all the answers blank and then selecting print.</mutableString>
+To print out your worksheet just select the "Print" and Reflector Selector will make a pdf. Select the action button on the top right to save or print. You can also make a paper version of a worksheet by leaving all the answers blank and then selecting print.
+
+DOUBLE LONG PACK
+Double long tap on the word side of a card to make a double long pack.
+A double long pack collects all your work and all the information on the emotion on the card into one place. Select the action button on the top right to save or print a double long pack.</mutableString>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -242,7 +246,7 @@ To print out your worksheet just select the "Print" and Reflector Selector will 
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqt-u8-ETz">
                             <rect key="frame" x="12" y="135" width="744" height="831"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <string key="text">NAME
+                            <mutableString key="text">NAME
 The options page is where you can put in your name (tap on the white box and start typing).
 When you save anything to your folder the words in this box will be added to make up the name of the file you are saving.
 
@@ -254,7 +258,7 @@ Phase 3 has 40 emotions
 
 HANDBOOK AND WORKBOOK
 Press the Handbook or Workbook buttons to make your book. Reflector Selector will take you to a screen where you can read through your book.
-Press the Action button on the top right to print or save.</string>
+Press the Action button on the top right to print or save.</mutableString>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

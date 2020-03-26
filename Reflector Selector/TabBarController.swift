@@ -11,6 +11,7 @@ class TabBarController: UITabBarController {
 	
 	var phase : EmotionItems.Phase = .third {
 		didSet{
+			print("phase didSet: \(phase)")
 			setForPhase(cards: cards)
 		}
 	}
@@ -66,6 +67,7 @@ class TabBarController: UITabBarController {
 	
 	var abstractionLayer : AbstractionLayerForText {
 		get {
+			
 			print("abstraction layer  get")
 			var em : [Emotion] = []
 			emotions.forEach { card in
@@ -80,8 +82,7 @@ class TabBarController: UITabBarController {
 			return AbstractionLayerForText(user: learnerName, emotions: em, for: phase)
 		}
 		set {
-			let storePhase = phase
-			phase = newValue.phase
+			print("phase: \(newValue.phase)")
 			phase = .third
 			imageServer.flushServer()
 			learnerName = newValue.name
@@ -95,7 +96,7 @@ class TabBarController: UITabBarController {
 					
 				}
 				}}}
-			phase = storePhase
+			phase = newValue.phase
 		}
 	}
 	
@@ -141,7 +142,7 @@ class TabBarController: UITabBarController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		let _ = lessonViewController.cards
-		phase = .third
+//		phase = .third
 	}
 	
 	
@@ -209,7 +210,7 @@ extension TabBarController{
 		
 	}
 	
-	func nameToChange(){
+	func optionsChanged(){
 		do {
 			let encoder = JSONEncoder()
 			let data = abstractionLayer
@@ -224,7 +225,7 @@ extension TabBarController{
 	
 	func changeImageDisplayed(for card: Card){
 		self.emotions.filter{ $0.name == card.name}[0].emotion.custom = card.emotion.custom
-		nameToChange()
+		optionsChanged()
 	}
 	
 	func imagesToChange(image changed: UIImage){

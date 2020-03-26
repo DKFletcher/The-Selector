@@ -153,9 +153,16 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 			}
 		}
 		if segue.identifier == "NotesSegue"{
-			if let notes = segue.destination as? NotesTableViewController{
-				notes.itemList = (card as! Card).emotion.qanda
+			if let pdf = segue.destination as? PDFViewController{
+				pdf.job = .DoubleLong
+				pdf.card = (card as! Card)
 			}
 		}
+
+//		if segue.identifier == "NotesSegue"{
+//			if let notes = segue.destination as? NotesTableViewController{
+//				notes.itemList = (card as! Card).emotion.qanda
+//			}
+//		}
 	}
 }

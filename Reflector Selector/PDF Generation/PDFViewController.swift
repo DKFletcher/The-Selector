@@ -43,6 +43,8 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 		.cachesDirectory
 	]
 	
+	var additionalInfoForFileName : String = ""
+	
 	override func viewWillAppear(_ animated: Bool) {
 		navigationController?.navigationBar.isHidden = false
 	}
@@ -63,10 +65,11 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 			target: self,
 			action: #selector(action))
 		
-		work()
+		workFlow()
 	}
 	
-	private func work(){
+	private func workFlow(){
+		additionalInfoForFileName = ""
 		switch job{
 		case .WorkSheet :
 			let log = LearnerLog(learner: (tabBarController as! TabBarController).learnerName)
@@ -74,12 +77,16 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 		case .InfoSheet :
 			let heartHandbook = HeartHandbook(learner: (tabBarController as! TabBarController).learnerName)
 			documentData = heartHandbook.infoSheet(for: card)
+			additionalInfoForFileName = " for \(card.name)"
 		case .Handbook :
 			let heartHandbook = HeartHandbook(learner: (tabBarController as! TabBarController).learnerName)
 			documentData = heartHandbook.handbook(from: (tabBarController as! TabBarController).cards)
 		case .Logbook :
 			let log = LearnerLog(learner: (tabBarController as! TabBarController).learnerName)
 			documentData = log.logbook(from: (tabBarController as! TabBarController).cards)
+		case .DoubleLong :
+			let doubleLong = DoubleLong(learner: (tabBarController as! TabBarController).learnerName)
+			documentData = doubleLong.doubleLong(for: card)
 		}
 		
 		if let data = documentData, let document = PDFDocument(data: data){
@@ -153,7 +160,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "FileSegue"{
 			let name = (tabBarController as! TabBarController).learnerName ?? ""
-			(segue.destination as! SaveFileViewController).fileText = name+" "+job.rawValue
+			(segue.destination as! SaveFileViewController).fileText = name+" "+job.rawValue+additionalInfoForFileName
 			(segue.destination as! SaveFileViewController).nsData = nsData
 		}
 		print("preparation for save file")
@@ -163,9 +170,10 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 extension PDFViewController{
 	enum Jobs: String {
 		case WorkSheet = "Worksheet"
-		case InfoSheet = "Information sheet"
+		case InfoSheet = "Information Pack"
 		case Handbook = "Handbook"
 		case Logbook = "Log Book"
+		case DoubleLong = "Double Long Pack"
 	}
 }
 
