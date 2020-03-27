@@ -44,7 +44,7 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
 
 	var delegate :  CardSelectionCellDelegate?
 	
-	struct Model {
+	struct Model: Hashable {
 		var card: Card
 		var side: CardView.Side = .front
 		var selected = true
@@ -58,6 +58,17 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
 			self.side=side
 			self.selected=selected
 		}
+		
+		static func == (lhs: Model, rhs: Model) -> Bool {
+			return lhs.card == rhs.card && lhs.side == rhs.side && lhs.selected == rhs.selected
+		}
+		
+		func hash(into hasher: inout Hasher) {
+			hasher.combine(card)
+			hasher.combine(side)
+			hasher.combine(selected)
+		}
+		
 	}
 	var model : Model!
 	

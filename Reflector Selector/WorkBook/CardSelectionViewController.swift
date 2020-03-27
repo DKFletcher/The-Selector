@@ -67,15 +67,17 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 		super.viewDidAppear(animated)
 	}
 	
+	var cellModels: [CardSelectionCell.Model]!
+	
 	func setCards(_ cards: [Card]){
 		cellModels = cards.map(CardSelectionCell.Model.init)
-		if let book = (tabBarController as! TabBarController).abstractedWorkbook{
+		let book = (tabBarController as! TabBarController).abstractedWorkbook
 			for index in 0..<cellModels.count{
 				let page = book.workBook.filter{ $0.name == cellModels[index].card.name}[0]
 				if let side = CardView.Side(rawValue: page.side.rawValue){
 					cellModels[index] = CardSelectionCell.Model(card: cellModels[index].card, side: side, selected: page.included)
 				}
-			}
+//			}
 		}
 		tableView.reloadData()
 	}
@@ -85,7 +87,6 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 		cell.card = card
 	}
 	
-	var cellModels: [CardSelectionCell.Model]!
 	
 	override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
 		return cellModels.count
@@ -100,20 +101,20 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 		cell.delegate = self
 		cell.cardSuperView.handleFlip = { [unowned self] destinationSide in
 			self.cellModels[indexPath.row].side = destinationSide
-			self.abstract()
 		}
+		abstract(for: cell.getModel())
 		return cell
 	}
 	
-	private func abstract(){
-		var workBook = [Page]()
+	private func abstract(for cell : CardSelectionCell.Model ){
 		for card in cellModels{
-			if let side = Page.Side(rawValue: card.side.rawValue){
-				let page = Page(onDisplay: side, inGame: card.selected, for: card.card.name)
-				workBook.append(page)
+			if cell == card{
+				if let side = Page.Side(rawValue: card.side.rawValue){
+					let page = Page(onDisplay: side, inGame: card.selected, for: card.card.name)
+					(tabBarController as! TabBarController).pageUpdate = page
+				}
 			}
 		}
-		(tabBarController as! TabBarController).workbookToChange(workbook: AbstractionLayerForWorkbook(for: workBook))
 	}
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -138,7 +139,7 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 		let model = cellModels[indexPath.row]
 		(tableView.cellForRow(at: indexPath) as! CardSelectionCell).setModel(model)
 		handleSelection(model.card, model.selected)
-		abstract()
+		abstract(for: model)
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender card: Any?) {
