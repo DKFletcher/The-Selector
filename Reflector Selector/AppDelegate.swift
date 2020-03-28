@@ -684,6 +684,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				let jsonData = try Data(contentsOf: jsonWorkbookURL)
 				let abstractedWorkbook = try decoder.decode(AbstractionLayerForWorkbook.self, from: jsonData)
 				(window!.rootViewController as! TabBarController).abstractedWorkbook = abstractedWorkbook
+				(window!.rootViewController as! TabBarController).setForPhase(cards : (window!.rootViewController as! TabBarController).cards)
 			} catch {
 				print(error)
 			}

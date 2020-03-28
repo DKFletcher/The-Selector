@@ -195,10 +195,10 @@ Art: Rhannon Van Muysen</string>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTE-hw-j6R">
                             <rect key="frame" x="12" y="135" width="744" height="831"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <string key="text">In the Workbook area you will find a card for each emotion.
+                            <mutableString key="text">In the Workbook area you will find a card for each emotion.
 
 When you tap on a card it flips to show it's opposite side.
-(Hint: If you organise your cards to face the way you want them to Reflector Selector will remember for the next time you start up.)
+(Hint: If you organise your cards the way you want them to Reflector Selector will remember for the next time you start up.)
 
 You can take the card in or out of your game by tapping in the area outside the card. If there isn't a tick on the right hand side then that card is excluded from the game, and a tick means that it is in the game.
 
@@ -214,7 +214,7 @@ To print out your worksheet just select the "Print" and Reflector Selector will 
 
 DOUBLE LONG PACK
 Double long tap on the word side of a card to make a double long pack.
-A double long pack collects all your work and all the information on the emotion on the card into one place. Select the action button on the top right to save or print a double long pack.</string>
+A double long pack collects all your work and all the information on the emotion on the card into one place. Select the action button on the top right to save or print a double long pack.</mutableString>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

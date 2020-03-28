@@ -116,7 +116,7 @@ class TabBarController: UITabBarController {
 	
 	var abstractedWorkbook : AbstractionLayerForWorkbook = AbstractionLayerForWorkbook(){
 		didSet{
-			setForPhase(cards: cards)
+//			setForPhase(cards: cards)
 		}
 	}
 	
@@ -141,7 +141,7 @@ class TabBarController: UITabBarController {
 	}
 	
 	
-	private func setForPhase(cards emotes : [Card]){
+	func setForPhase(cards emotes : [Card]){
 		lessonViewController.cards = emotes
 		cardSelectionViewController.setCards(emotes)
 		cardSelectionViewController.handleSelection = { [unowned lessonViewController]

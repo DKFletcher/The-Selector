@@ -34,10 +34,10 @@
                                 <rect key="frame" x="12" y="160.5" width="744" height="723"/>
                                 <subviews>
                                     <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMf-Fl-4qR" customClass="CardSuperview" customModule="Reflector_Selector" customModuleProvider="target">
-                                        <rect key="frame" x="18.5" y="0.0" width="707" height="353.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="744" height="353.5"/>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdn-d7-LCq" userLabel="Multiple Choice Superview">
-                                        <rect key="frame" x="18.5" y="369.5" width="707" height="353.5"/>
+                                        <rect key="frame" x="0.0" y="369.5" width="744" height="353.5"/>
                                         <connections>
                                             <segue destination="Pw2-6r-vp6" kind="embed" identifier="NamesSegue" id="8XM-ss-ce0"/>
                                         </connections>
@@ -216,14 +216,14 @@
             <objects>
                 <viewController id="Pw2-6r-vp6" customClass="LessonNamesViewController" customModule="Reflector_Selector" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i4q-d4-kXd">
-                        <rect key="frame" x="0.0" y="0.0" width="707" height="353.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="744" height="353.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fTT-FT-sx7">
-                                <rect key="frame" x="0.0" y="0.0" width="707" height="353.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="744" height="353.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EhT-xs-SQ8">
-                                        <rect key="frame" x="0.0" y="0.0" width="707" height="88.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="744" height="88.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <state key="normal" title="Button" backgroundImage="button outline"/>
                                         <connections>
@@ -231,7 +231,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLt-GN-H5G">
-                                        <rect key="frame" x="0.0" y="88.5" width="707" height="88.5"/>
+                                        <rect key="frame" x="0.0" y="88.5" width="744" height="88.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <state key="normal" title="Button" backgroundImage="button outline"/>
                                         <connections>
@@ -239,7 +239,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e9-sg-9rH">
-                                        <rect key="frame" x="0.0" y="177" width="707" height="88"/>
+                                        <rect key="frame" x="0.0" y="177" width="744" height="88"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <state key="normal" title="Button" backgroundImage="button outline"/>
                                         <connections>
@@ -247,7 +247,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Qy-p3-Pfd">
-                                        <rect key="frame" x="0.0" y="265" width="707" height="88.5"/>
+                                        <rect key="frame" x="0.0" y="265" width="744" height="88.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <state key="normal" title="Button" backgroundImage="button outline"/>
                                         <connections>
