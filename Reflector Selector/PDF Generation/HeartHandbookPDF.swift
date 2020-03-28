@@ -65,28 +65,42 @@ class HeartHandbook : PDFSuperView{
 			bounds: TypeSetConstants.pageRect)
 		let data = renderer.pdfData { (context) in
 			drawingPDF = context
-			let yIncrement = TypeSetConstants.pageHeight / 2.0
-			let xIncrement = TypeSetConstants.pageWidth / 2.0
-			var x = TypeSetConstants.pageRect.minX
-			var y = TypeSetConstants.pageRect.minY
+			beginPage = true
+			let inset = CGFloat(10.0)
+			let yIncrement = (TypeSetConstants.pageHeight-2*inset) / 2.0 - inset
+			let xIncrement = (TypeSetConstants.pageWidth-2*inset) / 2.0 - inset
+			var x = TypeSetConstants.pageRect.insetBy(dx: inset/2, dy: inset/2).minX+inset/2
+			var y = TypeSetConstants.pageRect.insetBy(dx: inset/2, dy: inset/2).minY+inset/2
+			
+			let boxContext = drawingPDF.cgContext
 			for _ in 0..<2{
-				var rect1 = CGRect(x: x, y: y, width: TypeSetConstants.pageWidth / 2.0, height: TypeSetConstants.pageHeight / 2.0)
-				makeQuad(for: rect1)
+				let rect1 = CGRect(x: x,
+													 y: y,
+													 width: TypeSetConstants.pageWidth / 2.0,
+													 height: TypeSetConstants.pageHeight / 2.0)
+				makeQuad(for: rect1, in : boxContext, inset: inset)
 				x += xIncrement
-				var rect2 = CGRect(x: x, y: y, width: TypeSetConstants.pageWidth / 2.0, height: TypeSetConstants.pageHeight / 2.0)
-				makeQuad(for: rect2)
+				let rect2 = CGRect(x: x,
+													 y: y,
+													 width: TypeSetConstants.pageWidth / 2.0,
+													 height: TypeSetConstants.pageHeight / 2.0)
+				makeQuad(for: rect2, in : boxContext, inset: inset)
 				y+=yIncrement
+				x=TypeSetConstants.pageRect.insetBy(dx: inset/2, dy: inset/2).minX+inset/2
 			}
+			
 		}
-		return Data()
+		return data
 	}
 	
-	func makeQuad(for rect : CGRect){
-		let context = drawingPDF.cgContext
+	func makeQuad(for rect : CGRect, in context : CGContext, inset by : CGFloat){
+//		context.saveGState()
 		context.setFillColor(UIColor.blue.cgColor)
 		context.setLineWidth(TypeSetConstants.answerBoxLineWidth)
-		context.addRect(rect)
+		context.setStrokeColor(UIColor.black.cgColor)
+		context.addRect(rect.insetBy(dx: by, dy: by))
 		context.drawPath(using: .stroke)
+//		context.restoreGState()
 	}
 	
 	func createFrontInfoPack(for card : Card) ->Data{
