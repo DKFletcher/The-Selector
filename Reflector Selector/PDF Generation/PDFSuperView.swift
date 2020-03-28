@@ -212,6 +212,7 @@ class PDFSuperView {
 				height: TypeSetConstants.answerBoxHeight)
 			context.addRect(rect)
 			context.drawPath(using: .stroke)
+			
 			let boldFont = UIFont.systemFont(
 				ofSize: TypeSetConstants.bodyFontSize,
 				weight: .heavy)

@@ -26,9 +26,7 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate {
 		performSegue(withIdentifier: "PDFSegue", sender: PDFViewController.Jobs.Handbook)
 	}
 	
-	@IBAction func textFieldEditingDidChange(_ sender: Any) {
-		print("textField: \(nameField.text!)")
-	}
+	@IBAction func textFieldEditingDidChange(_ sender: Any) {}
 
 	@objc func preferredContentSizeChanged(_ notification : Notification){}
 	

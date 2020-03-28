@@ -54,14 +54,41 @@ class HeartHandbook : PDFSuperView{
 	func infoSheet(for card: Card) -> Data {
 		var pdfData : [Data] = []
 		pdfData.append(createFrontInfoPack(for: card))
-		pdfData.append(createQuad(for: card.emotion.quadrant.rawValue))
-		pdfData.append(createNote(for: card))
-//		if card.emotion.custom{
-//			pdfData.append(createWork(for: card))
-//		}
+		pdfData.append(index())
+//		pdfData.append(createQuad(for: card.emotion.quadrant.rawValue))
+//		pdfData.append(createNote(for: card))
 		return merge(pdfs: pdfData)
 	}
 
+	func index() ->Data{
+		let renderer = UIGraphicsPDFRenderer(
+			bounds: TypeSetConstants.pageRect)
+		let data = renderer.pdfData { (context) in
+			drawingPDF = context
+			let yIncrement = TypeSetConstants.pageHeight / 2.0
+			let xIncrement = TypeSetConstants.pageWidth / 2.0
+			var x = TypeSetConstants.pageRect.minX
+			var y = TypeSetConstants.pageRect.minY
+			for _ in 0..<2{
+				var rect1 = CGRect(x: x, y: y, width: TypeSetConstants.pageWidth / 2.0, height: TypeSetConstants.pageHeight / 2.0)
+				makeQuad(for: rect1)
+				x += xIncrement
+				var rect2 = CGRect(x: x, y: y, width: TypeSetConstants.pageWidth / 2.0, height: TypeSetConstants.pageHeight / 2.0)
+				makeQuad(for: rect2)
+				y+=yIncrement
+			}
+		}
+		return Data()
+	}
+	
+	func makeQuad(for rect : CGRect){
+		let context = drawingPDF.cgContext
+		context.setFillColor(UIColor.blue.cgColor)
+		context.setLineWidth(TypeSetConstants.answerBoxLineWidth)
+		context.addRect(rect)
+		context.drawPath(using: .stroke)
+	}
+	
 	func createFrontInfoPack(for card : Card) ->Data{
 		let pdfMetaData = [
 			kCGPDFContextCreator: "Reflector Selector Info Pack for \(card.name)",

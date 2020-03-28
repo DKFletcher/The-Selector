@@ -9,9 +9,8 @@ import UIKit
 var imageServer = ImageServer()
 class TabBarController: UITabBarController {
 	
-	var phase : EmotionItems.Phase = .third {
+	var phase : EmotionItems.Phase = .first {
 		didSet{
-			print("phase didSet: \(phase)")
 			setForPhase(cards: cards)
 		}
 	}
@@ -22,9 +21,17 @@ class TabBarController: UITabBarController {
 	
 	var emotions : [Card]! {
 		didSet{
-			setForPhase(cards: emotions)
-			print("didSet")
+			setUpWorkBook()
+			setForPhase(cards: cards)
 		}
+	}
+	
+	private func setUpWorkBook(){
+		var book = [Page]()
+		for emotion in emotions{
+			book.append(Page(onDisplay: .front, inGame: true, for: emotion.name))
+		}
+		abstractedWorkbook = AbstractionLayerForWorkbook(for: book)
 	}
 	
 	var frontCover : UIImage? = nil
@@ -67,8 +74,6 @@ class TabBarController: UITabBarController {
 	
 	var abstractionLayer : AbstractionLayerForText {
 		get {
-			
-			print("abstraction layer  get")
 			var em : [Emotion] = []
 			emotions.forEach { card in
 				let emotionName = card.name
@@ -82,8 +87,6 @@ class TabBarController: UITabBarController {
 			return AbstractionLayerForText(user: learnerName, emotions: em, for: phase)
 		}
 		set {
-			print("phase: \(newValue.phase)")
-			phase = .third
 			imageServer.flushServer()
 			learnerName = newValue.name
 			emotions.forEach { card in card.emotion.qanda.sections().forEach{ questions in questions.forEach{ question in
@@ -93,14 +96,29 @@ class TabBarController: UITabBarController {
 						emotion.worksheet.forEach{qa in
 							if qa.question == question.question {
 								question.answer = qa.answer}}}
-					
 				}
 				}}}
 			phase = newValue.phase
 		}
 	}
 	
-	var abstractedWorkbook : AbstractionLayerForWorkbook?
+	var pageUpdate : Page = Page(){
+		didSet{
+			for index in 0..<abstractedWorkbook.workBook.count{
+				if abstractedWorkbook.workBook[index].name == pageUpdate.name{
+					abstractedWorkbook.workBook[index] = pageUpdate
+					workbookToChange(workbook: abstractedWorkbook)
+					break
+				}
+			}
+		}
+	}
+	
+	var abstractedWorkbook : AbstractionLayerForWorkbook = AbstractionLayerForWorkbook(){
+		didSet{
+			setForPhase(cards: cards)
+		}
+	}
 	
 	
 	var cards : [Card]! {
@@ -142,7 +160,7 @@ class TabBarController: UITabBarController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		let _ = lessonViewController.cards
-//		phase = .third
+		//		phase = .third
 	}
 	
 	
@@ -234,8 +252,7 @@ extension TabBarController{
 			let imageData = imageAbstractionLayer
 			let documentData = try encoder.encode(imageData)
 			do{
-				try self .fileSave(directory: .applicationSupportDirectory, fileName: "images", directoryName: "./", documentData: documentData, pathExtension:
-				"img")
+				try self .fileSave(directory: .applicationSupportDirectory, fileName: "images", directoryName: "./", documentData: documentData, pathExtension: "img")
 			} catch {
 				print(error)
 			}

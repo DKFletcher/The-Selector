@@ -87,7 +87,7 @@ struct AbstractionLayerForText: Decodable, Encodable {
 
 
 
-struct Page: Encodable, Decodable {
+struct Page: Encodable, Decodable, Hashable {
 	enum Side : String, Encodable, Decodable {
 		case front = "front"
 		case back = "back"
@@ -108,10 +108,22 @@ struct Page: Encodable, Decodable {
 		self.included = true
 		self.name = nil
 	}
+	
+	
+	static func == (lhs: Page, rhs: Page) -> Bool {
+		return lhs.side == rhs.side && lhs.included == rhs.included && lhs.name == rhs.name
+	}
+	
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(side)
+		hasher.combine(included)
+		hasher.combine(name)
+	}
+
 }
 
 struct AbstractionLayerForWorkbook: Encodable, Decodable{
-	let workBook : [Page]
+	var workBook : [Page]
 	init (for pages : [Page]){
 		self.workBook = pages
 	}

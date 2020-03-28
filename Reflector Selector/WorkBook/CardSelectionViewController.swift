@@ -77,7 +77,6 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 				if let side = CardView.Side(rawValue: page.side.rawValue){
 					cellModels[index] = CardSelectionCell.Model(card: cellModels[index].card, side: side, selected: page.included)
 				}
-//			}
 		}
 		tableView.reloadData()
 	}
@@ -86,7 +85,6 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 		var cell = cellModels.filter{ $0.card == card}[0] as CardSelectionCell.Model
 		cell.card = card
 	}
-	
 	
 	override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
 		return cellModels.count
@@ -101,8 +99,8 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 		cell.delegate = self
 		cell.cardSuperView.handleFlip = { [unowned self] destinationSide in
 			self.cellModels[indexPath.row].side = destinationSide
+			self.abstract(for: self.cellModels[indexPath.row])
 		}
-		abstract(for: cell.getModel())
 		return cell
 	}
 	

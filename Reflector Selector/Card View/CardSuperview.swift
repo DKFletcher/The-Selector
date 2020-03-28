@@ -50,7 +50,9 @@ protocol LongDelegate{
 	}
 	
 	var handleFlip: ( (_ destination: CardView.Side) -> Void )?
+	
 	var learnTime = false
+	
 	var cardViews: [CardView] {
 		return subviews as! [CardView]
 	}
@@ -59,6 +61,7 @@ protocol LongDelegate{
 		super.awakeFromNib()
 		addCardViews()
 	}
+	
 	override func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
 		addCardViews()

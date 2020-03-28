@@ -656,16 +656,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 															bottomRight: [QuestionAnswer(question : "What helps you get out of feeling worried or afraid?", answer : testAnswer)])
 				)
 				].map(Card.init)
-		
-		
-		
-		
+
 		let documentsPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)[0]
 		let url = URL(fileURLWithPath: documentsPath)
 		let fileManager = FileManager.default
-		
-		
-		
 		
 		if let enumerator: FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: url.path){
 			let decoder = JSONDecoder()

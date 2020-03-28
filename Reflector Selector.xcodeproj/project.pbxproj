@@ -290,15 +290,16 @@
 			path = "Card View";
 			sourceTree = "<group>";
 		};
-		D65D0015240A74A8006E35E5 /* Card Index */ = {
+		D65D0015240A74A8006E35E5 /* WorkBook */ = {
 			isa = PBXGroup;
 			children = (
+				D65DFF91240A737F006E35E5 /* Worksheet */,
 				D65D0016240A74BF006E35E5 /* CardSelection.storyboard */,
+				D65D0018240A74BF006E35E5 /* CardSelectionViewController.swift */,
 				D65D0017240A74BF006E35E5 /* CardSelectionCell.swift */,
 				D65D0019240A74BF006E35E5 /* CardSelectionNavigationController.swift */,
-				D65D0018240A74BF006E35E5 /* CardSelectionViewController.swift */,
 			);
-			path = "Card Index";
+			path = WorkBook;
 			sourceTree = "<group>";
 		};
 		D65D001E240A74CB006E35E5 /* Notes */ = {
@@ -375,12 +376,11 @@
 				D65DFAF0240A6F32006E35E5 /* Info.plist */,
 				D65D004C240A763F006E35E5 /* Model */,
 				D65DFB06240A6FC9006E35E5 /* Game Activity */,
-				D65DFF91240A737F006E35E5 /* Worksheet Activity */,
+				D65D0015240A74A8006E35E5 /* WorkBook */,
 				D65DFF9F240A73AE006E35E5 /* Image Processing */,
 				D65DFFA8240A73CD006E35E5 /* PDF Generation */,
 				D65D0000240A7452006E35E5 /* Options */,
 				D65D000A240A7488006E35E5 /* Card View */,
-				D65D0015240A74A8006E35E5 /* Card Index */,
 				D65D001E240A74CB006E35E5 /* Notes */,
 				D677D94A24238FFC00FAF647 /* Instructions */,
 				D65DFAF6240A6FBA006E35E5 /* extensions */,
@@ -427,7 +427,7 @@
 			path = ImagesViewController;
 			sourceTree = "<group>";
 		};
-		D65DFF91240A737F006E35E5 /* Worksheet Activity */ = {
+		D65DFF91240A737F006E35E5 /* Worksheet */ = {
 			isa = PBXGroup;
 			children = (
 				D65DFF94240A7394006E35E5 /* WorksheetViewController.swift */,
@@ -436,7 +436,7 @@
 				D65DFF95240A7394006E35E5 /* QuestionAndAnswer.swift */,
 				D65DFF93240A7394006E35E5 /* WorksheetQuestionBox.swift */,
 			);
-			path = "Worksheet Activity";
+			path = Worksheet;
 			sourceTree = "<group>";
 		};
 		D65DFF9A240A73A1006E35E5 /* Accessible Input */ = {
