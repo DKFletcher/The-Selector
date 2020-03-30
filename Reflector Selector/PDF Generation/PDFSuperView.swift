@@ -12,6 +12,18 @@ import PDFKit
 
 class PDFSuperView {
 	
+	struct IndexEntry{
+		let page : Int
+		let emotion : Index
+		init(page: Int, emotion: Index){
+			self.page = page
+			self.emotion = emotion
+		}
+	}
+
+	
+	var bookIndex : [IndexEntry]! = []
+	
 	var pagePosition : CGFloat = TypeSetConstants.header {
 		didSet{
 			if pagePosition > TypeSetConstants.pageHeight
@@ -25,12 +37,13 @@ class PDFSuperView {
 			}
 		}
 	}
-	
+	var index : Int = 0
 	var learnerName : String?
 	var lastAnswerBlank : Bool = false
 	var beginPage : Bool! {
 		didSet{
-				drawingPDF.beginPage()
+			drawingPDF.beginPage()
+			index += 1
 		}
 	}
 	

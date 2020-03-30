@@ -11,6 +11,8 @@ import PDFKit
 
 class HeartHandbook : PDFSuperView{
 	
+	
+	
 	override init(learner name: String?) {
 		super.init(learner: name)
 	}
@@ -36,6 +38,8 @@ class HeartHandbook : PDFSuperView{
 		return out as Data
 	}
 	
+	
+	
 	func handbook(from book: [Card]) -> Data {
 		var pdfData : [Data] = []
 		pdfData.append(createFrontPage())
@@ -43,24 +47,43 @@ class HeartHandbook : PDFSuperView{
 			pdfData.append(createQuad(for: quadrant.rawValue))
 			book.filter{ $0.emotion.quadrant == quadrant }.forEach{ emotion in
 				pdfData.append(createNote(for: emotion))
+				bookIndex.append(IndexEntry(page: index, emotion: emotion.emotion.index))
 				if emotion.emotion.custom{
 					pdfData.append(createWork(for: emotion))
 				}
 			}
 		}
+		
+		pdfData.append(printIndex(from: bookIndex))
 		return merge(pdfs: pdfData)
 	}
 	
 	func infoSheet(for card: Card) -> Data {
 		var pdfData : [Data] = []
 		pdfData.append(createFrontInfoPack(for: card))
-		pdfData.append(index())
 //		pdfData.append(createQuad(for: card.emotion.quadrant.rawValue))
 //		pdfData.append(createNote(for: card))
 		return merge(pdfs: pdfData)
 	}
 
-	func index() ->Data{
+	func printIndex(from entry: [IndexEntry]) ->Data{
+		let indexEntry = entry.sorted {
+			($0.emotion.quadrant.rawValue, $0.emotion.zone.rawValue) <
+				($1.emotion.quadrant.rawValue, $1.emotion.zone.rawValue)
+		}
+		var oldQuadrant : Index.Quadrant!
+		var oldZone : Index.Zone!
+		for page in indexEntry{
+			if page.emotion.quadrant != oldQuadrant{
+				print("Quadrant: \(page.emotion.quadrant.rawValue)")
+				oldQuadrant = page.emotion.quadrant
+			}
+			if page.emotion.zone != oldZone{
+				print("   Zone: \(page.emotion.zone)")
+				oldZone = page.emotion.zone
+			}
+			print("      Emotion: \(page.emotion.emotion)")
+		}
 		let renderer = UIGraphicsPDFRenderer(
 			bounds: TypeSetConstants.pageRect)
 		let data = renderer.pdfData { (context) in
