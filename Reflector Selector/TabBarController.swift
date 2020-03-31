@@ -14,7 +14,7 @@ class TabBarController: UITabBarController {
 			setForPhase(cards: cards)
 		}
 	}
-	
+	let initialSideForWorkbook : Page.Side = .back
 	var helpState : HelpMenuItem = .home
 	
 	var learnerName : String?
@@ -22,6 +22,7 @@ class TabBarController: UITabBarController {
 	var emotions : [Card]! {
 		didSet{
 			setUpWorkBook()
+			print("emotions")
 			setForPhase(cards: cards)
 		}
 	}
@@ -29,7 +30,7 @@ class TabBarController: UITabBarController {
 	private func setUpWorkBook(){
 		var book = [Page]()
 		for emotion in emotions{
-			book.append(Page(onDisplay: .front, inGame: true, for: emotion.name))
+			book.append(Page(onDisplay: initialSideForWorkbook, inGame: true, for: emotion.name))
 		}
 		abstractedWorkbook = AbstractionLayerForWorkbook(for: book)
 	}

@@ -26,8 +26,10 @@ struct Index{
 	let zone : Zone
 	let dimension : Dimension
 	let quadrant : Quadrant
+	let position : Int
 	
-	init(emotion: Emotion){
+	init(emotion: Emotion, position: Int){
+		self.position = position
 		self.emotion = emotion
 		self.zone = self.emotion.zone(emotion: self.emotion)
 		self.dimension = self.zone.dimension(zone: self.zone)
@@ -213,10 +215,10 @@ class EmotionItems{
 	let index : Index
 	
 	enum Quadrant: String, CaseIterable{
-		case stretchingMe = "Stretching Me"
-		case connectingMe = "Connecting Me"
-		case protectingMe = "Protecting Me"
-		case meFirst = "Me First"
+		case stretchingMe = "stretchingMe"
+		case connectingMe = "connectingMe"
+		case protectingMe = "protectingMe"
+		case meFirst = "meFirst"
 	}
 	
 	enum Psychology: Int, CaseIterable{
@@ -256,14 +258,12 @@ class EmotionItems{
 								 motive  around : [String],
 								 behaviour action : [String],
 								 solution fix : [String],
-								 ringID position : Int = 0,
 								 stage age : Phase = Phase.third,
 								 ring quadrant : Quadrant,
 								 emotion index : Index,
 								 worksheet qanda : Worksheet){
 		//		self.image = UIImage(named: byName)!
 		self.name = byName
-		self.ringPosition = position
 		self.phase = age
 		self.qanda = qanda
 		self.quadrant = quadrant

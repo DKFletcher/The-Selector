@@ -79,8 +79,8 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 			documentData = heartHandbook.infoSheet(for: card)
 			additionalInfoForFileName = " for \(card.name)"
 		case .Handbook :
-			let heartHandbook = HeartHandbook(learner: (tabBarController as! TabBarController).learnerName)
-			documentData = heartHandbook.handbook(from: (tabBarController as! TabBarController).cards)
+			let handbook = Handbook(learner: (tabBarController as! TabBarController).learnerName)
+			documentData = handbook.handbook(from: (tabBarController as! TabBarController).cards)
 		case .Logbook :
 			let log = LearnerLog(learner: (tabBarController as! TabBarController).learnerName)
 			documentData = log.logbook(from: (tabBarController as! TabBarController).cards)

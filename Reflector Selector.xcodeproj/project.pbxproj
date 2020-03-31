@@ -129,6 +129,7 @@
 		D6C3B427241F916300806FE5 /* meFirst.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B423241F916300806FE5 /* meFirst.pdf */; };
 		D6C3B428241F916300806FE5 /* stretchingMe.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6C3B424241F916300806FE5 /* stretchingMe.pdf */; };
 		D6DA94252417760D00B31556 /* ChalkDusterRF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6DA9424241775C400B31556 /* ChalkDusterRF.ttf */; };
+		D6FEF3492433546D00676682 /* Handbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FEF3482433546D00676682 /* Handbook.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -256,6 +257,7 @@
 		D6C3B423241F916300806FE5 /* meFirst.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = meFirst.pdf; path = "Quarant Pages/meFirst.pdf"; sourceTree = SOURCE_ROOT; };
 		D6C3B424241F916300806FE5 /* stretchingMe.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = stretchingMe.pdf; path = "Quarant Pages/stretchingMe.pdf"; sourceTree = SOURCE_ROOT; };
 		D6DA9424241775C400B31556 /* ChalkDusterRF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChalkDusterRF.ttf; sourceTree = "<group>"; };
+		D6FEF3482433546D00676682 /* Handbook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handbook.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -471,6 +473,7 @@
 				D65CA75B2418C2E300D9BC87 /* TypeSetConstants.swift */,
 				D64780422422564E00325012 /* SaveFileViewController.swift */,
 				D6595224242C98B600C6F0FC /* DoubleLong.swift */,
+				D6FEF3482433546D00676682 /* Handbook.swift */,
 			);
 			path = "PDF Generation";
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				D65D0011240A74A1006E35E5 /* CardView.swift in Sources */,
 				D65D001D240A74BF006E35E5 /* CardSelectionNavigationController.swift in Sources */,
 				D65DFB14240A6FC9006E35E5 /* LessonImagesStackView.swift in Sources */,
+				D6FEF3492433546D00676682 /* Handbook.swift in Sources */,
 				D6595225242C98B600C6F0FC /* DoubleLong.swift in Sources */,
 				D65D001C240A74BF006E35E5 /* CardSelectionViewController.swift in Sources */,
 				D65D001B240A74BF006E35E5 /* CardSelectionCell.swift in Sources */,

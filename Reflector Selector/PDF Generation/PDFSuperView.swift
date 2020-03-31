@@ -13,16 +13,23 @@ import PDFKit
 class PDFSuperView {
 	
 	struct IndexEntry{
-		let page : Int
+		let destination : String
 		let emotion : Index
-		init(page: Int, emotion: Index){
-			self.page = page
+		init(destination: String, emotion: Index){
+			self.destination = destination
 			self.emotion = emotion
 		}
 	}
 
 	
 	var bookIndex : [IndexEntry]! = []
+	
+	var destination : String! {
+		didSet{
+			drawingPDF.beginPage()
+			drawingPDF.addDestination(withName: destination, at: CGPoint(x: TypeSetConstants.pageRect.minX, y: TypeSetConstants.pageRect.minY))
+		}
+	}
 	
 	var pagePosition : CGFloat = TypeSetConstants.header {
 		didSet{

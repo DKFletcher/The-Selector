@@ -47,14 +47,14 @@ class HeartHandbook : PDFSuperView{
 			pdfData.append(createQuad(for: quadrant.rawValue))
 			book.filter{ $0.emotion.quadrant == quadrant }.forEach{ emotion in
 				pdfData.append(createNote(for: emotion))
-				bookIndex.append(IndexEntry(page: index, emotion: emotion.emotion.index))
+				bookIndex.append(IndexEntry(destination: emotion.emotion.index.emotion.rawValue, emotion: emotion.emotion.index))
 				if emotion.emotion.custom{
 					pdfData.append(createWork(for: emotion))
 				}
 			}
 		}
-		
-		pdfData.append(printIndex(from: bookIndex))
+		pdfData.insert(printIndex(from: bookIndex), at: 1)
+//		pdfData.append(printIndex(from: bookIndex))
 		return merge(pdfs: pdfData)
 	}
 	
@@ -66,23 +66,44 @@ class HeartHandbook : PDFSuperView{
 		return merge(pdfs: pdfData)
 	}
 
-	func printIndex(from entry: [IndexEntry]) ->Data{
-		let indexEntry = entry.sorted {
-			($0.emotion.quadrant.rawValue, $0.emotion.zone.rawValue) <
-				($1.emotion.quadrant.rawValue, $1.emotion.zone.rawValue)
-		}
+	func printString(indexEntry : [IndexEntry], startPoint : CGPoint){
+		let boldFont = UIFont(name: "Chalkduster", size: TypeSetConstants.tagLineFontSize)
+		let bodyFont = UIFont(name: "Chalkduster", size: TypeSetConstants.bodyFontSize)
+		let paragraphStyle = NSMutableParagraphStyle()
+		paragraphStyle.alignment = .left
+		paragraphStyle.lineBreakMode = .byWordWrapping
+		let headingAttributes: [NSAttributedString.Key: Any] = [
+			NSAttributedString.Key.paragraphStyle: paragraphStyle,
+			NSAttributedString.Key.font: boldFont!,
+			NSAttributedString.Key.foregroundColor: UIColor.black]
+		let boldAttributes: [NSAttributedString.Key: Any] = [
+			NSAttributedString.Key.paragraphStyle: paragraphStyle,
+			NSAttributedString.Key.font: boldFont!,
+			NSAttributedString.Key.foregroundColor: UIColor.black]
+		let bodyAttributes: [NSAttributedString.Key: Any] = [
+			NSAttributedString.Key.paragraphStyle: paragraphStyle,
+			NSAttributedString.Key.font: bodyFont!,
+			NSAttributedString.Key.foregroundColor: UIColor.black]
+
+		
 		var oldQuadrant : Index.Quadrant!
 		var oldZone : Index.Zone!
-		for page in indexEntry{
-			if page.emotion.quadrant != oldQuadrant{
-				print("Quadrant: \(page.emotion.quadrant.rawValue)")
-				oldQuadrant = page.emotion.quadrant
-			}
-			if page.emotion.zone != oldZone{
-				print("   Zone: \(page.emotion.zone)")
-				oldZone = page.emotion.zone
-			}
-			print("      Emotion: \(page.emotion.emotion)")
+		let quadrantIndexNSAttributedString = NSMutableAttributedString(string: "Quadrant: \(indexEntry[0].emotion.quadrant.rawValue)", attributes: boldAttributes)
+		quadrantIndexNSAttributedString.draw(at: startPoint)
+		drawingPDF.setDestinationWithName(indexEntry[0].emotion.quadrant.rawValue, for: CGRect(origin: startPoint, size: quadrantIndexNSAttributedString.size()))
+//		for page in indexEntry{
+//			if page.emotion.zone != oldZone{
+//				print("   Zone: \(page.emotion.zone)")
+//				oldZone = page.emotion.zone
+//			}
+//			print("      Emotion: \(page.emotion.emotion)")
+//		}
+	}
+	
+	func printIndex(from entry: [IndexEntry]) ->Data{
+		let indexEntry = entry.sorted {
+			($0.emotion.quadrant.rawValue,  $0.emotion.position) <
+				($1.emotion.quadrant.rawValue, $1.emotion.position)
 		}
 		let renderer = UIGraphicsPDFRenderer(
 			bounds: TypeSetConstants.pageRect)
@@ -101,6 +122,7 @@ class HeartHandbook : PDFSuperView{
 													 y: y,
 													 width: TypeSetConstants.pageWidth / 2.0,
 													 height: TypeSetConstants.pageHeight / 2.0)
+				printString(indexEntry: indexEntry.filter{$0.emotion.quadrant == .connectingMe}, startPoint: CGPoint(x: x, y: y))
 				makeQuad(for: rect1, in : boxContext, inset: inset)
 				x += xIncrement
 				let rect2 = CGRect(x: x,
@@ -189,6 +211,7 @@ class HeartHandbook : PDFSuperView{
 			context.drawPDFPage(page)
 			context.endPage()
 		}
+		context.addDestination(quad as CFString, at: CGPoint(x: TypeSetConstants.pageRect.minX, y: TypeSetConstants.pageRect.minY))
 		context.closePDF()
 		UIGraphicsEndPDFContext()
 		return out as Data
