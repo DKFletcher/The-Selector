@@ -24,10 +24,15 @@ class PDFSuperView {
 	
 	var bookIndex : [IndexEntry]! = []
 	
-	var destination : String! {
+	var destination : String = "" {
 		didSet{
+//			print("destination \(destination)")
 			drawingPDF.beginPage()
-			drawingPDF.addDestination(withName: destination, at: CGPoint(x: TypeSetConstants.pageRect.minX, y: TypeSetConstants.pageRect.minY))
+			drawingPDF.addDestination(
+				withName: destination,
+				at: CGPoint(x: TypeSetConstants.pageRect.minX,
+										y: TypeSetConstants.pageRect.minY)
+					.applying(drawingPDF.cgContext.userSpaceToDeviceSpaceTransform))
 		}
 	}
 	

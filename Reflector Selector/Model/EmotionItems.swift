@@ -36,6 +36,57 @@ struct Index{
 		self.quadrant = self.zone.quadrant(zone: self.zone)
 	}
 	
+	func getPDFName( for name : String) ->String?{
+		switch name{
+		case "Determined": return ""
+		case "Enthusiastic": return ""
+		case "Bold": return "Bold"
+		case "Hopeful": return ""
+		case "Admiring": return "Admiring"
+		case "Curious": return ""
+		case "Proud": return ""
+		case "Confident": return "Confident"
+		case "Valued": return "Valued"
+		case "Exhilatated": return "Joy"
+		case "Belonging": return "Belonging"
+		case "Trusting": return "Trust"
+		case "Playful": return "Plyfulness"
+		case "Content": return "Content"
+		case "Thankful": return "Thankful"
+		case "Kind": return "Kind"
+		case "Empathetic Joy": return "Empathetic Joy"
+		case "Responsible": return "Responsible"
+		case "Compassionate": return "Companssionate"
+		case "Forgiving": return "Forgiveness"
+		case "Lonely": return "Lonely"
+		case "Sad": return "Sad"
+		case "Self-Doubting": return "Self-Doubting"
+		case "Worried": return "Worried"
+		case "Overwhelmed": return "Overwhelmed"
+		case "Embarrassed": return "Embarrassed"
+		case "Guilty": return "Guilty"
+		case "Ashamed": return "Shame"
+		case "Humiliated": return "Humiliated"
+		case "Ignored": return "Inferior"
+		case "Spiteful": return "Spiteful"
+		case "Contempt": return "Contempt"
+		case "Resentful": return "Resentful"
+		case "Entitled": return "Entitled"
+		case "Arrogant": return "Arrogant"
+		case "Envious": return "Envy"
+		case "Gloating": return "Gloating"
+		case "Angry": return "Angry"
+		case "Frustrated": return "Frustrated"
+		case "Bored": return "Bored"
+		case "Stretching Me": return "stretchingMe"
+		case "Connecting Me": return "connectingMe"
+		case "Me First": return "meFirst"
+		case "Protecting Me": return "protectingMe"
+		default: return nil
+		}
+	}
+
+	
 	enum Emotion : String, CaseIterable{
 		case determined = "Determined"
 		case enthusiastic = "Enthusiastic"
@@ -77,6 +128,7 @@ struct Index{
 		case angry = "Angry"
 		case frustrated = "Frustrated"
 		case bored = "Bored"
+		
 		
 		func zone ( emotion : Emotion) -> Zone{
 			switch emotion{

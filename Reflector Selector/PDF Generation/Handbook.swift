@@ -17,6 +17,19 @@ class Handbook : PDFSuperView{
 	
 	
 	func handbook(from book: [Card]) -> Data {
+		EmotionItems.Quadrant.allCases.forEach{ quadrant in
+			book.filter{ $0.emotion.quadrant == quadrant }.forEach{ emotion in
+				bookIndex.append(
+					IndexEntry(
+						destination: emotion.emotion.index.emotion.rawValue,
+						emotion: emotion.emotion.index))
+			}
+		}
+		bookIndex.sort {
+			($0.emotion.quadrant.rawValue,  $0.emotion.position) <
+				($1.emotion.quadrant.rawValue, $1.emotion.position)
+		}
+		
 		let pdfMetaData = [
 			kCGPDFContextCreator: "Emotions Handbook",
 			kCGPDFContextAuthor: "Alan McLean"
@@ -24,38 +37,72 @@ class Handbook : PDFSuperView{
 		let format = UIGraphicsPDFRendererFormat()
 		format.documentInfo = pdfMetaData as [String: Any]
 		let renderer = UIGraphicsPDFRenderer(bounds: TypeSetConstants.pageRect, format: format)
+		
 		let data = renderer.pdfData { (context) in
 			drawingPDF = context
-			createFrontPage()
-			
-			
-			EmotionItems.Quadrant.allCases.forEach{ quadrant in
-				var indexQuadrant = true
+			dustCover()
+			documentIndex()
+			chapter(for: bookIndex.filter{$0.emotion.quadrant == .stretchingMe})
+			chapter(for: bookIndex.filter{$0.emotion.quadrant == .connectingMe})
+			chapter(for: bookIndex.filter{$0.emotion.quadrant == .protectingMe})
+			chapter(for: bookIndex.filter{$0.emotion.quadrant == .meFirst})
+//			EmotionItems.Quadrant.allCases.forEach{ quadrant in
+//				var indexQuadrant = true
 //				var indexZone = true
-				book.filter{ $0.emotion.quadrant == quadrant }.forEach{ emotion in
-					if indexQuadrant{
-						createQuad(for: quadrant.rawValue, in : emotion.emotion.index)
-						bookIndex.append(IndexEntry(destination: emotion.emotion.index.quadrant.rawValue, emotion: emotion.emotion.index))
-						indexQuadrant = false
-					}
-					createNote(for: emotion, in : emotion.emotion.index)
-					bookIndex.append(IndexEntry(destination: emotion.emotion.index.emotion.rawValue, emotion: emotion.emotion.index))
-					if emotion.emotion.custom{
-//						createWork(for: emotion)
-					}
-				}
-			}
-			printIndex()
+//				book.filter{ $0.emotion.quadrant == quadrant }.forEach{ emotion in
+//					if indexQuadrant{
+//						indexQuadrant = false
+////						createPageForQuad(for: quadrant.rawValue, in : emotion.emotion.index)
+//						createPage(destination: emotion.emotion.index.quadrant.rawValue, for: quadrant.rawValue)
+//					}
+//					if indexZone{
+//						indexZone = false
+//
+//					}
+////					createNote(for: emotion.name, in : emotion.emotion.index)
+//					createPage(destination: emotion.emotion.index.emotion.rawValue, for: emotion.name)
+//					if emotion.emotion.custom{
+////						createWork(for: emotion)
+//					}
+//				}
+//			}
 		}
 		return data
 	}
 	
+	func chapter(for indexEntry: [IndexEntry]){
+		var indexZone = false
+//createPage(destination: emotion.emotion.index.quadrant.rawValue, for: quadrant.rawValue)
+		if let quadrantName = indexEntry[0].emotion.getPDFName(for: indexEntry[0].emotion.quadrant.rawValue){
+			createPage(destination: indexEntry[0].emotion.quadrant.rawValue, for: quadrantName)
+		}
+		for page in indexEntry{
+			if indexZone{
+				indexZone = false
+			}
+			if let emotionName = page.emotion.getPDFName(for: page.emotion.emotion.rawValue){
+				createPage(destination: page.emotion.emotion.rawValue, for: emotionName)
+			}
+		}
+	}
 	
-	func createQuad(for quad: String, in index: Index){
+	func dustCover(){
+		beginPage = true
+		let imageBottom = addImage(
+			imageTop: TypeSetConstants.header,
+			image: UIImage(named: "Joy_3_1_750")!,
+			frontPageAdjust: TypeSetConstants.pageHeight/2 - 300.0
+			) + TypeSetConstants.standardSpacing*2
+		if let name = learnerName{
+			_=addAddvice(tag: "Reflector Selector Handbook\n"+name, position: imageBottom)
+		}
+	}
+	
+	func createPage(destination indexString: String, for quad: String){
 		if let url = Bundle.main.url(forResource: quad, withExtension: "pdf"){
 			if let document = CGPDFDocument(url as CFURL) {
 				if let page = document.page(at: 1){
-					destination = index.quadrant.rawValue
+					destination = indexString
 					let context = drawingPDF.cgContext
 					context.scaleBy(x: -1.0, y: 1.0)
 					context.translateBy(x: -TypeSetConstants.pageWidth, y: 0.0)
@@ -67,115 +114,123 @@ class Handbook : PDFSuperView{
 		}
 	}
 	
-	func createNote(for emotion: Card, in index: Index){
-		if let url = Bundle.main.url(forResource: emotion.name, withExtension: "pdf"){
-			if let document = CGPDFDocument(url as CFURL) {
-				if let page = document.page(at: 1){
-					destination = index.emotion.rawValue
-					let context = drawingPDF.cgContext
-					context.scaleBy(x: -1.0, y: 1.0)
-					context.translateBy(x: -TypeSetConstants.pageWidth, y: 0.0)
-					context.rotate(by: -CGFloat.pi)
-					context.translateBy(x: -TypeSetConstants.pageWidth, y: -TypeSetConstants.pageHeight)
-					context.drawPDFPage(page)
-				}
-			}
-		}
-	}
-
-	func printIndex(){
-		let indexEntry = bookIndex.sorted {
-			($0.emotion.quadrant.rawValue,  $0.emotion.position) <
-				($1.emotion.quadrant.rawValue, $1.emotion.position)
-		}
+	func documentIndex(){
 		beginPage = true
-		let inset = CGFloat(10.0)
-		let yIncrement = (TypeSetConstants.pageHeight-2*inset) / 2.0 - inset
+		let inset = CGFloat(40.0)
+		let boxHeightRatio = CGFloat(0.7)
+		let yIncrement = (boxHeightRatio*TypeSetConstants.pageHeight-2*inset) / 2.0 - inset
 		let xIncrement = (TypeSetConstants.pageWidth-2*inset) / 2.0 - inset
 		var x = TypeSetConstants.pageRect.insetBy(dx: inset/2, dy: inset/2).minX+inset/2
-		var y = TypeSetConstants.pageRect.insetBy(dx: inset/2, dy: inset/2).minY+inset/2
+		var y = TypeSetConstants.pageRect.insetBy(dx: inset/2, dy: inset/2).minY+inset/2+115.0
 		let boxContext = drawingPDF.cgContext
-
-		let stretchingMeCGRect = CGRect(x: x,y: y,width: TypeSetConstants.pageWidth / 2.0,height: TypeSetConstants.pageHeight / 2.0)
-		let stretchingMeIndexEntry = indexEntry.filter{$0.emotion.quadrant == .stretchingMe}
-		drawAttributedString(indexEntry: stretchingMeIndexEntry, startPoint: CGPoint(x: stretchingMeCGRect.minX, y: stretchingMeCGRect.minY), destinationString: stretchingMeIndexEntry[0].destination)
+		let textWidthInsetForBox = inset+CGFloat(-15.0)
+		let textHeightInsetForBox = inset+CGFloat(-55.0)
+		
+		let stretchingMeCGRect = CGRect(x: x,y: y,width: TypeSetConstants.pageWidth / 2.0,height: boxHeightRatio*TypeSetConstants.pageHeight / 2.0)
+		let stretchingMeIndexEntry = bookIndex.filter{$0.emotion.quadrant == .stretchingMe}
+		documentIndex(
+			indexEntry: stretchingMeIndexEntry,
+			topRightCorner: CGPoint(x: stretchingMeCGRect.minX+textWidthInsetForBox, y: stretchingMeCGRect.minY+textHeightInsetForBox),
+			destinationString: stretchingMeIndexEntry[0].destination)
 		drawOutlineBoxForIndex(for: stretchingMeCGRect, in : boxContext, inset: inset)
 
 		x += xIncrement
-		let connectingMeCGRect = CGRect(x: x,y: y,width: TypeSetConstants.pageWidth / 2.0,height: TypeSetConstants.pageHeight / 2.0)
-		let connectingMeIndexEntry = indexEntry.filter{$0.emotion.quadrant == .connectingMe}
-		drawAttributedString(indexEntry: connectingMeIndexEntry, startPoint: CGPoint(x: connectingMeCGRect.minX, y: connectingMeCGRect.minY), destinationString: connectingMeIndexEntry[0].destination)
+		let connectingMeCGRect = CGRect(x: x,y: y,width: TypeSetConstants.pageWidth / 2.0,height: boxHeightRatio*TypeSetConstants.pageHeight / 2.0)
+		let connectingMeIndexEntry = bookIndex.filter{$0.emotion.quadrant == .connectingMe}
+		documentIndex(
+			indexEntry: connectingMeIndexEntry,
+			topRightCorner: CGPoint(x: connectingMeCGRect.minX+textWidthInsetForBox, y: connectingMeCGRect.minY+textHeightInsetForBox),
+			destinationString: connectingMeIndexEntry[0].destination)
 		drawOutlineBoxForIndex(for: connectingMeCGRect, in : boxContext, inset: inset)
 
-		y+=yIncrement
+		y += yIncrement
 		x=TypeSetConstants.pageRect.insetBy(dx: inset/2, dy: inset/2).minX+inset/2
-		let meFirstCGRect = CGRect(x: x,y: y,width: TypeSetConstants.pageWidth / 2.0,height: TypeSetConstants.pageHeight / 2.0)
-		let meFirstIndexEntry = indexEntry.filter{$0.emotion.quadrant == .meFirst}
-		drawAttributedString(indexEntry: meFirstIndexEntry, startPoint: CGPoint(x: meFirstCGRect.minX, y: meFirstCGRect.minY), destinationString: connectingMeIndexEntry[0].destination)
+		let meFirstCGRect = CGRect(x: x,y: y,width: TypeSetConstants.pageWidth / 2.0,height: boxHeightRatio*TypeSetConstants.pageHeight / 2.0)
+		let meFirstIndexEntry = bookIndex.filter{$0.emotion.quadrant == .meFirst}
+		documentIndex(
+			indexEntry: meFirstIndexEntry,
+			topRightCorner: CGPoint(x: meFirstCGRect.minX+textWidthInsetForBox, y: meFirstCGRect.minY+textHeightInsetForBox),
+			destinationString: meFirstIndexEntry[0].destination)
 		drawOutlineBoxForIndex(for: meFirstCGRect, in : boxContext, inset: inset)
 
 		x += xIncrement
-		let protectingMeCGRect = CGRect(x: x,y: y,width: TypeSetConstants.pageWidth / 2.0,height: TypeSetConstants.pageHeight / 2.0)
-		let protectingMeIndexEntry = indexEntry.filter{$0.emotion.quadrant == .protectingMe}
-		drawAttributedString(indexEntry: protectingMeIndexEntry, startPoint: CGPoint(x: protectingMeCGRect.minX, y: protectingMeCGRect.minY), destinationString: protectingMeIndexEntry[0].destination)
+		let protectingMeCGRect = CGRect(x: x,y: y,width: TypeSetConstants.pageWidth / 2.0,height: boxHeightRatio*TypeSetConstants.pageHeight / 2.0)
+		let protectingMeIndexEntry = bookIndex.filter{$0.emotion.quadrant == .protectingMe}
+		documentIndex(
+			indexEntry: protectingMeIndexEntry,
+			topRightCorner: CGPoint(x: protectingMeCGRect.minX+textWidthInsetForBox, y: protectingMeCGRect.minY+textHeightInsetForBox),
+			destinationString: protectingMeIndexEntry[0].destination)
 		drawOutlineBoxForIndex(for: protectingMeCGRect, in : boxContext, inset: inset)
 	}
 	
-	func makeIndex(index text : NSMutableAttributedString, at rect: CGRect){
-		let bodyFont = UIFont(name: "Chalkduster", size: TypeSetConstants.bodyFontSize)
-		let paragraphStyle = NSMutableParagraphStyle()
-		paragraphStyle.alignment = .left
-		paragraphStyle.lineBreakMode = .byWordWrapping
-		let bodyAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.paragraphStyle: paragraphStyle,
-			NSAttributedString.Key.font: bodyFont!,
-			NSAttributedString.Key.foregroundColor: UIColor.black]
-	}
-	
-	func drawAttributedString(indexEntry : [IndexEntry], startPoint : CGPoint, destinationString : String){
-		let boldFont = UIFont(name: "Chalkduster", size: TypeSetConstants.tagLineFontSize)
-		let bodyFont = UIFont(name: "Chalkduster", size: TypeSetConstants.bodyFontSize)
-		let paragraphStyle = NSMutableParagraphStyle()
-		paragraphStyle.alignment = .left
-		paragraphStyle.lineBreakMode = .byWordWrapping
-		let headingAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.paragraphStyle: paragraphStyle,
-			NSAttributedString.Key.font: boldFont!,
-			NSAttributedString.Key.foregroundColor: UIColor.black]
-		let boldAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.paragraphStyle: paragraphStyle,
-			NSAttributedString.Key.font: boldFont!,
-			NSAttributedString.Key.foregroundColor: UIColor.black]
-		let bodyAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.paragraphStyle: paragraphStyle,
-			NSAttributedString.Key.font: bodyFont!,
-			NSAttributedString.Key.foregroundColor: UIColor.black]
-		
-		
-		var oldQuadrant : Index.Quadrant!
+	func documentIndex(indexEntry : [IndexEntry], topRightCorner : CGPoint, destinationString : String){
+		let textPositionInQuad = CGPoint(x: topRightCorner.x+20.0, y: topRightCorner.y+60.0)
+		var y_offset = CGFloat(0.0)
+		let zone_offset = CGFloat(0.0)
+		let emotion_offset = zone_offset+CGFloat(0.0)
+		let quadrantFontSizeDelta = CGFloat(0.0)
+		let zoneFontSizeDelta = CGFloat(-3.0)
+		let emotionFontSizeDelta = CGFloat(-7.0)
+		y_offset += indexItem(
+			fontSizeDelta: quadrantFontSizeDelta,
+			text: indexEntry[0].emotion.quadrant.rawValue,
+			at: textPositionInQuad,
+			additional: "Quadrant")
 		var oldZone : Index.Zone!
-		let quadrantIndexNSAttributedString = NSMutableAttributedString(string: "Quadrant: \(indexEntry[0].emotion.quadrant.rawValue)", attributes: boldAttributes)
-		quadrantIndexNSAttributedString.draw(at: startPoint)
-		drawingPDF.setDestinationWithName(destinationString, for: CGRect(origin: startPoint, size: quadrantIndexNSAttributedString.size()))
-		//		for page in indexEntry{
-		//			if page.emotion.zone != oldZone{
-		//				print("   Zone: \(page.emotion.zone)")
-		//				oldZone = page.emotion.zone
-		//			}
-		//			print("      Emotion: \(page.emotion.emotion)")
-		//		}
+		
+		for page in indexEntry{
+//			print("index entry: \(page.destination)")
+			if page.emotion.zone != oldZone{
+				y_offset += indexItem(
+					fontSizeDelta: zoneFontSizeDelta,
+					text: page.emotion.zone.rawValue,
+					at: textPositionInQuad.delta(dx: zone_offset, dy: y_offset),
+					additional: "Zone")
+				oldZone = page.emotion.zone
+			}
+			y_offset += indexItem(
+				fontSizeDelta: emotionFontSizeDelta,
+				text: page.emotion.emotion.rawValue,
+				at: textPositionInQuad.delta(dx: emotion_offset, dy: y_offset),
+				additional: "")
+		}
 	}
 	
+	func indexItem( fontSizeDelta delta: CGFloat, text indexText: String, at cgPoint : CGPoint, additional text: String)->CGFloat{
+		let attributes = getAttributes(fontSizeDelta: delta)
+		let attributedString = NSAttributedString(string: "\(indexText) \(text)",attributes: attributes)
+		let stringSize = getAttributedStringSize(attributedString)
+		let stringRect = CGRect(origin: cgPoint, size: stringSize)
+		attributedString.draw(in: stringRect)
+		let linkArea = stringRect.applying(drawingPDF.cgContext.userSpaceToDeviceSpaceTransform)
+		drawingPDF.setDestinationWithName(indexText, for: linkArea)
+		return stringRect.height
+	}
 	
+	private func getAttributes(fontSizeDelta delta : CGFloat)->[NSAttributedString.Key: Any]{
+		let quadrantFont = UIFont.systemFont(
+			ofSize: TypeSetConstants.bodyFontSize+delta,
+			weight: .regular)
+		let paragraphStyle = NSMutableParagraphStyle()
+		paragraphStyle.alignment = .left
+		paragraphStyle.lineBreakMode = .byWordWrapping
+		return [
+			NSAttributedString.Key.paragraphStyle: paragraphStyle,
+			NSAttributedString.Key.font: quadrantFont,
+			NSAttributedString.Key.foregroundColor: UIColor.black]
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	func getAttributedStringSize(_ nsAttributedString: NSAttributedString ) ->CGSize{
+		let qAndATest = nsAttributedString.boundingRect(
+			with: CGSize(
+				width: CGFloat.greatestFiniteMagnitude,
+				height: CGFloat.greatestFiniteMagnitude
+			),
+			options: [.usesLineFragmentOrigin, .usesFontLeading],
+			context: nil)
+		
+		return CGSize(width: ceil(qAndATest.width), height: ceil(qAndATest.height))
+	}
 	
 	func drawOutlineBoxForIndex(for rect : CGRect, in context : CGContext, inset by : CGFloat){
 		//		context.saveGState()
@@ -219,17 +274,6 @@ class Handbook : PDFSuperView{
 	
 	
 	
-	func createFrontPage(){
-		beginPage = true
-		let imageBottom = addImage(
-			imageTop: TypeSetConstants.header,
-			image: UIImage(named: "Joy_3_1_750")!,
-			frontPageAdjust: TypeSetConstants.pageHeight/2 - 300.0
-			) + TypeSetConstants.standardSpacing*2
-		if let name = learnerName{
-			_=addAddvice(tag: "Reflector Selector Handbook\n"+name, position: imageBottom)
-		}
-	}
 	
 	
 	private func addAddvice(tag line : String, position top : CGFloat) -> CGFloat{
@@ -263,4 +307,10 @@ class Handbook : PDFSuperView{
 		return textRect.origin.y + ceil(textRect.size.height)
 	}
 	
+}
+
+extension CGPoint{
+	func delta(dx deltaX : CGFloat, dy deltaY: CGFloat)->CGPoint{
+		return CGPoint(x: self.x + deltaX, y: self.y + deltaY)
+	}
 }
