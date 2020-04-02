@@ -42,30 +42,11 @@ class Handbook : PDFSuperView{
 			drawingPDF = context
 			dustCover()
 			documentIndex()
+			introduction()
 			chapter(for: bookIndex.filter{$0.emotion.quadrant == .stretchingMe})
 			chapter(for: bookIndex.filter{$0.emotion.quadrant == .connectingMe})
 			chapter(for: bookIndex.filter{$0.emotion.quadrant == .protectingMe})
 			chapter(for: bookIndex.filter{$0.emotion.quadrant == .meFirst})
-//			EmotionItems.Quadrant.allCases.forEach{ quadrant in
-//				var indexQuadrant = true
-//				var indexZone = true
-//				book.filter{ $0.emotion.quadrant == quadrant }.forEach{ emotion in
-//					if indexQuadrant{
-//						indexQuadrant = false
-////						createPageForQuad(for: quadrant.rawValue, in : emotion.emotion.index)
-//						createPage(destination: emotion.emotion.index.quadrant.rawValue, for: quadrant.rawValue)
-//					}
-//					if indexZone{
-//						indexZone = false
-//
-//					}
-////					createNote(for: emotion.name, in : emotion.emotion.index)
-//					createPage(destination: emotion.emotion.index.emotion.rawValue, for: emotion.name)
-//					if emotion.emotion.custom{
-////						createWork(for: emotion)
-//					}
-//				}
-//			}
 		}
 		return data
 	}
@@ -95,6 +76,24 @@ class Handbook : PDFSuperView{
 			) + TypeSetConstants.standardSpacing*2
 		if let name = learnerName{
 			_=addAddvice(tag: "Reflector Selector Handbook\n"+name, position: imageBottom)
+		}
+	}
+	
+	func introduction(){
+		if let url = Bundle.main.url(forResource: "Introduction", withExtension: "pdf"){
+			if let document = CGPDFDocument(url as CFURL) {
+				for pdfPage in 1...10{
+					if let page = document.page(at: pdfPage){
+						beginPage = true
+						let context = drawingPDF.cgContext
+						context.scaleBy(x: -1.0, y: 1.0)
+						context.translateBy(x: -TypeSetConstants.pageWidth, y: 0.0)
+						context.rotate(by: -CGFloat.pi)
+						context.translateBy(x: -TypeSetConstants.pageWidth, y: -TypeSetConstants.pageHeight)
+						context.drawPDFPage(page)
+					}
+				}
+			}
 		}
 	}
 	

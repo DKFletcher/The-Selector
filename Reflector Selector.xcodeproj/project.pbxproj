@@ -78,6 +78,7 @@
 		D65DFFA7240A73C1006E35E5 /* ImageCloseUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65DFFA3240A73C1006E35E5 /* ImageCloseUp.storyboard */; };
 		D65DFFAC240A73EA006E35E5 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFFA9240A73EA006E35E5 /* PDFViewController.swift */; };
 		D65DFFAD240A73EA006E35E5 /* PDFStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65DFFAA240A73EA006E35E5 /* PDFStoryboard.storyboard */; };
+		D66EE105243629D9008DB08A /* Introduction.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D66EE104243629D8008DB08A /* Introduction.pdf */; };
 		D677D94C2423901E00FAF647 /* Instructions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D677D94B2423901E00FAF647 /* Instructions.storyboard */; };
 		D677D94E2423903100FAF647 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D677D94D2423903100FAF647 /* InstructionsViewController.swift */; };
 		D67BE756241BAE0000AE2F92 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67BE755241BAE0000AE2F92 /* UIStackView.swift */; };
@@ -206,6 +207,7 @@
 		D65DFFA3240A73C1006E35E5 /* ImageCloseUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageCloseUp.storyboard; sourceTree = "<group>"; };
 		D65DFFA9240A73EA006E35E5 /* PDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		D65DFFAA240A73EA006E35E5 /* PDFStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PDFStoryboard.storyboard; sourceTree = "<group>"; };
+		D66EE104243629D8008DB08A /* Introduction.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Introduction.pdf; path = "Handbook Introduction/Introduction.pdf"; sourceTree = SOURCE_ROOT; };
 		D677D94B2423901E00FAF647 /* Instructions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instructions.storyboard; sourceTree = "<group>"; };
 		D677D94D2423903100FAF647 /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 		D67BE755241BAE0000AE2F92 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 		D65DFFAF240A73FF006E35E5 /* PDF Raw */ = {
 			isa = PBXGroup;
 			children = (
+				D66EE104243629D8008DB08A /* Introduction.pdf */,
 				D6C3B421241F916200806FE5 /* connectingMe.pdf */,
 				D6C3B423241F916300806FE5 /* meFirst.pdf */,
 				D6C3B422241F916300806FE5 /* protectingMe.pdf */,
@@ -606,6 +609,7 @@
 			files = (
 				D64E5F14240E9DF50012DEF4 /* Icon.png in Resources */,
 				D65D0013240A74A1006E35E5 /* CardView.xib in Resources */,
+				D66EE105243629D9008DB08A /* Introduction.pdf in Resources */,
 				D6C3B3EB241F8B9500806FE5 /* Angry.pdf in Resources */,
 				D6C3B410241F8C5B00806FE5 /* Joy.pdf in Resources */,
 				D6C3B415241F8C5B00806FE5 /* Hopeful.pdf in Resources */,
