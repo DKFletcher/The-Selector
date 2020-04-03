@@ -15,8 +15,11 @@ class Handbook : PDFSuperView{
 		super.init(learner: name)
 	}
 	
-	
+	var cards : [Card]!
 	func handbook(from book: [Card]) -> Data {
+		cards = book
+		
+		
 		EmotionItems.Quadrant.allCases.forEach{ quadrant in
 			book.filter{ $0.emotion.quadrant == quadrant }.forEach{ emotion in
 				bookIndex.append(
@@ -65,6 +68,14 @@ class Handbook : PDFSuperView{
 			}
 			if let emotionName = page.emotion.getPDFName(for: page.emotion.emotion.rawValue){
 				createPage(destination: page.emotion.emotion.rawValue, for: emotionName)
+				cards.forEach{ card in
+					if card.emotion.index.emotion.rawValue == page.emotion.emotion.rawValue {
+						if card.emotion.custom{
+							customImage(for: card)
+						}
+					}
+					
+				}
 			}
 		}
 	}
@@ -113,6 +124,17 @@ class Handbook : PDFSuperView{
 				}
 			}
 		}
+	}
+	
+	func customImage(for card : Card){
+		beginPage = true
+		let attributes = getAttributes(fontSizeDelta: 10.0)
+		let attributedString = NSAttributedString(string: "\(card.name)", attributes: attributes)
+		let stringSize = getAttributedStringSize(attributedString)
+		let stringRect = CGRect(origin: CGPoint(x: TypeSetConstants.margin, y: TypeSetConstants.header), size: stringSize)
+		attributedString.draw(in: stringRect)
+		_=addImage(imageTop: TypeSetConstants.header+stringRect.height+20.0, image: imageServer.get(image: card))
+		
 	}
 	
 	func documentIndex(){

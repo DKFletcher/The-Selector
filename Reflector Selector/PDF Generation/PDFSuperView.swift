@@ -114,8 +114,6 @@ class PDFSuperView {
 		}
 	}
 	
-	
-	
 	func makeAttributedString(question: String, answer: String) -> NSMutableAttributedString{
 		let boldFont = UIFont.systemFont(
 			ofSize: TypeSetConstants.bodyFontSize,
@@ -263,7 +261,6 @@ class PDFSuperView {
 		let qAndAHeight = getAttributedStringHeight(qAndA) + TypeSetConstants.answerBoxHeight
 		return qAndAHeight + returnPosition < TypeSetConstants.pageHeight - TypeSetConstants.footer ? onPage() : newPage()
 	}
-
 }
 
 //func textBody2(to answer: String, for question: String, from start: CGFloat)->[String]{
