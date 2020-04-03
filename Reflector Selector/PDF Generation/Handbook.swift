@@ -52,14 +52,16 @@ class Handbook : PDFSuperView{
 	}
 	
 	func chapter(for indexEntry: [IndexEntry]){
-		var indexZone = false
-//createPage(destination: emotion.emotion.index.quadrant.rawValue, for: quadrant.rawValue)
 		if let quadrantName = indexEntry[0].emotion.getPDFName(for: indexEntry[0].emotion.quadrant.rawValue){
 			createPage(destination: indexEntry[0].emotion.quadrant.rawValue, for: quadrantName)
 		}
+		var oldZone = ""
 		for page in indexEntry{
-			if indexZone{
-				indexZone = false
+			if page.emotion.zone.rawValue != oldZone{
+				oldZone = page.emotion.zone.rawValue
+				if let emotionName = page.emotion.getPDFName(for: page.emotion.zone.rawValue){
+					createPage(destination: page.emotion.zone.rawValue, for: emotionName)
+				}
 			}
 			if let emotionName = page.emotion.getPDFName(for: page.emotion.emotion.rawValue){
 				createPage(destination: page.emotion.emotion.rawValue, for: emotionName)
@@ -116,11 +118,12 @@ class Handbook : PDFSuperView{
 	func documentIndex(){
 		beginPage = true
 		let inset = CGFloat(40.0)
-		let boxHeightRatio = CGFloat(0.7)
+		let boxHeightRatio = CGFloat(0.75)//This sets the hight of each box
+		let distanceOfIndexFromTop = CGFloat(100.0)
 		let yIncrement = (boxHeightRatio*TypeSetConstants.pageHeight-2*inset) / 2.0 - inset
 		let xIncrement = (TypeSetConstants.pageWidth-2*inset) / 2.0 - inset
 		var x = TypeSetConstants.pageRect.insetBy(dx: inset/2, dy: inset/2).minX+inset/2
-		var y = TypeSetConstants.pageRect.insetBy(dx: inset/2, dy: inset/2).minY+inset/2+115.0
+		var y = TypeSetConstants.pageRect.insetBy(dx: inset/2, dy: inset/2).minY+inset/2 + distanceOfIndexFromTop
 		let boxContext = drawingPDF.cgContext
 		let textWidthInsetForBox = inset+CGFloat(-15.0)
 		let textHeightInsetForBox = inset+CGFloat(-55.0)
@@ -168,8 +171,8 @@ class Handbook : PDFSuperView{
 		let zone_offset = CGFloat(0.0)
 		let emotion_offset = zone_offset+CGFloat(0.0)
 		let quadrantFontSizeDelta = CGFloat(0.0)
-		let zoneFontSizeDelta = CGFloat(-3.0)
-		let emotionFontSizeDelta = CGFloat(-7.0)
+		let zoneFontSizeDelta = CGFloat(-7.0)
+		let emotionFontSizeDelta = CGFloat(-3.0)
 		y_offset += indexItem(
 			fontSizeDelta: quadrantFontSizeDelta,
 			text: indexEntry[0].emotion.quadrant.rawValue,
@@ -178,7 +181,6 @@ class Handbook : PDFSuperView{
 		var oldZone : Index.Zone!
 		
 		for page in indexEntry{
-//			print("index entry: \(page.destination)")
 			if page.emotion.zone != oldZone{
 				y_offset += indexItem(
 					fontSizeDelta: zoneFontSizeDelta,

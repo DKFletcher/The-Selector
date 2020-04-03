@@ -84,7 +84,7 @@ extension SaveFileViewController{
 	
 	
 	func chooseOverwrite() {
-		let alert = UIAlertController(title: NSLocalizedString("A file with this name is already in the Selctor Reflector folder. Do you want to write over it? ", comment: ""), message:nil, preferredStyle: .alert)
+		let alert = UIAlertController(title: NSLocalizedString("A file with this name is already in the Selector Reflector folder. Do you want to write over it? ", comment: ""), message:nil, preferredStyle: .alert)
 		alert.modalPresentationStyle = .popover
 		alert.popoverPresentationController?.sourceView = self.textField
 		alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: { (_) in
