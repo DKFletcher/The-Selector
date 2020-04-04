@@ -22,8 +22,6 @@ class PDFSuperView {
 	}
 
 	
-	var bookIndex : [IndexEntry]! = []
-	
 	var destination : String = "" {
 		didSet{
 //			print("destination \(destination)")

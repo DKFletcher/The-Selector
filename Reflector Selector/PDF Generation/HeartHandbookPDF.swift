@@ -13,6 +13,8 @@ class HeartHandbook : PDFSuperView{
 	
 	
 	
+	var bookIndex : [IndexEntry]! = []
+	
 	override init(learner name: String?) {
 		super.init(learner: name)
 	}

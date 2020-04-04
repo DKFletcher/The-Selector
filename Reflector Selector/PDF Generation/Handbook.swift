@@ -15,11 +15,22 @@ class Handbook : PDFSuperView{
 		super.init(learner: name)
 	}
 	
+	var bookIndex : [IndexEntry]! = []
+	
 	var cards : [Card]!
-	func handbook(from book: [Card]) -> Data {
+	
+	var renderer : UIGraphicsPDFRenderer {
+		let pdfMetaData = [
+			kCGPDFContextCreator: "Emotions Handbook",
+			kCGPDFContextAuthor: "Alan McLean"
+		]
+		let format = UIGraphicsPDFRendererFormat()
+		format.documentInfo = pdfMetaData as [String: Any]
+		return UIGraphicsPDFRenderer(bounds: TypeSetConstants.pageRect, format: format)
+	}
+	
+	func getIndex(book : [Card]){
 		cards = book
-		
-		
 		EmotionItems.Quadrant.allCases.forEach{ quadrant in
 			book.filter{ $0.emotion.quadrant == quadrant }.forEach{ emotion in
 				bookIndex.append(
@@ -32,7 +43,11 @@ class Handbook : PDFSuperView{
 			($0.emotion.quadrant.rawValue,  $0.emotion.position) <
 				($1.emotion.quadrant.rawValue, $1.emotion.position)
 		}
-		
+	}
+
+	
+	func handbook(from cards: [Card]) -> Data {
+		getIndex(book: cards)
 		let pdfMetaData = [
 			kCGPDFContextCreator: "Emotions Handbook",
 			kCGPDFContextAuthor: "Alan McLean"
@@ -71,10 +86,9 @@ class Handbook : PDFSuperView{
 				cards.forEach{ card in
 					if card.emotion.index.emotion.rawValue == page.emotion.emotion.rawValue {
 						if card.emotion.custom{
-							customImage(for: card)
+							customImage(for: card, using: card.name)
 						}
 					}
-					
 				}
 			}
 		}
@@ -126,10 +140,10 @@ class Handbook : PDFSuperView{
 		}
 	}
 	
-	func customImage(for card : Card){
+	func customImage(for card : Card, using title: String){
 		beginPage = true
 		let attributes = getAttributes(fontSizeDelta: 10.0)
-		let attributedString = NSAttributedString(string: "\(card.name)", attributes: attributes)
+		let attributedString = NSAttributedString(string: title, attributes: attributes)
 		let stringSize = getAttributedStringSize(attributedString)
 		let stringRect = CGRect(origin: CGPoint(x: TypeSetConstants.margin, y: TypeSetConstants.header), size: stringSize)
 		attributedString.draw(in: stringRect)
@@ -230,7 +244,7 @@ class Handbook : PDFSuperView{
 		return stringRect.height
 	}
 	
-	private func getAttributes(fontSizeDelta delta : CGFloat)->[NSAttributedString.Key: Any]{
+	func getAttributes(fontSizeDelta delta : CGFloat)->[NSAttributedString.Key: Any]{
 		let quadrantFont = UIFont.systemFont(
 			ofSize: TypeSetConstants.bodyFontSize+delta,
 			weight: .regular)

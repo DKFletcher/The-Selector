@@ -75,8 +75,8 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 			let log = LearnerLog(learner: (tabBarController as! TabBarController).learnerName)
 			documentData = log.workSheet(for: card)
 		case .InfoSheet :
-			let heartHandbook = HeartHandbook(learner: (tabBarController as! TabBarController).learnerName)
-			documentData = heartHandbook.infoSheet(for: card)
+			let collector = Collector(learner: (tabBarController as! TabBarController).learnerName)
+			documentData = collector.infoSheets(for: card, in:(tabBarController as! TabBarController).cards)
 			additionalInfoForFileName = " for \(card.name)"
 		case .Handbook :
 			let handbook = Handbook(learner: (tabBarController as! TabBarController).learnerName)
@@ -85,8 +85,10 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 			let log = LearnerLog(learner: (tabBarController as! TabBarController).learnerName)
 			documentData = log.logbook(from: (tabBarController as! TabBarController).cards)
 		case .DoubleLong :
-			let doubleLong = DoubleLong(learner: (tabBarController as! TabBarController).learnerName)
-			documentData = doubleLong.doubleLong(for: card)
+			let collector = Collector(learner: (tabBarController as! TabBarController).learnerName)
+			documentData = collector.collector(for: card, in: (tabBarController as! TabBarController).cards)
+//			let doubleLong = DoubleLong(learner: (tabBarController as! TabBarController).learnerName)
+//			documentData = doubleLong.doubleLong(for: card)
 		}
 		
 		if let data = documentData, let document = PDFDocument(data: data){
