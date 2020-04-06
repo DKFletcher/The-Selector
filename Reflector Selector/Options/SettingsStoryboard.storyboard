@@ -212,7 +212,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="C1_bar" width="30" height="30"/>
+        <image name="C1_bar" width="40" height="40"/>
         <image name="button sellected" width="39" height="41"/>
         <image name="button up" width="39" height="41"/>
         <namedColor name="Lesson Background">

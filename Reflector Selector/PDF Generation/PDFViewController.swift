@@ -18,6 +18,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 	
 	@IBOutlet var pdfView: PDFView!
 	
+	@IBOutlet var spinner: UIActivityIndicatorView!
 	
 	var pdfDocument: PDFDocument!
 	
@@ -69,35 +70,65 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 	}
 	
 	private func workFlow(){
-		additionalInfoForFileName = ""
-		switch job{
-		case .WorkSheet :
-			let log = LearnerLog(learner: (tabBarController as! TabBarController).learnerName)
-			documentData = log.workSheet(for: card)
-		case .InfoSheet :
-			let collector = Collector(learner: (tabBarController as! TabBarController).learnerName)
-			documentData = collector.infoSheets(for: card, in:(tabBarController as! TabBarController).cards)
-			additionalInfoForFileName = " for \(card.name)"
-		case .Handbook :
-			let handbook = Handbook(learner: (tabBarController as! TabBarController).learnerName)
-			documentData = handbook.handbook(from: (tabBarController as! TabBarController).cards)
-		case .Logbook :
-			let log = LearnerLog(learner: (tabBarController as! TabBarController).learnerName)
-			documentData = log.logbook(from: (tabBarController as! TabBarController).cards)
-		case .DoubleLong :
-			let collector = Collector(learner: (tabBarController as! TabBarController).learnerName)
-			documentData = collector.collector(for: card, in: (tabBarController as! TabBarController).cards)
-//			let doubleLong = DoubleLong(learner: (tabBarController as! TabBarController).learnerName)
-//			documentData = doubleLong.doubleLong(for: card)
-		}
-		
-		if let data = documentData, let document = PDFDocument(data: data){
-			nsData = NSData(data: data)
-			pdfDocument = document
-			pdfView.displayMode = .singlePageContinuous
-			pdfView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
-			pdfView.scaleFactor = 0.25
-			pdfView.document = document
+		let child = SpinnerViewController()
+		addChild(child)
+		child.view.frame = view.frame
+		view.addSubview(child.view)
+		child.didMove(toParent: self)
+		DispatchQueue.main.async {
+			self.additionalInfoForFileName = ""
+			switch self.job{
+			case .WorkSheet :
+				let log = LearnerLog(learner: (self.tabBarController as! TabBarController).learnerName)
+				self.documentData = log.workSheet(for: self.card)
+			case .InfoSheet :
+				let collector = Collector(learner: (self.tabBarController as! TabBarController).learnerName)
+				self.documentData = collector.infoSheets(for: self.card, in:(self.tabBarController as! TabBarController).cards)
+				self.additionalInfoForFileName = " for \(self.card.name)"
+			case .Handbook :
+				
+				
+				
+				print("in dispatch queue")
+					let handbook = Handbook(learner: (self.tabBarController as! TabBarController).learnerName)
+					self.documentData = handbook.handbook(from: (self.tabBarController as! TabBarController).cards)
+				
+				
+				
+				
+				//			DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+				//				DispatchQueue.main.async {
+				//					let handbook = Handbook(learner: (self?.tabBarController as! TabBarController).learnerName)
+				//					self?.documentData = handbook.handbook(from: (self?.tabBarController as! TabBarController).cards)
+				//				}
+				//
+				//			}
+				
+				
+				
+				
+				
+			case .Logbook :
+				let log = LearnerLog(learner: (self.tabBarController as! TabBarController).learnerName)
+				self.documentData = log.logbook(from: (self.tabBarController as! TabBarController).cards)
+			case .DoubleLong :
+				let collector = Collector(learner: (self.tabBarController as! TabBarController).learnerName)
+				self.documentData = collector.collector(for: self.card, in: (self.tabBarController as! TabBarController).cards)
+				//			let doubleLong = DoubleLong(learner: (tabBarController as! TabBarController).learnerName)
+				//			documentData = doubleLong.doubleLong(for: card)
+			}
+			
+			if let data = self.documentData, let document = PDFDocument(data: data){
+				self.nsData = NSData(data: data)
+				self.pdfDocument = document
+				self.pdfView.displayMode = .singlePageContinuous
+				self.pdfView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
+				self.pdfView.scaleFactor = 0.25
+					self.pdfView.document = document
+			}
+			child.willMove(toParent: nil)
+			child.view.removeFromSuperview()
+			child.removeFromParent()
 		}
 	}
 	

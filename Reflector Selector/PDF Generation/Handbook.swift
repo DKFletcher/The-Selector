@@ -70,6 +70,7 @@ class Handbook : PDFSuperView{
 	}
 	
 	func chapter(for indexEntry: [IndexEntry]){
+		
 		if let quadrantName = indexEntry[0].emotion.getPDFName(for: indexEntry[0].emotion.quadrant.rawValue){
 			createPage(destination: indexEntry[0].emotion.quadrant.rawValue, for: quadrantName)
 		}
