@@ -46,16 +46,8 @@ class Handbook : PDFSuperView{
 	}
 
 	
-	func handbook(from cards: [Card]) -> Data {
-		getIndex(book: cards)
-		let pdfMetaData = [
-			kCGPDFContextCreator: "Emotions Handbook",
-			kCGPDFContextAuthor: "Alan McLean"
-		]
-		let format = UIGraphicsPDFRendererFormat()
-		format.documentInfo = pdfMetaData as [String: Any]
-		let renderer = UIGraphicsPDFRenderer(bounds: TypeSetConstants.pageRect, format: format)
-		
+	func handbook(from book: [Card]) -> Data {
+		getIndex(book: book)		
 		let data = renderer.pdfData { (context) in
 			drawingPDF = context
 			dustCover()
@@ -70,6 +62,7 @@ class Handbook : PDFSuperView{
 	}
 	
 	func chapter(for indexEntry: [IndexEntry]){
+		
 		if let quadrantName = indexEntry[0].emotion.getPDFName(for: indexEntry[0].emotion.quadrant.rawValue){
 			createPage(destination: indexEntry[0].emotion.quadrant.rawValue, for: quadrantName)
 		}
@@ -78,18 +71,26 @@ class Handbook : PDFSuperView{
 			if page.emotion.zone.rawValue != oldZone{
 				oldZone = page.emotion.zone.rawValue
 				if let emotionName = page.emotion.getPDFName(for: page.emotion.zone.rawValue){
-					createPage(destination: page.emotion.zone.rawValue, for: emotionName)
+					autoreleasepool{
+						createPage(destination: page.emotion.zone.rawValue, for: emotionName)
+					}
 				}
 			}
+//			autoreleasepool{
 			if let emotionName = page.emotion.getPDFName(for: page.emotion.emotion.rawValue){
-				createPage(destination: page.emotion.emotion.rawValue, for: emotionName)
+//				autoreleasepool{
+					createPage(destination: page.emotion.emotion.rawValue, for: emotionName)
+//				}
 				cards.forEach{ card in
 					if card.emotion.index.emotion.rawValue == page.emotion.emotion.rawValue {
 						if card.emotion.custom{
-							customImage(for: card, using: card.name)
+//							autoreleasepool{
+								customImage(for: card, using: card.name)
+//							}
 						}
 					}
 				}
+//			}
 			}
 		}
 	}

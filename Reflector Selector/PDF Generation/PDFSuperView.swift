@@ -24,7 +24,7 @@ class PDFSuperView {
 	
 	var destination : String = "" {
 		didSet{
-//			print("destination \(destination)")
+			print("destination \(destination)    drawingPDF \(drawingPDF.hashValue)")
 			drawingPDF.beginPage()
 			drawingPDF.addDestination(
 				withName: destination,
@@ -62,6 +62,8 @@ class PDFSuperView {
 	init(learner name : String?) {
 		if let learnName = name{
 			self.learnerName = learnName
+		} else {
+			self.learnerName = ""
 		}
 	}
 	
@@ -211,7 +213,6 @@ class PDFSuperView {
 				returnPosition = TypeSetConstants.header
 				return helper(startPosition: returnPosition, drawingPDF: drawingPDF, qa: QuestionAnswer(question: "", answer: page[1]))
 			}
-			
 			return page.count == 2 ? page[0].count == 0 ? help1() : help2() :
 				makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[0], question: qa.question)
 		}

@@ -75,10 +75,12 @@ class LearnerLog : PDFSuperView{
 			}
 			emotionString.draw(at: CGPoint(x: TypeSetConstants.margin, y: pagePosition))
 			pagePosition += emotionHeight
-			emotion.emotion.qanda.sections().forEach{ $0.forEach {
-				let test = $0.answer
-				pagePosition = formatAnswerBook(drawing: drawingPDF, text: QuestionAnswer(question: $0.question, answer: test))
-				}}
+			autoreleasepool {
+				emotion.emotion.qanda.sections().forEach{ $0.forEach {
+					let test = $0.answer
+					pagePosition = formatAnswerBook(drawing: drawingPDF, text: QuestionAnswer(question: $0.question, answer: test))
+					}}
+			}
 		}
 		return data
 	}
@@ -126,7 +128,7 @@ class LearnerLog : PDFSuperView{
 				width: TypeSetConstants.pageWidth,
 				height: TypeSetConstants.pageHeight))
 		let data = renderer.pdfData { (context) in
-			
+
 			drawingPDF = context
 			beginPage = true
 			image.draw(in: imageRect)
@@ -149,10 +151,14 @@ class LearnerLog : PDFSuperView{
 				}
 				emotionString.draw(at: CGPoint(x: TypeSetConstants.margin, y: pagePosition))
 				pagePosition += emotionHeight
-				emotion.emotion.qanda.sections().forEach{ $0.forEach {
-					let test = $0.answer
-					pagePosition = formatAnswerBook(drawing: drawingPDF, text: QuestionAnswer(question: $0.question, answer: test))
-					}}
+				autoreleasepool {
+					emotion.emotion.qanda.sections().forEach{ $0.forEach {
+						print("\($0.question)")
+						let test = $0.answer
+						pagePosition = formatAnswerBook(drawing: drawingPDF, text: QuestionAnswer(question: $0.question, answer: test))
+						}}
+				}
+				firstPage = false
 				pagePosition = TypeSetConstants.header
 			}
 		}

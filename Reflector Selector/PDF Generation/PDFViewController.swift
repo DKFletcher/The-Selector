@@ -66,6 +66,12 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 			target: self,
 			action: #selector(action))
 		
+		
+		spinner.view.frame = view.frame
+		view.addSubview(spinner.view)
+		spinner.didMove(toParent: self)
+		
+		
 		workFlow()
 	}
 	
@@ -98,14 +104,25 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 					}
 				}
 
+//			case .Handbook :
+//				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+//						let handbook = Handbook(learner: name)
+//						self?.documentData = handbook.handbook(from: cards)
+//					DispatchQueue.main.async {
+//						self?.pdfOnViewport()
+//					}
+//				}
+
 			case .Handbook :
-				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-						let handbook = Handbook(learner: name)
-						self?.documentData = handbook.handbook(from: cards)
-					DispatchQueue.main.async {
-						self?.pdfOnViewport()
-					}
-				}
+//				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+					let handbook = Handbook(learner: name)
+					documentData = handbook.handbook(from: cards)
+//					DispatchQueue.main.async {
+						pdfOnViewport()
+//					}
+//				}
+
+				
 				
 			case .Logbook :
 				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
@@ -138,7 +155,12 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 			pdfView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
 			pdfView.scaleFactor = 0.25
 			pdfView.document = document
+			documentData=Data()
 		}
+		
+		spinner.willMove(toParent:  nil)
+		spinner.view.removeFromSuperview()
+		spinner.removeFromParent()
 	}
 	
 	@objc func action(){
@@ -234,17 +256,6 @@ extension UIAlertController {
 		}
 	}
 }
-
-
-
-//		let child = SpinnerViewController()
-//		addChild(child)
-//		child.view.frame = view.frame
-//		view.addSubview(child.view)
-//		child.didMove(toParent: self)
-//		child.willMove(toParent: nil)
-//		child.view.removeFromSuperview()
-//		child.removeFromParent()
 
 
 class SpinnerViewController: UIViewController {
