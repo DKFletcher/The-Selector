@@ -120,7 +120,7 @@ extension SaveFileViewController{
 		if let enumerator: FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: url.path){
 			
 			while let element = enumerator.nextObject() as? String {
-				print("element: \(element)")
+//				print("element: \(element)")
 				if element == fileText+".pdf"{
 					return true
 				}

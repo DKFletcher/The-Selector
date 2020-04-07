@@ -104,23 +104,23 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 					}
 				}
 
-//			case .Handbook :
-//				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-//						let handbook = Handbook(learner: name)
-//						self?.documentData = handbook.handbook(from: cards)
-//					DispatchQueue.main.async {
-//						self?.pdfOnViewport()
-//					}
-//				}
-
 			case .Handbook :
-//				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-					let handbook = Handbook(learner: name)
-					documentData = handbook.handbook(from: cards)
-//					DispatchQueue.main.async {
-						pdfOnViewport()
-//					}
-//				}
+				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+						let handbook = Handbook(learner: name)
+						self?.documentData = handbook.handbook(from: cards)
+					DispatchQueue.main.async {
+						self?.pdfOnViewport()
+					}
+				}
+
+//			case .Handbook :
+////				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+//					let handbook = Handbook(learner: name)
+//					documentData = handbook.handbook(from: cards)
+////					DispatchQueue.main.async {
+//						pdfOnViewport()
+////					}
+////				}
 
 				
 				
@@ -262,7 +262,7 @@ class SpinnerViewController: UIViewController {
 	var spinner = UIActivityIndicatorView(style: .whiteLarge)
 	
 	override func loadView() {
-		print("spinner")
+//		print("spinner")
 		view = UIView()
 		view.backgroundColor = UIColor(white: 0, alpha: 0.7)
 		

@@ -24,7 +24,7 @@ class PDFSuperView {
 	
 	var destination : String = "" {
 		didSet{
-			print("destination \(destination)    drawingPDF \(drawingPDF.hashValue)")
+//			print("destination \(destination)    drawingPDF \(drawingPDF.hashValue)")
 			drawingPDF.beginPage()
 			drawingPDF.addDestination(
 				withName: destination,

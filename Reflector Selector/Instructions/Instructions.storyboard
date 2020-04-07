@@ -113,12 +113,11 @@
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BJ-jZ-W9M">
                             <rect key="frame" x="12" y="135" width="744" height="739"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <mutableString key="text">Do you ever think about your emotions? I wonder how well you understand them? 
-They can be confusing. Some emotions feel quite like each other, such as angry and annoyed, while others are very different, like bored and excited. It's good to be able to tell our emotions apart and know how we feel, because this helps us be more in control of ourselves. This app helps you learn how to do this.
+                            <mutableString key="text">Reflector Selector aims to improve what you understand and can communicate about your emotions.
 
 As you progress through Reflector Selector you will have made: 
   -a game that works with all your own images
-  -a Handbook explaining each emotion
+  -a Handbook explaining about emotions
   -a Workbook with lots of interesting answers
 
 The aim of the game is to have the longest win streak by getting all the rounds correct.
@@ -199,7 +198,7 @@ Art: Rhannon Van Muysen</string>
                             <mutableString key="text">In the Workbook area you will find a card for each emotion.
 
 When you tap on a card it flips to show it's opposite side.
-(Hint: If you organise your cards the way you want them to Reflector Selector will remember for the next time.)
+(Hint: If you organise your cards the way you want them to, Reflector Selector will remember for the next time.)
 
 You can take the card in or out of your game by tapping in the area outside the card. If there isn't a tick on the right hand side then that card is excluded from the game, and a tick means that it is in the game.
 

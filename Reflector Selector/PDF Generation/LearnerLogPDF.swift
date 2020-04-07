@@ -153,7 +153,7 @@ class LearnerLog : PDFSuperView{
 				pagePosition += emotionHeight
 				autoreleasepool {
 					emotion.emotion.qanda.sections().forEach{ $0.forEach {
-						print("\($0.question)")
+//						print("\($0.question)")
 						let test = $0.answer
 						pagePosition = formatAnswerBook(drawing: drawingPDF, text: QuestionAnswer(question: $0.question, answer: test))
 						}}

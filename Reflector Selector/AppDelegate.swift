@@ -699,8 +699,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let documentsPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)[0]
 		let url = URL(fileURLWithPath: documentsPath)
 		let fileManager = FileManager.default
-		
+		var initialRun = true
 		if let enumerator: FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: url.path){
+			initialRun = false
 			let decoder = JSONDecoder()
 			let jsonWorksheetsURL = FileManager.applicationSupportDirectoryURL
 				.appendingPathComponent("worksheets")
@@ -712,15 +713,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			} catch {
 				print(error)
 			}
-
-			
-			
 			
 			let jsonWorkbookURL = FileManager.applicationSupportDirectoryURL
 				.appendingPathComponent("workbook")
 				.appendingPathExtension("txt")
 			do{
-				print("workbook")
 				let jsonData = try Data(contentsOf: jsonWorkbookURL)
 				let abstractedWorkbook = try decoder.decode(AbstractionLayerForWorkbook.self, from: jsonData)
 				(window!.rootViewController as! TabBarController).abstractedWorkbook = abstractedWorkbook
@@ -728,10 +725,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			} catch {
 				print(error)
 			}
-			
-			
-			
-			
 			
 			var emotionsImages : [String] = []
 			while let element = enumerator.nextObject() as? String { guard element.hasSuffix(".img") else { continue }
@@ -741,19 +734,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				let jsonImagesURL = FileManager.applicationSupportDirectoryURL
 					.appendingPathComponent(image)
 				do{
-//					print(image)
 					let jsonData = try Data(contentsOf: jsonImagesURL)
-//					print("jsonData: \(jsonData.count)")
 					let abstractedImage = try decoder.decode(AbstractionLayerForImage.self, from: jsonData)
-//					print("abstractedImage: \(abstractedImage.image.emotion)")
-//					print()
 					(window!.rootViewController as! TabBarController).setAbstractionLayerForImage(image: abstractedImage)
 				} catch {
 					print(error)
 				}
 			}
 		}
-		
+		if initialRun{
+			(window!.rootViewController as! TabBarController).initialRun()
+		}
 		
 		
 		

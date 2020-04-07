@@ -122,7 +122,7 @@ class QuestionAndAnswer: UIView, QuestionAnswerDelegate, LabelHeightDelegate  {
 	}
 	
 	func redraw(){
-		print("redraw: \(self)")
+//		print("redraw: \(self)")
 	}
 	
 	private func makeLabel(_ text : String, background color : UIColor, _ aligment : Alignment) -> UILabelInset{

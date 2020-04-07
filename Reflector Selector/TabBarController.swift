@@ -22,7 +22,6 @@ class TabBarController: UITabBarController {
 	var emotions : [Card]! {
 		didSet{
 			setUpWorkBook()
-			print("emotions")
 			setForPhase(cards: cards)
 		}
 	}
@@ -197,6 +196,31 @@ extension TabBarController: UITabBarControllerDelegate {
 
 
 extension TabBarController{
+	
+	func initialRun(){
+		do{
+			let encoder = JSONEncoder()
+			let emotions = abstractionLayer
+			let documentData = try encoder.encode(emotions)
+			try self .fileSave(directory: .applicationSupportDirectory, fileName: "worksheets", directoryName: "./", documentData: documentData, pathExtension: "txt")
+		} catch {
+			print(error)
+		}
+		do {
+			var book = [Page]()
+			for emotion in emotions{
+				book.append(Page(onDisplay: initialSideForWorkbook, inGame: true, for: emotion.name))
+			}
+			let encoder = JSONEncoder()
+			let documentData = try encoder.encode(AbstractionLayerForWorkbook(for: book))
+			do {
+				try self .fileSave(directory: .applicationSupportDirectory, fileName: "workbook", directoryName: "./", documentData: documentData, pathExtension: "txt")
+			} catch {
+				print(error)
+			}
+		} catch { print(error)}
+	}
+	
 	func textToChange(text changed: QuestionAnswer){
 		do{
 			let encoder = JSONEncoder()

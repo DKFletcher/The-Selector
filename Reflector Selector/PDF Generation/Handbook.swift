@@ -48,13 +48,13 @@ class Handbook : PDFSuperView{
 	
 	func handbook(from cards: [Card]) -> Data {
 		getIndex(book: cards)
-		let pdfMetaData = [
-			kCGPDFContextCreator: "Emotions Handbook",
-			kCGPDFContextAuthor: "Alan McLean"
-		]
-		let format = UIGraphicsPDFRendererFormat()
-		format.documentInfo = pdfMetaData as [String: Any]
-		let renderer = UIGraphicsPDFRenderer(bounds: TypeSetConstants.pageRect, format: format)
+//		let pdfMetaData = [
+//			kCGPDFContextCreator: "Emotions Handbook",
+//			kCGPDFContextAuthor: "Alan McLean"
+//		]
+//		let format = UIGraphicsPDFRendererFormat()
+//		format.documentInfo = pdfMetaData as [String: Any]
+//		let renderer = UIGraphicsPDFRenderer(bounds: TypeSetConstants.pageRect, format: format)
 		
 		let data = renderer.pdfData { (context) in
 			drawingPDF = context
