@@ -1,0 +1,111 @@
+.projectItemsWhatMotivatesLearning{
+  padding-bottom: 2rem;
+  background:
+  linear-gradient(
+  to right,
+  rgba($primary-color, 0.9),
+  rgba($primary-color, 0.3)
+  ),
+  url('../images/WML.png') left top;
+  background-size: auto;
+  background-repeat: no-repeat;
+
+  .jobs{
+    width: 70vw;
+    height: 100vh;
+    padding-top: 4rem;
+    margin: 0 auto 0 auto;
+    h2{
+      font-size: 1.3rem;
+      padding-bottom: 1rem;
+    }
+    p{
+      font-size: 1.2rem;
+      padding-bottom: 0.8rem;
+    }
+  }
+  .social-icons{
+    display: flex;
+    flex-direction: column;
+    left: 0.1rem;
+  }
+  footer{
+    transform:
+     rotate(90deg)
+     translate(-3rem, -5rem);
+  }
+}
+.projectItemsWML{
+  padding-bottom: 2rem;
+  background:
+  linear-gradient(
+  to right,
+  rgba($primary-color, 1),
+  rgba($primary-color, 0.8)
+  ),
+  url('../images/iOS-WML.jpg') left top;
+  background-size: auto;
+  background-repeat: no-repeat;
+
+  .jobs{
+    width: 70vw;
+    height: 100vh;
+    padding-top: 4rem;
+    margin: 0 auto 0 auto;
+    h2{
+      font-size: 1.3rem;
+      padding-bottom: 1rem;
+    }
+    p{
+      font-size: 1.2rem;
+      padding-bottom: 0.8rem;
+    }
+  }
+  .social-icons{
+    display: flex;
+    flex-direction: column;
+    left: 0.1rem;
+  }
+  footer{
+    transform:
+     rotate(90deg)
+     translate(-3rem, -5rem);
+  }
+}
+.projectItemsReflectorSelector{
+  padding-bottom: 2rem;
+  background:
+  linear-gradient(
+  to right,
+  rgba($primary-color, 0.9),
+  rgba($primary-color, 0.3)
+  ),
+  url('../images/reflector-selector.jpg') left top;
+  background-size: auto;
+  background-repeat: no-repeat;
+
+  .jobs{
+    width: 70vw;
+    height: 100vh;
+    padding-top: 4rem;
+    margin: 0 auto 0 auto;
+    h2{
+      font-size: 1.3rem;
+      padding-bottom: 1rem;
+    }
+    p{
+      font-size: 1.2rem;
+      padding-bottom: 0.8rem;
+    }
+  }
+  .social-icons{
+    display: flex;
+    flex-direction: column;
+    left: 0.1rem;
+  }
+  footer{
+    transform:
+     rotate(90deg)
+     translate(-3rem, -5rem);
+  }
+}

@@ -1,0 +1,758 @@
+@include mobile-portrait{
+  // .menu-btn{
+  //   visibility: visible;
+  // }
+  // .nav{
+  //   visibility: hidden;
+  // }
+  .home{
+    background: url('../images/background-mobile_portrait.svg') left top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 35vh;
+    // h2{
+    //   font-size: 1.5rem;
+    // }
+    &_name{
+      font-size: 2rem;
+    }
+
+    &_MAD{
+      font-size: 1.15rem;
+    }
+
+    .social-icons{
+      display: flex;
+      flex-direction: column;
+      bottom: 0;
+      left: 0;
+    }
+
+    footer{
+      transform:
+      rotate(90deg)
+      translate(-3rem, -5rem);
+      bottom: 0;
+    }
+  }
+  .about{
+    .social-icons{
+      bottom: 0.4rem;
+      left: 0;
+    }
+    footer{
+      transform:
+      rotate(90deg)
+      translate(-2.9rem, -5rem);
+    }
+  }
+  .projects{
+    &_bio-image{
+      background:
+      url('../images/mfs-300.png') center top;
+      background-repeat: no-repeat;
+      height: 50vh;
+      border-top: 2rem ;
+      background-position: center;
+    }
+    &_items{
+      width: 60vw;
+      margin: 2rem auto 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    &_item{
+      margin-bottom: 2rem;
+    }
+    .text-secondary{
+      font-size: 3rem;
+    }
+    .social-icons{
+      left: 0;
+      bottom: 0.4rem;
+    }
+  }
+
+  .contact{
+    padding-top: 30vh;
+    &_list{
+      font-size: 1.4rem;
+    }
+    h2{
+      font-size: 5.4rem;
+    }
+    .social-icons{
+      font-size: 1.8rem;
+    }
+    footer{
+      padding: 0;
+      right: 0.4rem;
+    }
+  }
+}
+@include mobile-landscape{
+  .nav{
+    .menu-nav_link{
+      padding: 1rem 0;
+    }
+  }
+  .home{
+    background: url('../images/background-mobile_landscape.svg') left top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 25vh;
+    &_name{
+      font-size: 3rem;
+    }
+    &_MAD{
+      font-size: 1.7185rem;
+    }
+    .social-icons{
+
+    }
+    footer
+    {
+      right: 0;
+    }
+  }
+  .projects{
+    &_bio-image{
+      background:
+      url('../images/mfs-300.png') center top;
+      background-repeat: no-repeat;
+      height: 90vh;
+      // border-top: 2rem ;
+      background-position: center;
+    }
+    .social-icons{
+      left: 0;
+      bottom: 0;
+    }
+  }
+  .contact{
+    padding-top: 5vh;
+    h2{
+      font-size: 5.8rem;
+    }
+    footer{
+      padding: 0;
+      right: 0.4rem;
+    }
+    .social-icons{
+      font-size: 2.25rem;
+    }
+  }
+}
+@include mobile-landscape-and-below{
+  .nav{
+    .menu-nav_link{
+      padding: 1rem 0;
+    }
+  }
+  .home{
+    background: url('../images/background-mobile_landscape.svg') left top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 30.2vh;
+    h2{
+      font-size: 1.83rem;
+    }
+    &_name{
+      font-size: 3.2rem;
+    }
+    &_MAD{
+      font-size: 1rem;
+    }
+  }
+  .projects{
+    &_bio-image{
+      background:
+      url('../images/mfs-300.png') center top;
+      background-repeat: no-repeat;
+      height: 90vh;
+      // border-top: 2rem ;
+      background-position: center;
+    }
+    &_items{
+      width: 60vw;
+      margin: 0 auto 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    &_item{
+      margin-bottom: 2rem;
+    }
+    .social-icons{
+      bottom: 0.4rem;
+      left: 0;
+    }
+  }
+  .about{
+    .social-icons{
+      bottom: 0rem;
+      left: 0;
+    }
+    footer{
+      transform:
+      rotate(90deg)
+      translate(-2.5rem, -4.9rem);
+    }
+  }
+
+  .contact{
+    padding-top: 20vh;
+    h2{
+      margin-bottom: 1rem;
+      font-size: 3rem;
+    }
+    &_list{
+      font-size: 0.75rem;
+    }
+    footer{
+      padding: 0;
+      right: 0.4rem;
+    }
+    .social-icons{
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
+  }
+}
+@include mobile-portrait-and-up{
+  .home{
+    &_name{
+      font-size: 2.8rem;
+    }
+    &_MAD{
+      font-size: 1.6rem;
+    }
+    .social-icons{
+      left: 0rem;
+    }
+    footer{
+      padding: 0;
+      bottom: 1rem;
+      right: 0.5rem;
+    }
+  }
+  .about{
+    .social-icons{
+      left: 0;
+      bottom: 0.4rem;
+    }
+  }
+
+  .projects{
+    &_bio-image{
+      background:
+      url('../images/mfs-300.png') center top;
+      background-repeat: no-repeat;
+    }
+    .social-icons{
+      left: 0;
+      bottom: 0.4rem;
+    }
+  }
+  .contact{
+    padding-top: 30vh;
+    &_list{
+      font-size: 0.75rem;
+    }
+    h2{
+      font-size: 3rem;
+    }
+    .social-icons{
+      font-size: 2.3rem;
+    }
+    footer{
+      padding: 0;
+      right: 0.4rem;
+    }
+  }
+}
+
+@include mobile-landscape-and-up{
+  .home{
+    background: url('../images/background-mobile_landscape.svg') left top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 31vh;
+    &_name{
+      font-size: 4rem;
+    }
+    &_MAD{
+      font-size: 2.28rem;
+    }
+    .social-icons{
+      left: 0.6rem;
+    }
+    footer{
+      right: 0;
+      padding-bottom: 0.6rem;
+    }
+  }
+  .about{
+    .social-icons{
+      left: 0;
+      bottom: 0.4rem;
+    }
+  }
+  .projects{
+    &_bio-image{
+      background:
+      url('../images/mfs-300.png') center top;
+      height: 70vh;
+      background-repeat: no-repeat;
+    }
+    .social-icons{
+      left: 0;
+      bottom: 0.4rem;
+    }
+  }
+  .contact{
+    padding-top: 15vh;
+    h2{
+      font-size: 4rem;
+    }
+
+    &_list{
+      font-size: 1rem;
+    }
+    footer{
+      padding: 0;
+      right: 0.4rem;
+    }
+    .social-icons{
+      font-size: 3rem;
+    }
+  }
+}
+
+@include mobile-landscape-up-and-down{
+  .nav{
+    .menu-nav_link{
+      padding: 1rem 0;
+    }
+  }
+  .home{
+    background: url('../images/background-mobile_up_and_down.svg') left top;
+    background-size: cover;
+    padding-top: 20vh;
+    &_name{
+      font-size: 3.5rem;
+    }
+    &_MAD{
+      font-size: 2rem;
+    }
+  }
+  .about{
+    &_bio-image{
+      height: 70vh;
+    }
+    .social-icons{
+      left: 0;
+      bottom: 0.4rem;
+    }
+  }
+  .projects{
+    &_bio-image{
+      background:
+      url('../images/mfs-300.png') center top;
+      height: 85vh;
+      background-repeat: no-repeat;
+    }
+    &_items{
+      width: 30vw;
+    }
+    .social-icons{
+      left: 0;
+      bottom: 0.4rem;
+    }
+  }
+  .contact{
+    background: url('../images/background-mobile_up_and_down.svg') left top;
+    background-size: cover;
+    padding-top: 18vh;
+    &_list{
+      font-size: 1rem;
+    }
+    h2{
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    footer{
+      padding: 0;
+      right: 0.4rem;
+    }
+    .social-icons{
+      font-size: 3rem;
+      margin-top: 1rem;
+    }
+  }
+}
+
+@include tablet-only{
+  .menu-btn{
+    visibility: hidden;
+  }
+  .nav{
+    visibility: visible;
+    .menu-nav{
+      display: block;
+      transform: translateY(0);
+      height: 100%;
+      background: transparent;
+      text-align: right;
+      &_item{
+        display: inline;
+        padding-right: 1.5rem;
+      }
+      &_link{
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .home{
+    background: url('../images/background-tablet.svg') left top;
+    background-repeat: no-repeat;
+    footer{
+      padding: 0;
+      right: 0.4rem;
+    }
+    .social-icons{
+      font-size: 1.65rem;
+      margin-top: 1rem;
+    }
+  }
+  .about{
+    &_bio-image{
+      margin-top: 5.55rem;
+      background:
+      linear-gradient(
+      to right,
+      rgba($primary-color, 0.9),
+      rgba($primary-color, 0.3)
+      ),
+      url('../images/takeshitaFletcher.jpg') center;
+      background-repeat: no-repeat;
+    }
+  }
+  .projects{
+    &_bio-image{
+      height: 55vh;
+      margin-top: 5rem;
+      background:
+      linear-gradient(
+      to right,
+      rgba($primary-color, 1.0),
+      rgba($primary-color, 0.1)
+      ),
+      url('../images/mfs-500.png') center;
+      background-repeat: no-repeat;
+    }
+  }
+  .contact{
+    padding-top: 30vh;
+    background: url('../images/background-tablet.svg') left top;
+    background-repeat: no-repeat;
+
+    .social-icons{
+      font-size: 5rem;
+    }
+  }
+}
+
+@include tablet-landscape-only{
+  .home{
+    background: url('../images/background-tablet-landscape.svg') left top;
+    background-repeat: no-repeat;
+  }
+  .projects{
+    &_bio-image{
+      height: 40vh;
+      margin-top: 5rem;
+      background:
+      linear-gradient(
+      to right,
+      rgba($primary-color, 1.0),
+      rgba($primary-color, 0.1)
+      ),
+      url('../images/mfs-300.png') center;
+      background-repeat: no-repeat;
+    }
+    &_items{
+      // height: 28.8vh;
+      width: 80vw;
+      // margin: 2rem auto 0 auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+    &_item{
+      img{
+        width: 20vw;
+      }
+    }
+  }
+  .contact{
+    padding-top: 25vh;
+    background: url('../images/background-tablet-landscape.svg') left top;
+    background-repeat: no-repeat;
+  }
+}
+@include desktop-and-below{
+
+  .menu-btn{
+    visibility: hidden;
+  }
+  .nav{
+    visibility: visible;
+    .menu-nav{
+      display: block;
+      transform: translateY(0);
+      height: 100%;
+      background: transparent;
+      text-align: right;
+      &_item{
+        display: inline;
+        padding-right: 1.5rem;
+      }
+      &_link{
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .home{
+    background: url('../images/background-desktop.svg') left top;
+    background-repeat: no-repeat;
+    footer{
+      padding: 0;
+      right: 0.4rem;
+    }
+    .social-icons{
+      font-size: 1.65rem;
+      margin-top: 1rem;
+    }
+  }
+  .contact{
+    background: url('../images/background-desktop.svg') left top;
+    background-repeat: no-repeat;
+    padding-top: 33vh;
+
+    .social-icons{
+      font-size: 4.65rem;
+      // margin-top: 1rem;
+    }
+  }
+  .projects{
+    &_bio-image{
+      height: 53vh;
+      margin-top: 5rem;
+      background:
+      linear-gradient(
+      to right,
+      rgba($primary-color, 1.0),
+      rgba($primary-color, 0.1)
+      ),
+      url('../images/mfs-500.png') center;
+      background-repeat: no-repeat;
+    }
+    &_items{
+      // height: 28.8vh;
+      width: 80vw;
+      // margin: 2rem auto 0 auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+    &_item{
+      img{
+        width: 20vw;
+      }
+    }
+  }
+  .about{
+    .jobs{
+      width: 80vw;
+      &_bio{
+        font-size: 2rem;
+        padding-bottom: 4rem;
+      }
+      // margin: 2rem auto 0 auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      &_job{
+
+          width: 25vw;
+        h2{
+          font-size: 2rem;
+        }
+        h3{
+          font-size: 1.5rem;
+        }
+        h6{
+          font-size: 1rem;
+        }
+        p{
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+}
+
+@include desktop-and-up{
+  .menu-btn{
+    visibility: hidden;
+  }
+  .nav{
+    visibility: visible;
+    .menu-nav{
+      display: block;
+      transform: translateY(0);
+      height: 100%;
+      background: transparent;
+      text-align: right;
+      &_item{
+        display: inline;
+        padding-right: 1.5rem;
+      }
+      &_link{
+        font-size: 3.3rem;
+      }
+    }
+  }
+
+
+  .home{
+    background: url('../images/background-desktop-up.svg') left top;
+    background-repeat: no-repeat;
+    footer{
+      font-size: 3rem;
+      padding: 0;
+      right: 0.4rem;
+    }
+    .social-icons{
+      font-size: 1.65rem;
+      margin-top: 1rem;
+    }
+    &_name{
+      font-size: 9rem;
+    }
+    &_MAD{
+      font-size: 5.2rem;
+    }
+  }
+  .contact{
+    background: url('../images/background-desktop-up.svg') left top;
+    background-repeat: no-repeat;
+    padding-top: 33vh;
+    .social-icons{
+      font-size: 5rem;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+  }
+  .projects{
+    &_bio-image{
+      height: 53vh;
+      margin-top: 2rem;
+      background:
+      linear-gradient(
+      to right,
+      rgba($primary-color, 1.0),
+      rgba($primary-color, 0.1)
+      ),
+      url('../images/mfs-500.png') center;
+      background-repeat: no-repeat;
+    }
+    &_items{
+      height: 28.8vh;
+      width: 80vw;
+      // margin: 2rem auto 0 auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+    &_item{
+      img{
+        width: 20vw;
+      }
+    }
+  }
+  .about{
+    .jobs{
+      width: 80vw;
+      &_bio{
+        font-size: 2rem;
+        padding-bottom: 4rem;
+      }
+      &_skills{
+        font-size: 2rem;
+        padding-bottom: 4rem;
+      }
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      &_job{
+          width: 25vw;
+        h2{
+          font-size: 3rem;
+        }
+        h3{
+          font-size: 2.5rem;
+        }
+        h6{
+          font-size: 1.5rem;
+        }
+        p{
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+@include jio-portrait{
+  .home{
+    padding-top: 35vh;
+    &_name{
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+    &_MAD{
+      font-size: 0.84rem;
+    }
+    .social-icons{
+      font-size: 0.6rem;
+    }
+    footer{
+      transform:
+      rotate(90deg)
+      translate(-2rem, -3.5rem);
+      font-size: 0.78rem;
+    }
+  }
+  .about{
+
+    .social-icons{
+      font-size: 0.6rem;
+    }
+    footer{
+      transform:
+      rotate(90deg)
+      translate(-2rem, -3.5rem);
+      font-size: 0.78rem;
+    }
+  }
+}

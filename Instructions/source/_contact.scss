@@ -1,0 +1,26 @@
+.contact{
+  height: 100%;
+  padding-top: 40vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    background: url('../images/background-mobile_landscape.svg') left top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  h2{
+    font-size: 3rem;
+    margin-bottom: 2rem
+  }
+  &_list{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+    font-size: 1.5rem;
+  }
+  .social-icons{
+    position: initial;
+    margin-top: 2rem;
+  }
+}
