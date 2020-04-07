@@ -190,6 +190,7 @@ class PDFSuperView {
 			width: scaledWidth,
 			height: scaledHeight
 		)
+		
 		image.draw(in: imageRect)
 		return imageRect.origin.y + imageRect.size.height
 	}

@@ -18,8 +18,6 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 	
 	@IBOutlet var pdfView: PDFView!
 	
-	@IBOutlet var spinner: UIActivityIndicatorView!
-	
 	var pdfDocument: PDFDocument!
 	
 	var card: Card!
@@ -37,6 +35,8 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 	var fileButton : UIBarButtonItem!
 	
 	var printerName : String!
+	
+	let spinner : SpinnerViewController = SpinnerViewController()
 	
 	let directories: [FileManager.SearchPathDirectory] = [
 		.documentDirectory,
@@ -70,65 +70,74 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 	}
 	
 	private func workFlow(){
-		let child = SpinnerViewController()
-		addChild(child)
-		child.view.frame = view.frame
-		view.addSubview(child.view)
-		child.didMove(toParent: self)
-		DispatchQueue.main.async {
-			self.additionalInfoForFileName = ""
+		let name = (tabBarController as! TabBarController).learnerName
+		let cards = (tabBarController as! TabBarController).cards!
+			additionalInfoForFileName = ""
 			switch self.job{
+
 			case .WorkSheet :
-				let log = LearnerLog(learner: (self.tabBarController as! TabBarController).learnerName)
-				self.documentData = log.workSheet(for: self.card)
+				if let theCard = card{
+					DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+						let log = LearnerLog(learner: name)
+						self?.documentData = log.workSheet(for: theCard)
+						DispatchQueue.main.async {
+							self?.pdfOnViewport()
+						}
+					}
+				}
+				
 			case .InfoSheet :
-				let collector = Collector(learner: (self.tabBarController as! TabBarController).learnerName)
-				self.documentData = collector.infoSheets(for: self.card, in:(self.tabBarController as! TabBarController).cards)
-				self.additionalInfoForFileName = " for \(self.card.name)"
+				if let theCard = card{
+					DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+						let collector = Collector(learner: name)
+						self?.documentData = collector.infoSheets(for: theCard, in:cards)
+						self?.additionalInfoForFileName = " for \(theCard.name)"
+						DispatchQueue.main.async {
+							self?.pdfOnViewport()
+						}
+					}
+				}
+
 			case .Handbook :
-				
-				
-				
-				print("in dispatch queue")
-					let handbook = Handbook(learner: (self.tabBarController as! TabBarController).learnerName)
-					self.documentData = handbook.handbook(from: (self.tabBarController as! TabBarController).cards)
-				
-				
-				
-				
-				//			DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-				//				DispatchQueue.main.async {
-				//					let handbook = Handbook(learner: (self?.tabBarController as! TabBarController).learnerName)
-				//					self?.documentData = handbook.handbook(from: (self?.tabBarController as! TabBarController).cards)
-				//				}
-				//
-				//			}
-				
-				
-				
-				
+				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+						let handbook = Handbook(learner: name)
+						self?.documentData = handbook.handbook(from: cards)
+					DispatchQueue.main.async {
+						self?.pdfOnViewport()
+					}
+				}
 				
 			case .Logbook :
-				let log = LearnerLog(learner: (self.tabBarController as! TabBarController).learnerName)
-				self.documentData = log.logbook(from: (self.tabBarController as! TabBarController).cards)
+				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+					let log = LearnerLog(learner: name)
+					self?.documentData = log.logbook(from: cards)
+					DispatchQueue.main.async{
+						self?.pdfOnViewport()
+					}
+				}
+
 			case .DoubleLong :
-				let collector = Collector(learner: (self.tabBarController as! TabBarController).learnerName)
-				self.documentData = collector.collector(for: self.card, in: (self.tabBarController as! TabBarController).cards)
-				//			let doubleLong = DoubleLong(learner: (tabBarController as! TabBarController).learnerName)
-				//			documentData = doubleLong.doubleLong(for: card)
+				if let theCard = card{
+					let collector = Collector(learner: name)
+					DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+					self?.documentData = collector.collector(for: theCard, in: cards)
+					DispatchQueue.main.async{
+						self?.pdfOnViewport()
+					}
+				}
 			}
-			
-			if let data = self.documentData, let document = PDFDocument(data: data){
-				self.nsData = NSData(data: data)
-				self.pdfDocument = document
-				self.pdfView.displayMode = .singlePageContinuous
-				self.pdfView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
-				self.pdfView.scaleFactor = 0.25
-					self.pdfView.document = document
-			}
-			child.willMove(toParent: nil)
-			child.view.removeFromSuperview()
-			child.removeFromParent()
+				
+		}
+	}
+	
+	private func pdfOnViewport(){
+		if let data = documentData, let document = PDFDocument(data: data){
+			nsData = NSData(data: data)
+			pdfDocument = document
+			pdfView.displayMode = .singlePageContinuous
+			pdfView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
+			pdfView.scaleFactor = 0.25
+			pdfView.document = document
 		}
 	}
 	
@@ -223,5 +232,34 @@ extension UIAlertController {
 				subView.removeConstraint(constraint)
 			}
 		}
+	}
+}
+
+
+
+//		let child = SpinnerViewController()
+//		addChild(child)
+//		child.view.frame = view.frame
+//		view.addSubview(child.view)
+//		child.didMove(toParent: self)
+//		child.willMove(toParent: nil)
+//		child.view.removeFromSuperview()
+//		child.removeFromParent()
+
+
+class SpinnerViewController: UIViewController {
+	var spinner = UIActivityIndicatorView(style: .whiteLarge)
+	
+	override func loadView() {
+		print("spinner")
+		view = UIView()
+		view.backgroundColor = UIColor(white: 0, alpha: 0.7)
+		
+		spinner.translatesAutoresizingMaskIntoConstraints = false
+		spinner.startAnimating()
+		view.addSubview(spinner)
+		
+		spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 	}
 }
