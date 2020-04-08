@@ -44,6 +44,8 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 		.cachesDirectory
 	]
 	
+	var save : Bool = true
+	
 	var additionalInfoForFileName : String = ""
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -83,6 +85,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 
 			case .WorkSheet :
 				if let theCard = card{
+					save = true
 					DispatchQueue.global(qos: .userInitiated).async { [weak self] in
 						let log = LearnerLog(learner: name)
 						self?.documentData = log.workSheet(for: theCard)
@@ -94,6 +97,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 				
 			case .InfoSheet :
 				if let theCard = card{
+					save = true
 					DispatchQueue.global(qos: .userInitiated).async { [weak self] in
 						let collector = Collector(learner: name)
 						self?.documentData = collector.infoSheets(for: theCard, in:cards)
@@ -105,6 +109,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 				}
 
 			case .Handbook :
+				save = false
 				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
 						let handbook = Handbook(learner: name)
 						self?.documentData = handbook.handbook(from: cards)
@@ -112,19 +117,9 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 						self?.pdfOnViewport()
 					}
 				}
-
-//			case .Handbook :
-////				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-//					let handbook = Handbook(learner: name)
-//					documentData = handbook.handbook(from: cards)
-////					DispatchQueue.main.async {
-//						pdfOnViewport()
-////					}
-////				}
-
-				
 				
 			case .Logbook :
+				save = true
 				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
 					let log = LearnerLog(learner: name)
 					self?.documentData = log.logbook(from: cards)
@@ -134,6 +129,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 				}
 
 			case .DoubleLong :
+				save = true
 				if let theCard = card{
 					let collector = Collector(learner: name)
 					DispatchQueue.global(qos: .userInitiated).async { [weak self] in
@@ -166,9 +162,11 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 	@objc func action(){
 		let message = NSLocalizedString(job.rawValue, comment: "")
 		let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
-		alert.addAction(UIAlertAction(title: "Save", style: .default) { [unowned self] _ in
-			self.performSegue(withIdentifier: "FileSegue", sender: nil)
-		})
+		if save{
+			alert.addAction(UIAlertAction(title: "Save", style: .default) { [unowned self] _ in
+				self.performSegue(withIdentifier: "FileSegue", sender: nil)
+			})
+		}
 		alert.addAction(UIAlertAction(title: "Print", style: .default) { [unowned self] _ in
 			self.printHardCopy()
 			

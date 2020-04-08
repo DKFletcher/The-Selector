@@ -21,6 +21,7 @@ class WorksheetViewController: UIViewController, UIGestureRecognizerDelegate, Ac
 	var heightArray : [CGFloat] = []{
 		didSet{
 			if heightArray.count == workSheet.numberOfQuestions{
+				print("reset")
 				heightArray.sort()
 				let h = heightArray[heightArray.count-1]
 				topLeft.questionLabelHeight = h
@@ -133,9 +134,19 @@ class WorksheetViewController: UIViewController, UIGestureRecognizerDelegate, Ac
 		)
 		
 //		(tabBarController as! TabBarController).workSheetViewController = self
-		NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
+//		NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
 	}
 
+	public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+		super.viewWillTransition(to: size, with: coordinator)
+		
+		// Hook in to the rotation animation completion handler
+		coordinator.animate(alongsideTransition: nil) { (_) in
+			// Updates to your UI...
+			self.rotation()
+		}
+	}
+	
 	@objc func action(){
 		performSegue(withIdentifier: "PDFSegue", sender: card)
 	}
@@ -170,7 +181,7 @@ class WorksheetViewController: UIViewController, UIGestureRecognizerDelegate, Ac
 		}
 		if segue.identifier == "PDFSegue"{
 			if let pdfController = segue.destination as? PDFViewController{
-				pdfController.card = card as! Card
+				pdfController.card = (card as! Card)
 				pdfController.job = .WorkSheet
 			}
 		}
@@ -186,10 +197,16 @@ class WorksheetViewController: UIViewController, UIGestureRecognizerDelegate, Ac
 
 extension WorksheetViewController {
 	@objc func rotated() {
+		
+		print(UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft)
+		
+		
+		
 		rotation()
 	}
 	
 	func rotation(){
+		
 		setForRotation(for: topLeft)
 		setForRotation(for: topRight)
 		setForRotation(for: middleLeft)

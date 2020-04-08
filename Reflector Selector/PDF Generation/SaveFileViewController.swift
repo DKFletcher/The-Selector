@@ -37,6 +37,7 @@ class SaveFileViewController: UIViewController {
 			barButtonSystemItem: .cancel,
 			target: self,
 			action: #selector(cancel))
+		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(
 			barButtonSystemItem: .save,
 			target: self,

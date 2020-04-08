@@ -170,8 +170,6 @@ extension CloseViewController: UIImagePickerControllerDelegate {
 					image.draw(in: CGRect(origin: .zero, size: newSize))
 				}
 				
-				print("extension preprocessing: \(image.size) postprocessing: \(newImage.size)")
-				
 				imageServer.set(emotion: card.name, image: newImage)
 				
 				card.emotion.custom = true
@@ -216,7 +214,6 @@ extension UIImage {
 			let bigSize = size.width > size.height ? size.width : size.height
 			let scale = TypeSetConstants.pageWidth / bigSize
 			let newSize = CGSize(width: size.width * scale, height: size.height * scale)
-			print("\(size) \(newSize)")
 			//			let renderer = UIGraphicsImageRenderer(size: size)
 			//			return renderer.image { (context) in
 			//				self.draw(in: CGRect(origin: .zero, size: newSize))
