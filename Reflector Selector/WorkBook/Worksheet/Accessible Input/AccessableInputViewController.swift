@@ -25,6 +25,8 @@ class AccessableInputViewController: UIViewController, AccessableTextInputViewCo
 	
 	var questionAnswer : QuestionAnswer!
 	
+	var card : Card!
+	
 	func editText(for question: QuestionAnswer) {
 		accessibleTextInputDelegate?.editText(for: question)
 	}
@@ -33,7 +35,9 @@ class AccessableInputViewController: UIViewController, AccessableTextInputViewCo
 //		accessibleTextInputDelegate?.rotation()
 //	}
 
+	
 	override func viewWillAppear(_ animated: Bool) {
+		textView.becomeFirstResponder()
 		super.viewWillAppear(animated)
 		textView.text = contentText
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -64,14 +68,33 @@ class AccessableInputViewController: UIViewController, AccessableTextInputViewCo
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		textView.becomeFirstResponder()
 		
 		navigationItem.largeTitleDisplayMode = .never
 //		textTitle
 		navigationItem.title = textTitle
 		textView.delegate = self
+		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(
+			title: "Print",
+			style: .plain,
+			target: self,
+			action: #selector(action)
+		)
 	}
 	
+	@objc func action(){
+		performSegue(withIdentifier: "PDFSegue", sender: card)
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender stetson: Any?) {
+		if segue.identifier == "PDFSegue"{
+			if let pdfController = segue.destination as? PDFViewController{
+				pdfController.card = card
+				pdfController.job = .FocusSheet
+				pdfController.focusSheet = questionAnswer
+			}
+		}
+	}
 	func textViewDidChange(_ textView: UITextView){
 		if let text = textView.text {
 			contentText = text

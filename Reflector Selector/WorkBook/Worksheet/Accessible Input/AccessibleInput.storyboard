@@ -36,11 +36,20 @@
                     </view>
                     <connections>
                         <outlet property="textView" destination="WhD-1A-Vxn" id="HpT-0x-OJH"/>
+                        <segue destination="BAL-2K-0KO" kind="show" identifier="PDFSegue" id="MUz-7z-XM5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iyo-Gl-zj9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-418" y="125"/>
+        </scene>
+        <!--PDFStoryboard-->
+        <scene sceneID="weK-pF-vva">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PDFStoryboard" id="BAL-2K-0KO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NqS-oT-rBR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="66" y="125"/>
         </scene>
     </scenes>
 </document>

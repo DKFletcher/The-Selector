@@ -165,23 +165,24 @@ class WorksheetViewController: UIViewController, UIGestureRecognizerDelegate, Ac
 		}
 	}
 	
-	override func prepare(for segue: UIStoryboardSegue, sender card: Any?) {
+	override func prepare(for segue: UIStoryboardSegue, sender segueVar: Any?) {
 		if segue.identifier == "CloseSegue"{
 			if let close = segue.destination as? CloseViewController{
-				close.card = (card as! Card)
+				close.card = (segueVar as! Card)
 			}
 		}
 		if segue.identifier == "TextInputSegue"{
 			if let textEditor = segue.destination as? AccessableInputViewController{
 				textEditor.accessibleTextInputDelegate = self
-				textEditor.questionAnswer = card as? QuestionAnswer
-				textEditor.textTitle = (card as? QuestionAnswer)!.question
-				textEditor.contentText = (card as? QuestionAnswer)!.answer
+				textEditor.questionAnswer = segueVar as? QuestionAnswer
+				textEditor.textTitle = (segueVar as? QuestionAnswer)!.question
+				textEditor.contentText = (segueVar as? QuestionAnswer)!.answer
+				textEditor.card = card
 			}
 		}
 		if segue.identifier == "PDFSegue"{
 			if let pdfController = segue.destination as? PDFViewController{
-				pdfController.card = (card as! Card)
+				pdfController.card = (segueVar as! Card)
 				pdfController.job = .WorkSheet
 			}
 		}

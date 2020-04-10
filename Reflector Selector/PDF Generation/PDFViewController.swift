@@ -44,6 +44,8 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 		.cachesDirectory
 	]
 	
+	var focusSheet : QuestionAnswer? = nil
+	
 	var save : Bool = true
 	
 	var additionalInfoForFileName : String = ""
@@ -83,6 +85,18 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 			additionalInfoForFileName = ""
 			switch self.job{
 
+			case .FocusSheet :
+				if let focus = focusSheet, let theCard = card{
+					save = true
+					DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+						let log = LearnerLog(learner: name)
+						self?.documentData = log.focusQuestion(for: focus, partOf: theCard)
+						DispatchQueue.main.async {
+							self?.pdfOnViewport()
+						}
+					}
+				}
+				
 			case .WorkSheet :
 				if let theCard = card{
 					save = true
@@ -139,7 +153,6 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 					}
 				}
 			}
-				
 		}
 	}
 	
@@ -236,6 +249,7 @@ extension PDFViewController{
 		case Handbook = "Handbook"
 		case Logbook = "Log Book"
 		case DoubleLong = "Double Long Pack"
+		case FocusSheet = "Focus Sheet"
 	}
 }
 
@@ -260,7 +274,6 @@ class SpinnerViewController: UIViewController {
 	var spinner = UIActivityIndicatorView(style: .whiteLarge)
 	
 	override func loadView() {
-//		print("spinner")
 		view = UIView()
 		view.backgroundColor = UIColor(white: 0, alpha: 0.7)
 		

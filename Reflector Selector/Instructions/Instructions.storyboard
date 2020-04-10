@@ -113,7 +113,7 @@
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BJ-jZ-W9M">
                             <rect key="frame" x="12" y="135" width="744" height="739"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <mutableString key="text">Reflector Selector aims to help you improve what you understand and can communicate about your emotions. We have written a handbook to help explain and you can read it by going to the options tab (the gear icon at the bottom).
+                            <string key="text">Reflector Selector aims to help you improve what you understand and can communicate about your emotions. We have written a handbook to help explain and you can read it by going to the options tab (the gear icon at the bottom).
 
 It's quite a long book so we have put in ways for your iPad to gather the most important pages to help understand each emotion. If your interested in finding out how we know what pages will help then there is an explanation at the front of the handbook.
 
@@ -142,7 +142,7 @@ Instructions
 On the game screen tap "?" at the top left to get back to these instructions and tap the "x" to close the instructions.
 Tap any of the icons at the top of the instructions to find a description of what the icons at the bottom do. Your on the whale right now, JOY!
 
-</mutableString>
+</string>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -220,7 +220,7 @@ To make a worksheet book just select print on the top right to send it to book b
 
 
 Access Board
-Don't forget iPad is really good at listening to what you say and turning it into text. You can do this from the access board. If you need to print out an individual question (maybe you've turned this question into a journal or diary) go to the print button on the right of the access board and book board will turn it into a book.
+Don't forget iPad is really good at listening to what you say and turning it into text. You can do this from the access board. If you need to focus in on an individual question (maybe you've turned this question into a journal or diary) go to the print button on the right of the access board and book board will turn it into a book.
 
 Collector
 Double long tap on the word side of a card to make a reflector selector collector.
@@ -270,7 +270,7 @@ Phase 2 has 23 emotions
 Phase 3 has 40 emotions
 
 Book Board
-Book board puts together all the different books that Reflector Selector can make. It has got long strong legs on it and can make some really big books, so if you want to keep going back to some questions on a worksheet and use them like a diary or journal, book board will be able to do that. If it is a really long book just let it go to work, a spinner will be in the middle of the board while it's going. You can use all the other tabs in Reflector Selector while book board is working, just check back into the tab you started it on once in a while to see if it has finished the job. If you need to cancel just hit back and book board will stop.
+Book board puts together all the different books that Reflector Selector can make. It can make some really big books, so if you want to keep going back to some questions on a worksheet and use them like a diary or journal, book board will be able to do that. If it is a really long book just let it go to work, a spinner will be in the middle of the board while it's going (you can still use all the other tabs in Reflector Selector while book board is working). If you need to cancel just hit back and book board will stop.
 
 Handbook
 Select the Handbook button to make your Handbook and display it on your book board. You can print your Handbook from the book board action button on the top right. The Handbook has a jump table on the second page that you can use to go to a page quickly. You might find the  introduction of the handbook very useful for organising your big picture about emotion, what emotions do and how they work together. You can make the contents of your handbook bigger or smaller using the phase setting, and if you want to the Workbook tab can fine tune and take out individual emotions.
