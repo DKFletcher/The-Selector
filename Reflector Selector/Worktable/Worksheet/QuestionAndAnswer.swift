@@ -22,6 +22,7 @@ class QuestionAndAnswer: UIView, QuestionAnswerDelegate, LabelHeightDelegate  {
 	enum Alignment {
 		case left, center, right
 	}
+	
 	var questionLabelHeight : CGFloat = CGFloat(){
 		didSet{
 			questionLabel.frame = CGRect(
@@ -30,6 +31,11 @@ class QuestionAndAnswer: UIView, QuestionAnswerDelegate, LabelHeightDelegate  {
 				width: bounds.width,
 				height: questionLabelHeight
 			)
+			let font = UIFont.preferredFont(forTextStyle: .body).withSize(fontSize)
+			let paragraphStyle = NSMutableParagraphStyle()
+			paragraphStyle.alignment = .center
+//			label.attributedText =
+			questionLabel.attributedText = NSAttributedString(string: questionText, attributes : [.paragraphStyle: paragraphStyle, .font: font])
 			answerLabel.frame = offset(
 				from : CGRect(
 					x: 0,
@@ -42,8 +48,8 @@ class QuestionAndAnswer: UIView, QuestionAnswerDelegate, LabelHeightDelegate  {
 	}
 	
 	func orientation(){
-		subviews.forEach { $0.removeFromSuperview() }
-		layoutLabels()
+		let questionLabelHeight = DynamicLabelSize.height(sizingString: questionText, font: UIFont.systemFont(ofSize: fontSize), width: self.frame.width)
+		maximumLabelHeight(questionLabelHeight)
 	}
 	
 	func maximumLabelHeight(_ height: CGFloat) {
@@ -85,7 +91,6 @@ class QuestionAndAnswer: UIView, QuestionAnswerDelegate, LabelHeightDelegate  {
 	private var drawBox : Bool = true
 	
 	override func draw(_ rect: CGRect) {
-		
 		if drawBox {
 			drawBox=false
 			layoutLabels()
@@ -93,12 +98,17 @@ class QuestionAndAnswer: UIView, QuestionAnswerDelegate, LabelHeightDelegate  {
 		}
 	}
 	
+	private func makeQA(){
+		
+	}
+	
+	
 	func layoutLabels() {
 		questionLabel = UILabelInset()
 		answerLabel = UITextView()
 		questionLabel =  makeLabel(questionText, background: #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1), .center)
 		answerLabel =  makeLabel2(answerText, background: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), .left)
-		let questionLabelHeight = DynamicLabelSize.height(string: questionText, font: UIFont.systemFont(ofSize: fontSize), width: self.frame.width)
+		let questionLabelHeight = DynamicLabelSize.height(sizingString: questionText, font: UIFont.systemFont(ofSize: fontSize), width: self.frame.width)
 		questionLabel.frame = CGRect(
 			x: 0,
 			y: 0,
@@ -118,23 +128,20 @@ class QuestionAndAnswer: UIView, QuestionAnswerDelegate, LabelHeightDelegate  {
 		hasTapped(questionAnswer, from: self)
 	}
 	
-	override func layoutSubviews() {
-	}
-	
-	func redraw(){
-//		print("redraw: \(self)")
-	}
-	
 	private func makeLabel(_ text : String, background color : UIColor, _ aligment : Alignment) -> UILabelInset{
 		let label = UILabelInset()
 		label.numberOfLines = 0
 		label.contentMode = .scaleToFill
 		label.backgroundColor = color
-		switch aligment{
-		case .left: label.attributedText = leftAttributedString(text)
-		case .right: label.attributedText = rightAttributedString(text)
-		case .center: label.attributedText = centeredAttributedString(text)
-		}
+		var font = UIFont.preferredFont(forTextStyle: .body).withSize(fontSize)
+		let paragraphStyle = NSMutableParagraphStyle()
+		paragraphStyle.alignment = .center
+		label.attributedText = NSAttributedString(string: questionText, attributes : [.paragraphStyle: paragraphStyle, .font: font])
+//		switch aligment{
+//		case .left: label.attributedText = leftAttributedString(text)
+//		case .right: label.attributedText = rightAttributedString(text)
+//		case .center: label.attributedText = centeredAttributedString(text)
+//		}
 		label.lineBreakMode = .byWordWrapping
 		addSubview(label)
 		return label
@@ -162,7 +169,7 @@ private func makeLabel2(_ text : String, background color : UIColor, _ aligment 
 
 class UILabelInset: UILabel{
 	override func drawText(in rect: CGRect) {
-		let insets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+		let insets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
 		super.drawText(in: rect.inset(by: insets))
 	}
 }
@@ -170,12 +177,12 @@ class UILabelInset: UILabel{
 
 
 class DynamicLabelSize {
-	static func height(string : String, font: UIFont, width: CGFloat) -> CGFloat{
-		var font = UIFont.preferredFont(forTextStyle: .body)//.withSize(16)
-		font = UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
+	static func height(sizingString : String, font: UIFont, width: CGFloat) -> CGFloat{
+		var font = UIFont.preferredFont(forTextStyle: .body).withSize(16)
+//		font = UIFontMetrics(forTextStyle: .body).scaledFont (for: font)
 		let paragraphStyle = NSMutableParagraphStyle()
 		paragraphStyle.alignment = .center
-		let nsString : NSAttributedString = NSAttributedString(string: string, attributes : [.paragraphStyle: paragraphStyle, .font: font])
+		let nsString : NSAttributedString = NSAttributedString(string: sizingString, attributes : [.paragraphStyle: paragraphStyle, .font: font])
 		var currentHeight: CGFloat!
 		
 		let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
