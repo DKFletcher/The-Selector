@@ -189,7 +189,7 @@ Art: Rhannon Van Muysen</string>
                     <rect key="frame" x="0.0" y="0.0" width="768" height="978"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workbook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv6-tx-bpS">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Worktable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv6-tx-bpS">
                             <rect key="frame" x="12" y="32" width="744" height="91"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="72"/>
@@ -199,14 +199,14 @@ Art: Rhannon Van Muysen</string>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTE-hw-j6R">
                             <rect key="frame" x="12" y="135" width="744" height="831"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <mutableString key="text">THE WORKBOOK TAB
-In the Workbook tab you will find a card for each emotion.
+                            <mutableString key="text">THE WORKTABLE TAB
+On the Worktable you will find emotion cards.
 
 When you tap on a card it flips to show it's opposite side.
-(Hint: If you organise your cards the way you want to, Workbook will remember for the next time.)
+(Hint: If you organise your cards the way you want to, your worktable will remember for the next time.)
 
-Workbook can also fine tune the phase setting, you do this by tapping in the area outside the card.
-If there isn't a tick on the right hand side then that card is excluded from the game and any books, and a tick means that it is in. You must have a minimum of four selected for your books and game.
+Worktable can take emotions out of your game and your workbook, you do this by tapping in the area outside the card.
+If there isn't a tick on the right hand side then that card is excluded from the game and your workbook, and a tick means that it is in. There must be at least four emotions selected.
 
 Zooming In
 Long tap on the image side of a card to zoom in.
@@ -216,15 +216,14 @@ You can do this by using the icons on the top right of the zoom screen.
 Worksheets
 Long tap on the word side of a card to show a worksheet with six questions.
 On the worksheet screen each question has a green box around it, tap on the green box to go to the access board and answer the question.
-To make a worksheet book just select print on the top right to send it to book board. You also have the option of making a paper version to work on as book board will put empty answer boxes for every question left unanswered.
-
+To make a worksheet book just select print on the top right. You also have the option of making a paper version to work on as book board will put empty answer boxes for every question left unanswered.
 
 Access Board
-Don't forget iPad is really good at listening to what you say and turning it into text. You can do this from the access board. If you need to focus in on an individual question (maybe you've turned this question into a journal or diary) go to the print button on the right of the access board and book board will turn it into a book.
+The access board is where you type in your answers to the questions on the worksheet, but don't forget iPad is really good at listening to what you say and turning it into text so you can put in your answers that way to.
+If you want to focus in on an individual question (maybe you've turned this question into a journal or diary) go to the print button on the right of the access board to turn it into it's own book.
 
 Collector
-Double long tap on the word side of a card to make a reflector selector collector.
-A collector collects all work and information on an emotion into one place. Select the action button on the top right to save or print a collector.</mutableString>
+From the worktable double long tap on the word side of a card to make a reflector selector collector. A collector collects all work and information on an emotion into one place. Select the action button on the top right to save or print a collector.</mutableString>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -270,7 +269,7 @@ Phase 2 has 23 emotions
 Phase 3 has 40 emotions
 
 Book Board
-Book board puts together all the different books that Reflector Selector can make. It can make some really big books, so if you want to keep going back to some questions on a worksheet and use them like a diary or journal, book board will be able to do that. If it is a really long book just let it go to work, a spinner will be in the middle of the board while it's going (you can still use all the other tabs in Reflector Selector while book board is working). If you need to cancel just hit back and book board will stop.
+Anything that you want to save or print goes on the book board. It can make some really big books, so if you want to keep going back to some questions on a worksheet and writing into  them like a diary or journal, book board will be able to do that. If it is a really long book just let it go to work, a spinner will be in the middle of the board while it's going (you can still use all the other tabs in Reflector Selector while the book board is working). If you need to cancel just hit back and book board will stop.
 
 Handbook
 Select the Handbook button to make your Handbook and display it on your book board. You can print your Handbook from the book board action button on the top right. The Handbook has a jump table on the second page that you can use to go to a page quickly. You might find the  introduction of the handbook very useful for organising your big picture about emotion, what emotions do and how they work together. You can make the contents of your handbook bigger or smaller using the phase setting, and if you want to the Workbook tab can fine tune and take out individual emotions.

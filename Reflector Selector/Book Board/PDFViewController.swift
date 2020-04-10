@@ -82,6 +82,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 	private func workFlow(){
 		let name = (tabBarController as! TabBarController).learnerName
 		let cards = (tabBarController as! TabBarController).cards!
+		let pages = (tabBarController as! TabBarController).abstractedWorkbook
 			additionalInfoForFileName = ""
 			switch self.job{
 
@@ -126,7 +127,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 				save = false
 				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
 						let handbook = Handbook(learner: name)
-						self?.documentData = handbook.handbook(from: cards)
+					self?.documentData = handbook.handbook(from: cards)
 					DispatchQueue.main.async {
 						self?.pdfOnViewport()
 					}
@@ -136,7 +137,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 				save = true
 				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
 					let log = LearnerLog(learner: name)
-					self?.documentData = log.logbook(from: cards)
+					self?.documentData = log.logbook(from: cards, in: pages)
 					DispatchQueue.main.async{
 						self?.pdfOnViewport()
 					}

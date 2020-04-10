@@ -134,10 +134,20 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		cellModels[indexPath.row].selected.toggle()
-		let model = cellModels[indexPath.row]
-		(tableView.cellForRow(at: indexPath) as! CardSelectionCell).setModel(model)
-		handleSelection(model.card, model.selected)
-		abstract(for: model)
+		var count = 0
+		for cell in cellModels{
+			if cell.selected{
+				count += 1
+			}
+		}
+		if count < 4{
+			cellModels[indexPath.row].selected.toggle()
+		} else {
+			let model = cellModels[indexPath.row]
+			(tableView.cellForRow(at: indexPath) as! CardSelectionCell).setModel(model)
+			handleSelection(model.card, model.selected)
+			abstract(for: model)
+		}
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender card: Any?) {

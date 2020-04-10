@@ -146,7 +146,7 @@ class LearnerLog : PDFSuperView{
 	}
 	
 	
-	func logbook(from book: [Card]) -> Data{
+	func logbook(from book: [Card], in pages: AbstractionLayerForWorkbook) -> Data{
 		//		let date = Date()
 		//		let format = DateFormatter()
 		//		format.dateFormat = "dd-MM-yyyy"
@@ -196,30 +196,35 @@ class LearnerLog : PDFSuperView{
 			title.draw(at: CGPoint(x: TypeSetConstants.margin, y: TypeSetConstants.header))
 			var firstPage = true
 			book.forEach{ emotion in
-				if !firstPage{
-					beginPage = true
-					firstPage = false
+				for page in pages.workBook{
+					if page.name == emotion.name && page.included{
+						print(emotion.name)
+						if !firstPage{
+							beginPage = true
+							firstPage = false
+						}
+						pagePosition += TypeSetConstants.standardSpacing*5
+						let emotionString = NSMutableAttributedString(string: emotion.name, attributes: headingAttributes)
+						
+						let emotionHeight = getAttributedStringHeight(emotionString)
+						
+						if emotionHeight + pagePosition > TypeSetConstants.pageHeight - TypeSetConstants.sectionStartFooter{
+							beginPage = true
+							pagePosition = TypeSetConstants.header
+						}
+						emotionString.draw(at: CGPoint(x: TypeSetConstants.margin, y: pagePosition))
+						pagePosition += emotionHeight
+						autoreleasepool {
+							emotion.emotion.qanda.sections().forEach{ $0.forEach {
+								//						print("\($0.question)")
+								let test = $0.answer
+								pagePosition = formatAnswerBook(drawing: drawingPDF, text: QuestionAnswer(question: $0.question, answer: test))
+								}}
+						}
+						firstPage = false
+						pagePosition = TypeSetConstants.header
+					}
 				}
-				pagePosition += TypeSetConstants.standardSpacing*5
-				let emotionString = NSMutableAttributedString(string: emotion.name, attributes: headingAttributes)
-				
-				let emotionHeight = getAttributedStringHeight(emotionString)
-				
-				if emotionHeight + pagePosition > TypeSetConstants.pageHeight - TypeSetConstants.sectionStartFooter{
-					beginPage = true
-					pagePosition = TypeSetConstants.header
-				}
-				emotionString.draw(at: CGPoint(x: TypeSetConstants.margin, y: pagePosition))
-				pagePosition += emotionHeight
-				autoreleasepool {
-					emotion.emotion.qanda.sections().forEach{ $0.forEach {
-//						print("\($0.question)")
-						let test = $0.answer
-						pagePosition = formatAnswerBook(drawing: drawingPDF, text: QuestionAnswer(question: $0.question, answer: test))
-						}}
-				}
-				firstPage = false
-				pagePosition = TypeSetConstants.header
 			}
 		}
 		return data

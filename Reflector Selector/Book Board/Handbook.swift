@@ -44,17 +44,17 @@ class Handbook : PDFSuperView{
 				($1.emotion.quadrant.rawValue, $1.emotion.position)
 		}
 	}
-
+	
 	
 	func handbook(from cards: [Card]) -> Data {
 		getIndex(book: cards)
-//		let pdfMetaData = [
-//			kCGPDFContextCreator: "Emotions Handbook",
-//			kCGPDFContextAuthor: "Alan McLean"
-//		]
-//		let format = UIGraphicsPDFRendererFormat()
-//		format.documentInfo = pdfMetaData as [String: Any]
-//		let renderer = UIGraphicsPDFRenderer(bounds: TypeSetConstants.pageRect, format: format)
+		//		let pdfMetaData = [
+		//			kCGPDFContextCreator: "Emotions Handbook",
+		//			kCGPDFContextAuthor: "Alan McLean"
+		//		]
+		//		let format = UIGraphicsPDFRendererFormat()
+		//		format.documentInfo = pdfMetaData as [String: Any]
+		//		let renderer = UIGraphicsPDFRenderer(bounds: TypeSetConstants.pageRect, format: format)
 		
 		let data = renderer.pdfData { (context) in
 			drawingPDF = context
@@ -68,6 +68,7 @@ class Handbook : PDFSuperView{
 		}
 		return data
 	}
+	
 	
 	func chapter(for indexEntry: [IndexEntry]){
 		if let quadrantName = indexEntry[0].emotion.getPDFName(for: indexEntry[0].emotion.quadrant.rawValue){
@@ -85,7 +86,7 @@ class Handbook : PDFSuperView{
 				createPage(destination: page.emotion.emotion.rawValue, for: emotionName)
 				cards.forEach{ card in
 					if card.emotion.index.emotion.rawValue == page.emotion.emotion.rawValue {
-						if card.emotion.custom{
+						if card.emotion.custom {
 							customImage(for: card, using: card.name)
 						}
 					}
@@ -93,6 +94,41 @@ class Handbook : PDFSuperView{
 			}
 		}
 	}
+
+//	func chapter(for indexEntry: [IndexEntry], in pages: AbstractionLayerForWorkbook){
+//		if let quadrantName = indexEntry[0].emotion.getPDFName(for: indexEntry[0].emotion.quadrant.rawValue){
+//			createPage(destination: indexEntry[0].emotion.quadrant.rawValue, for: quadrantName)
+//		}
+//		var oldZone = ""
+//		for page in indexEntry{
+//			if page.emotion.zone.rawValue != oldZone{
+//				oldZone = page.emotion.zone.rawValue
+//				if let emotionName = page.emotion.getPDFName(for: page.emotion.zone.rawValue){
+//					createPage(destination: page.emotion.zone.rawValue, for: emotionName)
+//				}
+//			}
+//			if let emotionName = page.emotion.getPDFName(for: page.emotion.emotion.rawValue){
+//				var pageIsIn = true
+//				for isPage in pages.workBook{
+//					cards.forEach{ card in
+//						if isPage.included && isPage.name == card.name{
+//							pageIsIn = isPage.included
+//						}
+//					}
+//				}
+//				if pageIsIn{
+//					createPage(destination: page.emotion.emotion.rawValue, for: emotionName)
+//				}
+//				cards.forEach{ card in
+//					if card.emotion.index.emotion.rawValue == page.emotion.emotion.rawValue {
+//						if card.emotion.custom && pageIsIn{
+//							customImage(for: card, using: card.name)
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
 	
 	func dustCover(){
 		beginPage = true
@@ -171,7 +207,7 @@ class Handbook : PDFSuperView{
 			topRightCorner: CGPoint(x: stretchingMeCGRect.minX+textWidthInsetForBox, y: stretchingMeCGRect.minY+textHeightInsetForBox),
 			destinationString: stretchingMeIndexEntry[0].destination)
 		drawOutlineBoxForIndex(for: stretchingMeCGRect, in : boxContext, inset: inset)
-
+		
 		x += xIncrement
 		let connectingMeCGRect = CGRect(x: x,y: y,width: TypeSetConstants.pageWidth / 2.0,height: boxHeightRatio*TypeSetConstants.pageHeight / 2.0)
 		let connectingMeIndexEntry = bookIndex.filter{$0.emotion.quadrant == .connectingMe}
@@ -180,7 +216,7 @@ class Handbook : PDFSuperView{
 			topRightCorner: CGPoint(x: connectingMeCGRect.minX+textWidthInsetForBox, y: connectingMeCGRect.minY+textHeightInsetForBox),
 			destinationString: connectingMeIndexEntry[0].destination)
 		drawOutlineBoxForIndex(for: connectingMeCGRect, in : boxContext, inset: inset)
-
+		
 		y += yIncrement
 		x=TypeSetConstants.pageRect.insetBy(dx: inset/2, dy: inset/2).minX+inset/2
 		let meFirstCGRect = CGRect(x: x,y: y,width: TypeSetConstants.pageWidth / 2.0,height: boxHeightRatio*TypeSetConstants.pageHeight / 2.0)
@@ -190,7 +226,7 @@ class Handbook : PDFSuperView{
 			topRightCorner: CGPoint(x: meFirstCGRect.minX+textWidthInsetForBox, y: meFirstCGRect.minY+textHeightInsetForBox),
 			destinationString: meFirstIndexEntry[0].destination)
 		drawOutlineBoxForIndex(for: meFirstCGRect, in : boxContext, inset: inset)
-
+		
 		x += xIncrement
 		let protectingMeCGRect = CGRect(x: x,y: y,width: TypeSetConstants.pageWidth / 2.0,height: boxHeightRatio*TypeSetConstants.pageHeight / 2.0)
 		let protectingMeIndexEntry = bookIndex.filter{$0.emotion.quadrant == .protectingMe}
