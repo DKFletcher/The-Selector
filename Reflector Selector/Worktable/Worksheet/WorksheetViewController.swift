@@ -8,34 +8,10 @@
 
 import UIKit
 
-class WorksheetViewController: UIViewController, UIGestureRecognizerDelegate, AccessableTextInputViewControllerDelegate, BoxDelegate, LabelHeightDelegate {
+class WorksheetViewController: UIViewController, UIGestureRecognizerDelegate {
 	
-	func maximumLabelHeight(_ height: CGFloat) {
-		heightArray.append(height)
-	}
 	
-	deinit {
-		NotificationCenter.default.removeObserver(self)
-	}
-	
-	var heightArray : [CGFloat] = []{
-		didSet{
-			if heightArray.count == workSheet.numberOfQuestions{
-				print("reset")
-				heightArray.sort()
-				let h = heightArray[heightArray.count-1]
-				topLeft.questionLabelHeight = h
-				topRight.questionLabelHeight = h
-				middleLeft.questionLabelHeight = h
-				middleRight.questionLabelHeight = h
-				bottomLeft.questionLabelHeight = h
-				bottomRight.questionLabelHeight = h
-				heightArray = []
-			}
-		}
-	}
-	
-	private var boxUpdate : QuestionAndAnswer?
+	private var boxUpdate : UITextView? = nil
 	
 	func hasTapped(_ qANDa: QuestionAnswer, from  box : QuestionAndAnswer) {
 		boxUpdate = box
