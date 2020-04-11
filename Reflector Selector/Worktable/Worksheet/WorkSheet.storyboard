@@ -26,242 +26,164 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0ll-na-qGu" userLabel="TopStack">
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="289.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78A-6C-tmT" customClass="WorksheetQuestionBox" customModule="Reflector_Selector" customModuleProvider="target">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Off-Hz-odX">
                                                 <rect key="frame" x="0.0" y="0.0" width="380" height="289.5"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Off-Hz-odX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="380" height="289.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dll-41-nd2">
-                                                                <rect key="frame" x="20" y="0.0" width="340" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NM5-VL-3L8">
-                                                                <rect key="frame" x="20" y="28.5" width="340" height="261"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                            </textView>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="NM5-VL-3L8" firstAttribute="leading" secondItem="Off-Hz-odX" secondAttribute="leading" constant="20" symbolic="YES" id="2lA-cU-FEp"/>
-                                                            <constraint firstItem="Dll-41-nd2" firstAttribute="leading" secondItem="Off-Hz-odX" secondAttribute="leading" constant="20" symbolic="YES" id="DSk-Gu-ESu"/>
-                                                            <constraint firstAttribute="trailing" secondItem="NM5-VL-3L8" secondAttribute="trailing" constant="20" symbolic="YES" id="aYn-1M-9F6"/>
-                                                            <constraint firstAttribute="trailing" secondItem="Dll-41-nd2" secondAttribute="trailing" constant="20" symbolic="YES" id="d6G-CJ-c7F"/>
-                                                        </constraints>
-                                                    </stackView>
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dll-41-nd2" customClass="UILabelInset" customModule="Reflector_Selector" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="380" height="87"/>
+                                                        <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NM5-VL-3L8">
+                                                        <rect key="frame" x="0.0" y="95" width="380" height="194.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="Off-Hz-odX" secondAttribute="bottom" id="I2m-DW-F0Y"/>
-                                                    <constraint firstItem="Off-Hz-odX" firstAttribute="top" secondItem="78A-6C-tmT" secondAttribute="top" id="PYO-k3-uis"/>
-                                                    <constraint firstItem="Off-Hz-odX" firstAttribute="leading" secondItem="78A-6C-tmT" secondAttribute="leading" id="j9i-tU-ff1"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Off-Hz-odX" secondAttribute="trailing" id="n3E-Sh-GDn"/>
+                                                    <constraint firstItem="Dll-41-nd2" firstAttribute="height" relation="greaterThanOrEqual" secondItem="Off-Hz-odX" secondAttribute="height" multiplier="0.3" id="PAQ-e4-RzK"/>
+                                                    <constraint firstItem="Dll-41-nd2" firstAttribute="width" secondItem="Off-Hz-odX" secondAttribute="width" id="ays-76-z8n"/>
+                                                    <constraint firstItem="NM5-VL-3L8" firstAttribute="width" secondItem="Off-Hz-odX" secondAttribute="width" id="mKX-vu-gJL"/>
                                                 </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="94R-Ry-HIJ" customClass="WorksheetQuestionBox" customModule="Reflector_Selector" customModuleProvider="target">
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s1R-e0-YOA">
                                                 <rect key="frame" x="388" y="0.0" width="380" height="289.5"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9ah-7x-bpS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="380" height="289.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvh-Ho-HhR">
-                                                                <rect key="frame" x="20" y="0.0" width="340" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8in-Tq-A0W">
-                                                                <rect key="frame" x="20" y="28.5" width="340" height="261"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                            </textView>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="8in-Tq-A0W" secondAttribute="trailing" constant="20" symbolic="YES" id="F9V-1W-ceR"/>
-                                                            <constraint firstItem="8in-Tq-A0W" firstAttribute="leading" secondItem="9ah-7x-bpS" secondAttribute="leading" constant="20" symbolic="YES" id="HjV-Lf-k7z"/>
-                                                            <constraint firstItem="vvh-Ho-HhR" firstAttribute="leading" secondItem="9ah-7x-bpS" secondAttribute="leading" constant="20" symbolic="YES" id="Lm6-dO-b12"/>
-                                                            <constraint firstAttribute="trailing" secondItem="vvh-Ho-HhR" secondAttribute="trailing" constant="20" symbolic="YES" id="qPs-zy-Kbb"/>
-                                                        </constraints>
-                                                    </stackView>
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKn-Il-eMn" customClass="UILabelInset" customModule="Reflector_Selector" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="380" height="87"/>
+                                                        <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jhj-j8-oFc">
+                                                        <rect key="frame" x="0.0" y="95" width="380" height="194.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="9ah-7x-bpS" secondAttribute="trailing" id="6EJ-ZH-4JX"/>
-                                                    <constraint firstItem="9ah-7x-bpS" firstAttribute="leading" secondItem="94R-Ry-HIJ" secondAttribute="leading" id="N9t-aU-euu"/>
-                                                    <constraint firstItem="9ah-7x-bpS" firstAttribute="top" secondItem="94R-Ry-HIJ" secondAttribute="top" id="U5x-Wy-jVo"/>
-                                                    <constraint firstAttribute="bottom" secondItem="9ah-7x-bpS" secondAttribute="bottom" id="n6a-RW-kBZ"/>
+                                                    <constraint firstItem="iKn-Il-eMn" firstAttribute="width" secondItem="s1R-e0-YOA" secondAttribute="width" id="Na5-GZ-QP7"/>
+                                                    <constraint firstItem="iKn-Il-eMn" firstAttribute="height" secondItem="s1R-e0-YOA" secondAttribute="height" multiplier="0.3" id="exT-Uh-zNH"/>
+                                                    <constraint firstItem="Jhj-j8-oFc" firstAttribute="width" secondItem="s1R-e0-YOA" secondAttribute="width" id="y8j-De-1D9"/>
                                                 </constraints>
-                                            </view>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4Iy-hH-Z1V" userLabel="MiddleStack">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4Iy-hH-Z1V" userLabel="MiddleStack">
                                         <rect key="frame" x="0.0" y="297.5" width="768" height="289"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAY-Ew-nu4" customClass="WorksheetQuestionBox" customModule="Reflector_Selector" customModuleProvider="target">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vWK-Ne-31c">
                                                 <rect key="frame" x="0.0" y="0.0" width="250.5" height="289"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vWK-Ne-31c">
-                                                        <rect key="frame" x="0.0" y="0.0" width="250.5" height="289"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKr-S9-SMS">
-                                                                <rect key="frame" x="20" y="0.0" width="210.5" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k6f-gi-VcB">
-                                                                <rect key="frame" x="20" y="28.5" width="210.5" height="260.5"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                            </textView>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="UKr-S9-SMS" firstAttribute="leading" secondItem="vWK-Ne-31c" secondAttribute="leading" constant="20" symbolic="YES" id="COv-XE-UwS"/>
-                                                            <constraint firstAttribute="trailing" secondItem="UKr-S9-SMS" secondAttribute="trailing" constant="20" symbolic="YES" id="Gc1-Cb-ta5"/>
-                                                            <constraint firstItem="k6f-gi-VcB" firstAttribute="leading" secondItem="vWK-Ne-31c" secondAttribute="leading" constant="20" symbolic="YES" id="bW5-na-Atw"/>
-                                                            <constraint firstAttribute="trailing" secondItem="k6f-gi-VcB" secondAttribute="trailing" constant="20" symbolic="YES" id="npM-FD-SEH"/>
-                                                        </constraints>
-                                                    </stackView>
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKr-S9-SMS" customClass="UILabelInset" customModule="Reflector_Selector" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="250.5" height="86.5"/>
+                                                        <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k6f-gi-VcB">
+                                                        <rect key="frame" x="0.0" y="94.5" width="250.5" height="194.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="vWK-Ne-31c" firstAttribute="top" secondItem="sAY-Ew-nu4" secondAttribute="top" id="62c-lC-of3"/>
-                                                    <constraint firstAttribute="bottom" secondItem="vWK-Ne-31c" secondAttribute="bottom" id="6fI-Wy-rHm"/>
-                                                    <constraint firstItem="vWK-Ne-31c" firstAttribute="leading" secondItem="sAY-Ew-nu4" secondAttribute="leading" id="NOj-vD-ZDK"/>
-                                                    <constraint firstAttribute="trailing" secondItem="vWK-Ne-31c" secondAttribute="trailing" id="uce-76-HGE"/>
+                                                    <constraint firstItem="UKr-S9-SMS" firstAttribute="width" secondItem="vWK-Ne-31c" secondAttribute="width" id="8mz-xc-lre"/>
+                                                    <constraint firstItem="UKr-S9-SMS" firstAttribute="height" secondItem="vWK-Ne-31c" secondAttribute="height" multiplier="0.3" id="HNf-58-FwN"/>
+                                                    <constraint firstItem="k6f-gi-VcB" firstAttribute="width" secondItem="vWK-Ne-31c" secondAttribute="width" id="KlM-N7-EFk"/>
                                                 </constraints>
-                                            </view>
+                                            </stackView>
                                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="250" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="200" translatesAutoresizingMaskIntoConstraints="NO" id="1hm-bh-akK">
-                                                <rect key="frame" x="258.5" y="44.5" width="251" height="200"/>
+                                                <rect key="frame" x="258.5" y="0.0" width="251" height="289"/>
                                                 <gestureRecognizers/>
                                             </imageView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPD-q3-t8G" customClass="WorksheetQuestionBox" customModule="Reflector_Selector" customModuleProvider="target">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aon-BF-d7i">
                                                 <rect key="frame" x="517.5" y="0.0" width="250.5" height="289"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aon-BF-d7i">
-                                                        <rect key="frame" x="0.0" y="0.0" width="250.5" height="289"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKc-Av-RTS">
-                                                                <rect key="frame" x="20" y="0.0" width="210.5" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yy3-Jr-84O">
-                                                                <rect key="frame" x="20" y="28.5" width="210.5" height="260.5"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                            </textView>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="Yy3-Jr-84O" secondAttribute="trailing" constant="20" symbolic="YES" id="1vI-6F-4P2"/>
-                                                            <constraint firstItem="Yy3-Jr-84O" firstAttribute="leading" secondItem="aon-BF-d7i" secondAttribute="leading" constant="20" symbolic="YES" id="FYM-bn-NLJ"/>
-                                                            <constraint firstItem="CKc-Av-RTS" firstAttribute="leading" secondItem="aon-BF-d7i" secondAttribute="leading" constant="20" symbolic="YES" id="Nvi-Dz-xVu"/>
-                                                            <constraint firstAttribute="trailing" secondItem="CKc-Av-RTS" secondAttribute="trailing" constant="20" symbolic="YES" id="YUr-nQ-rvD"/>
-                                                        </constraints>
-                                                    </stackView>
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKc-Av-RTS" customClass="UILabelInset" customModule="Reflector_Selector" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="250.5" height="86.5"/>
+                                                        <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yy3-Jr-84O">
+                                                        <rect key="frame" x="0.0" y="94.5" width="250.5" height="194.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="aon-BF-d7i" firstAttribute="leading" secondItem="ZPD-q3-t8G" secondAttribute="leading" id="08k-w5-7cH"/>
-                                                    <constraint firstItem="aon-BF-d7i" firstAttribute="top" secondItem="ZPD-q3-t8G" secondAttribute="top" id="flv-hb-gf6"/>
-                                                    <constraint firstAttribute="bottom" secondItem="aon-BF-d7i" secondAttribute="bottom" id="tpS-Zv-dua"/>
-                                                    <constraint firstAttribute="trailing" secondItem="aon-BF-d7i" secondAttribute="trailing" id="us7-VF-NlY"/>
+                                                    <constraint firstItem="CKc-Av-RTS" firstAttribute="width" secondItem="aon-BF-d7i" secondAttribute="width" id="Q6V-B0-LhR"/>
+                                                    <constraint firstItem="Yy3-Jr-84O" firstAttribute="width" secondItem="aon-BF-d7i" secondAttribute="width" id="cz5-V0-bve"/>
+                                                    <constraint firstItem="CKc-Av-RTS" firstAttribute="height" secondItem="aon-BF-d7i" secondAttribute="height" multiplier="0.3" id="fwd-kg-0DC"/>
                                                 </constraints>
-                                            </view>
+                                            </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="ZPD-q3-t8G" secondAttribute="bottom" id="5bc-q0-1dz"/>
-                                            <constraint firstItem="sAY-Ew-nu4" firstAttribute="top" secondItem="4Iy-hH-Z1V" secondAttribute="top" id="B7z-QS-ydC"/>
-                                            <constraint firstAttribute="bottom" secondItem="sAY-Ew-nu4" secondAttribute="bottom" id="O05-Lp-I97"/>
-                                            <constraint firstItem="ZPD-q3-t8G" firstAttribute="top" secondItem="4Iy-hH-Z1V" secondAttribute="top" id="U27-dc-nEm"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="T7A-n0-OVx" userLabel="BottomStack">
                                         <rect key="frame" x="0.0" y="594.5" width="768" height="289.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YLr-BT-zGj" customClass="WorksheetQuestionBox" customModule="Reflector_Selector" customModuleProvider="target">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pEd-gv-mzu">
                                                 <rect key="frame" x="0.0" y="0.0" width="380" height="289.5"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pEd-gv-mzu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="380" height="289.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFN-FF-pkc">
-                                                                <rect key="frame" x="20" y="0.0" width="340" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ob3-4d-RPC">
-                                                                <rect key="frame" x="20" y="28.5" width="340" height="261"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                            </textView>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="ob3-4d-RPC" secondAttribute="trailing" constant="20" symbolic="YES" id="XbD-Iw-9eE"/>
-                                                            <constraint firstAttribute="trailing" secondItem="bFN-FF-pkc" secondAttribute="trailing" constant="20" symbolic="YES" id="dwn-YZ-OML"/>
-                                                            <constraint firstItem="bFN-FF-pkc" firstAttribute="leading" secondItem="pEd-gv-mzu" secondAttribute="leading" constant="20" symbolic="YES" id="llb-uA-cfv"/>
-                                                            <constraint firstItem="ob3-4d-RPC" firstAttribute="leading" secondItem="pEd-gv-mzu" secondAttribute="leading" constant="20" symbolic="YES" id="vnM-Fb-AXA"/>
-                                                        </constraints>
-                                                    </stackView>
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFN-FF-pkc" customClass="UILabelInset" customModule="Reflector_Selector" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="380" height="87"/>
+                                                        <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ob3-4d-RPC">
+                                                        <rect key="frame" x="0.0" y="95" width="380" height="194.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="pEd-gv-mzu" secondAttribute="trailing" id="5EW-Ph-grv"/>
-                                                    <constraint firstAttribute="bottom" secondItem="pEd-gv-mzu" secondAttribute="bottom" id="7Jc-o0-AMx"/>
-                                                    <constraint firstItem="pEd-gv-mzu" firstAttribute="leading" secondItem="YLr-BT-zGj" secondAttribute="leading" id="JCI-ew-jsd"/>
-                                                    <constraint firstItem="pEd-gv-mzu" firstAttribute="top" secondItem="YLr-BT-zGj" secondAttribute="top" id="UTl-Pk-mjv"/>
+                                                    <constraint firstItem="bFN-FF-pkc" firstAttribute="height" secondItem="pEd-gv-mzu" secondAttribute="height" multiplier="0.3" id="QVB-Vm-FyE"/>
+                                                    <constraint firstItem="bFN-FF-pkc" firstAttribute="width" secondItem="pEd-gv-mzu" secondAttribute="width" id="etU-ix-vuO"/>
+                                                    <constraint firstItem="ob3-4d-RPC" firstAttribute="width" secondItem="pEd-gv-mzu" secondAttribute="width" id="oBr-3N-RZB"/>
                                                 </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v9a-LY-kGu" customClass="WorksheetQuestionBox" customModule="Reflector_Selector" customModuleProvider="target">
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="REu-34-82C">
                                                 <rect key="frame" x="388" y="0.0" width="380" height="289.5"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="REu-34-82C">
-                                                        <rect key="frame" x="0.0" y="0.0" width="380" height="289.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFT-lX-uDm">
-                                                                <rect key="frame" x="20" y="0.0" width="340" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nZb-7H-m7i">
-                                                                <rect key="frame" x="20" y="28.5" width="340" height="261"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                            </textView>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="JFT-lX-uDm" firstAttribute="leading" secondItem="REu-34-82C" secondAttribute="leading" constant="20" symbolic="YES" id="DzU-kQ-VSN"/>
-                                                            <constraint firstItem="nZb-7H-m7i" firstAttribute="leading" secondItem="REu-34-82C" secondAttribute="leading" constant="20" symbolic="YES" id="peA-KU-j95"/>
-                                                            <constraint firstAttribute="trailing" secondItem="nZb-7H-m7i" secondAttribute="trailing" constant="20" symbolic="YES" id="tu3-J9-RNR"/>
-                                                            <constraint firstAttribute="trailing" secondItem="JFT-lX-uDm" secondAttribute="trailing" constant="20" symbolic="YES" id="yKx-ey-sUv"/>
-                                                        </constraints>
-                                                    </stackView>
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFT-lX-uDm" customClass="UILabelInset" customModule="Reflector_Selector" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="380" height="87"/>
+                                                        <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nZb-7H-m7i">
+                                                        <rect key="frame" x="0.0" y="95" width="380" height="194.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="REu-34-82C" firstAttribute="leading" secondItem="v9a-LY-kGu" secondAttribute="leading" id="5iB-ts-i2Y"/>
-                                                    <constraint firstAttribute="trailing" secondItem="REu-34-82C" secondAttribute="trailing" id="D9c-CF-VQs"/>
-                                                    <constraint firstAttribute="bottom" secondItem="REu-34-82C" secondAttribute="bottom" id="Kn7-3s-nDe"/>
-                                                    <constraint firstItem="REu-34-82C" firstAttribute="top" secondItem="v9a-LY-kGu" secondAttribute="top" id="sS5-WQ-QRa"/>
+                                                    <constraint firstItem="JFT-lX-uDm" firstAttribute="height" secondItem="REu-34-82C" secondAttribute="height" multiplier="0.3" id="78S-8s-mRJ"/>
+                                                    <constraint firstItem="nZb-7H-m7i" firstAttribute="width" secondItem="REu-34-82C" secondAttribute="width" id="MKh-f4-YFs"/>
+                                                    <constraint firstItem="JFT-lX-uDm" firstAttribute="width" secondItem="REu-34-82C" secondAttribute="width" id="Osk-61-Bke"/>
                                                 </constraints>
-                                            </view>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -281,13 +203,25 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="bottomLeft" destination="YLr-BT-zGj" id="fuM-We-leG"/>
-                        <outlet property="bottomRight" destination="v9a-LY-kGu" id="ug4-xK-TYs"/>
+                        <outlet property="bottomLeftLabel" destination="bFN-FF-pkc" id="Na1-MG-psa"/>
+                        <outlet property="bottomLeftText" destination="ob3-4d-RPC" id="Ldg-To-gAY"/>
+                        <outlet property="bottomRightLabel" destination="JFT-lX-uDm" id="Ssc-H2-uEI"/>
+                        <outlet property="bottomRightText" destination="nZb-7H-m7i" id="Cgf-ib-1cF"/>
                         <outlet property="emotionImage" destination="1hm-bh-akK" id="BDY-L7-h5Q"/>
-                        <outlet property="middleLeft" destination="sAY-Ew-nu4" id="MBh-5T-HkH"/>
-                        <outlet property="middleRight" destination="ZPD-q3-t8G" id="Wgy-uH-C69"/>
-                        <outlet property="topLeft" destination="78A-6C-tmT" id="Kpd-Ac-NXe"/>
-                        <outlet property="topRight" destination="94R-Ry-HIJ" id="E6v-qD-UKf"/>
+                        <outlet property="middleLeftLabel" destination="UKr-S9-SMS" id="7xB-Du-wth"/>
+                        <outlet property="middleLeftText" destination="k6f-gi-VcB" id="XZ8-El-1EX"/>
+                        <outlet property="middleRightLabel" destination="CKc-Av-RTS" id="cVy-mk-KDo"/>
+                        <outlet property="middleRightText" destination="Yy3-Jr-84O" id="4Tf-y9-yiw"/>
+                        <outlet property="topLeftLabel" destination="Dll-41-nd2" id="rfV-Pp-Xnh"/>
+                        <outlet property="topLeftText" destination="NM5-VL-3L8" id="SEG-d7-yt6"/>
+                        <outlet property="topRightLabel" destination="iKn-Il-eMn" id="1xs-Hp-Dc8"/>
+                        <outlet property="topRightText" destination="Jhj-j8-oFc" id="Gi1-gs-awy"/>
+                        <outletCollection property="labels" destination="Dll-41-nd2" collectionClass="NSMutableArray" id="hVL-3U-0nj"/>
+                        <outletCollection property="labels" destination="iKn-Il-eMn" collectionClass="NSMutableArray" id="sew-k6-B8h"/>
+                        <outletCollection property="labels" destination="UKr-S9-SMS" collectionClass="NSMutableArray" id="Ia2-2k-Tke"/>
+                        <outletCollection property="labels" destination="CKc-Av-RTS" collectionClass="NSMutableArray" id="fOP-7c-cgL"/>
+                        <outletCollection property="labels" destination="bFN-FF-pkc" collectionClass="NSMutableArray" id="EQE-Op-0qK"/>
+                        <outletCollection property="labels" destination="JFT-lX-uDm" collectionClass="NSMutableArray" id="9hA-Vs-TeK"/>
                         <segue destination="WVi-fj-FJE" kind="show" identifier="CloseSegue" id="Nhf-KD-ozs"/>
                         <segue destination="wTv-iK-Jdy" kind="show" identifier="TextInputSegue" id="kpI-cZ-GtG"/>
                         <segue destination="ymx-r0-WCC" kind="show" identifier="PDFSegue" id="UJv-py-gvL"/>

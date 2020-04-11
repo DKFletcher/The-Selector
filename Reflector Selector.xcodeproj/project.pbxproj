@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D6174278241688FE00DB9127 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6174277241688FE00DB9127 /* UIImage.swift */; };
 		D61A73EF240CDF6600EF0642 /* AbstractionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61A73EE240CDF6600EF0642 /* AbstractionLayer.swift */; };
-		D628EAC62440B64F0098FACC /* WorkBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D628EAC52440B64F0098FACC /* WorkBoxView.swift */; };
 		D6466F00243873A80058B674 /* Collector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6466EFF243873A80058B674 /* Collector.swift */; };
 		D64780432422564E00325012 /* SaveFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64780422422564E00325012 /* SaveFileViewController.swift */; };
 		D64E5F06240E9DF40012DEF4 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EF4240E9DF30012DEF4 /* Icon-76@2x.png */; };
@@ -69,10 +68,8 @@
 		D65DFC97240A721E006E35E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFC96240A721E006E35E5 /* AppDelegate.swift */; };
 		D65DFC99240A723C006E35E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65DFC98240A723C006E35E5 /* LaunchScreen.storyboard */; };
 		D65DFF96240A7394006E35E5 /* WorkSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65DFF92240A7394006E35E5 /* WorkSheet.storyboard */; };
-		D65DFF97240A7394006E35E5 /* WorksheetQuestionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFF93240A7394006E35E5 /* WorksheetQuestionBox.swift */; };
 		D65DFF98240A7394006E35E5 /* WorksheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFF94240A7394006E35E5 /* WorksheetViewController.swift */; };
-		D65DFF99240A7394006E35E5 /* QuestionAndAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFF95240A7394006E35E5 /* QuestionAndAnswer.swift */; };
-		D65DFF9D240A73A1006E35E5 /* AccessableInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFF9B240A73A1006E35E5 /* AccessableInputViewController.swift */; };
+		D65DFF9D240A73A1006E35E5 /* AccessBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFF9B240A73A1006E35E5 /* AccessBoardViewController.swift */; };
 		D65DFF9E240A73A1006E35E5 /* AccessibleInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65DFF9C240A73A1006E35E5 /* AccessibleInput.storyboard */; };
 		D65DFFA4240A73C1006E35E5 /* CloseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFFA0240A73C1006E35E5 /* CloseViewController.swift */; };
 		D65DFFA5240A73C1006E35E5 /* ImageServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DFFA1240A73C1006E35E5 /* ImageServer.swift */; };
@@ -154,7 +151,6 @@
 /* Begin PBXFileReference section */
 		D6174277241688FE00DB9127 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		D61A73EE240CDF6600EF0642 /* AbstractionLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractionLayer.swift; sourceTree = "<group>"; };
-		D628EAC52440B64F0098FACC /* WorkBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkBoxView.swift; sourceTree = "<group>"; };
 		D6466EFF243873A80058B674 /* Collector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collector.swift; sourceTree = "<group>"; };
 		D64780422422564E00325012 /* SaveFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFileViewController.swift; sourceTree = "<group>"; };
 		D64E5EF4240E9DF30012DEF4 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
@@ -216,10 +212,8 @@
 		D65DFC96240A721E006E35E5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D65DFC98240A723C006E35E5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D65DFF92240A7394006E35E5 /* WorkSheet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WorkSheet.storyboard; sourceTree = "<group>"; };
-		D65DFF93240A7394006E35E5 /* WorksheetQuestionBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorksheetQuestionBox.swift; sourceTree = "<group>"; };
 		D65DFF94240A7394006E35E5 /* WorksheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorksheetViewController.swift; sourceTree = "<group>"; };
-		D65DFF95240A7394006E35E5 /* QuestionAndAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionAndAnswer.swift; sourceTree = "<group>"; };
-		D65DFF9B240A73A1006E35E5 /* AccessableInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessableInputViewController.swift; sourceTree = "<group>"; };
+		D65DFF9B240A73A1006E35E5 /* AccessBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessBoardViewController.swift; sourceTree = "<group>"; };
 		D65DFF9C240A73A1006E35E5 /* AccessibleInput.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AccessibleInput.storyboard; sourceTree = "<group>"; };
 		D65DFFA0240A73C1006E35E5 /* CloseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseViewController.swift; sourceTree = "<group>"; };
 		D65DFFA1240A73C1006E35E5 /* ImageServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageServer.swift; sourceTree = "<group>"; };
@@ -333,11 +327,11 @@
 		D65D0015240A74A8006E35E5 /* Worktable */ = {
 			isa = PBXGroup;
 			children = (
-				D65DFF91240A737F006E35E5 /* Worksheet */,
 				D65D0016240A74BF006E35E5 /* CardSelection.storyboard */,
 				D65D0018240A74BF006E35E5 /* CardSelectionViewController.swift */,
 				D65D0017240A74BF006E35E5 /* CardSelectionCell.swift */,
 				D65D0019240A74BF006E35E5 /* CardSelectionNavigationController.swift */,
+				D65DFF91240A737F006E35E5 /* Worksheet */,
 			);
 			path = Worktable;
 			sourceTree = "<group>";
@@ -473,9 +467,6 @@
 				D65DFF94240A7394006E35E5 /* WorksheetViewController.swift */,
 				D65DFF9A240A73A1006E35E5 /* Accessible Input */,
 				D65DFF92240A7394006E35E5 /* WorkSheet.storyboard */,
-				D65DFF95240A7394006E35E5 /* QuestionAndAnswer.swift */,
-				D65DFF93240A7394006E35E5 /* WorksheetQuestionBox.swift */,
-				D628EAC52440B64F0098FACC /* WorkBoxView.swift */,
 			);
 			path = Worksheet;
 			sourceTree = "<group>";
@@ -483,7 +474,7 @@
 		D65DFF9A240A73A1006E35E5 /* Accessible Input */ = {
 			isa = PBXGroup;
 			children = (
-				D65DFF9B240A73A1006E35E5 /* AccessableInputViewController.swift */,
+				D65DFF9B240A73A1006E35E5 /* AccessBoardViewController.swift */,
 				D65DFF9C240A73A1006E35E5 /* AccessibleInput.storyboard */,
 			);
 			path = "Accessible Input";
@@ -764,12 +755,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D628EAC62440B64F0098FACC /* WorkBoxView.swift in Sources */,
 				D65DFFAC240A73EA006E35E5 /* PDFViewController.swift in Sources */,
-				D65DFF9D240A73A1006E35E5 /* AccessableInputViewController.swift in Sources */,
+				D65DFF9D240A73A1006E35E5 /* AccessBoardViewController.swift in Sources */,
 				D65DFB17240A6FC9006E35E5 /* LessonNamesViewController.swift in Sources */,
 				D65DFB11240A6FC9006E35E5 /* ActivityNavigationController.swift in Sources */,
-				D65DFF97240A7394006E35E5 /* WorksheetQuestionBox.swift in Sources */,
 				D693C75D2418A6AC000A6CDB /* HeartHandbookPDF.swift in Sources */,
 				D65DFAFD240A6FBA006E35E5 /* UIView.swift in Sources */,
 				D65DFFA4240A73C1006E35E5 /* CloseViewController.swift in Sources */,
@@ -800,7 +789,6 @@
 				D65DFAFB240A6FBA006E35E5 /* FileManager.swift in Sources */,
 				D65D0025240A74DE006E35E5 /* ItemListTableViewCell.swift in Sources */,
 				D65DFB18240A6FC9006E35E5 /* LessonViewController.swift in Sources */,
-				D65DFF99240A7394006E35E5 /* QuestionAndAnswer.swift in Sources */,
 				D65DFFA6240A73C1006E35E5 /* ImagingHelper.swift in Sources */,
 				D65DFB19240A6FC9006E35E5 /* MultipleChoiceViewController.swift in Sources */,
 				D65D0012240A74A1006E35E5 /* BackCardView.swift in Sources */,

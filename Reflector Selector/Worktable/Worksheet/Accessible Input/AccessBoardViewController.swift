@@ -7,13 +7,13 @@
 //
 
 import UIKit
-protocol AccessableTextInputViewControllerDelegate{
+protocol AccessBoardDelegate{
 	func editText(for question : QuestionAnswer)
 //	func rotation()
 }
-class AccessableInputViewController: UIViewController, AccessableTextInputViewControllerDelegate, UITextViewDelegate {
+class AccessBoardViewController: UIViewController, AccessBoardDelegate, UITextViewDelegate {
 
-	var accessibleTextInputDelegate : AccessableTextInputViewControllerDelegate?
+	var accessibleTextInputDelegate : AccessBoardDelegate?
 
 	@IBOutlet var textView: UITextView!
 	

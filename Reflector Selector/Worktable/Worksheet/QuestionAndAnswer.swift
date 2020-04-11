@@ -105,6 +105,7 @@ class QuestionAndAnswer: UIView, QuestionAnswerDelegate, LabelHeightDelegate  {
 	
 	func layoutLabels() {
 		questionLabel = UILabelInset()
+		
 		answerLabel = UITextView()
 		questionLabel =  makeLabel(questionText, background: #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1), .center)
 		answerLabel =  makeLabel2(answerText, background: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), .left)
@@ -167,12 +168,12 @@ private func makeLabel2(_ text : String, background color : UIColor, _ aligment 
 
 
 
-class UILabelInset: UILabel{
-	override func drawText(in rect: CGRect) {
-		let insets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-		super.drawText(in: rect.inset(by: insets))
-	}
-}
+//class UILabelInset: UILabel{
+//	override func drawText(in rect: CGRect) {
+//		let insets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+//		super.drawText(in: rect.inset(by: insets))
+//	}
+//}
 
 
 

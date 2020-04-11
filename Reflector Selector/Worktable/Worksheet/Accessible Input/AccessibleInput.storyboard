@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Accessable Input View Controller-->
+        <!--Access Board View Controller-->
         <scene sceneID="6zZ-B3-qn9">
             <objects>
-                <viewController id="4pG-2O-TV7" customClass="AccessableInputViewController" customModule="Reflector_Selector" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4pG-2O-TV7" customClass="AccessBoardViewController" customModule="Reflector_Selector" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WPF-oe-Nt3">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
