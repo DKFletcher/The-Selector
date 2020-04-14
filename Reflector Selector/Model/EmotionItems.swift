@@ -54,7 +54,7 @@ struct Index{
 		case "Content": return "Content"
 		case "Thankful": return "Thankful"
 		case "Kind": return "Kind"
-		case "Empathetic Joy": return "Empathetic Joy"
+		case "Pleased for Others": return "Pleased for Others"
 		case "Responsible": return "Responsible"
 		case "Compassionate": return "Compassionate"
 		case "Forgiving": return "Forgiveness"
@@ -78,26 +78,28 @@ struct Index{
 		case "Angry": return "Angry"
 		case "Frustrated": return "Frustrated"
 		case "Bored": return "Bored"
+			
 		case "Stretching Me": return "stretchingMe"
 		case "Connecting Me": return "connectingMe"
 		case "Me First": return "meFirst"
 		case "Protecting Me": return "protectingMe"
-		case "Thrilled": return "Thrilled"
-		case "Chuffed": return "Chuffed"
-		case "Gutsy": return "Gutsy"
-		case "Driven": return "Driven"
+			
+		case "Fulfilled": return "Fulfilled"
+		case "Significant": return "Significant"
+		case "Adventurous": return "Adventurous"
+		case "Energised": return "Energised"
 		case "Annoyed": return "Annoyed"
 		case "Grudging": return "Grudging"
-		case "Spoilt": return "Spoilt"
+		case "Ungrateful": return "Ungrateful"
 		case "Mean": return "Mean"
-		case "Useless": return "Useless"
-		case "Sheepish": return "Sheepish"
-		case "Wobbly": return "Wobbly"
-		case "Flat": return "Flat"
+		case "Worthless": return "Worthless"
+		case "Unworthy": return "Unworthy"
+		case "Insecure": return "Insecure"
+		case "Low": return "Low"
 		case "Patient": return "Patient"
 		case "Caring": return "Caring"
-		case "Gracious": return "Gracious"
-		case "Included": return "Included"
+		case "Appreciative": return "Appreciative"
+		case "Warm": return "Warm"
 		default: return nil
 		}
 	}
@@ -120,7 +122,7 @@ struct Index{
 		case content = "Content"
 		case thankful = "Thankful"
 		case kind = "Kind"
-		case empatheticJoy = "Empathetic Joy"
+		case pleasedForOthers = "Pleased for Others"
 		case responsible = "Responsible"
 		case compassionate = "Compassionate"
 		case forgiving = "Forgiving"
@@ -148,44 +150,44 @@ struct Index{
 		
 		func zone ( emotion : Emotion) -> Zone{
 			switch emotion{
-			case .determined: return .driven
-			case .enthusiastic: return .driven
-			case .bold: return .gutsy
-			case .hopeful: return .gutsy
-			case .admiring: return .gutsy
-			case .curious: return .gutsy
-			case .proud: return .chuffed
-			case .confident: return .chuffed
-			case .valued: return .thrilled
-			case .exhilarated: return .thrilled
+			case .determined: return .energised
+			case .enthusiastic: return .energised
+			case .bold: return .adventurous
+			case .hopeful: return .adventurous
+			case .admiring: return .adventurous
+			case .curious: return .adventurous
+			case .proud: return .significant
+			case .confident: return .significant
+			case .valued: return .fulfilled
+			case .exhilarated: return .fulfilled
 				
-			case .belonging: return .incluced
-			case .trusting: return .incluced
-			case .playful: return .incluced
-			case .content: return .gracious
-			case .thankful: return .gracious
+			case .belonging: return .warm
+			case .trusting: return .warm
+			case .playful: return .warm
+			case .content: return .appreciative
+			case .thankful: return .appreciative
 			case .kind: return .caring
-			case .empatheticJoy: return .caring
+			case .pleasedForOthers: return .caring
 			case .responsible: return .caring
 			case .compassionate: return .patient
 			case .forgiving: return .patient
 				
-			case .lonely: return . flat
-			case .sad: return . flat
-			case .selfDoubting: return .wobbly
-			case .worried: return . wobbly
-			case .overwhelmed: return .wobbly
-			case .embarrassed: return .sheepish
-			case .guilty: return .sheepish
-			case .ashamed: return .sheepish
-			case .humiliated: return .useless
-			case .ignored: return .useless
+			case .lonely: return .low
+			case .sad: return .low
+			case .selfDoubting: return .insecure
+			case .worried: return .insecure
+			case .overwhelmed: return .insecure
+			case .embarrassed: return .unworthy
+			case .guilty: return .unworthy
+			case .ashamed: return .unworthy
+			case .humiliated: return .worthless
+			case .ignored: return .worthless
 				
 			case .spiteful: return .mean
 			case .contempt: return .mean
 			case .resentful: return .mean
-			case .entitled: return . spoilt
-			case .arrogant: return .spoilt
+			case .entitled: return .ungrateful
+			case .arrogant: return .ungrateful
 			case .envious: return .grudging
 			case .gloating: return .grudging
 			case .angry: return .annoyed
@@ -196,20 +198,20 @@ struct Index{
 	}
 
 	enum Zone: String, CaseIterable{
-		case driven = "Driven"
-		case gutsy = "Gutsy"
-		case chuffed = "Chuffed"
-		case thrilled = "Thrilled"
-		case incluced = "Included"
-		case gracious = "Gracious"
+		case energised = "Energised"
+		case adventurous = "Adventurous"
+		case significant = "Significant"
+		case fulfilled = "Fulfilled"
+		case warm = "Warm"
+		case appreciative = "Appreciative"
 		case caring = "Caring"
 		case patient = "Patient"
-		case flat = "Flat"
-		case wobbly = "Wobbly"
-		case sheepish = "Sheepish"
-		case useless = "Useless"
+		case low = "Low"
+		case insecure = "Insecure"
+		case unworthy = "Unworthy"
+		case worthless = "Worthless"
 		case mean = "Mean"
-		case spoilt = "Spoilt"
+		case ungrateful = "Ungrateful"
 		case grudging = "Grudging"
 		case annoyed = "Annoyed"
 		
@@ -217,20 +219,20 @@ struct Index{
 			switch zone{
 			case .annoyed: return .acceptance
 			case .caring: return .kindness
-			case .chuffed: return .status
-			case .driven: return .determination
-			case .flat: return .determination
-			case .gracious: return .gratitude
+			case .significant: return .status
+			case .energised: return .determination
+			case .low: return .determination
+			case .appreciative: return .gratitude
 			case .grudging: return .kindness
-			case .gutsy: return .ambition
-			case .incluced: return .security
+			case .adventurous: return .ambition
+			case .warm: return .security
 			case .mean: return .security
 			case .patient: return .acceptance
-			case .sheepish: return .status
-			case .spoilt: return .gratitude
-			case .thrilled: return .fulfilment
-			case .useless: return .fulfilment
-			case .wobbly: return .ambition
+			case .unworthy: return .status
+			case .ungrateful: return .gratitude
+			case .fulfilled: return .fulfilment
+			case .worthless: return .fulfilment
+			case .insecure: return .ambition
 			}
 		}
 		
@@ -238,31 +240,31 @@ struct Index{
 			switch zone{
 			case .annoyed: return .meFirst
 			case .caring: return .connectingMe
-			case .chuffed: return .stretchingMe
-			case .driven: return .stretchingMe
-			case .flat: return .protectingMe
-			case .gracious: return .connectingMe
+			case .significant: return .stretchingMe
+			case .energised: return .stretchingMe
+			case .low: return .protectingMe
+			case .appreciative: return .connectingMe
 			case .grudging: return .meFirst
-			case .gutsy: return .stretchingMe
-			case .incluced: return .connectingMe
+			case .adventurous: return .stretchingMe
+			case .warm: return .connectingMe
 			case .mean: return .meFirst
 			case .patient: return .connectingMe
-			case .sheepish: return .protectingMe
-			case .spoilt: return .meFirst
-			case .thrilled: return .stretchingMe
-			case .useless: return .protectingMe
-			case .wobbly: return .protectingMe
+			case .unworthy: return .protectingMe
+			case .ungrateful: return .meFirst
+			case .fulfilled: return .stretchingMe
+			case .worthless: return .protectingMe
+			case .insecure: return .protectingMe
 			}
 		}
 		
 	}
 
 	enum Dimension: String, CaseIterable{
-		case fulfilment = "Fulfilment"
+		case fulfilment = "Purpose"
 		case status = "Status"
 		case ambition = "Ambition"
-		case determination = "Determination"
-		case security = "Security"
+		case determination = "Vitality"
+		case security = "Affection"
 		case kindness = "Kindness"
 		case gratitude = "Gratitude"
 		case acceptance = "Acceptance"

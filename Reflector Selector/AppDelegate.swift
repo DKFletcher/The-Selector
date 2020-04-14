@@ -237,20 +237,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				),
 			 
 			 EmotionItems(
-				called: "Empathetic Joy",
+				called: "Pleased for Others",
 				feels: ["we see that something good has happened to others, and we are completely devoid of jealousy or envy."],
 				motive: ["Feeling pleased for the success of others; it enables us to join in with their celebration."],
 				behaviour: ["pleased for them and we enjoy and celebrate their success with them, and so can feel part of a successful group."],
 				solution: ["Share in others’ success with empathetic joy."],
 				stage : .third,
 				ring: .connectingMe,
-				emotion: Index(emotion: .empatheticJoy, position: 6),
-				worksheet : Worksheet(topLeft: [QuestionAnswer(question : "What makes you feel empathetic joy?", answer : testAnswer)],
-															topRight: [QuestionAnswer(question : "When have you felt empathetic? Joy what was happening?", answer : testAnswer)],
-															middleLeft: [QuestionAnswer(question : "For me empathetic joy is...", answer : testAnswer)],
-															middleRight: [QuestionAnswer(question: "What does empathetic joy make you do?", answer: testAnswer)],
-															bottomLeft: [QuestionAnswer(question : "How do you know when you are feeling empathetic joy?", answer : testAnswer)],
-															bottomRight: [QuestionAnswer(question : "How do you get the most from feeling empathetic joy?", answer : testAnswer)])
+				emotion: Index(emotion: .pleasedForOthers, position: 6),
+				worksheet : Worksheet(topLeft: [QuestionAnswer(question : "What makes you feel pleased for thers?", answer : testAnswer)],
+															topRight: [QuestionAnswer(question : "When have you felt pleased for others? What was happening?", answer : testAnswer)],
+															middleLeft: [QuestionAnswer(question : "For me being pleased for others is...", answer : testAnswer)],
+															middleRight: [QuestionAnswer(question: "What does being pleased for others make you do?", answer: testAnswer)],
+															bottomLeft: [QuestionAnswer(question : "How do you know when you are pleased for others?", answer : testAnswer)],
+															bottomRight: [QuestionAnswer(question : "How do you get the most from feeling pleased for others?", answer : testAnswer)])
 				),
 			 
 			 EmotionItems(

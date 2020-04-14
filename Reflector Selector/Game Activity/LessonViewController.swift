@@ -113,11 +113,11 @@ class LessonViewController: UIViewController, LongDelegate{
 			view.isExclusiveTouch = true
 		}
 		pickNewCard()
-				NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
 		
-//		let cardBack = cardSuperview.cardViews.filter{ $0.side == CardView.Side.back}[0] as CardView
-//		landscapeBackCardConstraint = cardBack.heightAnchor.constraint(equalTo: mainStack.heightAnchor)
-//		landscapeBackCardConstraint.isActive = false
+		//		let cardBack = cardSuperview.cardViews.filter{ $0.side == CardView.Side.back}[0] as CardView
+		//		landscapeBackCardConstraint = cardBack.heightAnchor.constraint(equalTo: mainStack.heightAnchor)
+		//		landscapeBackCardConstraint.isActive = false
 	}
 	
 	override func shouldPerformSegue(withIdentifier: String, sender: Any?) -> Bool {
@@ -125,8 +125,8 @@ class LessonViewController: UIViewController, LongDelegate{
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender correctCard: Any?) {
-//		widthRatio.isActive = false
-//		landscapeBackCardConstraint = NSLayoutConstraint()
+		//		widthRatio.isActive = false
+		//		landscapeBackCardConstraint = NSLayoutConstraint()
 		if segue.identifier == "CloseSegue"{
 			if let close = segue.destination as? CloseViewController{
 				close.card = (correctCard as! Card)
@@ -240,12 +240,12 @@ extension LessonViewController: MultipleChoiceViewControllerDelegate {
 	}
 	
 	@objc func rotated() {
-		if UIDevice.current.userInterfaceIdiom == .pad && UIDevice.current.orientation.isLandscape{
+		if UIDevice.current.orientation.isLandscape {
 			mainStack.axis = .horizontal
-		} else {
-			if self.view.frame.height > self.view.frame.width {
-				mainStack.axis = .vertical
-			}
+		}
+		
+		if UIDevice.current.orientation.isPortrait {
+			mainStack.axis = .vertical
 		}
 	}
 }

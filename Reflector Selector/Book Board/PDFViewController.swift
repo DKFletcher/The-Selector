@@ -165,7 +165,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 			pdfView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
 			pdfView.scaleFactor = 0.25
 			pdfView.document = document
-			documentData=Data()
+//			documentData=Data()
 		}
 		
 		spinner.willMove(toParent:  nil)
@@ -183,7 +183,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 		}
 		alert.addAction(UIAlertAction(title: "Print", style: .default) { [unowned self] _ in
 			self.printHardCopy()
-			
+//			self.activity()
 		})
 		
 		alert.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
@@ -191,34 +191,40 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 		present(alert, animated: true, completion: nil)
 	}
 	
+	func activity(){
+		let vc = UIActivityViewController(activityItems: [documentData], applicationActivities: [])
+		present(vc, animated: true)	}
+	
 	func printHardCopy(){
-		
 		let printCompletionHandler: UIPrintInteractionController.CompletionHandler = { (controller, success, error) -> Void in
 			if success {
 				// Printed successfully
 				// Remove file here ...
-				self.documentData = nil
+//				self.documentData = nil
 			} else {
-				self.documentData = nil
+//				self.documentData = nil
 				// Printing failed, report error ...
 			}
 		}
-		
+		let jobName = (tabBarController as! TabBarController).learnerName ?? job.rawValue
+		DispatchQueue.main.async {
 		let printController = UIPrintInteractionController.shared
 		printController.showsNumberOfCopies = false
 		printController.delegate = self
+		printController.showsPaperSelectionForLoadedPapers = false
 		
 		
 		let printInfo = UIPrintInfo(dictionary : nil)
 		//		printInfo.duplex = .longEdge
 		printInfo.orientation = .portrait
 		printInfo.outputType = .general
-		printInfo.jobName = (tabBarController as! TabBarController).learnerName ?? job.rawValue
+		printInfo.jobName = jobName
 		
 		
 		printController.printInfo = printInfo
-		printController.printingItem = documentData
-		printController.present(animated : true, completionHandler : printCompletionHandler)
+		printController.printingItem = self.documentData
+		printController.present(animated : true)
+		}
 	}
 	
 	

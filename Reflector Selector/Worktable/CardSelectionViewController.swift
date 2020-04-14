@@ -48,6 +48,12 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		let background = UIImageView(image: UIImage(named: "Joy_3_1_750_table"))
+		background.contentMode = .scaleAspectFit
+		background.alpha = 0.1
+		self.tableView.backgroundView = background
+		
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

@@ -20,6 +20,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Joy_3_1_750" translatesAutoresizingMaskIntoConstraints="NO" id="E3R-Ke-iZR">
+                                <rect key="frame" x="9" y="303" width="750" height="438"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Og8-Ef-fSy">
                                 <rect key="frame" x="20" y="90" width="102" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -157,12 +160,14 @@
                             <constraint firstItem="zGZ-oN-gOp" firstAttribute="leading" secondItem="kXA-C8-qlr" secondAttribute="leading" constant="20" id="StJ-ZR-aKd"/>
                             <constraint firstItem="kXA-C8-qlr" firstAttribute="trailing" secondItem="f7E-ee-EUo" secondAttribute="trailing" constant="20" id="UWy-3y-9cl"/>
                             <constraint firstItem="BOr-3h-sGH" firstAttribute="width" secondItem="avg-eh-HqO" secondAttribute="width" id="Ys2-MP-hUH"/>
+                            <constraint firstItem="E3R-Ke-iZR" firstAttribute="centerY" secondItem="kXA-C8-qlr" secondAttribute="centerY" id="a9L-ac-pD8"/>
                             <constraint firstItem="34b-jr-nPH" firstAttribute="leading" secondItem="kXA-C8-qlr" secondAttribute="leading" constant="20" id="cAn-jF-jeg"/>
                             <constraint firstItem="34b-jr-nPH" firstAttribute="top" secondItem="avg-eh-HqO" secondAttribute="bottom" constant="8" symbolic="YES" id="f4t-7i-egR"/>
                             <constraint firstItem="avg-eh-HqO" firstAttribute="height" relation="greaterThanOrEqual" secondItem="2BO-hw-Q8b" secondAttribute="height" multiplier="0.05" id="jq8-6W-xap"/>
                             <constraint firstItem="iD7-QN-kcl" firstAttribute="width" secondItem="2BO-hw-Q8b" secondAttribute="width" multiplier="0.5" id="pNp-mz-hck"/>
                             <constraint firstItem="Og8-Ef-fSy" firstAttribute="leading" secondItem="kXA-C8-qlr" secondAttribute="leading" constant="20" id="qel-Kz-7c6"/>
                             <constraint firstItem="kXA-C8-qlr" firstAttribute="trailing" secondItem="avg-eh-HqO" secondAttribute="trailing" constant="20" id="rzu-YM-uS7"/>
+                            <constraint firstItem="E3R-Ke-iZR" firstAttribute="centerX" secondItem="kXA-C8-qlr" secondAttribute="centerX" id="ydb-2I-SgI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kXA-C8-qlr"/>
                     </view>
@@ -213,6 +218,7 @@
     </scenes>
     <resources>
         <image name="C1_bar" width="40" height="40"/>
+        <image name="Joy_3_1_750" width="750" height="438"/>
         <image name="button sellected" width="39" height="41"/>
         <image name="button up" width="39" height="41"/>
         <namedColor name="Lesson Background">

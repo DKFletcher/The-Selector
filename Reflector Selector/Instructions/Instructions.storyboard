@@ -115,8 +115,6 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <string key="text">Reflector Selector aims to help you improve what you understand and can communicate about your emotions. We have written a handbook to help explain and you can read it by going to the options tab (the gear icon at the bottom).
 
-It's quite a long book so we have put in ways for your iPad to gather the most important pages to help understand each emotion. If your interested in finding out how we know what pages will help then there is an explanation at the front of the handbook.
-
 As you progress through Reflector Selector you will have made: 
   -a game that works with your own images
   -a Handbook explaining about emotions with your own images
@@ -132,7 +130,7 @@ If you have completed a phase and filled in all the cards with your own images (
 
 Zooming In
 Long tap on the image side of a card to zoom in.
-When you are on the zoom in screen you can also change the image.
+When you are on the zoom in screen you can also change the image for your own, or swap back to the original.
 You can do this by using the icons on the top right of the zoom screen.
 
 Information Packs
@@ -144,7 +142,7 @@ Tap any of the icons at the top of the instructions to find a description of wha
 
 </string>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflector Selector" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xjg-3f-LTz">
@@ -205,8 +203,9 @@ On the Worktable you will find emotion cards.
 When you tap on a card it flips to show it's opposite side.
 (Hint: If you organise your cards the way you want to, your worktable will remember for the next time.)
 
-Worktable can take emotions out of your game and your workbook, you do this by tapping in the area outside the card.
-If there isn't a tick on the right hand side then that card is excluded from the game and your workbook, and a tick means that it is in. There must be at least four emotions selected.
+You might want to focus on one worksheet or just one question in a worksheet, and it would be good to take that emotion out of the game and your workbook so that it is private.
+You do this by tapping in the area outside the card.
+If there isn't a tick on the right hand side then that card is taken out of your game and your workbook, and a tick means that it is in. There has to be at least four emotions selected.
 
 Zooming In
 Long tap on the image side of a card to zoom in.
@@ -255,7 +254,7 @@ From the worktable double long tap on the word side of a card to make a reflecto
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqt-u8-ETz">
                             <rect key="frame" x="12" y="135" width="744" height="831"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <mutableString key="text">THE OPTIONS TAB
+                            <string key="text">THE OPTIONS TAB
 You can set options here like what name to display on your books or what phase to work in. You can also set which book to make and display on your book board.
 
 Name
@@ -276,7 +275,7 @@ Select the Handbook button to make your Handbook and display it on your book boa
 
 Workbook
 Select the Workbook button to make your Workbook and display it on book board. iPad can listen to what you say and turn it into text for you so you could end up with some really big books. You can save or print your Workbook from the action tab on the top right of the book board. Again you can make your workbook bigger or smaller using the phase settings, and if you want to, the Workbook tab can fine tune and take out individual emotions.
-</mutableString>
+</string>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

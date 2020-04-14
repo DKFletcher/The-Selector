@@ -30,6 +30,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Joy_3_1_750" translatesAutoresizingMaskIntoConstraints="NO" id="ZoU-yi-uRN">
+                                <rect key="frame" x="9" y="303" width="750" height="438"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QPD-yl-VaV">
                                 <rect key="frame" x="12" y="160.5" width="744" height="723"/>
                                 <subviews>
@@ -66,6 +69,8 @@
                             <constraint firstItem="QPD-yl-VaV" firstAttribute="height" secondItem="KSY-TF-SeM" secondAttribute="height" multiplier="4/5" id="UKN-V6-Wqe"/>
                             <constraint firstItem="Zy7-o6-0yu" firstAttribute="top" secondItem="KSY-TF-SeM" secondAttribute="top" constant="12" id="UMI-ec-dIQ"/>
                             <constraint firstItem="Zy7-o6-0yu" firstAttribute="leading" secondItem="KSY-TF-SeM" secondAttribute="leading" constant="12" id="hjB-um-bjo"/>
+                            <constraint firstItem="ZoU-yi-uRN" firstAttribute="centerY" secondItem="KSY-TF-SeM" secondAttribute="centerY" id="jjT-Cj-dC0"/>
+                            <constraint firstItem="ZoU-yi-uRN" firstAttribute="centerX" secondItem="KSY-TF-SeM" secondAttribute="centerX" id="wLD-Ox-MIy"/>
                             <constraint firstItem="QPD-yl-VaV" firstAttribute="centerY" secondItem="KSY-TF-SeM" secondAttribute="centerY" id="xeB-jN-0r1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KSY-TF-SeM"/>
@@ -335,6 +340,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Joy_3_1_750" width="750" height="438"/>
         <image name="Joy_tab" width="65" height="40"/>
         <image name="Lesson" width="62" height="57"/>
         <image name="button outline" width="47" height="46"/>
