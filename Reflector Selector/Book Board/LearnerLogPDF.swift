@@ -192,13 +192,12 @@ class LearnerLog : PDFSuperView{
 			drawingPDF = context
 			beginPage = true
 			image.draw(in: imageRect)
-			pagePosition = image.size.height+5*TypeSetConstants.standardSpacing
+			pagePosition = image.size.height/2//+2*TypeSetConstants.standardSpacing
 			title.draw(at: CGPoint(x: TypeSetConstants.margin, y: TypeSetConstants.header))
 			var firstPage = true
 			book.forEach{ emotion in
 				for page in pages.workBook{
 					if page.name == emotion.name && page.included{
-						print(emotion.name)
 						if !firstPage{
 							beginPage = true
 							firstPage = false
@@ -222,7 +221,7 @@ class LearnerLog : PDFSuperView{
 								}}
 						}
 						firstPage = false
-						pagePosition = TypeSetConstants.header
+						pagePosition = TypeSetConstants.header/2
 					}
 				}
 			}

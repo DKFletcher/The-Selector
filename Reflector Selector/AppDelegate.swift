@@ -245,7 +245,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				stage : .third,
 				ring: .connectingMe,
 				emotion: Index(emotion: .pleasedForOthers, position: 6),
-				worksheet : Worksheet(topLeft: [QuestionAnswer(question : "What makes you feel pleased for thers?", answer : testAnswer)],
+				worksheet : Worksheet(topLeft: [QuestionAnswer(question : "What makes you feel pleased for others?", answer : testAnswer)],
 															topRight: [QuestionAnswer(question : "When have you felt pleased for others? What was happening?", answer : testAnswer)],
 															middleLeft: [QuestionAnswer(question : "For me being pleased for others is...", answer : testAnswer)],
 															middleRight: [QuestionAnswer(question: "What does being pleased for others make you do?", answer: testAnswer)],

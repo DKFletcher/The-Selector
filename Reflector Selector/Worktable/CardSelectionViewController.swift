@@ -135,6 +135,7 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 		default:
 			cellHeight = 2
 		}
+		cellHeight = 4
 		return tableView.superview!.bounds.maxY / CGFloat(cellHeight)
 	}
 	
