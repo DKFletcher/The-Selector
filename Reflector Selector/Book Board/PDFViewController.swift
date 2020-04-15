@@ -124,7 +124,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 				}
 
 			case .Handbook :
-				save = false
+				save = true
 				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
 						let handbook = Handbook(learner: name)
 					self?.documentData = handbook.handbook(from: cards)
