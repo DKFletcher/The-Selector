@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D6174278241688FE00DB9127 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6174277241688FE00DB9127 /* UIImage.swift */; };
 		D61A73EF240CDF6600EF0642 /* AbstractionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61A73EE240CDF6600EF0642 /* AbstractionLayer.swift */; };
+		D62EE2E12448400B00A367BF /* NameInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62EE2E02448400B00A367BF /* NameInputViewController.swift */; };
 		D6466F00243873A80058B674 /* Collector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6466EFF243873A80058B674 /* Collector.swift */; };
 		D64780432422564E00325012 /* SaveFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64780422422564E00325012 /* SaveFileViewController.swift */; };
 		D64E5F06240E9DF40012DEF4 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E5EF4240E9DF30012DEF4 /* Icon-76@2x.png */; };
@@ -151,6 +152,7 @@
 /* Begin PBXFileReference section */
 		D6174277241688FE00DB9127 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		D61A73EE240CDF6600EF0642 /* AbstractionLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractionLayer.swift; sourceTree = "<group>"; };
+		D62EE2E02448400B00A367BF /* NameInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameInputViewController.swift; sourceTree = "<group>"; };
 		D6466EFF243873A80058B674 /* Collector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collector.swift; sourceTree = "<group>"; };
 		D64780422422564E00325012 /* SaveFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFileViewController.swift; sourceTree = "<group>"; };
 		D64E5EF4240E9DF30012DEF4 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 			children = (
 				D65D0002240A7466006E35E5 /* OptionsViewController.swift */,
 				D65D0001240A7466006E35E5 /* SettingsStoryboard.storyboard */,
+				D62EE2E02448400B00A367BF /* NameInputViewController.swift */,
 			);
 			path = Options;
 			sourceTree = "<group>";
@@ -791,6 +794,7 @@
 				D65DFB18240A6FC9006E35E5 /* LessonViewController.swift in Sources */,
 				D65DFFA6240A73C1006E35E5 /* ImagingHelper.swift in Sources */,
 				D65DFB19240A6FC9006E35E5 /* MultipleChoiceViewController.swift in Sources */,
+				D62EE2E12448400B00A367BF /* NameInputViewController.swift in Sources */,
 				D65D0012240A74A1006E35E5 /* BackCardView.swift in Sources */,
 				D67BE756241BAE0000AE2F92 /* UIStackView.swift in Sources */,
 				D65DFAFE240A6FBA006E35E5 /* UIViewController.swift in Sources */,

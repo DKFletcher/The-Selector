@@ -24,7 +24,6 @@ class PDFSuperView {
 	
 	var destination : String = "" {
 		didSet{
-//			print("destination \(destination)    drawingPDF \(drawingPDF.hashValue)")
 			drawingPDF.beginPage()
 			drawingPDF.addDestination(
 				withName: destination,
@@ -33,6 +32,8 @@ class PDFSuperView {
 					.applying(drawingPDF.cgContext.userSpaceToDeviceSpaceTransform))
 		}
 	}
+	
+	var isHandBook : Bool = false
 	
 	var pagePosition : CGFloat = TypeSetConstants.header {
 		didSet{
@@ -47,12 +48,17 @@ class PDFSuperView {
 			}
 		}
 	}
-	var index : Int = 0
+	
+	var index : Int = 1
 	var learnerName : String?
 	var lastAnswerBlank : Bool = false
 	var beginPage : Bool! {
 		didSet{
 			drawingPDF.beginPage()
+			pagePosition = TypeSetConstants.header
+			if index > 1 && !isHandBook{
+				pageNumber()
+			}
 			index += 1
 		}
 	}
@@ -60,60 +66,30 @@ class PDFSuperView {
 	internal var drawingPDF : UIGraphicsPDFRendererContext!
 	
 	init(learner name : String?) {
-		if let learnName = name{
-			self.learnerName = learnName
-		} else {
-			self.learnerName = ""
-		}
+		learnerName = name
 	}
 	
-	//textBody - Interogates the string to be set and the available space to produce an array that has as its first value a string that fits the available space on page. The function needs to return the following format of array:
-	//1) ["block"] a block that fits onto the available space of one page.
-	//2) ["","block"] a single line block that does not fit onto the current page.
-	//3) ["block1","block2"] block1 fits onto the current page, block2 is recursively carried over onto new pages.
 	
-	func textBody3(to oldAnswer: String, for question: String, from start: CGFloat)->[String]{
-		var answer = ""
-		var onceThru = false
-		oldAnswer.components(separatedBy: CharacterSet.newlines).forEach{newline in
-			answer+=newline+" "
-			if onceThru{
-				onceThru = false
-				answer = " \n"+answer
-			}
-		}
-		var maxSplits = 1
-		let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
-		let components = answer.components(separatedBy: chararacterSet)
-		let words = components.filter { !$0.isEmpty }.count
-		var testAnswer = ""
-		var remainder = ""
-		if !itemToFitPage(top: start, question: question, answer: answer ){
-			for _ in 0..<words{
-				if let subString = answer.split(separator: " ", maxSplits: maxSplits, omittingEmptySubsequences: false).last{
-					maxSplits+=1
-					let predicate = String(subString)
-					let predicateRange=answer.range(of: predicate)
-					testAnswer = answer
-					testAnswer.removeSubrange(predicateRange!)
-					if !itemToFitPage(top: start, question: question, answer: testAnswer ){
-						if let solutionString = answer.split(separator: " ", maxSplits: maxSplits-2, omittingEmptySubsequences: false).last{
-							remainder = String(solutionString)
-							let predicateRange=answer.range(of: remainder)
-							testAnswer = answer
-							testAnswer.removeSubrange(predicateRange!)
-							break
-						}
-					}
-				}
-				
-			}
-			return [testAnswer,remainder]
-		} else {
-			return [answer]
-		}
+	
+	func pageNumber(){
+		let boldFont = UIFont.systemFont(
+			ofSize: TypeSetConstants.bodyFontSize,
+			weight: .medium)
+		let paragraphStyle = NSMutableParagraphStyle()
+		paragraphStyle.alignment = .right
+//		paragraphStyle.lineBreakMode = .byWordWrapping
+		let pageNumberAttributes: [NSAttributedString.Key: Any] = [
+			NSAttributedString.Key.paragraphStyle: paragraphStyle,
+			NSAttributedString.Key.font: boldFont,
+			NSAttributedString.Key.foregroundColor: UIColor.black]
+		
+		
+		
+		
+		let pageNumberAttributedString = NSMutableAttributedString(string: "\(index)", attributes: pageNumberAttributes)
+		pageNumberAttributedString.draw(at:
+			CGPoint(x: TypeSetConstants.pageWidth-TypeSetConstants.standardSpacing*5, y: TypeSetConstants.pageHeight-TypeSetConstants.standardSpacing*5))
 	}
-	
 	func makeAttributedString(question: String, answer: String) -> NSMutableAttributedString{
 		let boldFont = UIFont.systemFont(
 			ofSize: TypeSetConstants.bodyFontSize,
@@ -149,17 +125,6 @@ class PDFSuperView {
 		return ceil(qAndATest.height)
 	}
 	
-	func itemToFitPage(
-		top: CGFloat,
-		question: String,
-		answer: String) -> Bool{
-		
-		let qAndA = makeAttributedString(question: question, answer: answer)
-		let qAndAHeight = getAttributedStringHeight(qAndA)
-		if qAndAHeight + top < TypeSetConstants.pageHeight - TypeSetConstants.footer{
-		}
-		return qAndAHeight + top < TypeSetConstants.pageHeight - TypeSetConstants.footer
-	}
 	
 	func makeBodyItem(top: CGFloat,
 										answer: String,
@@ -197,15 +162,83 @@ class PDFSuperView {
 		return imageRect.origin.y + imageRect.size.height
 	}
 	
+	
+	func itemToFitPage(
+		top: CGFloat,
+		question: String,
+		answer: String) -> Bool{
+		
+		let qAndA = makeAttributedString(question: question, answer: answer)
+		let qAndAHeight = getAttributedStringHeight(qAndA)
+		if qAndAHeight + top < TypeSetConstants.pageHeight - TypeSetConstants.footer{
+		}
+		return qAndAHeight + top < TypeSetConstants.pageHeight - TypeSetConstants.footer
+	}
+
+	
+
+	//textBody - Interogates the string to be set and the available space to produce an array that has as its first value a string that fits the available space on page. The function needs to return the following format of array:
+	//1) ["block"] a block that fits onto the available space of one page.
+	//2) ["","block"] a single line block that does not fit onto the current page.
+	//3) ["block1","block2"] block1 fits onto the current page, block2 is recursively carried over onto new pages.
+
+	
+	
+	func textBody3(to oldAnswer: String, for question: String, from start: CGFloat)->[String]{
+		var answer = ""
+		var onceThru = false
+		oldAnswer.components(separatedBy: CharacterSet.newlines).forEach{newline in
+			answer+=newline+" "
+			if onceThru{
+				onceThru = false
+				answer = " \n"+answer
+			}
+		}
+		var maxSplits = 1
+		let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
+		let components = answer.components(separatedBy: chararacterSet)
+		let words = components.filter { !$0.isEmpty }.count
+		var testAnswer = ""
+		var remainder = ""
+		if !itemToFitPage(top: start, question: question, answer: answer ){
+			for _ in 0..<words{
+				if let subString = answer.split(separator: " ", maxSplits: maxSplits, omittingEmptySubsequences: false).last{
+					maxSplits+=1
+					let predicate = String(subString)
+					let predicateRange=answer.range(of: predicate)
+					testAnswer = answer
+					testAnswer.removeSubrange(predicateRange!)
+					if !itemToFitPage(top: start, question: question, answer: testAnswer ){
+						if let solutionString = answer.split(separator: " ", maxSplits: maxSplits-2, omittingEmptySubsequences: false).last{
+							remainder = String(solutionString)
+							let predicateRange=answer.range(of: remainder)
+							testAnswer = answer
+							testAnswer.removeSubrange(predicateRange!)
+							break
+						}
+					}
+				}
+			}
+			return [testAnswer,remainder]
+		} else {
+			return [answer]
+		}
+	}
+
+	
 	internal func formatAnswerBook(drawing pdf: UIGraphicsPDFRendererContext, text block: QuestionAnswer)->CGFloat{
+		
 		func helper(startPosition: CGFloat,drawingPDF: UIGraphicsPDFRendererContext, qa: QuestionAnswer)->CGFloat{
 			var returnPosition = startPosition
 			var page = textBody3(to: qa.answer,for: qa.question,from: returnPosition)
+			
+			
 			func help1 () -> CGFloat {
 				beginPage = true
 				returnPosition = TypeSetConstants.header
 				return makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[1], question: qa.question)
 			}
+			
 			
 			func help2()-> CGFloat{
 				returnPosition = makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[0], question: qa.question)
@@ -213,10 +246,25 @@ class PDFSuperView {
 				returnPosition = TypeSetConstants.header
 				return helper(startPosition: returnPosition, drawingPDF: drawingPDF, qa: QuestionAnswer(question: "", answer: page[1]))
 			}
-			return page.count == 2 ? page[0].count == 0 ? help1() : help2() :
-				makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[0], question: qa.question)
+			
+			
+			if page.count == 2{
+				if page[0].count == 0 {
+					 return help1()
+				} else {
+					return help2()
+				}
+			} else {
+				return makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[0], question: qa.question)
+			}
 		}
-		return block.answer.count > 0 ? helper(startPosition: pagePosition, drawingPDF: pdf, qa: block) : blankAnswerBox(qa: block)
+		
+		
+		if block.answer.count > 0 {
+			return helper(startPosition: pagePosition, drawingPDF: pdf, qa: block)
+		} else {
+			return blankAnswerBox(qa: block)
+		}
 	}
 	
 	
@@ -259,7 +307,7 @@ class PDFSuperView {
 		
 		let qAndA = makeAttributedString(question: qa.question, answer: "")
 		let qAndAHeight = getAttributedStringHeight(qAndA) + TypeSetConstants.answerBoxHeight
-		return qAndAHeight + returnPosition < TypeSetConstants.pageHeight - TypeSetConstants.footer ? onPage() : newPage()
+		return qAndAHeight + returnPosition < TypeSetConstants.pageHeight - TypeSetConstants.footer - TypeSetConstants.header ? onPage() : newPage()
 	}
 }
 
@@ -314,3 +362,26 @@ class PDFSuperView {
 //	return fit.count == 1 ? fit :
 //		fit[0].count != 0 ? [fit[0], String(split.suffix(from: index ))] : ["",split]
 //}
+
+
+//	internal func formatAnswerBook(drawing pdf: UIGraphicsPDFRendererContext, text block: QuestionAnswer)->CGFloat{
+//		func helper(startPosition: CGFloat,drawingPDF: UIGraphicsPDFRendererContext, qa: QuestionAnswer)->CGFloat{
+//			var returnPosition = startPosition
+//			var page = textBody3(to: qa.answer,for: qa.question,from: returnPosition)
+//			func help1 () -> CGFloat {
+//				beginPage = true
+//				returnPosition = TypeSetConstants.header
+//				return makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[1], question: qa.question)
+//			}
+//
+//			func help2()-> CGFloat{
+//				returnPosition = makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[0], question: qa.question)
+//				beginPage = true
+//				returnPosition = TypeSetConstants.header
+//				return helper(startPosition: returnPosition, drawingPDF: drawingPDF, qa: QuestionAnswer(question: "", answer: page[1]))
+//			}
+//			return page.count == 2 ? page[0].count == 0 ? help1() : help2() :
+//				makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[0], question: qa.question)
+//		}
+//		return block.answer.count > 0 ? helper(startPosition: pagePosition, drawingPDF: pdf, qa: block) : blankAnswerBox(qa: block)
+//	}

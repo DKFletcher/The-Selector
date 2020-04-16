@@ -17,10 +17,10 @@ struct TypeSetConstants {
 	static let pageSize : CGSize = CGSize(width: pageWidth, height: pageHeight)
 	static let margin : CGFloat = 70.0
 	static let header : CGFloat = 50.0
-	static let footer : CGFloat = 100.0
-	static let answerBoxHeight : CGFloat = 180.0
+	static let footer : CGFloat = 50.0
+	static let answerBoxHeight : CGFloat = 185.0
 	static let answerBoxLineWidth : CGFloat = 1.0
 	static let answerBoxTextInset : CGFloat = 5.0
-	static let sectionStartFooter : CGFloat = 180.0
+	static let sectionStartFooter : CGFloat = answerBoxHeight + footer
 	static let pageRect : CGRect = CGRect(origin: CGPoint.zero, size: pageSize)
 }

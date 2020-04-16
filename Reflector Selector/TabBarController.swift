@@ -17,7 +17,15 @@ class TabBarController: UITabBarController {
 	let initialSideForWorkbook : Page.Side = .back
 	var helpState : HelpMenuItem = .home
 	
-	var learnerName : String?
+	var learnerName : String?{
+		didSet{
+			if let name = learnerName{
+				if name.count == 0 {
+				learnerName = nil
+			}
+	}
+		}
+	}
 	
 	var emotions : [Card]! {
 		didSet{

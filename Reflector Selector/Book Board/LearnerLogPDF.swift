@@ -15,126 +15,77 @@ class LearnerLog : PDFSuperView{
 		super.init(learner: name)
 	}
 
-
 	func focusQuestion(for question: QuestionAnswer, partOf emotion: Card) -> Data{
-		let name = learnerName ?? ""
-		let boldFont = UIFont(name: "Chalkduster", size: TypeSetConstants.tagLineFontSize)
-		let bodyFont = UIFont(name: "Chalkduster", size: TypeSetConstants.bodyFontSize)
-		let paragraphStyle = NSMutableParagraphStyle()
-		paragraphStyle.alignment = .left
-		paragraphStyle.lineBreakMode = .byWordWrapping
-		let headingAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.paragraphStyle: paragraphStyle,
-			NSAttributedString.Key.font: boldFont!,
-			NSAttributedString.Key.foregroundColor: UIColor.black]
-		let boldAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.paragraphStyle: paragraphStyle,
-			NSAttributedString.Key.font: boldFont!,
-			NSAttributedString.Key.foregroundColor: UIColor.black]
-		let bodyAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.paragraphStyle: paragraphStyle,
-			NSAttributedString.Key.font: bodyFont!,
-			NSAttributedString.Key.foregroundColor: UIColor.black]
-		let title = NSMutableAttributedString(string: "Reflector Selector Focus Question\n", attributes: boldAttributes)
-		let answerAttributedString = NSAttributedString(string: name+" ", attributes: bodyAttributes)
-		//		let answerAttributedString = NSAttributedString(string: formattedDate, attributes: bodyAttributes)
-		title.append(answerAttributedString)
-		let image = UIImage(named: "Joy_3") ?? UIImage()
-		let imageRect = CGRect(
-			x: TypeSetConstants.pageWidth - image.size.width/2-TypeSetConstants.margin,
-			y: TypeSetConstants.header,
-			width: image.size.width/2,
-			height: image.size.height/2
-		)
-		let renderer = UIGraphicsPDFRenderer(
-			bounds: CGRect(
-				x: 0.0,
-				y: 0.0,
-				width: TypeSetConstants.pageWidth,
-				height: TypeSetConstants.pageHeight))
+		let initDocument = initiateDocument(for: "Focus Question\n")
+		let title = initDocument.0
+		let image = initDocument.2
+		let imageRect = initDocument.3
+		let renderer = initDocument.4
+		
 		let data = renderer.pdfData { (context) in
 			drawingPDF = context
 			beginPage = true
-			
 			image.draw(in: imageRect)
-			pagePosition = image.size.height+5*TypeSetConstants.standardSpacing
-			title.draw(at: CGPoint(x: TypeSetConstants.margin, y: TypeSetConstants.header))
-			//			book.forEach{ emotion in
-			pagePosition += TypeSetConstants.standardSpacing*5
-			let emotionString = NSMutableAttributedString(string: emotion.name, attributes: headingAttributes)
-			
-			let emotionHeight = getAttributedStringHeight(emotionString)
-			
-			if emotionHeight + pagePosition > TypeSetConstants.pageHeight - TypeSetConstants.sectionStartFooter{
-				beginPage = true
-				pagePosition = TypeSetConstants.header
-			}
-			emotionString.draw(at: CGPoint(x: TypeSetConstants.margin, y: pagePosition))
-			pagePosition += emotionHeight
+			let titleHeight = getTitleHeight(title, image: imageRect.width)
+			title.draw(in:
+				CGRect(
+					x: TypeSetConstants.margin,
+					y: TypeSetConstants.header,
+					width: TypeSetConstants.pageWidth - 2*TypeSetConstants.margin - imageRect.width,
+					height: titleHeight))
+			pagePosition += getAttributedStringHeight(title)+TypeSetConstants.standardSpacing
+			let boldFont = UIFont.systemFont(
+				ofSize: TypeSetConstants.bodyFontSize,
+				weight: .heavy)
+			let paragraphStyle = NSMutableParagraphStyle()
+			paragraphStyle.alignment = .left
+			paragraphStyle.lineBreakMode = .byWordWrapping
+			let boldAttributes: [NSAttributedString.Key: Any] = [
+				NSAttributedString.Key.paragraphStyle: paragraphStyle,
+				NSAttributedString.Key.font: boldFont,
+				NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+			let qAndA = NSAttributedString(string: question.question, attributes: boldAttributes)
 			_=autoreleasepool {
-				formatAnswerBook(drawing: drawingPDF, text: question)
+				qAndA.draw(at: CGPoint(x: TypeSetConstants.margin, y: pagePosition))
 			}
 		}
 		return data
 	}
 
 	
+	func getTitleHeight(_ nsAttributedString: NSMutableAttributedString, image width : CGFloat) ->CGFloat{
+		let textTest = nsAttributedString.boundingRect(
+			with: CGSize(
+				width: TypeSetConstants.pageWidth - TypeSetConstants.margin*2 - width,
+				height: CGFloat.greatestFiniteMagnitude
+			),
+			options: [.usesLineFragmentOrigin, .usesFontLeading],
+			context: nil)
+		return ceil(textTest.height)
+	}
+	
+	
+	
 	func workSheet(for emotion: Card) -> Data{
-		let name = learnerName ?? ""
-		let boldFont = UIFont(name: "Chalkduster", size: TypeSetConstants.tagLineFontSize)
-		let bodyFont = UIFont(name: "Chalkduster", size: TypeSetConstants.bodyFontSize)
-		let paragraphStyle = NSMutableParagraphStyle()
-		paragraphStyle.alignment = .left
-		paragraphStyle.lineBreakMode = .byWordWrapping
-		let headingAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.paragraphStyle: paragraphStyle,
-			NSAttributedString.Key.font: boldFont!,
-			NSAttributedString.Key.foregroundColor: UIColor.black]
-		let boldAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.paragraphStyle: paragraphStyle,
-			NSAttributedString.Key.font: boldFont!,
-			NSAttributedString.Key.foregroundColor: UIColor.black]
-		let bodyAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.paragraphStyle: paragraphStyle,
-			NSAttributedString.Key.font: bodyFont!,
-			NSAttributedString.Key.foregroundColor: UIColor.black]
-		let title = NSMutableAttributedString(string: "Reflector Selector Worksheet\n", attributes: boldAttributes)
-		let answerAttributedString = NSAttributedString(string: name+" ", attributes: bodyAttributes)
-		//		let answerAttributedString = NSAttributedString(string: formattedDate, attributes: bodyAttributes)
-		title.append(answerAttributedString)
-		let image = UIImage(named: "Joy_3") ?? UIImage()
-		let imageRect = CGRect(
-			x: TypeSetConstants.pageWidth - image.size.width/2-TypeSetConstants.margin,
-			y: TypeSetConstants.header,
-			width: image.size.width/2,
-			height: image.size.height/2
-		)
-		let renderer = UIGraphicsPDFRenderer(
-			bounds: CGRect(
-				x: 0.0,
-				y: 0.0,
-				width: TypeSetConstants.pageWidth,
-				height: TypeSetConstants.pageHeight))
+		let initDocument = initiateDocument(for: emotion.name)
+		let title = initDocument.0
+		let image = initDocument.2
+		let imageRect = initDocument.3
+		let renderer = initDocument.4
+		
 		let data = renderer.pdfData { (context) in
-			
 			drawingPDF = context
 			beginPage = true
 
 			image.draw(in: imageRect)
-			pagePosition = image.size.height+5*TypeSetConstants.standardSpacing
-			title.draw(at: CGPoint(x: TypeSetConstants.margin, y: TypeSetConstants.header))
-			//			book.forEach{ emotion in
-			pagePosition += TypeSetConstants.standardSpacing*5
-			let emotionString = NSMutableAttributedString(string: emotion.name, attributes: headingAttributes)
-			
-			let emotionHeight = getAttributedStringHeight(emotionString)
-			
-			if emotionHeight + pagePosition > TypeSetConstants.pageHeight - TypeSetConstants.sectionStartFooter{
-				beginPage = true
-				pagePosition = TypeSetConstants.header
-			}
-			emotionString.draw(at: CGPoint(x: TypeSetConstants.margin, y: pagePosition))
-			pagePosition += emotionHeight
+			let titleHeight = getTitleHeight(title, image: imageRect.width)
+			title.draw(in:
+				CGRect(
+					x: TypeSetConstants.margin,
+					y: TypeSetConstants.header,
+					width: TypeSetConstants.pageWidth - 2*TypeSetConstants.margin - imageRect.width,
+					height: titleHeight))
+			pagePosition = getAttributedStringHeight(title) + TypeSetConstants.header
 			autoreleasepool {
 				emotion.emotion.qanda.sections().forEach{ $0.forEach {
 					let test = $0.answer
@@ -147,33 +98,84 @@ class LearnerLog : PDFSuperView{
 	
 	
 	func logbook(from book: [Card], in pages: AbstractionLayerForWorkbook) -> Data{
-		//		let date = Date()
-		//		let format = DateFormatter()
-		//		format.dateFormat = "dd-MM-yyyy"
-		//		let formattedDate = format.string(from: date)
-		let name = learnerName ?? ""
-		//		let headingFont = UIFont(name: "Chalkduster", size: PDFCreator.TypeSetConstants.headingFontSize)
-		let boldFont = UIFont(name: "Chalkduster", size: TypeSetConstants.tagLineFontSize)
-		let bodyFont = UIFont(name: "Chalkduster", size: TypeSetConstants.bodyFontSize)
+		let initDocument = initiateDocument(for: "Workbook")
+		let title = initDocument.0
+		let headingAttributes = initDocument.1
+		let image = initDocument.2
+		let imageRect = initDocument.3
+		let renderer = initDocument.4
+		
+		let data = renderer.pdfData { (context) in
+
+			drawingPDF = context
+			beginPage = true
+			image.draw(in: imageRect)
+			let titleHeight = getTitleHeight(title, image: imageRect.width)
+			title.draw(in:
+				CGRect(
+					x: TypeSetConstants.margin,
+					y: TypeSetConstants.header,
+					width: TypeSetConstants.pageWidth - 2*TypeSetConstants.margin - imageRect.width,
+					height: titleHeight))
+			pagePosition = getAttributedStringHeight(title)+TypeSetConstants.header
+			var firstPage = true
+			book.forEach{ emotion in
+				for page in pages.workBook{
+					if page.name == emotion.name && page.included{
+						if !firstPage{
+							beginPage = true
+							firstPage = false
+						}
+						let emotionString = NSMutableAttributedString(string: emotion.name, attributes: headingAttributes)
+						let emotionHeight = getAttributedStringHeight(emotionString)
+						if emotionHeight + pagePosition > TypeSetConstants.pageHeight - TypeSetConstants.sectionStartFooter{
+							beginPage = true
+							pagePosition = TypeSetConstants.header
+						}
+						emotionString.draw(at: CGPoint(x: TypeSetConstants.margin, y: pagePosition))
+						pagePosition += emotionHeight
+						
+						autoreleasepool {
+							emotion.emotion.qanda.sections().forEach{ $0.forEach {
+								let test = $0.answer
+								pagePosition = formatAnswerBook(drawing: drawingPDF, text: QuestionAnswer(question: $0.question, answer: test))
+								}}
+						}
+						firstPage = false
+						pagePosition = TypeSetConstants.header/2
+					}
+				}
+			}
+		}
+		return data
+	}
+	
+	private func initiateDocument(for title: String) ->(NSMutableAttributedString,[NSAttributedString.Key: Any],UIImage, CGRect, UIGraphicsPDFRenderer){
+		
+		
+		let boldFont = UIFont.systemFont(
+			ofSize: TypeSetConstants.bodyFontSize,
+			weight: .heavy)
 		let paragraphStyle = NSMutableParagraphStyle()
 		paragraphStyle.alignment = .left
 		paragraphStyle.lineBreakMode = .byWordWrapping
-		let headingAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.paragraphStyle: paragraphStyle,
-			NSAttributedString.Key.font: boldFont!,
-			NSAttributedString.Key.foregroundColor: UIColor.black]
 		let boldAttributes: [NSAttributedString.Key: Any] = [
 			NSAttributedString.Key.paragraphStyle: paragraphStyle,
-			NSAttributedString.Key.font: boldFont!,
+			NSAttributedString.Key.font: boldFont,
 			NSAttributedString.Key.foregroundColor: UIColor.black]
-		let bodyAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.paragraphStyle: paragraphStyle,
-			NSAttributedString.Key.font: bodyFont!,
-			NSAttributedString.Key.foregroundColor: UIColor.black]
-		let title = NSMutableAttributedString(string: "Reflector Selector Workbook\n", attributes: boldAttributes)
-		let answerAttributedString = NSAttributedString(string: name+" ", attributes: bodyAttributes)
-		//		let answerAttributedString = NSAttributedString(string: formattedDate, attributes: bodyAttributes)
-		title.append(answerAttributedString)
+		
+		
+		
+		
+		var titleAttributedString = NSMutableAttributedString()
+		if let name = learnerName{
+			titleAttributedString = NSMutableAttributedString(string: "\(name) - \(title)", attributes: boldAttributes)
+		} else {
+			titleAttributedString = NSMutableAttributedString(string: title, attributes: boldAttributes)
+		}
+		
+		
+		
 		let image = UIImage(named: "Joy_3") ?? UIImage()
 		let imageRect = CGRect(
 			x: TypeSetConstants.pageWidth - image.size.width/2-TypeSetConstants.margin,
@@ -187,45 +189,6 @@ class LearnerLog : PDFSuperView{
 				y: 0.0,
 				width: TypeSetConstants.pageWidth,
 				height: TypeSetConstants.pageHeight))
-		let data = renderer.pdfData { (context) in
-
-			drawingPDF = context
-			beginPage = true
-			image.draw(in: imageRect)
-			pagePosition = image.size.height/2//+2*TypeSetConstants.standardSpacing
-			title.draw(at: CGPoint(x: TypeSetConstants.margin, y: TypeSetConstants.header))
-			var firstPage = true
-			book.forEach{ emotion in
-				for page in pages.workBook{
-					if page.name == emotion.name && page.included{
-						if !firstPage{
-							beginPage = true
-							firstPage = false
-						}
-						pagePosition += TypeSetConstants.standardSpacing*5
-						let emotionString = NSMutableAttributedString(string: emotion.name, attributes: headingAttributes)
-						
-						let emotionHeight = getAttributedStringHeight(emotionString)
-						
-						if emotionHeight + pagePosition > TypeSetConstants.pageHeight - TypeSetConstants.sectionStartFooter{
-							beginPage = true
-							pagePosition = TypeSetConstants.header
-						}
-						emotionString.draw(at: CGPoint(x: TypeSetConstants.margin, y: pagePosition))
-						pagePosition += emotionHeight
-						autoreleasepool {
-							emotion.emotion.qanda.sections().forEach{ $0.forEach {
-								//						print("\($0.question)")
-								let test = $0.answer
-								pagePosition = formatAnswerBook(drawing: drawingPDF, text: QuestionAnswer(question: $0.question, answer: test))
-								}}
-						}
-						firstPage = false
-						pagePosition = TypeSetConstants.header/2
-					}
-				}
-			}
-		}
-		return data
+		return (titleAttributedString,boldAttributes, image, imageRect, renderer)
 	}
 }

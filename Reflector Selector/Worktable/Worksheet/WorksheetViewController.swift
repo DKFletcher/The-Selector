@@ -27,7 +27,6 @@ class WorksheetViewController: UIViewController, UIGestureRecognizerDelegate, Ac
 	
 	var topLeftQA: QuestionAnswer!{
 		didSet{
-			print("didSet")
 			topLeftLabel.text = topLeftQA.question
 			topLeftText.text = topLeftQA.answer
 //			topLeft.text = .text
@@ -104,7 +103,6 @@ class WorksheetViewController: UIViewController, UIGestureRecognizerDelegate, Ac
 	
 	func editText(for qa: QuestionAnswer) {
 		if (updateFromAccessBoard == topLeftQA){
-			print("tio")
 		}
 		updateFromAccessBoard = QuestionAnswer(question: qa.question, answer: qa.answer)
 		(tabBarController as? TabBarController)!.textToChange(text: qa)

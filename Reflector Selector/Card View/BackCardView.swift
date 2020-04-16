@@ -75,7 +75,7 @@ class BackCardView: CardView, CardPDFDelegate{
 			case 2 :
 				pdfUp(emotion: card, edit: true)
 			default :
-				print("longPress fireing on other signal: \(sender)")
+				print("longPress firing on other signal: \(sender)")
 			}
 		}
 	}

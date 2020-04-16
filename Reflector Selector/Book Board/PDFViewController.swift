@@ -92,6 +92,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 					DispatchQueue.global(qos: .userInitiated).async { [weak self] in
 						let log = LearnerLog(learner: name)
 						self?.documentData = log.focusQuestion(for: focus, partOf: theCard)
+						self?.additionalInfoForFileName = " for \(theCard.name)"
 						DispatchQueue.main.async {
 							self?.pdfOnViewport()
 						}
@@ -104,6 +105,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 					DispatchQueue.global(qos: .userInitiated).async { [weak self] in
 						let log = LearnerLog(learner: name)
 						self?.documentData = log.workSheet(for: theCard)
+						self?.additionalInfoForFileName = " for \(theCard.name)"
 						DispatchQueue.main.async {
 							self?.pdfOnViewport()
 						}
@@ -124,7 +126,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 				}
 
 			case .Handbook :
-				save = true
+				save = false
 				DispatchQueue.global(qos: .userInitiated).async { [weak self] in
 						let handbook = Handbook(learner: name)
 					self?.documentData = handbook.handbook(from: cards)
@@ -149,6 +151,7 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 					let collector = Collector(learner: name)
 					DispatchQueue.global(qos: .userInitiated).async { [weak self] in
 					self?.documentData = collector.collector(for: theCard, in: cards)
+						self?.additionalInfoForFileName = " for \(theCard.name)"
 					DispatchQueue.main.async{
 						self?.pdfOnViewport()
 					}
@@ -196,16 +199,6 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 		present(vc, animated: true)	}
 	
 	func printHardCopy(){
-		let printCompletionHandler: UIPrintInteractionController.CompletionHandler = { (controller, success, error) -> Void in
-			if success {
-				// Printed successfully
-				// Remove file here ...
-//				self.documentData = nil
-			} else {
-//				self.documentData = nil
-				// Printing failed, report error ...
-			}
-		}
 		let jobName = (tabBarController as! TabBarController).learnerName ?? job.rawValue
 		DispatchQueue.main.async {
 		let printController = UIPrintInteractionController.shared
@@ -230,7 +223,6 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 	
 	func pdfOnScreen(pdf card: Card){
 		guard let path = Bundle.main.url(forResource: card.name, withExtension: "pdf") else {
-			print("PDFViewController, pdf url definition fail for \(card.name)")
 			return
 		}
 		if let document = PDFDocument(url: path) {
@@ -245,7 +237,6 @@ class PDFViewController: UIViewController, UIPrintInteractionControllerDelegate 
 			(segue.destination as! SaveFileViewController).fileText = name+" "+job.rawValue+additionalInfoForFileName
 			(segue.destination as! SaveFileViewController).nsData = nsData
 		}
-		print("preparation for save file")
 	}
 }
 
@@ -255,7 +246,7 @@ extension PDFViewController{
 		case InfoSheet = "Information Pack"
 		case Handbook = "Handbook"
 		case Logbook = "Log Book"
-		case DoubleLong = "Double Long Pack"
+		case DoubleLong = "Collector"
 		case FocusSheet = "Focus Sheet"
 	}
 }

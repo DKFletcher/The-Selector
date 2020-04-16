@@ -138,7 +138,6 @@ class DoubleLong : PDFSuperView{
 		}
 		guard let url = Bundle.main.url(forResource: quad, withExtension: "pdf"),
 			let document = CGPDFDocument(url as CFURL) else {
-				print("PDFViewController, pdf url definition fail for \(quad)")
 				return out as Data
 		}
 		if let page = document.page(at: 1){
@@ -160,7 +159,6 @@ class DoubleLong : PDFSuperView{
 		}
 		guard let url = Bundle.main.url(forResource: emotion.name, withExtension: "pdf"),
 			let document = CGPDFDocument(url as CFURL) else {
-				print("PDFViewController, pdf url definition fail for \(emotion.name)")
 				return out as Data
 		}
 		if let page = document.page(at: 1){

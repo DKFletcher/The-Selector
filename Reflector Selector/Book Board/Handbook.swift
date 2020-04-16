@@ -13,6 +13,7 @@ class Handbook : PDFSuperView{
 	
 	override init(learner name: String?) {
 		super.init(learner: name)
+		isHandBook = true
 	}
 	
 	var bookIndex : [IndexEntry]! = []

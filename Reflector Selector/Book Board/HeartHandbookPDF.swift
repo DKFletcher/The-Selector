@@ -56,50 +56,27 @@ class HeartHandbook : PDFSuperView{
 			}
 		}
 		pdfData.insert(printIndex(from: bookIndex), at: 1)
-//		pdfData.append(printIndex(from: bookIndex))
 		return merge(pdfs: pdfData)
 	}
 	
 	func infoSheet(for card: Card) -> Data {
 		var pdfData : [Data] = []
 		pdfData.append(createFrontInfoPack(for: card))
-//		pdfData.append(createQuad(for: card.emotion.quadrant.rawValue))
-//		pdfData.append(createNote(for: card))
 		return merge(pdfs: pdfData)
 	}
 
 	func printString(indexEntry : [IndexEntry], startPoint : CGPoint){
 		let boldFont = UIFont(name: "Chalkduster", size: TypeSetConstants.tagLineFontSize)
-		let bodyFont = UIFont(name: "Chalkduster", size: TypeSetConstants.bodyFontSize)
 		let paragraphStyle = NSMutableParagraphStyle()
 		paragraphStyle.alignment = .left
 		paragraphStyle.lineBreakMode = .byWordWrapping
-		let headingAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.paragraphStyle: paragraphStyle,
-			NSAttributedString.Key.font: boldFont!,
-			NSAttributedString.Key.foregroundColor: UIColor.black]
 		let boldAttributes: [NSAttributedString.Key: Any] = [
 			NSAttributedString.Key.paragraphStyle: paragraphStyle,
 			NSAttributedString.Key.font: boldFont!,
 			NSAttributedString.Key.foregroundColor: UIColor.black]
-		let bodyAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.paragraphStyle: paragraphStyle,
-			NSAttributedString.Key.font: bodyFont!,
-			NSAttributedString.Key.foregroundColor: UIColor.black]
-
-		
-		var oldQuadrant : Index.Quadrant!
-		var oldZone : Index.Zone!
 		let quadrantIndexNSAttributedString = NSMutableAttributedString(string: "Quadrant: \(indexEntry[0].emotion.quadrant.rawValue)", attributes: boldAttributes)
 		quadrantIndexNSAttributedString.draw(at: startPoint)
 		drawingPDF.setDestinationWithName(indexEntry[0].emotion.quadrant.rawValue, for: CGRect(origin: startPoint, size: quadrantIndexNSAttributedString.size()))
-//		for page in indexEntry{
-//			if page.emotion.zone != oldZone{
-//				print("   Zone: \(page.emotion.zone)")
-//				oldZone = page.emotion.zone
-//			}
-//			print("      Emotion: \(page.emotion.emotion)")
-//		}
 	}
 	
 	func printIndex(from entry: [IndexEntry]) ->Data{
@@ -204,7 +181,6 @@ class HeartHandbook : PDFSuperView{
 		}
 		guard let url = Bundle.main.url(forResource: quad, withExtension: "pdf"),
 			let document = CGPDFDocument(url as CFURL) else {
-				print("PDFViewController, pdf url definition fail for \(quad)")
 				return out as Data
 		}
 		if let page = document.page(at: 1){
@@ -227,7 +203,6 @@ class HeartHandbook : PDFSuperView{
 		}
 		guard let url = Bundle.main.url(forResource: emotion.name, withExtension: "pdf"),
 			let document = CGPDFDocument(url as CFURL) else {
-				print("PDFViewController, pdf url definition fail for \(emotion.name)")
 				return out as Data
 		}
 		if let page = document.page(at: 1){
