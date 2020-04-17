@@ -24,6 +24,9 @@ class WorksheetViewController: UIViewController, UIGestureRecognizerDelegate, Ac
 	@IBOutlet var middleRightText: UITextView!
 	@IBOutlet var bottomLeftText: UITextView!
 	@IBOutlet var bottomRightText: UITextView!
+    
+    let questionColorLight : UIColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+    let questionColorDark : UIColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
 	
 	var topLeftQA: QuestionAnswer!{
 		didSet{
@@ -141,7 +144,6 @@ class WorksheetViewController: UIViewController, UIGestureRecognizerDelegate, Ac
 			target: self,
 			action: #selector(action)
 		)
-		
 		for label in labels {
 			let tapGesture = UITapGestureRecognizer(target: self, action: #selector(accessBoard(_:)))
 			label.addGestureRecognizer(tapGesture)
@@ -151,6 +153,13 @@ class WorksheetViewController: UIViewController, UIGestureRecognizerDelegate, Ac
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+        for label in labels{
+            if traitCollection.userInterfaceStyle == .light {
+                label.backgroundColor = questionColorLight
+            } else{
+                label.backgroundColor = questionColorDark
+            }
+        }
 		refresh()
 	}
 	
