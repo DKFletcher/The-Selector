@@ -4,31 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeIconFiles</key>
-			<array>
-				<string>Icon</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>Reflector Selector Extension</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>LSHandlerRank</key>
-			<string>Owner</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>com.whatmotivateslearning.Reflector-Selector</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeIconFiles</key>
-			<array>
-				<string>Icon</string>
-			</array>
-		</dict>
-	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -48,9 +23,9 @@
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>"Reflector Selector would like to access your Camera"</string>
+	<string>&quot;Reflector Selector would like to access your Camera&quot;</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>"Reflector Selector would like to use your camera so you can add images"</string>
+	<string>&quot;Reflector Selector would like to use your camera so you can add images&quot;</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ChalkDusterRF.ttf</string>
@@ -77,26 +52,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UTExportedTypeDeclarations</key>
-	<array>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>public.text</string>
-			</array>
-			<key>UTTypeDescription</key>
-			<string>Reflector Selector file</string>
-			<key>UTTypeIconFiles</key>
-			<array/>
-			<key>UTTypeIdentifier</key>
-			<string>com.whatmotivateslearning.Reflector-Selector</string>
-			<key>UTTypeTagSpecification</key>
-			<dict/>
-			<key>public.filename-extension</key>
-			<array>
-				<string>refsel</string>
-			</array>
-		</dict>
-		<dict/>
-	</array>
+	<array/>
 </dict>
 </plist>

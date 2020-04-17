@@ -67,7 +67,7 @@ class LearnerLog : PDFSuperView{
 	
 	
 	func workSheet(for emotion: Card) -> Data{
-		let initDocument = initiateDocument(for: emotion.name)
+		let initDocument = initiateDocument(for: emotion.name+"\n")
 		let title = initDocument.0
 		let image = initDocument.2
 		let imageRect = initDocument.3

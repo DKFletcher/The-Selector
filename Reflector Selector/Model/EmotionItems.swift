@@ -415,13 +415,6 @@ class EmotionItems{
 		}
 	}
 	
-	private func randomTitle() -> String{
-		var format = ["text",
-									"video",
-									"audio",
-									"image"]
-		return format[Int.random(in: 0 ... format.count - 1)]
-	}
 }
 
 extension EmotionItems : Hashable{
