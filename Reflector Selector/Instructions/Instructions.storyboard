@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5rB-87-xgA">
-    <device id="ipad9_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5rB-87-xgA">
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="boG-ND-bHH">
-                                <rect key="frame" x="4" y="28" width="760" height="60"/>
+                                <rect key="frame" x="4" y="8" width="760" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0a-Yh-N79">
                                         <rect key="frame" x="0.0" y="0.5" width="250.5" height="59"/>
@@ -58,10 +55,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jsy-mg-vdV">
-                                <rect key="frame" x="0.0" y="88" width="768" height="936"/>
+                                <rect key="frame" x="0.0" y="68" width="768" height="956"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Joy_3_1_750" translatesAutoresizingMaskIntoConstraints="NO" id="t9Z-dn-R5R">
-                                        <rect key="frame" x="9" y="249" width="750" height="438"/>
+                                        <rect key="frame" x="9" y="259" width="750" height="438"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="Lesson Background"/>
@@ -71,7 +68,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPo-De-lUT">
-                                <rect key="frame" x="12" y="40" width="39" height="41"/>
+                                <rect key="frame" x="12" y="20" width="39" height="41"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
                                 <state key="normal" title="X" backgroundImage="button up">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -111,21 +108,21 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BJ-jZ-W9M">
-                            <rect key="frame" x="12" y="135" width="744" height="723"/>
+                            <rect key="frame" x="12" y="115" width="744" height="743"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <mutableString key="text">Reflector Selector aims to help you improve what you understand and can communicate about your emotions.
 
-Reflector Selector comes with a handbook that explains a lot about emotions and how emotions can help you. You will find it by going to the options tab (the gear icon at the bottom).
+We have made a handbook that explains a lot about emotions and how emotions can help you. You will find it by going to the options tab (the gear icon at the bottom).
 
 There are lots of ways you can use this app to help you learn about your emotions.
 
 As you progress through Reflector Selector you will have made:
 
-  -a game that works with your own images (Hints: try taking a picture of one of your drawings; try getting your family or friends involved by acting out a scene for you to take a picture; try taking a picture of your face showing that emotion; or write a story about the emotion on a piece of paper and take a picture of that. Every image can be put on a special board for you to look more closely by zooming in).
+  -a game
 
-  -a Handbook explaining emotions. Your own images (along with our images) can be used in this book if you want. We explain each individual emotion and how they all fit together to help you.
+  -the handbook explaining emotions with your own pictures in
 
-  -a Workbook with your answers to important questions about each emotion
+  -a workbook with your answers to important questions about each emotion
 
 We have split emotion into three phases. If you manage to work through all of Reflector Selector you will have completed a lot of work and learnt a lot.
 
@@ -135,7 +132,9 @@ The aim of the game is to have the longest win streak by getting each round corr
 A round has one emotion card described by a picture or word and four possible choices. Choose which one of the four choices matches the card.
 If you are stuck on a round, tap the emotion card and it will flip to show you the right answer.
 
-(Hint: Try swapping your iPad with a partner to see if your own images work at describing the emotion, for some emotions that can be quite hard).
+Reflector Selector will work with the artwork we provide but thats not the real game. You need to put your own images in to make a version that is unique to you. Try taking a picture of one of your drawings; try getting your family or friends involved by acting out a scene for you to take a picture; try taking a picture of your face showing that emotion; or write a story about the emotion on a piece of paper and take a picture of that. Every image can be put on a special board for you to look more closely by zooming in, so your drawings, pictures or story can be quite big and have lots of detail.
+
+When you have finished making your game try swapping your iPad with someone you trust to see if your own images work at describing the emotion, for some emotions that can be quite hard and your going to have to explain.
 
 Zooming In
 Long tap on the image side of a card to zoom in.
@@ -154,7 +153,7 @@ Tap any of the icons at the top of the instructions to find out about what the i
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflector Selector" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xjg-3f-LTz">
-                            <rect key="frame" x="0.0" y="32" width="768" height="91"/>
+                            <rect key="frame" x="0.0" y="12" width="768" height="91"/>
                             <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="72"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -198,16 +197,16 @@ Artwork: Rhiannon Van Muysen
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Worktable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv6-tx-bpS">
-                            <rect key="frame" x="12" y="32" width="744" height="91"/>
+                            <rect key="frame" x="12" y="12" width="744" height="91"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="72"/>
-                            <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTE-hw-j6R">
-                            <rect key="frame" x="12" y="135" width="744" height="831"/>
+                            <rect key="frame" x="12" y="115" width="744" height="851"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <mutableString key="text">THE WORKTABLE TAB
+                            <string key="text">THE WORKTABLE TAB
 On the Worktable you will find emotion cards.
 
 When you tap on a card it flips to show it's opposite side.
@@ -232,7 +231,7 @@ If you want to focus in on an individual question (maybe you've turned this ques
 
 Collector
 From the worktable, double long tap on the word side of a card to make a reflector selector collector! This collects all work and information on an emotion into one place. Select the action button on the top right to save or print a collector.
-</mutableString>
+</string>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -255,16 +254,16 @@ From the worktable, double long tap on the word side of a card to make a reflect
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Options" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GgZ-bC-hIU">
-                            <rect key="frame" x="12" y="32" width="744" height="91"/>
+                            <rect key="frame" x="12" y="12" width="744" height="91"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="72"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqt-u8-ETz">
-                            <rect key="frame" x="12" y="135" width="744" height="831"/>
+                            <rect key="frame" x="12" y="115" width="744" height="851"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <mutableString key="text">THE OPTIONS TAB
+                            <string key="text">THE OPTIONS TAB
 You can set options here like what name to display on your books or what phase to work in. You can also set which book to make and display on your book board.
 
 Name
@@ -286,7 +285,7 @@ The contents of your handbook will change depending on what phase is set. If you
 
 Workbook
 Select the Workbook button to make your Workbook and display it on book board. You can save or print your Workbook from the action tab on the top right of the book board. You can make your workbook bigger or smaller using the phase settings, and if you want to, use Worktable to fine tune for privacy and take out individual emotions.
-</mutableString>
+</string>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
