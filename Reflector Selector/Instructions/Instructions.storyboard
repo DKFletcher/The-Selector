@@ -110,7 +110,7 @@
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BJ-jZ-W9M">
                             <rect key="frame" x="12" y="115" width="744" height="743"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <mutableString key="text">Reflector Selector aims to help you improve what you understand and can communicate about your emotions.
+                            <string key="text">Reflector Selector aims to help you improve what you understand and can communicate about your emotions.
 
 We have made a handbook that explains a lot about emotions and how emotions can help you. You will find it by going to the options tab (the gear icon at the bottom).
 
@@ -147,7 +147,7 @@ Long tap on the word side of the card to see all the information in the handbook
 Instructions
 On the game screen tap "?" at the top left to get back to these instructions and tap the "x" to close the instructions.
 Tap any of the icons at the top of the instructions to find out about what the icons at the bottom do.
-</mutableString>
+</string>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
