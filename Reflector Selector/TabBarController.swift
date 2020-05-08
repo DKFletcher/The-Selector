@@ -9,17 +9,37 @@ import UIKit
 var imageServer = ImageServer()
 class TabBarController: UITabBarController {
 	
-	var phase : EmotionItems.Phase = .third {
+	var phase : EmotionItems.Phase = .first {
 		didSet{
 			setForPhase(cards: cards)
 		}
 	}
-	var learnerName : String?
+	let initialSideForWorkbook : Page.Side = .back
+	var helpState : HelpMenuItem = .home
+	
+	var learnerName : String?{
+		didSet{
+			if let name = learnerName{
+				if name.count == 0 {
+				learnerName = nil
+			}
+	}
+		}
+	}
+	
 	var emotions : [Card]! {
 		didSet{
-			setForPhase(cards: emotions)
-			print("didSet")
+			setUpWorkBook()
+			setForPhase(cards: cards)
 		}
+	}
+	
+	private func setUpWorkBook(){
+		var book = [Page]()
+		for emotion in emotions{
+			book.append(Page(onDisplay: initialSideForWorkbook, inGame: true, for: emotion.name))
+		}
+		abstractedWorkbook = AbstractionLayerForWorkbook(for: book)
 	}
 	
 	var frontCover : UIImage? = nil
@@ -62,7 +82,6 @@ class TabBarController: UITabBarController {
 	
 	var abstractionLayer : AbstractionLayerForText {
 		get {
-			print("abstraction layer  get")
 			var em : [Emotion] = []
 			emotions.forEach { card in
 				let emotionName = card.name
@@ -73,11 +92,9 @@ class TabBarController: UITabBarController {
 				let emotion = Emotion(emotion: emotionName, work: worksheet, custom : card.emotion.custom)
 				em.append(emotion)
 			}
-			return AbstractionLayerForText(user: learnerName, emotions: em)
+			return AbstractionLayerForText(user: learnerName, emotions: em, for: phase)
 		}
 		set {
-			let storePhase = phase
-			phase = .third
 			imageServer.flushServer()
 			learnerName = newValue.name
 			emotions.forEach { card in card.emotion.qanda.sections().forEach{ questions in questions.forEach{ question in
@@ -87,12 +104,30 @@ class TabBarController: UITabBarController {
 						emotion.worksheet.forEach{qa in
 							if qa.question == question.question {
 								question.answer = qa.answer}}}
-					
 				}
 				}}}
-			phase = storePhase
+			phase = newValue.phase
 		}
 	}
+	
+	var pageUpdate : Page = Page(){
+		didSet{
+			for index in 0..<abstractedWorkbook.workBook.count{
+				if abstractedWorkbook.workBook[index].name == pageUpdate.name{
+					abstractedWorkbook.workBook[index] = pageUpdate
+					workbookToChange(workbook: abstractedWorkbook)
+					break
+				}
+			}
+		}
+	}
+	
+	var abstractedWorkbook : AbstractionLayerForWorkbook = AbstractionLayerForWorkbook(){
+		didSet{
+//			setForPhase(cards: cards)
+		}
+	}
+	
 	
 	var cards : [Card]! {
 		get{
@@ -114,7 +149,7 @@ class TabBarController: UITabBarController {
 	}
 	
 	
-	private func setForPhase(cards emotes : [Card]){
+	func setForPhase(cards emotes : [Card]){
 		lessonViewController.cards = emotes
 		cardSelectionViewController.setCards(emotes)
 		cardSelectionViewController.handleSelection = { [unowned lessonViewController]
@@ -133,7 +168,7 @@ class TabBarController: UITabBarController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		let _ = lessonViewController.cards
-		phase = .third
+		//		phase = .third
 	}
 	
 	
@@ -165,7 +200,35 @@ extension TabBarController: UITabBarControllerDelegate {
 	}
 }
 
+
+
+
 extension TabBarController{
+	
+	func initialRun(){
+		do{
+			let encoder = JSONEncoder()
+			let emotions = abstractionLayer
+			let documentData = try encoder.encode(emotions)
+			try self .fileSave(directory: .applicationSupportDirectory, fileName: "worksheets", directoryName: "./", documentData: documentData, pathExtension: "txt")
+		} catch {
+			print(error)
+		}
+		do {
+			var book = [Page]()
+			for emotion in emotions{
+				book.append(Page(onDisplay: initialSideForWorkbook, inGame: true, for: emotion.name))
+			}
+			let encoder = JSONEncoder()
+			let documentData = try encoder.encode(AbstractionLayerForWorkbook(for: book))
+			do {
+				try self .fileSave(directory: .applicationSupportDirectory, fileName: "workbook", directoryName: "./", documentData: documentData, pathExtension: "txt")
+			} catch {
+				print(error)
+			}
+		} catch { print(error)}
+	}
+	
 	func textToChange(text changed: QuestionAnswer){
 		do{
 			let encoder = JSONEncoder()
@@ -185,12 +248,24 @@ extension TabBarController{
 		} catch { print(error)}
 	}
 	
-	func nameToChange(){
+	func workbookToChange(workbook abstractionLayerForWorkbook : AbstractionLayerForWorkbook){
+		do {
+			let encoder = JSONEncoder()
+			let documentData = try encoder.encode(abstractionLayerForWorkbook)
+			do {
+				try self .fileSave(directory: .applicationSupportDirectory, fileName: "workbook", directoryName: "./", documentData: documentData, pathExtension: "txt")
+			} catch {
+				print(error)
+			}
+		} catch { print(error)}
+		
+	}
+	
+	func optionsChanged(){
 		do {
 			let encoder = JSONEncoder()
 			let data = abstractionLayer
 			let documentData = try encoder.encode(data)
-			print("document data")
 			do{
 				try self .fileSave(directory: .applicationSupportDirectory, fileName: "worksheets", directoryName: "./", documentData: documentData, pathExtension: "txt")
 			} catch {
@@ -200,9 +275,8 @@ extension TabBarController{
 	}
 	
 	func changeImageDisplayed(for card: Card){
-		print("changeImageDisplayed")
 		self.emotions.filter{ $0.name == card.name}[0].emotion.custom = card.emotion.custom
-		nameToChange()
+		optionsChanged()
 	}
 	
 	func imagesToChange(image changed: UIImage){
@@ -211,8 +285,7 @@ extension TabBarController{
 			let imageData = imageAbstractionLayer
 			let documentData = try encoder.encode(imageData)
 			do{
-				try self .fileSave(directory: .applicationSupportDirectory, fileName: "images", directoryName: "./", documentData: documentData, pathExtension:
-				"img")
+				try self .fileSave(directory: .applicationSupportDirectory, fileName: "images", directoryName: "./", documentData: documentData, pathExtension: "img")
 			} catch {
 				print(error)
 			}

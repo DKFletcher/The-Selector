@@ -77,6 +77,8 @@ class CloseViewController: UIViewController {
 	@objc func libraryImage(){
 		card.emotion.custom = !card.emotion.custom
 		imageView.image = imageServer.get(image: card, high: true)
+		imageView.frame.size = imageView.image!.size
+		setZoomParameters(scrollView.bounds.size)
 		centerImage()
 		(tabBarController as! TabBarController).changeImageDisplayed(for: card)
 	}
@@ -168,13 +170,9 @@ extension CloseViewController: UIImagePickerControllerDelegate {
 					image.draw(in: CGRect(origin: .zero, size: newSize))
 				}
 				
-				
-				
-				print("extension preprocessing: \(image.size) postprocessing: \(newImage.size)")
-				
 				imageServer.set(emotion: card.name, image: newImage)
 				
-				card.emotion.custom = !card.emotion.custom
+				card.emotion.custom = true
 				(tabBarController as! TabBarController).imageToChange(image: newImage, for : card)
 				(tabBarController as! TabBarController).changeImageDisplayed(for: card)
 				
@@ -216,7 +214,6 @@ extension UIImage {
 			let bigSize = size.width > size.height ? size.width : size.height
 			let scale = TypeSetConstants.pageWidth / bigSize
 			let newSize = CGSize(width: size.width * scale, height: size.height * scale)
-			print("\(size) \(newSize)")
 			//			let renderer = UIGraphicsImageRenderer(size: size)
 			//			return renderer.image { (context) in
 			//				self.draw(in: CGRect(origin: .zero, size: newSize))

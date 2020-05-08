@@ -10,32 +10,29 @@ import UIKit
 class OptionsViewController: UIViewController, UINavigationControllerDelegate {
 	@IBOutlet var refelectorSelectorBook: UIButton!
 	@IBOutlet var phaseInfo: UILabel!
-	
-	@IBOutlet var nameField: UITextField!
 	@IBOutlet var phaseOne : UIButton!
 	@IBOutlet var phaseTwo : UIButton!
 	@IBOutlet var phaseThree : UIButton!
 	
-	var documentData : Data!
-	
 	@IBOutlet var logBook: UIButton!
 	
 	@IBAction func logBook(_ sender: Any) {
-		performSegue(withIdentifier: "PDFSegue", sender: PDFViewController.Jobs.LearnerLog)
+			self.performSegue(withIdentifier: "PDFSegue", sender: PDFViewController.Jobs.Logbook)
 	}
-	
-	
 	
 	@IBAction func reflectorSelector(_ sender: Any) {
-		performSegue(withIdentifier: "PDFSegue", sender: PDFViewController.Jobs.HeartHandbook)
+				DispatchQueue.main.async {
+					self.performSegue(withIdentifier: "PDFSegue", sender: PDFViewController.Jobs.Handbook)
+		}
 	}
-	
-	@IBAction func textFieldEditingDidChange(_ sender: Any) {
-		print("textField: \(nameField.text!)")
-	}
+	@IBOutlet var nameLabel: UILabel!
 
-	
 	@objc func preferredContentSizeChanged(_ notification : Notification){}
+	
+	@IBAction func didTapTextField(_ sender : UITapGestureRecognizer){
+		performSegue(withIdentifier: "NameSegue", sender: sender)
+	}
+	
 	
 	@IBAction func phase(_ sender: UIButton) {
 		setButtons(for: sender)
@@ -52,13 +49,22 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate {
 				phaseSet = .first
 			}
 			phaseOn(phase: phaseSet)
+			
 			(self.tabBarController as! TabBarController).phase = phaseSet
+			(tabBarController as! TabBarController).optionsChanged()
 		}
 	}
 	
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		
 		NotificationCenter.default.addObserver(self, selector: #selector(preferredContentSizeChanged(_:)), name: UIContentSizeCategory.didChangeNotification, object: nil)
+		
+		
 		switch (self.tabBarController as! TabBarController).phase{
 		case .first: setButtons(for: phaseOne)
 		case .second: setButtons(for: phaseTwo)
@@ -66,22 +72,20 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate {
 		}
 		navigationController?.navigationBar.isHidden = true
 		refelectorSelectorBook.titleLabel!.textAlignment = .center
-		//		nameField.placeholder = "Type your name here"
-		nameField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-		if let name = (tabBarController as! TabBarController).learnerName{
-			nameField.text = name
-		}
-	}
-	
-	@objc func textFieldDidChange(_ textField: UITextField) {
-		(tabBarController as! TabBarController).learnerName = textField.text
-		(tabBarController as! TabBarController).nameToChange()
+		
+		let tap = UITapGestureRecognizer(target: self, action: #selector(didTapTextField(_:)))
+		nameLabel.addGestureRecognizer(tap)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		navigationController?.navigationBar.isHidden = true
 		phaseOn(phase: (tabBarController as! TabBarController).phase)
+		if let name = (tabBarController as! TabBarController).learnerName{
+			nameLabel.text = name
+		} else {
+			nameLabel.text = "Tap here to enter your name..."
+		}
 	}
 	
 	private func phaseOn(phase activePhase : EmotionItems.Phase) {
@@ -111,7 +115,7 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate {
 		if segue.identifier == "PDFSegue"{
 			let pdfViewController = segue.destination as! PDFViewController
 			pdfViewController.card = (tabBarController as! TabBarController).dummy
-			pdfViewController.jobs = sender as! PDFViewController.Jobs
+			pdfViewController.job = sender as! PDFViewController.Jobs
 			
 		}
 	}

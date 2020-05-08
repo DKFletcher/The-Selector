@@ -21,21 +21,284 @@ class EmotionItem : NSObject{
 	}
 }
 
+struct Index{
+	let emotion : Emotion
+	let zone : Zone
+	let dimension : Dimension
+	let quadrant : Quadrant
+	let position : Int
+	
+	init(emotion: Emotion, position: Int){
+		self.position = position
+		self.emotion = emotion
+		self.zone = self.emotion.zone(emotion: self.emotion)
+		self.dimension = self.zone.dimension(zone: self.zone)
+		self.quadrant = self.zone.quadrant(zone: self.zone)
+	}
+	
+	func getPDFName( for name : String) ->String?{
+		switch name{
+		case "Determined": return "Determined"
+		case "Enthusiastic": return "Enthusiastic"
+		case "Bold": return "Bold"
+		case "Hopeful": return "Hopeful"
+		case "Admiring": return "Admiring"
+		case "Curious": return "Curious"
+		case "Proud": return "Proud"
+		case "Confident": return "Confident"
+		case "Valued": return "Valued"
+		case "Joy": return "Joy"
+		case "Belonging": return "Belonging"
+		case "Trusting": return "Trust"
+		case "Playful": return "Playfulness"
+		case "Content": return "Content"
+		case "Thankful": return "Thankful"
+		case "Kind": return "Kind"
+		case "Pleased for Others": return "Pleased for Others"
+		case "Responsible": return "Responsible"
+		case "Compassionate": return "Compassionate"
+		case "Forgiving": return "Forgiveness"
+		case "Lonely": return "Lonely"
+		case "Sad": return "Sad"
+		case "Self-Doubting": return "Self-Doubting"
+		case "Worried": return "Worried"
+		case "Overwhelmed": return "Overwhelmed"
+		case "Embarrassed": return "Embarrassed"
+		case "Guilty": return "Guilty"
+		case "Ashamed": return "Shame"
+		case "Humiliated": return "Humiliated"
+		case "Ignored": return "Inferior"
+		case "Spiteful": return "Spiteful"
+		case "Contempt": return "Contempt"
+		case "Resentful": return "Resentful"
+		case "Entitled": return "Entitled"
+		case "Arrogant": return "Arrogant"
+		case "Envious": return "Envy"
+		case "Gloating": return "Gloating"
+		case "Angry": return "Angry"
+		case "Frustrated": return "Frustrated"
+		case "Bored": return "Bored"
+			
+		case "Stretching Me": return "stretchingMe"
+		case "Connecting Me": return "connectingMe"
+		case "Me First": return "meFirst"
+		case "Protecting Me": return "protectingMe"
+			
+		case "Fulfilled": return "Fulfilled"
+		case "Significant": return "Significant"
+		case "Adventurous": return "Adventurous"
+		case "Energised": return "Energised"
+		case "Annoyed": return "Annoyed"
+		case "Grudging": return "Grudging"
+		case "Ungrateful": return "Ungrateful"
+		case "Mean": return "Mean"
+		case "Worthless": return "Worthless"
+		case "Unworthy": return "Unworthy"
+		case "Insecure": return "Insecure"
+		case "Low": return "Low"
+		case "Patient": return "Patient"
+		case "Caring": return "Caring"
+		case "Appreciative": return "Appreciative"
+		case "Warm": return "Warm"
+		default: return nil
+		}
+	}
+
+	
+	enum Emotion : String, CaseIterable{
+		case determined = "Determined"
+		case enthusiastic = "Enthusiastic"
+		case bold = "Bold"
+		case hopeful = "Hopeful"
+		case admiring = "Admiring"
+		case curious = "Curious"
+		case proud = "Proud"
+		case confident = "Confident"
+		case valued = "Valued"
+		case exhilarated = "Joy"
+		case belonging = "Belonging"
+		case trusting = "Trusting"
+		case playful = "Playful"
+		case content = "Content"
+		case thankful = "Thankful"
+		case kind = "Kind"
+		case pleasedForOthers = "Pleased for Others"
+		case responsible = "Responsible"
+		case compassionate = "Compassionate"
+		case forgiving = "Forgiving"
+		case lonely = "Lonely"
+		case sad = "Sad"
+		case selfDoubting = "Self-Doubting"
+		case worried = "Worried"
+		case overwhelmed = "Overwhelmed"
+		case embarrassed = "Embarrassed"
+		case guilty = "Guilty"
+		case ashamed = "Ashamed"
+		case humiliated = "Humiliated"
+		case ignored = "Ignored"
+		case spiteful = "Spiteful"
+		case contempt = "Contempt"
+		case resentful = "Resentful"
+		case entitled = "Entitled"
+		case arrogant = "Arrogant"
+		case envious = "Envious"
+		case gloating = "Gloating"
+		case angry = "Angry"
+		case frustrated = "Frustrated"
+		case bored = "Bored"
+		
+		
+		func zone ( emotion : Emotion) -> Zone{
+			switch emotion{
+			case .determined: return .energised
+			case .enthusiastic: return .energised
+			case .bold: return .adventurous
+			case .hopeful: return .adventurous
+			case .admiring: return .adventurous
+			case .curious: return .adventurous
+			case .proud: return .significant
+			case .confident: return .significant
+			case .valued: return .fulfilled
+			case .exhilarated: return .fulfilled
+				
+			case .belonging: return .warm
+			case .trusting: return .warm
+			case .playful: return .warm
+			case .content: return .appreciative
+			case .thankful: return .appreciative
+			case .kind: return .caring
+			case .pleasedForOthers: return .caring
+			case .responsible: return .caring
+			case .compassionate: return .patient
+			case .forgiving: return .patient
+				
+			case .lonely: return .low
+			case .sad: return .low
+			case .selfDoubting: return .insecure
+			case .worried: return .insecure
+			case .overwhelmed: return .insecure
+			case .embarrassed: return .unworthy
+			case .guilty: return .unworthy
+			case .ashamed: return .unworthy
+			case .humiliated: return .worthless
+			case .ignored: return .worthless
+				
+			case .spiteful: return .mean
+			case .contempt: return .mean
+			case .resentful: return .mean
+			case .entitled: return .ungrateful
+			case .arrogant: return .ungrateful
+			case .envious: return .grudging
+			case .gloating: return .grudging
+			case .angry: return .annoyed
+			case .frustrated: return .annoyed
+			case .bored: return .annoyed
+			}
+		}
+	}
+
+	enum Zone: String, CaseIterable{
+		case energised = "Energised"
+		case adventurous = "Adventurous"
+		case significant = "Significant"
+		case fulfilled = "Fulfilled"
+		case warm = "Warm"
+		case appreciative = "Appreciative"
+		case caring = "Caring"
+		case patient = "Patient"
+		case low = "Low"
+		case insecure = "Insecure"
+		case unworthy = "Unworthy"
+		case worthless = "Worthless"
+		case mean = "Mean"
+		case ungrateful = "Ungrateful"
+		case grudging = "Grudging"
+		case annoyed = "Annoyed"
+		
+		func dimension( zone : Zone) -> Dimension{
+			switch zone{
+			case .annoyed: return .acceptance
+			case .caring: return .kindness
+			case .significant: return .status
+			case .energised: return .determination
+			case .low: return .determination
+			case .appreciative: return .gratitude
+			case .grudging: return .kindness
+			case .adventurous: return .ambition
+			case .warm: return .security
+			case .mean: return .security
+			case .patient: return .acceptance
+			case .unworthy: return .status
+			case .ungrateful: return .gratitude
+			case .fulfilled: return .fulfilment
+			case .worthless: return .fulfilment
+			case .insecure: return .ambition
+			}
+		}
+		
+		func quadrant (zone : Zone) -> Quadrant{
+			switch zone{
+			case .annoyed: return .meFirst
+			case .caring: return .connectingMe
+			case .significant: return .stretchingMe
+			case .energised: return .stretchingMe
+			case .low: return .protectingMe
+			case .appreciative: return .connectingMe
+			case .grudging: return .meFirst
+			case .adventurous: return .stretchingMe
+			case .warm: return .connectingMe
+			case .mean: return .meFirst
+			case .patient: return .connectingMe
+			case .unworthy: return .protectingMe
+			case .ungrateful: return .meFirst
+			case .fulfilled: return .stretchingMe
+			case .worthless: return .protectingMe
+			case .insecure: return .protectingMe
+			}
+		}
+		
+	}
+
+	enum Dimension: String, CaseIterable{
+		case fulfilment = "Purpose"
+		case status = "Status"
+		case ambition = "Ambition"
+		case determination = "Vitality"
+		case security = "Affection"
+		case kindness = "Kindness"
+		case gratitude = "Gratitude"
+		case acceptance = "Acceptance"
+	}
+
+	enum Quadrant: String, CaseIterable{
+		case stretchingMe = "Stretching Me"
+		case connectingMe = "Connecting Me"
+		case meFirst = "Me First"
+		case protectingMe = "Protecting Me"
+	}
+	
+}
 
 class EmotionItems{
 	var custom : Bool = false
 	
+	let index : Index
+	
 	enum Quadrant: String, CaseIterable{
-		case stretchingMe, connectingMe, protectingMe, meFirst
+		case stretchingMe = "stretchingMe"
+		case connectingMe = "connectingMe"
+		case protectingMe = "protectingMe"
+		case meFirst = "meFirst"
 	}
 	
 	enum Psychology: Int, CaseIterable{
 		case feelings, situations, behaviours, solutions
 	}
 	
-	enum Phase : Int, CaseIterable{
+	enum Phase : Int, CaseIterable, Encodable, Decodable{
 		case first, second, third
 	}
+	
 	let quadrant : Quadrant
 	
 	private var feelingsItems : [EmotionItem] = []
@@ -57,7 +320,7 @@ class EmotionItems{
 	}
 	var name : String
 	var phase : Phase = Phase.third
-//	var image : UIImage
+	//	var image : UIImage
 	var qanda : Worksheet!
 	
 	required init (called byName : String,
@@ -65,16 +328,16 @@ class EmotionItems{
 								 motive  around : [String],
 								 behaviour action : [String],
 								 solution fix : [String],
-								 ringID position : Int = 0,
 								 stage age : Phase = Phase.third,
 								 ring quadrant : Quadrant,
+								 emotion index : Index,
 								 worksheet qanda : Worksheet){
-//		self.image = UIImage(named: byName)! 
+		//		self.image = UIImage(named: byName)!
 		self.name = byName
-		self.ringPosition = position
 		self.phase = age
 		self.qanda = qanda
 		self.quadrant = quadrant
+		self.index = index
 		like.forEach{feelingsItems.append(EmotionItem(text: $0, isReflector: false))}
 		around.forEach{motivesItems.append(EmotionItem(text: $0, isReflector: false))}
 		action.forEach{behavioursItems.append(EmotionItem(text: $0, isReflector: false))}
@@ -107,13 +370,13 @@ class EmotionItems{
 		switch psychology{
 		case .feelings:
 			if index < 0 {
-			feelingsItems.append(item)
+				feelingsItems.append(item)
 			} else {
 				feelingsItems.insert(item, at: index)
 			}
 		case .situations:
 			if index < 0 {
-			motivesItems.append(item)
+				motivesItems.append(item)
 			}else {
 				motivesItems.insert(item, at: index)
 			}
@@ -137,7 +400,7 @@ class EmotionItems{
 		behavioursItems.append(item)
 		return item
 	}
-
+	
 	func move(item : EmotionItem, from sourcePsychology: Psychology, at sourceIndex: Int, to destinitionPsychology: Psychology, at destinationIndex : Int) {
 		remove(item, from: sourcePsychology, at: sourceIndex)
 		addItem(item, for: destinitionPsychology, at: destinationIndex)
@@ -152,13 +415,6 @@ class EmotionItems{
 		}
 	}
 	
-	private func randomTitle() -> String{
-		var format = ["text",
-									"video",
-									"audio",
-									"image"]
-		return format[Int.random(in: 0 ... format.count - 1)]
-	}
 }
 
 extension EmotionItems : Hashable{

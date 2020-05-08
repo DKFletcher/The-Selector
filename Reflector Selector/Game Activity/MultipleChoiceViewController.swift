@@ -28,7 +28,7 @@
 
 import UIKit
 
-class MultipleChoiceViewController<CardControl: UIControl>: UIViewController {
+class MultipleChoiceViewController <CardControl: UIControl>: UIViewController {
 	
 	weak var delegate: MultipleChoiceViewControllerDelegate!
 	

@@ -34,6 +34,9 @@ class LessonViewController: UIViewController, LongDelegate{
 		NotificationCenter.default.removeObserver(self)
 	}
 	
+	@IBAction func instructionsButton(_ sender: UIButton) {
+		performSegue(withIdentifier: "InstructionsSegue", sender: nil)
+	}
 	func navigate(to card: Card, from image: Bool, edit front: Bool) {
 		if image{
 			performSegue(withIdentifier: "CloseSegue", sender: card)
@@ -42,6 +45,7 @@ class LessonViewController: UIViewController, LongDelegate{
 			performSegue(withIdentifier: "PDFSegue", sender: card)
 		}
 	}
+	
 	var landscapeBackCardConstraint: NSLayoutConstraint!
 	@IBOutlet var widthRatio: NSLayoutConstraint!
 	@IBOutlet var mainStack: UIStackView!
@@ -52,6 +56,10 @@ class LessonViewController: UIViewController, LongDelegate{
 	@IBOutlet var stackView: UIStackView!
 	@IBOutlet var stackViewHeightConstraint: NSLayoutConstraint!
 	@IBOutlet var multipleChoiceSuperview: UIView!
+	
+	@IBAction func instructionButton(_ sender: UIButton) {
+		performSegue(withIdentifier: "InstructionsSegue", sender: nil)
+	}
 	
 	@IBOutlet var cardSuperview: CardSuperview! {
 		didSet {
@@ -81,6 +89,7 @@ class LessonViewController: UIViewController, LongDelegate{
 				(cardView as! FrontCardView).updateImage()
 			}
 		}
+		rotated()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -96,7 +105,7 @@ class LessonViewController: UIViewController, LongDelegate{
 	override func viewDidLoad() {
 		view.addSubview(
 			celebrationView,
-			constrainedTo: stackView, widthAnchorView: cardSuperview,
+			constrainedTo: view, widthAnchorView: view,
 			multiplier: 1 / stackViewHeightConstraint.multiplier
 		)
 		view.addSubview(streakBrokenView, constrainedTo: multipleChoiceSuperview)
@@ -104,11 +113,11 @@ class LessonViewController: UIViewController, LongDelegate{
 			view.isExclusiveTouch = true
 		}
 		pickNewCard()
-				NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
 		
-		let cardBack = cardSuperview.cardViews.filter{ $0.side == CardView.Side.back}[0] as CardView
-		landscapeBackCardConstraint = cardBack.heightAnchor.constraint(equalTo: mainStack.heightAnchor)
-		landscapeBackCardConstraint.isActive = false
+		//		let cardBack = cardSuperview.cardViews.filter{ $0.side == CardView.Side.back}[0] as CardView
+		//		landscapeBackCardConstraint = cardBack.heightAnchor.constraint(equalTo: mainStack.heightAnchor)
+		//		landscapeBackCardConstraint.isActive = false
 	}
 	
 	override func shouldPerformSegue(withIdentifier: String, sender: Any?) -> Bool {
@@ -116,6 +125,8 @@ class LessonViewController: UIViewController, LongDelegate{
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender correctCard: Any?) {
+		//		widthRatio.isActive = false
+		//		landscapeBackCardConstraint = NSLayoutConstraint()
 		if segue.identifier == "CloseSegue"{
 			if let close = segue.destination as? CloseViewController{
 				close.card = (correctCard as! Card)
@@ -123,7 +134,7 @@ class LessonViewController: UIViewController, LongDelegate{
 		}
 		if segue.identifier == "PDFSegue"{
 			if let pdf = segue.destination as? PDFViewController{
-				pdf.jobs = .InfoSheet
+				pdf.job = .InfoSheet
 				pdf.card = (correctCard as! Card)
 			}
 		}
@@ -137,6 +148,8 @@ class LessonViewController: UIViewController, LongDelegate{
 	
 	func pickNewCard() {
 		cardSuperview.learnTime = false
+		streakBrokenLabel.isHidden = false
+		streakBrokenLabel2.isHidden = false
 		let side = CardView.Side.allCases.randomElement()!
 		let correctCard = cards.randomElement()!
 		switch side {
@@ -172,9 +185,10 @@ class LessonViewController: UIViewController, LongDelegate{
 	}
 	
 	func animateOut(
-		view: UIView, delay: TimeInterval = 0,
-		handleCompletion: ( () -> Void )? = nil
-		) {
+		view: UIView,
+		delay: TimeInterval = 0,
+		handleCompletion: ( () -> Void )? = nil) {
+		
 		UIView.animate(
 			withDuration: 0.25,
 			delay: delay,
@@ -226,14 +240,11 @@ extension LessonViewController: MultipleChoiceViewControllerDelegate {
 	}
 	
 	@objc func rotated() {
-		if UIDevice.current.userInterfaceIdiom == .pad && UIDevice.current.orientation.isLandscape{
+		if UIDevice.current.orientation.isLandscape {
 			mainStack.axis = .horizontal
-//			fillBackCardHieightInLAndscape()
-			widthRatio.isActive = false
-			landscapeBackCardConstraint.isActive = true
-		} else {
-			landscapeBackCardConstraint.isActive = false
-			widthRatio.isActive = true
+		}
+		
+		if UIDevice.current.orientation.isPortrait {
 			mainStack.axis = .vertical
 		}
 	}

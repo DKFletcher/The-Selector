@@ -31,7 +31,7 @@
                                 </subviews>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Lesson Background"/>
                         <viewLayoutGuide key="safeArea" id="CVc-6E-bPO"/>
                     </view>
                     <connections>

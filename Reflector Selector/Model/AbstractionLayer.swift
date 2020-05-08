@@ -63,6 +63,7 @@ struct AbstractionLayerForImages : Encodable, Decodable{
 struct AbstractionLayerForText: Decodable, Encodable {
 	let name : String?
 	let emotions : [Emotion]
+	let phase : EmotionItems.Phase
 	
 	init(fileName : URL) throws {
 		let decoder = JSONDecoder()
@@ -73,35 +74,67 @@ struct AbstractionLayerForText: Decodable, Encodable {
 	init(){
 		self.name = ""
 		self.emotions = []
+		self.phase = .first
 	}
 	
-	init (user name : String?, emotions feelings : [Emotion]){
+	init (user name : String?, emotions feelings : [Emotion], for phase : EmotionItems.Phase){
 		self.name = name
 		self.emotions = feelings
+		self.phase = phase
 	}
 }
 
-//struct  AbstractionLayer: Decodable, Encodable {
-//	let name : String?
-//	let emotions : [Emotion]
-//	let image : String?
-//
-//	init(fileName : URL) throws {
-//		let decoder = JSONDecoder()
-//		let data = try Data(contentsOf: fileName)
-//		self = try decoder.decode(AbstractionLayer.self, from: data)
-//	}
-//	init(){
-//		self.name = ""
-//		self.emotions = []
-//		self.image = ""
-//	}
-//	init (user name : String?, emotions feelings : [Emotion], frontPageImage image : String?){
-//		self.name = name
-//		self.emotions = feelings
-//		self.image = image
-//	}
-//}
+
+
+
+struct Page: Encodable, Decodable, Hashable {
+	enum Side : String, Encodable, Decodable {
+		case front = "front"
+		case back = "back"
+	}
+	
+	let side : Side
+	let included : Bool
+	let name : String?
+	
+	init (onDisplay side : Side, inGame included : Bool, for card : String?){
+		self.side = side
+		self.included = included
+		self.name = card
+	}
+	
+	init(){
+		self.side = .front
+		self.included = true
+		self.name = nil
+	}
+	
+	
+	static func == (lhs: Page, rhs: Page) -> Bool {
+		return lhs.side == rhs.side && lhs.included == rhs.included && lhs.name == rhs.name
+	}
+	
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(side)
+		hasher.combine(included)
+		hasher.combine(name)
+	}
+
+}
+
+struct AbstractionLayerForWorkbook: Encodable, Decodable{
+	var workBook : [Page]
+	init (for pages : [Page]){
+		self.workBook = pages
+	}
+	
+	init(){
+		self.workBook = [Page()]
+	}
+}
+
+
+
 enum DecodingError: Error {
 	case missingFile
 }

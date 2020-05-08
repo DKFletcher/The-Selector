@@ -33,23 +33,23 @@ typealias ImageUIPresenter = UIViewController & UIImagePickerControllerDelegate
 
 /// cheap bolt on for presenting image picker for camera or photos in a presenting view controller
 public class ImagingHelper: NSObject {
-  
-  let presenter: UIViewController & UIImagePickerControllerDelegate & UINavigationControllerDelegate
-  private let sourceView: UIView
-  var removeAction: UIAlertAction?
-  private var cameraIsUserPermitted = false
-  public var canPickImage = true
-  
-  public init(presenter: UIViewController & UIImagePickerControllerDelegate & UINavigationControllerDelegate, sourceview: UIView) {
-    self.presenter = presenter
-    self.sourceView = sourceview
-    super.init()
-  }
-  
-  public func pickImage() {
-    requestPermission()
-  }
-  
+	
+	let presenter: UIViewController & UIImagePickerControllerDelegate & UINavigationControllerDelegate
+	private let sourceView: UIView
+	var removeAction: UIAlertAction?
+	private var cameraIsUserPermitted = false
+	public var canPickImage = true
+	
+	public init(presenter: UIViewController & UIImagePickerControllerDelegate & UINavigationControllerDelegate, sourceview: UIView) {
+		self.presenter = presenter
+		self.sourceView = sourceview
+		super.init()
+	}
+	
+	public func pickImage() {
+		requestPermission()
+	}
+	
 }
 
 extension ImagingHelper {
@@ -60,8 +60,8 @@ extension ImagingHelper {
 			if let rect = infoDictionary[UIImagePickerController.InfoKey.cropRect] as? CGRect {
 				croprect = rect
 			}
-				completion( image, nil)
-				return
+			completion( image, nil)
+			return
 		}
 		
 		if let image = infoDictionary[UIImagePickerController.InfoKey.editedImage] as? UIImage {
@@ -75,78 +75,80 @@ extension ImagingHelper {
 
 
 private extension ImagingHelper {
-  
-  func requestPermission() {
-    var doChooseSource = true
-    if UIImagePickerController.isSourceTypeAvailable(.camera) {
-      let cameraMediaType = AVMediaType.video
-      let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
-      
-      switch cameraAuthorizationStatus {
-      case .denied:
-        break
-      case .restricted:
-        break
-      case .authorized:
-        cameraIsUserPermitted = true
-        
-      case .notDetermined:
-        // Prompting user for the permission to use the camera.
-        doChooseSource = false
-        AVCaptureDevice.requestAccess(for: cameraMediaType) { granted in
-          if granted {
-            self.cameraIsUserPermitted = true
-          }
-          self.chooseSource()
-        }
-      }
-    }
-    
-    if doChooseSource {
-      chooseSource()
-    }
-  }
-  
-  func chooseSource() {
-    let chooser = UIAlertController(title: NSLocalizedString("Image Source", comment: ""), message:nil, preferredStyle: .alert)
-    chooser.modalPresentationStyle = .popover
-    chooser.popoverPresentationController?.sourceView = sourceView
-    
-    if canPickImage {
-      chooser.addAction(UIAlertAction(title: NSLocalizedString("Photos", comment: ""), style: .default, handler: { (_) in
-        self.displayPhotoPicker()
-      }))
-      if cameraIsUserPermitted  {
-        chooser.addAction(UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default, handler: { (_) in
-          self.displayCameraUI()
-        }))
-      }
-    }
+	
+	func requestPermission() {
+		var doChooseSource = true
+		if UIImagePickerController.isSourceTypeAvailable(.camera) {
+			let cameraMediaType = AVMediaType.video
+			let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
+			
+			switch cameraAuthorizationStatus {
+			case .denied:
+				break
+			case .restricted:
+				break
+			case .authorized:
+				cameraIsUserPermitted = true
+				
+			case .notDetermined:
+				// Prompting user for the permission to use the camera.
+				doChooseSource = false
+				AVCaptureDevice.requestAccess(for: cameraMediaType) { granted in
+					if granted {
+						self.cameraIsUserPermitted = true
+					}
+					self.chooseSource()
+				}
+			}
+		}
 		
-		chooser.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default, handler: { (_) in
-		}))
+		if doChooseSource {
+			chooseSource()
+		}
+	}
+	
+	func chooseSource() {
+		DispatchQueue.main.async {
+			let chooser = UIAlertController(title: NSLocalizedString("Image Source", comment: ""), message:nil, preferredStyle: .alert)
+			chooser.modalPresentationStyle = .popover
+			chooser.popoverPresentationController?.sourceView = self.sourceView
+			
+			if self.canPickImage {
+				chooser.addAction(UIAlertAction(title: NSLocalizedString("Photos", comment: ""), style: .default, handler: { (_) in
+					self.displayPhotoPicker()
+				}))
+				if self.cameraIsUserPermitted  {
+					chooser.addAction(UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default, handler: { (_) in
+						self.displayCameraUI()
+					}))
+				}
+			}
+			
+			chooser.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default, handler: { (_) in
+			}))
+			
+			if let action = self.removeAction  {
+				chooser.addAction(action)
+			}
+			
+			self.presenter.present(chooser, animated: true, completion: nil)
+		}
+	}
+	
+	func displayPhotoPicker() {
+		let imagePicker =  UIImagePickerController()
+		imagePicker.delegate = presenter
+		imagePicker.modalPresentationStyle = .popover
+		imagePicker.popoverPresentationController?.sourceView = sourceView
+		presenter.present(imagePicker, animated: true, completion: nil)
+	}
+	
+	func displayCameraUI() {
+		let cameraUI =  UIImagePickerController()
+		cameraUI.delegate = presenter
+		cameraUI.sourceType = .camera
+		cameraUI.mediaTypes = UIImagePickerController.availableMediaTypes(for:.camera) ?? []
 		
-    if let action = removeAction  {
-      chooser.addAction(action)
-    }
-    
-    presenter.present(chooser, animated: true, completion: nil)
-  }
-  
-  func displayPhotoPicker() {
-    let imagePicker =  UIImagePickerController()
-    imagePicker.delegate = presenter
-    imagePicker.modalPresentationStyle = .popover
-    imagePicker.popoverPresentationController?.sourceView = sourceView
-    presenter.present(imagePicker, animated: true, completion: nil)
-  }
-  
-  func displayCameraUI() {
-    let cameraUI =  UIImagePickerController()
-    cameraUI.delegate = presenter
-    cameraUI.sourceType = .camera
-    cameraUI.mediaTypes = UIImagePickerController.availableMediaTypes(for:.camera) ?? []
-    
-    presenter.present(cameraUI, animated: true, completion: nil)
-  }
+		presenter.present(cameraUI, animated: true, completion: nil)
+	}
 }

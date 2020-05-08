@@ -45,8 +45,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Joy" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.01" translatesAutoresizingMaskIntoConstraints="NO" id="RSg-nc-nF3">
-                    <rect key="frame" x="100" y="-96.5" width="800" height="1193"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="999"/>
+                    <rect key="frame" x="166.5" y="0.0" width="667" height="1000"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="998"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -57,7 +57,8 @@
                 <constraint firstItem="ndT-bm-3Li" firstAttribute="width" secondItem="hAx-kz-WZO" secondAttribute="width" id="IOW-eB-cXy"/>
                 <constraint firstItem="ndT-bm-3Li" firstAttribute="height" secondItem="hAx-kz-WZO" secondAttribute="height" id="Lbc-bm-sCT"/>
                 <constraint firstItem="ndT-bm-3Li" firstAttribute="centerX" secondItem="hAx-kz-WZO" secondAttribute="centerX" id="M0x-o1-aAR"/>
-                <constraint firstItem="RSg-nc-nF3" firstAttribute="width" relation="lessThanOrEqual" secondItem="hAx-kz-WZO" secondAttribute="width" multiplier="4/5" id="OIZ-5C-Y96"/>
+                <constraint firstItem="RSg-nc-nF3" firstAttribute="width" relation="lessThanOrEqual" secondItem="hAx-kz-WZO" secondAttribute="width" multiplier="2/3" id="OIZ-5C-Y96"/>
+                <constraint firstItem="RSg-nc-nF3" firstAttribute="height" secondItem="ndT-bm-3Li" secondAttribute="height" id="peB-z6-GSl"/>
                 <constraint firstItem="RSg-nc-nF3" firstAttribute="centerX" secondItem="hAx-kz-WZO" secondAttribute="centerX" id="rLe-67-QWW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

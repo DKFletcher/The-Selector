@@ -25,7 +25,6 @@ struct ImageServer {
 	mutating func get(image emotion : Card, high definition: Bool = false) -> UIImage{
 		self.emotion = emotion
 		if emotion.emotion.custom{
-//			print("imageServer get: \(emotion.name)")
 			if let image = customImages[emotion.name]{
 				return image
 			} else {
