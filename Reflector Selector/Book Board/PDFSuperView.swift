@@ -364,24 +364,24 @@ class PDFSuperView {
 //}
 
 
-//	internal func formatAnswerBook(drawing pdf: UIGraphicsPDFRendererContext, text block: QuestionAnswer)->CGFloat{
-//		func helper(startPosition: CGFloat,drawingPDF: UIGraphicsPDFRendererContext, qa: QuestionAnswer)->CGFloat{
-//			var returnPosition = startPosition
-//			var page = textBody3(to: qa.answer,for: qa.question,from: returnPosition)
-//			func help1 () -> CGFloat {
-//				beginPage = true
-//				returnPosition = TypeSetConstants.header
-//				return makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[1], question: qa.question)
-//			}
+//    internal func formatAnswerBook(drawing pdf: UIGraphicsPDFRendererContext, text block: QuestionAnswer)->CGFloat{
+//        func helper(startPosition: CGFloat,drawingPDF: UIGraphicsPDFRendererContext, qa: QuestionAnswer)->CGFloat{
+//            var returnPosition = startPosition
+//            var page = textBody3(to: qa.answer,for: qa.question,from: returnPosition)
+//            func help1 () -> CGFloat {
+//                beginPage = true
+//                returnPosition = TypeSetConstants.header
+//                return makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[1], question: qa.question)
+//            }
 //
-//			func help2()-> CGFloat{
-//				returnPosition = makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[0], question: qa.question)
-//				beginPage = true
-//				returnPosition = TypeSetConstants.header
-//				return helper(startPosition: returnPosition, drawingPDF: drawingPDF, qa: QuestionAnswer(question: "", answer: page[1]))
-//			}
-//			return page.count == 2 ? page[0].count == 0 ? help1() : help2() :
-//				makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[0], question: qa.question)
-//		}
-//		return block.answer.count > 0 ? helper(startPosition: pagePosition, drawingPDF: pdf, qa: block) : blankAnswerBox(qa: block)
-//	}
+//            func help2()-> CGFloat{
+//                returnPosition = makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[0], question: qa.question)
+//                beginPage = true
+//                returnPosition = TypeSetConstants.header
+//                return helper(startPosition: returnPosition, drawingPDF: drawingPDF, qa: QuestionAnswer(question: "", answer: page[1]))
+//            }
+//            return page.count == 2 ? page[0].count == 0 ? help1() : help2() :
+//                makeBodyItem(top: returnPosition + TypeSetConstants.standardSpacing, answer: page[0], question: qa.question)
+//        }
+//        return block.answer.count > 0 ? helper(startPosition: pagePosition, drawingPDF: pdf, qa: block) : blankAnswerBox(qa: block)
+//    }
