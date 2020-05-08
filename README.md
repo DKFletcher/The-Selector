@@ -1,6 +1,6 @@
 # Reflector Selector
 
-I developed this app using cardeo on [RayWenderlich.com](https://wwww.raywenderlich.com ) as a starting point. It was an obvious choice as I was on the prowl for an iOS app and this leapt out at me as a realy well thought out and robust. It also dovetailed exactly into the emotions work that Alan McLean and myself had developed for [whatmotivateslearning](https://www.whatmotivateslearning.com).
+I developed this app using cardeo on [RayWenderlich.com](https://wwww.raywenderlich.com ) as a starting point. It was an obvious choice as I was on the prowl for an iOS app and this leapt out at me as realy well thought out and robust. It also dovetailed exactly into the emotions work that Alan McLean and myself had developed for [whatmotivateslearning](https://www.whatmotivateslearning.com).
 
 It is a school resource for group and individual work and gets kids to learn about their emotions in a fun way. There is also lots of serious school type work but I think it's got the balance right.
 
