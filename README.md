@@ -4,7 +4,9 @@ I developed this app using cardeo on [RayWenderlich](https://wwww.raywenderlich.
 
 It is a school resource for group and individual work and gets kids to learn about their emotions in a fun way. There is also lots of serious school type work but I think it's got the balance right.
 
- Over and above the original code a workbook was added; the ability to set your own images. Along with the workbook I coded a good strong print engine that was tested using the first chapter of *Alice in Wonderland* input into 240 separate textAreas. A fault free run covering just under 2000 pages.
+ Over and above the original code a workbook was added; the ability to set your own images and a document collation engine based on a unique and intuitive emotions taxonomy covering 40 emotions.
+ 
+ Along with the workbook I coded a good strong print engine that was tested using the first chapter of *Alice in Wonderland*. I input this text into 240 separate textAreas. A fault free run covering just under 2000 pages.
 
  There is an update scheduled for when the school's return after August. The areas for development are:
 
@@ -13,5 +15,3 @@ It is a school resource for group and individual work and gets kids to learn abo
  * an improved worktable tableView cell that removes the need for multi-touch gestures.
 
  * a dedicated focus question tool set.
-
-Oh, and did I mention it's got the best organising structure for emotions that you are _**ever**_ likely to see. Seriously, you have to see this to believe it.
