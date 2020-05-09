@@ -9,6 +9,6 @@ Over and above the original code a workbook was added; the ability to set your o
 Along with the workbook I coded a good strong print engine that was tested using  the first chapter of *Alice in Wonderland*. I input this text into 240 separate  text Areas. A fault free run covering just under 2000 pages.
 
 There is an update scheduled for when the school's return after August. The areas  for development are:
-* at the moment each emotion cas have a stock image and an actor image. I think  this needs to expand to an open ended image bank.
+* at the moment each emotion has a stock image and an actor image. A beefed up image server could deliver an open ended image bank.
 * an improved worktable tableView cell that removes the need for multi-touch  gestures.
 * a dedicated focus question tool set.
