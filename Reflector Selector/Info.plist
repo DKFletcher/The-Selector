@@ -15,17 +15,17 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.0.2</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>&quot;Reflector Selector would like to access your Camera&quot;</string>
+	<string>"Reflector Selector would like to access your Camera"</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>&quot;Reflector Selector would like to use your camera so you can add images&quot;</string>
+	<string>"Reflector Selector would like to use your camera so you can add images"</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ChalkDusterRF.ttf</string>
