@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ae0-WX-pMg">
-    <device id="ipad9_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ae0-WX-pMg">
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,28 +21,38 @@
                                 <rect key="frame" x="0.0" y="28" width="768" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BIe-Xd-fRS" id="nFh-gK-yr4">
-                                    <rect key="frame" x="0.0" y="0.0" width="724" height="199.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="724" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctT-KI-05G" customClass="CardSuperview" customModule="Reflector_Selector" customModuleProvider="target">
-                                            <rect key="frame" x="295" y="11" width="178" height="178"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="ctT-KI-05G" secondAttribute="height" multiplier="1:1" id="aQy-2j-rNn"/>
-                                            </constraints>
-                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-CI-gd7">
+                                            <rect key="frame" x="10" y="10" width="704" height="180"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aXh-pl-u2r">
+                                                    <rect key="frame" x="0.0" y="0.0" width="524" height="180"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctT-KI-05G" customClass="CardSuperview" customModule="Reflector_Selector" customModuleProvider="target">
+                                                    <rect key="frame" x="524" y="0.0" width="180" height="180"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="ctT-KI-05G" secondAttribute="height" multiplier="1:1" id="aQy-2j-rNn"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="ctT-KI-05G" secondAttribute="bottom" id="6rX-ZR-hJh"/>
-                                        <constraint firstItem="ctT-KI-05G" firstAttribute="top" secondItem="nFh-gK-yr4" secondAttribute="topMargin" id="bNp-RA-RXR"/>
+                                        <constraint firstAttribute="trailing" secondItem="e1i-CI-gd7" secondAttribute="trailing" constant="10" id="NGX-kn-9jR"/>
+                                        <constraint firstAttribute="bottom" secondItem="e1i-CI-gd7" secondAttribute="bottom" constant="10" id="Whv-XE-4bi"/>
+                                        <constraint firstItem="e1i-CI-gd7" firstAttribute="top" secondItem="nFh-gK-yr4" secondAttribute="top" constant="10" id="Y5D-qv-WYZ"/>
+                                        <constraint firstItem="e1i-CI-gd7" firstAttribute="centerY" secondItem="nFh-gK-yr4" secondAttribute="centerY" id="cC9-4N-uAX"/>
+                                        <constraint firstItem="e1i-CI-gd7" firstAttribute="centerX" secondItem="nFh-gK-yr4" secondAttribute="centerX" id="nnK-ul-x7c"/>
+                                        <constraint firstItem="e1i-CI-gd7" firstAttribute="leading" secondItem="nFh-gK-yr4" secondAttribute="leading" constant="10" id="u2G-FB-Rtb"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="ctT-KI-05G" firstAttribute="centerX" secondItem="BIe-Xd-fRS" secondAttribute="centerX" id="4TL-Qd-2rP"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="cardSuperView" destination="ctT-KI-05G" id="Drn-nR-qSu"/>
+                                    <outlet property="emotionImage" destination="aXh-pl-u2r" id="f1Z-jg-7Ns"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -97,7 +104,7 @@
                     <tabBarItem key="tabBarItem" title="" image="L1C_bar" selectedImage="L1C_bar" id="f5x-2T-bDz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GWt-eZ-zwJ">
-                        <rect key="frame" x="0.0" y="20" width="768" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

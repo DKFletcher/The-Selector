@@ -31,55 +31,58 @@ import UIKit
 protocol CardSelectionCellDelegate{
 	func navigateFromCell(to card: Card, from image: Bool, edit front : Bool)
 }
-
 class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegate {
-	func navigateFromCell(to card: Card, from image: Bool, edit front: Bool) {
-		delegate?.navigateFromCell(to: card, from: image, edit: front)
-	}
-	
-	func navigate(to card: Card, from image: Bool, edit front: Bool) {
-		navigateFromCell(to: card, from: image, edit: front)
-	}
-	
+    func navigateFromCell(to card: Card, from image: Bool, edit front: Bool) {
+        delegate?.navigateFromCell(to: card, from: image, edit: front)
+    }
+    
+    func navigate(to card: Card, from image: Bool, edit front: Bool) {
+        navigateFromCell(to: card, from: image, edit: front)
+    }
+    
 
-	var delegate :  CardSelectionCellDelegate?
-	
-	struct Model: Hashable {
-		var card: Card
-		var side: CardView.Side = .front
-		var selected = true
-		
-		init(card: Card){
-			self.card = card
-		}
-		
-		init(card: Card, side: CardView.Side, selected: Bool){
-			self.card=card
-			self.side=side
-			self.selected=selected
-		}
-		
-		static func == (lhs: Model, rhs: Model) -> Bool {
-			return lhs.card == rhs.card && lhs.side == rhs.side && lhs.selected == rhs.selected
-		}
-		
-		func hash(into hasher: inout Hasher) {
-			hasher.combine(card)
-			hasher.combine(side)
-			hasher.combine(selected)
-		}
-		
-	}
-	var model : Model!
-	
-	@IBOutlet var cardSuperView: CardSuperview!{
-			didSet{
+    var delegate :  CardSelectionCellDelegate?
+    
+    struct Model: Hashable {
+        var card: Card
+        var side: CardView.Side = .front
+        var selected = true
+        
+        init(card: Card){
+            self.card = card
+        }
+        
+        init(card: Card, side: CardView.Side, selected: Bool){
+            self.card=card
+            self.side=side
+            self.selected=selected
+        }
+        
+        static func == (lhs: Model, rhs: Model) -> Bool {
+            return lhs.card == rhs.card && lhs.side == rhs.side && lhs.selected == rhs.selected
+        }
+        
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(card)
+            hasher.combine(side)
+            hasher.combine(selected)
+        }
+        
+    }
+    var model : Model!
+    @IBOutlet var emotionImage: UIImageView!
+    @IBOutlet var cardSuperView: CardSuperview!{
+            didSet{
 				cardSuperView.longDelegate = self
 			}
 	}
 	
 	func setModel(_ model: Model) {
 		self.model = model
+        print("test: \(model)")
+        emotionImage.image = imageServer.get(image: model.card)
+        
+
 		cardSuperView.setCard(model.card, side: model.side, flip: false)
 		//		accessoryView = model.selected ? UIImageView(image: UIImage(named: "Joy_3_1_100")) : nil
 		accessoryType = model.selected ? .checkmark : .none

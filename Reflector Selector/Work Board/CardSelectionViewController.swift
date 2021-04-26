@@ -29,23 +29,22 @@
 import UIKit
 
 class CardSelectionViewController: UITableViewController, CardSelectionCellDelegate {
-	
-	func navigateFromCell(to card: Card, from image: Bool, edit front: Bool) {
-		if image{
-			performSegue(withIdentifier: "CloseSegue", sender: card)
-		} else {
-			if front {
-				if (tabBarController as! TabBarController).teacherMode {
-					performSegue(withIdentifier: "NotesSegue", sender: card)
-				}
-			} else {
-				performSegue(withIdentifier: "WorkbookSegue", sender: card)
-			}
-		}
-	}
-	
-	var handleSelection: ((Card, _ selected: Bool) -> Void)!
-	
+    
+    func navigateFromCell(to card: Card, from image: Bool, edit front: Bool) {
+        if image{
+            performSegue(withIdentifier: "CloseSegue", sender: card)
+        } else {
+            if front {
+                if (tabBarController as! TabBarController).teacherMode {
+                    performSegue(withIdentifier: "NotesSegue", sender: card)
+                }
+            } else {
+                performSegue(withIdentifier: "WorkbookSegue", sender: card)
+            }
+        }
+    }
+    
+    var handleSelection: ((Card, _ selected: Bool) -> Void)!
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		

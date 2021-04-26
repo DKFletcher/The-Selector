@@ -327,7 +327,7 @@
 			path = "Card View";
 			sourceTree = "<group>";
 		};
-		D65D0015240A74A8006E35E5 /* Worktable */ = {
+		D65D0015240A74A8006E35E5 /* Work Board */ = {
 			isa = PBXGroup;
 			children = (
 				D65D0016240A74BF006E35E5 /* CardSelection.storyboard */,
@@ -336,7 +336,7 @@
 				D65D0019240A74BF006E35E5 /* CardSelectionNavigationController.swift */,
 				D65DFF91240A737F006E35E5 /* Worksheet */,
 			);
-			path = Worktable;
+			path = "Work Board";
 			sourceTree = "<group>";
 		};
 		D65D001E240A74CB006E35E5 /* Notes */ = {
@@ -413,7 +413,7 @@
 				D65DFAF0240A6F32006E35E5 /* Info.plist */,
 				D65D004C240A763F006E35E5 /* Model */,
 				D65DFB06240A6FC9006E35E5 /* Game Activity */,
-				D65D0015240A74A8006E35E5 /* Worktable */,
+				D65D0015240A74A8006E35E5 /* Work Board */,
 				D65DFF9F240A73AE006E35E5 /* Image Processing */,
 				D65DFFA8240A73CD006E35E5 /* Book Board */,
 				D65D0000240A7452006E35E5 /* Options */,
