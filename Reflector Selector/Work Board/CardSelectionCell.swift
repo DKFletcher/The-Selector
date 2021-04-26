@@ -70,7 +70,17 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
         
     }
     var model : Model!
+    
     @IBOutlet var emotionImage: UIImageView!
+    
+    
+    
+ 
+    
+    
+    @objc func emotionTapped(){
+        print("EMOTION tapped")
+    }
     @IBOutlet var cardSuperView: CardSuperview!{
             didSet{
 				cardSuperView.longDelegate = self
@@ -79,9 +89,11 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
 	
 	func setModel(_ model: Model) {
 		self.model = model
-        print("test: \(model)")
         emotionImage.image = imageServer.get(image: model.card)
-        
+        let cameraTap = UITapGestureRecognizer(target: self, action: #selector(emotionTapped))
+            emotionImage.isUserInteractionEnabled = true
+            emotionImage.addGestureRecognizer(cameraTap)
+
 
 		cardSuperView.setCard(model.card, side: model.side, flip: false)
 		//		accessoryView = model.selected ? UIImageView(image: UIImage(named: "Joy_3_1_100")) : nil
