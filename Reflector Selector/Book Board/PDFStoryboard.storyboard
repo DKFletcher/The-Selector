@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wwb-pY-IbF">
-    <device id="ipad9_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wwb-pY-IbF">
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,8 +15,8 @@
                     <view key="view" contentMode="scaleToFill" id="UUe-tn-btK">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="Lesson Background"/>
                         <viewLayoutGuide key="safeArea" id="3RP-2d-2AC"/>
+                        <color key="backgroundColor" name="Lesson Background"/>
                     </view>
                     <size key="freeformSize" width="768" height="1024"/>
                     <connections>
@@ -35,18 +32,17 @@
             <objects>
                 <viewController id="b1w-BO-zoa" customClass="SaveFileViewController" customModule="Reflector_Selector" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oHs-8F-Ixy">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your file will be saved in the Refelctor Selector folder as:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bl-gn-p0A">
-                                <rect key="frame" x="12" y="32" width="744" height="36"/>
+                                <rect key="frame" x="12" y="12" width="680" height="82"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UP7-ne-6S1">
-                                <rect key="frame" x="12" y="80" width="384" height="85.5"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="12" y="106" width="352" height="82"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -54,6 +50,7 @@
                                 </connections>
                             </textField>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="b03-Uj-sWZ"/>
                         <color key="backgroundColor" name="Lesson Background"/>
                         <constraints>
                             <constraint firstItem="UP7-ne-6S1" firstAttribute="top" secondItem="6Bl-gn-p0A" secondAttribute="bottom" constant="12" id="CWr-y7-faU"/>
@@ -64,7 +61,6 @@
                             <constraint firstItem="6Bl-gn-p0A" firstAttribute="leading" secondItem="b03-Uj-sWZ" secondAttribute="leading" constant="12" id="pGg-oD-LxY"/>
                             <constraint firstItem="UP7-ne-6S1" firstAttribute="height" secondItem="oHs-8F-Ixy" secondAttribute="height" multiplier="1/12" id="yZg-e1-WuF"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="b03-Uj-sWZ"/>
                     </view>
                     <connections>
                         <outlet property="textField" destination="UP7-ne-6S1" id="nwi-Vy-xPi"/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9m9-D6-Zjz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9m9-D6-Zjz">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -48,7 +48,7 @@
                                 </constraints>
                                 <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zy7-o6-0yu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zy7-o6-0yu">
                                 <rect key="frame" x="12" y="62" width="39" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <state key="normal" title="?" backgroundImage="button up">
@@ -59,6 +59,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="KSY-TF-SeM"/>
                         <color key="backgroundColor" name="Lesson Background"/>
                         <constraints>
                             <constraint firstItem="QPD-yl-VaV" firstAttribute="leading" secondItem="KSY-TF-SeM" secondAttribute="leading" constant="12" id="8XX-p9-J9p"/>
@@ -70,7 +71,6 @@
                             <constraint firstItem="ZoU-yi-uRN" firstAttribute="centerX" secondItem="KSY-TF-SeM" secondAttribute="centerX" id="wLD-Ox-MIy"/>
                             <constraint firstItem="QPD-yl-VaV" firstAttribute="centerY" secondItem="KSY-TF-SeM" secondAttribute="centerY" id="xeB-jN-0r1"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="KSY-TF-SeM"/>
                     </view>
                     <navigationItem key="navigationItem" id="D0s-g8-UKs"/>
                     <connections>
@@ -109,7 +109,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTb-DR-lPl">
+                                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTb-DR-lPl">
                                     <rect key="frame" x="0.0" y="200.5" width="300" height="73"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                     <inset key="contentEdgeInsets" minX="8" minY="16" maxX="8" maxY="16"/>
@@ -123,13 +123,13 @@
                             </subviews>
                         </stackView>
                     </subviews>
+                    <viewLayoutGuide key="safeArea" id="5n8-1O-TMl"/>
                     <constraints>
                         <constraint firstItem="k7z-QZ-x6e" firstAttribute="height" relation="lessThanOrEqual" secondItem="FAp-zJ-XWL" secondAttribute="height" id="4eT-lx-GN7"/>
                         <constraint firstItem="k7z-QZ-x6e" firstAttribute="width" secondItem="FAp-zJ-XWL" secondAttribute="width" id="AqB-PV-KVa"/>
                         <constraint firstItem="k7z-QZ-x6e" firstAttribute="centerX" secondItem="5n8-1O-TMl" secondAttribute="centerX" id="KIh-Jc-iip"/>
                         <constraint firstItem="k7z-QZ-x6e" firstAttribute="centerY" secondItem="5n8-1O-TMl" secondAttribute="centerY" id="jRh-QJ-bZL"/>
                     </constraints>
-                    <viewLayoutGuide key="safeArea" id="5n8-1O-TMl"/>
                 </view>
                 <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" id="gan-GV-rty" customClass="CelebrationView" customModule="Reflector_Selector" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -170,6 +170,7 @@
                             </subviews>
                         </stackView>
                     </subviews>
+                    <viewLayoutGuide key="safeArea" id="N5Q-Wa-0gF"/>
                     <constraints>
                         <constraint firstItem="Fg6-oq-rpF" firstAttribute="width" secondItem="gan-GV-rty" secondAttribute="width" id="1QT-Uu-X2T"/>
                         <constraint firstItem="xN4-hZ-T8E" firstAttribute="centerY" secondItem="gan-GV-rty" secondAttribute="centerY" id="FQp-on-a8F"/>
@@ -180,7 +181,6 @@
                         <constraint firstItem="xN4-hZ-T8E" firstAttribute="height" relation="lessThanOrEqual" secondItem="gan-GV-rty" secondAttribute="height" multiplier="0.85" id="iXO-DP-fdJ"/>
                         <constraint firstItem="Fg6-oq-rpF" firstAttribute="centerX" secondItem="gan-GV-rty" secondAttribute="centerX" id="wgK-5w-8yf"/>
                     </constraints>
-                    <viewLayoutGuide key="safeArea" id="N5Q-Wa-0gF"/>
                     <connections>
                         <outlet property="streakLabel" destination="nae-Vs-f6Z" id="MWx-Jr-j7C"/>
                         <outlet property="streakStackView" destination="X2z-iP-7C8" id="Aka-yd-s5p"/>
@@ -224,7 +224,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fTT-FT-sx7">
                                 <rect key="frame" x="0.0" y="0.0" width="744" height="361.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EhT-xs-SQ8">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EhT-xs-SQ8">
                                         <rect key="frame" x="0.0" y="0.0" width="744" height="90.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <state key="normal" title="Button" backgroundImage="button outline"/>
@@ -232,7 +232,7 @@
                                             <action selector="handleTap:" destination="Pw2-6r-vp6" eventType="touchUpInside" id="irq-tO-FFf"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLt-GN-H5G">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLt-GN-H5G">
                                         <rect key="frame" x="0.0" y="90.5" width="744" height="90.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <state key="normal" title="Button" backgroundImage="button outline"/>
@@ -240,7 +240,7 @@
                                             <action selector="handleTap:" destination="Pw2-6r-vp6" eventType="touchUpInside" id="Ftv-CX-UAj"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e9-sg-9rH">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e9-sg-9rH">
                                         <rect key="frame" x="0.0" y="181" width="744" height="90"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <state key="normal" title="Button" backgroundImage="button outline"/>
@@ -248,7 +248,7 @@
                                             <action selector="handleTap:" destination="Pw2-6r-vp6" eventType="touchUpInside" id="1RE-3K-tVd"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Qy-p3-Pfd">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Qy-p3-Pfd">
                                         <rect key="frame" x="0.0" y="271" width="744" height="90.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <state key="normal" title="Button" backgroundImage="button outline"/>
@@ -259,13 +259,13 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="diV-Xs-g3n"/>
                         <constraints>
                             <constraint firstItem="fTT-FT-sx7" firstAttribute="height" secondItem="i4q-d4-kXd" secondAttribute="height" id="JZU-8u-vOe"/>
                             <constraint firstItem="fTT-FT-sx7" firstAttribute="centerX" secondItem="i4q-d4-kXd" secondAttribute="centerX" id="T2c-jD-VA4"/>
                             <constraint firstItem="fTT-FT-sx7" firstAttribute="centerY" secondItem="i4q-d4-kXd" secondAttribute="centerY" id="iXO-lF-VAc"/>
                             <constraint firstItem="fTT-FT-sx7" firstAttribute="width" secondItem="i4q-d4-kXd" secondAttribute="width" id="ve3-iJ-zwp"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="diV-Xs-g3n"/>
                     </view>
                     <connections>
                         <outletCollection property="buttons" destination="EhT-xs-SQ8" collectionClass="NSMutableArray" id="glu-wI-iCF"/>
@@ -276,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IeD-qf-qCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1009" y="1632"/>
+            <point key="canvasLocation" x="1051" y="1640"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="nO0-QU-05S">
@@ -314,7 +314,7 @@
                 <viewControllerPlaceholder storyboardName="Notes" id="Qgf-xC-mNg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGH-Zt-ezu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1202" y="1481"/>
+            <point key="canvasLocation" x="637" y="1514"/>
         </scene>
         <!--Activity Navigation Controller-->
         <scene sceneID="00o-vc-4sE">
