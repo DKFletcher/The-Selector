@@ -10,9 +10,7 @@ import UIKit
 import PDFKit
 
 class HeartHandbook : PDFSuperView{
-	
-	
-	
+
 	var bookIndex : [IndexEntry]! = []
 	
 	override init(learner name: String?) {
@@ -39,8 +37,6 @@ class HeartHandbook : PDFSuperView{
 		UIGraphicsEndPDFContext()
 		return out as Data
 	}
-	
-	
 	
 	func handbook(from book: [Card]) -> Data {
 		var pdfData : [Data] = []

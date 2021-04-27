@@ -67,30 +67,24 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
             hasher.combine(side)
             hasher.combine(selected)
         }
-        
     }
     var model : Model!
     
     @IBOutlet var emotionImage: UIImageView!
     
+    @IBOutlet weak var emotionNameLabel: UILabel!
     @objc func emotionTapped(_ sender: Any){
+        print("quadrant: \(model.card.emotion.index.zone.rawValue)")
         navigate(to: model.card, from: true, edit: false)
     }
-//    @IBOutlet var cardSuperView: CardSuperview!{
-//            didSet{
-//				cardSuperView.longDelegate = self
-//			}
-//	}
-	
+
 	func setModel(_ model: Model) {
 		self.model = model
+        emotionNameLabel.text=model.card.name
         emotionImage.image = imageServer.get(image: model.card)
         let pictureTap = UITapGestureRecognizer(target: self, action: #selector(emotionTapped))
-            emotionImage.isUserInteractionEnabled = true
-            emotionImage.addGestureRecognizer(pictureTap)
-
-
-//		cardSuperView.setCard(model.card, side: model.side, flip: false)
+        emotionImage.isUserInteractionEnabled = true
+        emotionImage.addGestureRecognizer(pictureTap)
         accessoryType = model.selected ? .checkmark : .none
 	}
 	
