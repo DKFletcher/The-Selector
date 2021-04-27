@@ -63,11 +63,6 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 	override func viewDidAppear(_ animated: Bool) {
 		tableView.visibleCells.forEach{
 			let cell = $0 as! CardSelectionCell
-			for cardView in cell.cardSuperView.cardViews{
-				if cardView.side == .front{
-					(cardView as! FrontCardView).updateImage()
-				}
-			}
 		}
 		super.viewDidAppear(animated)
 	}
@@ -102,10 +97,10 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 			) as! CardSelectionCell
 		cell.setModel(cellModels[indexPath.row])
 		cell.delegate = self
-		cell.cardSuperView.handleFlip = { [unowned self] destinationSide in
-			self.cellModels[indexPath.row].side = destinationSide
-			self.abstract(for: self.cellModels[indexPath.row])
-		}
+//		cell.cardSuperView.handleFlip = { [unowned self] destinationSide in
+//			self.cellModels[indexPath.row].side = destinationSide
+//			self.abstract(for: self.cellModels[indexPath.row])
+//		}
 		return cell
 	}
 	

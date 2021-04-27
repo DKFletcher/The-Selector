@@ -24,34 +24,32 @@
                                     <rect key="frame" x="0.0" y="0.0" width="724" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-CI-gd7">
-                                            <rect key="frame" x="10" y="10" width="704" height="180"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-CI-gd7">
+                                            <rect key="frame" x="10" y="10" width="691" height="180"/>
                                             <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tux-za-2eZ">
+                                                    <rect key="frame" x="0.0" y="73" width="345.5" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aXh-pl-u2r">
-                                                    <rect key="frame" x="0.0" y="0.0" width="524" height="180"/>
+                                                    <rect key="frame" x="345.5" y="0.0" width="345.5" height="180"/>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctT-KI-05G" customClass="CardSuperview" customModule="Reflector_Selector" customModuleProvider="target">
-                                                    <rect key="frame" x="524" y="0.0" width="180" height="180"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="ctT-KI-05G" secondAttribute="height" multiplier="1:1" id="aQy-2j-rNn"/>
-                                                    </constraints>
-                                                </view>
                                             </subviews>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="e1i-CI-gd7" secondAttribute="trailing" constant="10" id="NGX-kn-9jR"/>
                                         <constraint firstAttribute="bottom" secondItem="e1i-CI-gd7" secondAttribute="bottom" constant="10" id="Whv-XE-4bi"/>
                                         <constraint firstItem="e1i-CI-gd7" firstAttribute="top" secondItem="nFh-gK-yr4" secondAttribute="top" constant="10" id="Y5D-qv-WYZ"/>
-                                        <constraint firstItem="e1i-CI-gd7" firstAttribute="centerY" secondItem="nFh-gK-yr4" secondAttribute="centerY" id="cC9-4N-uAX"/>
-                                        <constraint firstItem="e1i-CI-gd7" firstAttribute="centerX" secondItem="nFh-gK-yr4" secondAttribute="centerX" id="nnK-ul-x7c"/>
                                         <constraint firstItem="e1i-CI-gd7" firstAttribute="leading" secondItem="nFh-gK-yr4" secondAttribute="leading" constant="10" id="u2G-FB-Rtb"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="e1i-CI-gd7" firstAttribute="width" secondItem="BIe-Xd-fRS" secondAttribute="width" multiplier="0.9" id="BxD-Hg-375"/>
+                                </constraints>
                                 <connections>
-                                    <outlet property="cardSuperView" destination="ctT-KI-05G" id="Drn-nR-qSu"/>
                                     <outlet property="emotionImage" destination="aXh-pl-u2r" id="Ogb-mE-R18"/>
                                 </connections>
                             </tableViewCell>

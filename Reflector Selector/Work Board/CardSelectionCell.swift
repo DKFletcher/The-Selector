@@ -76,11 +76,11 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
     @objc func emotionTapped(_ sender: Any){
         navigate(to: model.card, from: true, edit: false)
     }
-    @IBOutlet var cardSuperView: CardSuperview!{
-            didSet{
-				cardSuperView.longDelegate = self
-			}
-	}
+//    @IBOutlet var cardSuperView: CardSuperview!{
+//            didSet{
+//				cardSuperView.longDelegate = self
+//			}
+//	}
 	
 	func setModel(_ model: Model) {
 		self.model = model
@@ -90,7 +90,7 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
             emotionImage.addGestureRecognizer(pictureTap)
 
 
-		cardSuperView.setCard(model.card, side: model.side, flip: false)
+//		cardSuperView.setCard(model.card, side: model.side, flip: false)
         accessoryType = model.selected ? .checkmark : .none
 	}
 	
