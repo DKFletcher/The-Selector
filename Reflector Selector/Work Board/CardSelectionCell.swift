@@ -73,10 +73,6 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
     @IBOutlet var emotionImage: UIImageView!
     
     @IBOutlet weak var emotionNameLabel: UILabel!
-    @objc func emotionTapped(_ sender: Any){
-        print("zone: \(model.card.emotion.index.zone.rawValue)")
-        navigate(to: model.card, from: true, edit: false)
-    }
     func updateImage(){
         emotionImage.image = imageServer.get(image: model.card)
     }
@@ -85,21 +81,30 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
         emotionNameLabel.text=model.card.name
         emotionImage.image = imageServer.get(image: model.card)
         let pictureTap = UITapGestureRecognizer(target: self, action: #selector(emotionTapped))
+        let nameTap = UITapGestureRecognizer(target: self, action: #selector(nameTapped))
+
         emotionImage.isUserInteractionEnabled = true
         emotionImage.addGestureRecognizer(pictureTap)
+        emotionNameLabel.isUserInteractionEnabled = true
+//        emotionNameLabel.addGestureRecognizer(nameTap)
         accessoryType = model.selected ? .checkmark : .none
-        
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(zoomIn))
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(getInfoPack))
         longPress.minimumPressDuration = TimeInterval(0.5)
-        self.addGestureRecognizer(longPress)
-
-        
+        emotionNameLabel.addGestureRecognizer(longPress)
 	}
-	
-    @objc func zoomIn(sender: UILongPressGestureRecognizer){
+    @objc func nameTapped(_ sender: Any){
+        print("name tapped")
+//        navigate(to: model.card, from: true, edit: false)
+    }
+
+    @objc func emotionTapped(_ sender: Any){
+        print("zone: \(model.card.emotion.index.zone.rawValue)")
+        navigate(to: model.card, from: true, edit: false)
+    }
+
+    @objc func getInfoPack(sender: UILongPressGestureRecognizer){
         if sender.state == UIGestureRecognizer.State.began {
             print("longPress")
-//            closeUp(emotion: card)
         }
     }
 
