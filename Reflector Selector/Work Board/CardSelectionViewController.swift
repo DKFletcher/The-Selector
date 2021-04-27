@@ -64,8 +64,7 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
         
         tableView.visibleCells.forEach{
             let cell = $0 as! CardSelectionCell
-            print("abstract: \(cell)")
-            
+            cell.updateImage()            
 		}
 		super.viewDidAppear(animated)
 	}

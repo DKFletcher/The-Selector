@@ -77,7 +77,9 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
         print("zone: \(model.card.emotion.index.zone.rawValue)")
         navigate(to: model.card, from: true, edit: false)
     }
-
+    func updateImage(){
+        emotionImage.image = imageServer.get(image: model.card)
+    }
 	func setModel(_ model: Model) {
 		self.model = model
         emotionNameLabel.text=model.card.name
