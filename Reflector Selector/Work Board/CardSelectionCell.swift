@@ -74,7 +74,7 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
     
     @IBOutlet weak var emotionNameLabel: UILabel!
     @objc func emotionTapped(_ sender: Any){
-        print("quadrant: \(model.card.emotion.index.zone.rawValue)")
+        print("zone: \(model.card.emotion.index.zone.rawValue)")
         navigate(to: model.card, from: true, edit: false)
     }
 

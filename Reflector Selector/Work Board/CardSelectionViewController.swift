@@ -61,8 +61,11 @@ class CardSelectionViewController: UITableViewController, CardSelectionCellDeleg
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		tableView.visibleCells.forEach{
-			let cell = $0 as! CardSelectionCell
+        
+        tableView.visibleCells.forEach{
+            let cell = $0 as! CardSelectionCell
+            print("abstract: \(cell)")
+            
 		}
 		super.viewDidAppear(animated)
 	}
