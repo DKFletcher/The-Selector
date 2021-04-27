@@ -88,8 +88,21 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
         emotionImage.isUserInteractionEnabled = true
         emotionImage.addGestureRecognizer(pictureTap)
         accessoryType = model.selected ? .checkmark : .none
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(zoomIn))
+        longPress.minimumPressDuration = TimeInterval(0.5)
+        self.addGestureRecognizer(longPress)
+
+        
 	}
 	
+    @objc func zoomIn(sender: UILongPressGestureRecognizer){
+        if sender.state == UIGestureRecognizer.State.began {
+            print("longPress")
+//            closeUp(emotion: card)
+        }
+    }
+
 	
 	func getModel() -> Model{
 		return model
