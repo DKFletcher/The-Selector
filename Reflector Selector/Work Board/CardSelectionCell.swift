@@ -70,23 +70,34 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
     }
     var model : Model!
     
+    @IBOutlet weak var halfWidthStack: UIStackView!
+    @IBOutlet weak var emotionButton: UIButton!
     @IBOutlet var emotionImage: UIImageView!
-    
     @IBOutlet weak var emotionNameLabel: UILabel!
-    func updateImage(){
-        emotionImage.image = imageServer.get(image: model.card)
+    @IBAction func imageButton(_ sender: Any) {
+        navigate(to: model.card, from: true, edit: false)
     }
+    
+    func updateImage(image: UIImage){
+        let padding = (halfWidthStack.frame.width-halfWidthStack.frame.height*(image.size.height/image.size.height))/2
+        emotionImage.contentMode = .scaleAspectFit
+        emotionImage.image = image.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: -padding, bottom: 0, right: -padding))
+    }
+    
 	func setModel(_ model: Model) {
 		self.model = model
         emotionNameLabel.text=model.card.name
-        emotionImage.image = imageServer.get(image: model.card)
+        updateImage(image: imageServer.get(image: model.card))
+
         let pictureTap = UITapGestureRecognizer(target: self, action: #selector(emotionTapped))
         let nameTap = UITapGestureRecognizer(target: self, action: #selector(nameTapped))
+        let worksheetTap = UITapGestureRecognizer(target: self, action: #selector(worksheetTapped))
 
+        emotionNameLabel.isUserInteractionEnabled = true
+        emotionNameLabel.addGestureRecognizer(nameTap)
         emotionImage.isUserInteractionEnabled = true
         emotionImage.addGestureRecognizer(pictureTap)
-        emotionNameLabel.isUserInteractionEnabled = true
-//        emotionNameLabel.addGestureRecognizer(nameTap)
+        
         accessoryType = model.selected ? .checkmark : .none
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(getInfoPack))
         longPress.minimumPressDuration = TimeInterval(0.5)
@@ -94,6 +105,7 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
 	}
     @objc func nameTapped(_ sender: Any){
         print("name tapped")
+        navigateFromCell(to: model.card, from: false, edit: false)
 //        navigate(to: model.card, from: true, edit: false)
     }
 
@@ -104,13 +116,34 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
 
     @objc func getInfoPack(sender: UILongPressGestureRecognizer){
         if sender.state == UIGestureRecognizer.State.began {
-            print("longPress")
+            navigateFromCell(to: model.card, from: false, edit: true)
         }
+    }
+    
+    @objc func worksheetTapped(sender: Any){
+        print("worksheet: \(sender)")
     }
 
 	
 	func getModel() -> Model{
 		return model
 	}
+}
+extension UIImage
+{
+    /// Given a required height, returns a (rasterised) copy
+    /// of the image, aspect-fitted to that height.
+
+    func aspectFittedToHeight(_ newHeight: CGFloat) -> UIImage
+    {
+        let scale = newHeight / self.size.height
+        let newWidth = self.size.width * scale
+        let newSize = CGSize(width: newWidth, height: newHeight)
+        let renderer = UIGraphicsImageRenderer(size: newSize)
+
+        return renderer.image { _ in
+            self.draw(in: CGRect(origin: .zero, size: newSize))
+        }
+    }
 }
 

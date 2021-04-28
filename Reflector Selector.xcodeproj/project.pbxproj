@@ -223,7 +223,6 @@
 		D65DFFA3240A73C1006E35E5 /* ImageCloseUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageCloseUp.storyboard; sourceTree = "<group>"; };
 		D65DFFA9240A73EA006E35E5 /* PDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		D65DFFAA240A73EA006E35E5 /* PDFStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PDFStoryboard.storyboard; sourceTree = "<group>"; };
-		D663A7022638336400E32825 /* worksheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = worksheet.png; path = "/Users/donaldfletcher/Projects/The-Selector/Reflector Selector/Icon Files/worksheet.png"; sourceTree = "<absolute>"; };
 		D66EE104243629D8008DB08A /* Introduction.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Introduction.pdf; path = "Handbook Introduction/Introduction.pdf"; sourceTree = SOURCE_ROOT; };
 		D677D94B2423901E00FAF647 /* Instructions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instructions.storyboard; sourceTree = "<group>"; };
 		D677D94D2423903100FAF647 /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
@@ -331,7 +330,6 @@
 		D65D0015240A74A8006E35E5 /* Work Board */ = {
 			isa = PBXGroup;
 			children = (
-				D663A7022638336400E32825 /* worksheet.png */,
 				D65D0016240A74BF006E35E5 /* CardSelection.storyboard */,
 				D65D0018240A74BF006E35E5 /* CardSelectionViewController.swift */,
 				D65D0017240A74BF006E35E5 /* CardSelectionCell.swift */,
