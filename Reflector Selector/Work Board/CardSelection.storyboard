@@ -24,40 +24,46 @@
                                     <rect key="frame" x="0.0" y="0.0" width="724" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-CI-gd7">
+                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="751" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-CI-gd7">
                                             <rect key="frame" x="10" y="10" width="691" height="180"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hxu-oA-c2r">
-                                                    <rect key="frame" x="0.0" y="26" width="345.5" height="128"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Tzj-Lt-HLm">
-                                                    <rect key="frame" x="345.5" y="10" width="345.5" height="160"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="og9-r5-5Y0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="345.5" height="180"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6D-RQ-GIZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="345.5" height="80"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O9O-T3-ewT">
+                                                            <rect key="frame" x="0.0" y="0.0" width="240" height="180"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="O9O-T3-ewT" secondAttribute="height" multiplier="4:3" id="P4i-zy-lkL"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="O9O-T3-ewT" secondAttribute="bottom" id="PiY-MV-Q4y"/>
+                                                        <constraint firstItem="O9O-T3-ewT" firstAttribute="top" secondItem="og9-r5-5Y0" secondAttribute="top" id="orv-nW-M6V"/>
+                                                        <constraint firstItem="O9O-T3-ewT" firstAttribute="leading" secondItem="og9-r5-5Y0" secondAttribute="leading" id="xAB-4h-DRd"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Olt-Xj-jLy">
+                                                    <rect key="frame" x="345.5" y="26" width="345.5" height="128"/>
+                                                    <subviews>
+                                                        <label opaque="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6D-RQ-GIZ">
+                                                            <rect key="frame" x="135.5" y="48" width="74.5" height="32"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zxj-5F-AWR">
-                                                            <rect key="frame" x="0.0" y="80" width="345.5" height="80"/>
-                                                            <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" image="worksheet" translatesAutoresizingMaskIntoConstraints="NO" id="BeR-p5-8EK">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="345.5" height="80"/>
-                                                                </imageView>
-                                                            </subviews>
-                                                        </stackView>
                                                     </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="zxj-5F-AWR" firstAttribute="height" secondItem="Tzj-Lt-HLm" secondAttribute="height" multiplier="0.5" id="e58-Bw-nko"/>
+                                                        <constraint firstItem="J6D-RQ-GIZ" firstAttribute="centerX" secondItem="Olt-Xj-jLy" secondAttribute="centerX" id="Arz-UK-RFT"/>
+                                                        <constraint firstItem="J6D-RQ-GIZ" firstAttribute="centerY" secondItem="Olt-Xj-jLy" secondAttribute="centerY" id="K5M-pV-Xev"/>
                                                     </constraints>
-                                                </stackView>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Tzj-Lt-HLm" firstAttribute="top" secondItem="e1i-CI-gd7" secondAttribute="top" constant="10" id="XHy-a2-oix"/>
-                                                <constraint firstAttribute="bottom" secondItem="Tzj-Lt-HLm" secondAttribute="bottom" constant="10" id="mo2-aJ-JXY"/>
-                                                <constraint firstAttribute="trailing" secondItem="Tzj-Lt-HLm" secondAttribute="trailing" id="x77-jD-WeC"/>
+                                                <constraint firstItem="og9-r5-5Y0" firstAttribute="height" secondItem="e1i-CI-gd7" secondAttribute="height" id="SvJ-WE-rMk"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
@@ -73,9 +79,8 @@
                                     <constraint firstItem="e1i-CI-gd7" firstAttribute="width" secondItem="BIe-Xd-fRS" secondAttribute="width" multiplier="0.9" id="BxD-Hg-375"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="emotionImage" destination="hxu-oA-c2r" id="bCe-VE-Ja3"/>
+                                    <outlet property="emotionImage" destination="O9O-T3-ewT" id="l6W-VV-cg7"/>
                                     <outlet property="emotionNameLabel" destination="J6D-RQ-GIZ" id="zlF-Q1-dz7"/>
-                                    <outlet property="halfWidthStack" destination="Tzj-Lt-HLm" id="W4a-mt-IKW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -145,7 +150,6 @@
     </scenes>
     <resources>
         <image name="L1C_bar" width="47" height="38"/>
-        <image name="worksheet" width="512" height="512"/>
         <namedColor name="Lesson Background">
             <color red="0.2199999988079071" green="0.2199999988079071" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

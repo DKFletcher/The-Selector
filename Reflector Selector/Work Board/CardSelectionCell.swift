@@ -70,31 +70,25 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
     }
     var model : Model!
     
-    @IBOutlet weak var halfWidthStack: UIStackView!
-    @IBOutlet weak var emotionButton: UIButton!
     @IBOutlet var emotionImage: UIImageView!
     @IBOutlet weak var emotionNameLabel: UILabel!
-    @IBAction func imageButton(_ sender: Any) {
-        navigate(to: model.card, from: true, edit: false)
-    }
     
     func updateImage(image: UIImage){
-        let padding = (halfWidthStack.frame.width-halfWidthStack.frame.height*(image.size.height/image.size.height))/2
-        emotionImage.contentMode = .scaleAspectFit
-        emotionImage.image = image.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: -padding, bottom: 0, right: -padding))
+        emotionImage.image=image
     }
     
 	func setModel(_ model: Model) {
 		self.model = model
-        emotionNameLabel.text=model.card.name
+        emotionNameLabel.text = model.card.name
+        emotionNameLabel.sizeToFit()
         updateImage(image: imageServer.get(image: model.card))
-
+        
         let pictureTap = UITapGestureRecognizer(target: self, action: #selector(emotionTapped))
         let nameTap = UITapGestureRecognizer(target: self, action: #selector(nameTapped))
-        let worksheetTap = UITapGestureRecognizer(target: self, action: #selector(worksheetTapped))
 
         emotionNameLabel.isUserInteractionEnabled = true
         emotionNameLabel.addGestureRecognizer(nameTap)
+        
         emotionImage.isUserInteractionEnabled = true
         emotionImage.addGestureRecognizer(pictureTap)
         
@@ -128,6 +122,35 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
 	func getModel() -> Model{
 		return model
 	}
+    func makeAttributedString(emotion: String) -> NSMutableAttributedString{
+        let boldFont = UIFont.systemFont(
+            ofSize: 30,
+            weight: .heavy)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .left
+        paragraphStyle.lineBreakMode = .byWordWrapping
+        let boldAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.paragraphStyle: paragraphStyle,
+            NSAttributedString.Key.font: boldFont,
+            NSAttributedString.Key.foregroundColor: UIColor.black]
+        let qAndA = NSMutableAttributedString(string: emotion, attributes: boldAttributes)
+        return qAndA
+    }
+    
+    func getAttributedStringRect(_ nsAttributedString: NSMutableAttributedString ) ->CGRect{
+        let qAndATest = nsAttributedString.boundingRect(
+            with: CGSize(
+                width: TypeSetConstants.pageWidth - TypeSetConstants.margin*2,
+                height: CGFloat.greatestFiniteMagnitude
+            ),
+            options: [.usesLineFragmentOrigin, .usesFontLeading],
+            context: nil)
+        return CGRect(x: 0, y: 0, width: ceil(qAndATest.width)+5, height: ceil(qAndATest.height)+5)
+    }
+
+
+    
+    
 }
 extension UIImage
 {
