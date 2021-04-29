@@ -70,15 +70,19 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
     }
     var model : Model!
     
-    @IBOutlet var emotionImage: UIImageView!
+    @IBOutlet weak var emotionImage: UIImageView!
     @IBOutlet weak var emotionNameLabel: UILabel!
+    @IBOutlet weak var rhsView: UIView!
     
     func updateImage(image: UIImage){
         emotionImage.image=image
     }
     
 	func setModel(_ model: Model) {
+        rhsView.isUserInteractionEnabled = true
+        let attr_test = makeAttributedString(emotion: model.card.name)
 		self.model = model
+        emotionNameLabel.attributedText = attr_test
         emotionNameLabel.text = model.card.name
         emotionNameLabel.sizeToFit()
         updateImage(image: imageServer.get(image: model.card))
@@ -114,59 +118,64 @@ class CardSelectionCell: UITableViewCell, LongDelegate, CardSelectionCellDelegat
         }
     }
     
-    @objc func worksheetTapped(sender: Any){
-        print("worksheet: \(sender)")
-    }
+//    @objc func worksheetTapped(sender: Any){
+//        print("worksheet: \(sender)")
+//    }
 
 	
 	func getModel() -> Model{
 		return model
 	}
     func makeAttributedString(emotion: String) -> NSMutableAttributedString{
-        let boldFont = UIFont.systemFont(
-            ofSize: 30,
-            weight: .heavy)
+//        let boldFont = UIFont.systemFont(
+//            ofSize: 44,
+//            weight: .heavy)
+        let systemFont = UIFont.systemFont(
+            ofSize: 44,
+            weight: .medium)
+
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .left
         paragraphStyle.lineBreakMode = .byWordWrapping
         let boldAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.paragraphStyle: paragraphStyle,
-            NSAttributedString.Key.font: boldFont,
-            NSAttributedString.Key.foregroundColor: UIColor.black]
+            NSAttributedString.Key.font: systemFont,
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.backgroundColor: UIColor.clear]
         let qAndA = NSMutableAttributedString(string: emotion, attributes: boldAttributes)
         return qAndA
     }
     
-    func getAttributedStringRect(_ nsAttributedString: NSMutableAttributedString ) ->CGRect{
-        let qAndATest = nsAttributedString.boundingRect(
-            with: CGSize(
-                width: TypeSetConstants.pageWidth - TypeSetConstants.margin*2,
-                height: CGFloat.greatestFiniteMagnitude
-            ),
-            options: [.usesLineFragmentOrigin, .usesFontLeading],
-            context: nil)
-        return CGRect(x: 0, y: 0, width: ceil(qAndATest.width)+5, height: ceil(qAndATest.height)+5)
-    }
+//    func getAttributedStringRect(_ nsAttributedString: NSMutableAttributedString ) ->CGRect{
+//        let qAndATest = nsAttributedString.boundingRect(
+//            with: CGSize(
+//                width: TypeSetConstants.pageWidth - TypeSetConstants.margin*2,
+//                height: CGFloat.greatestFiniteMagnitude
+//            ),
+//            options: [.usesLineFragmentOrigin, .usesFontLeading],
+//            context: nil)
+//        return CGRect(x: 0, y: 0, width: ceil(qAndATest.width)+5, height: ceil(qAndATest.height)+5)
+//    }
 
 
     
     
 }
-extension UIImage
-{
-    /// Given a required height, returns a (rasterised) copy
-    /// of the image, aspect-fitted to that height.
-
-    func aspectFittedToHeight(_ newHeight: CGFloat) -> UIImage
-    {
-        let scale = newHeight / self.size.height
-        let newWidth = self.size.width * scale
-        let newSize = CGSize(width: newWidth, height: newHeight)
-        let renderer = UIGraphicsImageRenderer(size: newSize)
-
-        return renderer.image { _ in
-            self.draw(in: CGRect(origin: .zero, size: newSize))
-        }
-    }
-}
+//extension UIImage
+//{
+//    /// Given a required height, returns a (rasterised) copy
+//    /// of the image, aspect-fitted to that height.
+//
+//    func aspectFittedToHeight(_ newHeight: CGFloat) -> UIImage
+//    {
+//        let scale = newHeight / self.size.height
+//        let newWidth = self.size.width * scale
+//        let newSize = CGSize(width: newWidth, height: newHeight)
+//        let renderer = UIGraphicsImageRenderer(size: newSize)
+//
+//        return renderer.image { _ in
+//            self.draw(in: CGRect(origin: .zero, size: newSize))
+//        }
+//    }
+//}
 
