@@ -198,7 +198,7 @@ struct Index{
 	}
 
 	enum Zone: String, CaseIterable{
-		case energised = "Energised"
+		case energised = "Driven"
 		case adventurous = "Adventurous"
 		case significant = "Significant"
 		case fulfilled = "Fulfilled"
@@ -206,12 +206,12 @@ struct Index{
 		case appreciative = "Appreciative"
 		case caring = "Caring"
 		case patient = "Patient"
-		case low = "Low"
+		case low = "Disheartened"
 		case insecure = "Insecure"
 		case unworthy = "Unworthy"
 		case worthless = "Worthless"
 		case mean = "Mean"
-		case ungrateful = "Ungrateful"
+		case ungrateful = "Entitled"
 		case grudging = "Grudging"
 		case annoyed = "Annoyed"
 		
@@ -262,8 +262,8 @@ struct Index{
 	enum Dimension: String, CaseIterable{
 		case fulfilment = "Purpose"
 		case status = "Status"
-		case ambition = "Ambition"
-		case determination = "Vitality"
+		case ambition = "Boldness"
+		case determination = "Direction"
 		case security = "Affection"
 		case kindness = "Kindness"
 		case gratitude = "Gratitude"
