@@ -12,26 +12,26 @@ import PDFKit
 class Collector: Handbook{
 	func collector(for card : Card, in cards: [Card]) -> Data{
 		getIndex(book: cards)
-		let data = renderer.pdfData { (context) in
-			drawingPDF = context
-			var titleString = "\(card.name)"
-			if let name = learnerName{
-				titleString = "\(name)\n\(card.name)"
-			}
-			if card.emotion.custom{
-				customImage(for: card, using: titleString)
-			} else{
-				stockImage(using: titleString)
-			}
-			workSheet(for: card)
-			if let emotionPDF = card.emotion.index.getPDFName(for: card.emotion.index.emotion.rawValue),
-				let zonePDF = card.emotion.index.getPDFName(for: card.emotion.index.zone.rawValue),
-				let quadPDF = card.emotion.index.getPDFName(for: card.emotion.index.quadrant.rawValue){
-				createPage(destination: "nil", for: emotionPDF)
-				createPage(destination: "nil", for: zonePDF)
-				createPage(destination: "nil", for: quadPDF)
-				createPage(destination: "nil", for: "The Big Picture")
-			}
+        let data = renderer.pdfData { (context) in
+            drawingPDF = context
+            var titleString = "\(card.name)"
+            if let name = learnerName{
+                titleString = "\(name)\n\(card.name)"
+            }
+            if card.emotion.custom{
+                customImage(for: card, using: titleString)
+            } else{
+                stockImage(using: titleString)
+            }
+            if let emotionPDF = card.emotion.index.getPDFName(for: card.emotion.index.emotion.rawValue),
+                let zonePDF = card.emotion.index.getPDFName(for: card.emotion.index.zone.rawValue),
+                let quadPDF = card.emotion.index.getPDFName(for: card.emotion.index.quadrant.rawValue){
+                createPage(destination: "nil", for: emotionPDF)
+                createPage(destination: "nil", for: zonePDF)
+                createPage(destination: "nil", for: quadPDF)
+                createPage(destination: "nil", for: "The Big Picture")
+            }
+            workSheet(for: card)
 		}
 		return data
 	}

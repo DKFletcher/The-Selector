@@ -17,12 +17,12 @@ class DoubleLong : PDFSuperView{
 	func doubleLong(for emotion: Card) -> Data{
 		var pdfData : [Data] = []
 		pdfData.append(createFrontDoubleTapPack(for: emotion))
-		pdfData.append(workSheet(for: emotion))
-		if emotion.emotion.custom{
-			pdfData.append(createWork(for: emotion))
-		}
-		pdfData.append(createNote(for: emotion))
-		pdfData.append(createQuad(for: emotion.emotion.quadrant.rawValue))
+        if emotion.emotion.custom{
+            pdfData.append(createWork(for: emotion))
+        }
+        pdfData.append(createNote(for: emotion))
+        pdfData.append(createQuad(for: emotion.emotion.quadrant.rawValue))
+        pdfData.append(workSheet(for: emotion))
 		return merge(pdfs: pdfData)
 	}
 	
