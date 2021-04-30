@@ -82,8 +82,8 @@ class Handbook : PDFSuperView{
                 
                 
                 
-                print("oldZone: \(oldZone) with pdf path \(page.emotion.getPDFName(for: oldZone))")
-
+//
+                
                 
                 
                 if let emotionName = page.emotion.getPDFName(for: page.emotion.zone.rawValue){
@@ -196,7 +196,6 @@ class Handbook : PDFSuperView{
 	}
 	
 	func documentIndex(){
-        print("documentIndex")
 		beginPage = true
 		let inset = CGFloat(40.0)
 		let boxHeightRatio = CGFloat(0.75)//This sets the hight of each box
@@ -247,7 +246,6 @@ class Handbook : PDFSuperView{
 	}
 	
 	func documentIndex(indexEntry : [IndexEntry], topRightCorner : CGPoint, destinationString : String){
-        print("documentIndex indexEntry")
 		let textPositionInQuad = CGPoint(x: topRightCorner.x+20.0, y: topRightCorner.y+60.0)
 		var y_offset = CGFloat(0.0)
 		let zone_offset = CGFloat(0.0)
