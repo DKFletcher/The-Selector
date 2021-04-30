@@ -145,6 +145,9 @@
 		D69AA8712439D47000E6A391 /* connectingMe.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D69AA86D2439D46F00E6A391 /* connectingMe.pdf */; };
 		D69AA8722439D47000E6A391 /* protectingMe.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D69AA86E2439D46F00E6A391 /* protectingMe.pdf */; };
 		D69AA8732439D47000E6A391 /* stretchingMe.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D69AA86F2439D46F00E6A391 /* stretchingMe.pdf */; };
+		D6A068AE263BEB6B0034A1A9 /* Driven.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6A068AD263BEB6B0034A1A9 /* Driven.pdf */; };
+		D6A068B1263BEFC30034A1A9 /* Disheartened.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6A068B0263BEFC30034A1A9 /* Disheartened.pdf */; };
+		D6A068B7263BF37B0034A1A9 /* EntitledZone.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6A068B6263BF37B0034A1A9 /* EntitledZone.pdf */; };
 		D6DA94252417760D00B31556 /* ChalkDusterRF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6DA9424241775C400B31556 /* ChalkDusterRF.ttf */; };
 		D6FEF3492433546D00676682 /* Handbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FEF3482433546D00676682 /* Handbook.swift */; };
 /* End PBXBuildFile section */
@@ -290,6 +293,9 @@
 		D69AA86D2439D46F00E6A391 /* connectingMe.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = connectingMe.pdf; path = "Quadrant Pages/connectingMe.pdf"; sourceTree = SOURCE_ROOT; };
 		D69AA86E2439D46F00E6A391 /* protectingMe.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = protectingMe.pdf; path = "Quadrant Pages/protectingMe.pdf"; sourceTree = SOURCE_ROOT; };
 		D69AA86F2439D46F00E6A391 /* stretchingMe.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = stretchingMe.pdf; path = "Quadrant Pages/stretchingMe.pdf"; sourceTree = SOURCE_ROOT; };
+		D6A068AD263BEB6B0034A1A9 /* Driven.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Driven.pdf; path = Cards/PDF/Driven.pdf; sourceTree = SOURCE_ROOT; };
+		D6A068B0263BEFC30034A1A9 /* Disheartened.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Disheartened.pdf; path = Zones/PDF/Disheartened.pdf; sourceTree = SOURCE_ROOT; };
+		D6A068B6263BF37B0034A1A9 /* EntitledZone.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = EntitledZone.pdf; path = Zones/PDF/EntitledZone.pdf; sourceTree = SOURCE_ROOT; };
 		D6DA9424241775C400B31556 /* ChalkDusterRF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChalkDusterRF.ttf; sourceTree = "<group>"; };
 		D6FEF3482433546D00676682 /* Handbook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handbook.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -516,66 +522,69 @@
 			isa = PBXGroup;
 			children = (
 				D69200B72445E769007A6B8A /* Admiring.pdf */,
+				D69200922445DBC6007A6B8A /* Adventurous.pdf */,
 				D69200AA2445E768007A6B8A /* Angry.pdf */,
+				D692008F2445DBC6007A6B8A /* Annoyed.pdf */,
+				D692008D2445DBC6007A6B8A /* Appreciative.pdf */,
 				D69200C82445E76B007A6B8A /* Arrogant.pdf */,
 				D69200CC2445E76B007A6B8A /* Belonging.pdf */,
 				D69200C12445E76A007A6B8A /* Bold.pdf */,
 				D69200A92445E768007A6B8A /* Bored.pdf */,
+				D69200882445DBC5007A6B8A /* Caring.pdf */,
 				D69200CE2445E76B007A6B8A /* Compassionate.pdf */,
 				D69200C92445E76B007A6B8A /* Confident.pdf */,
+				D69AA86D2439D46F00E6A391 /* connectingMe.pdf */,
 				D69200CB2445E76B007A6B8A /* Contempt.pdf */,
 				D69200AD2445E768007A6B8A /* Content.pdf */,
 				D69200B12445E769007A6B8A /* Curious.pdf */,
 				D69200C22445E76A007A6B8A /* Determined.pdf */,
+				D6A068B0263BEFC30034A1A9 /* Disheartened.pdf */,
+				D6A068AD263BEB6B0034A1A9 /* Driven.pdf */,
 				D69200BC2445E76A007A6B8A /* Embarrassed.pdf */,
+				D692008C2445DBC6007A6B8A /* Energised.pdf */,
 				D69200B42445E769007A6B8A /* Enthusiastic.pdf */,
 				D69200AB2445E768007A6B8A /* Entitled.pdf */,
+				D6A068B6263BF37B0034A1A9 /* EntitledZone.pdf */,
 				D69200BE2445E76A007A6B8A /* Envy.pdf */,
 				D69200B62445E769007A6B8A /* Forgiveness.pdf */,
 				D69200B22445E769007A6B8A /* Frustrated.pdf */,
+				D69200912445DBC6007A6B8A /* Fulfilled.pdf */,
 				D69200C02445E76A007A6B8A /* Gloating.pdf */,
+				D69200872445DBC5007A6B8A /* Grudging.pdf */,
 				D69200AC2445E768007A6B8A /* Guilty.pdf */,
 				D69200B92445E769007A6B8A /* Hopeful.pdf */,
 				D69200A72445E768007A6B8A /* Humiliated.pdf */,
 				D69200B82445E769007A6B8A /* Inferior.pdf */,
+				D69200852445DBC5007A6B8A /* Insecure.pdf */,
+				D66EE104243629D8008DB08A /* Introduction.pdf */,
 				D69200BF2445E76A007A6B8A /* Joy.pdf */,
 				D69200B52445E769007A6B8A /* Kind.pdf */,
 				D69200B32445E769007A6B8A /* Lonely.pdf */,
+				D692008E2445DBC6007A6B8A /* Low.pdf */,
+				D69200902445DBC6007A6B8A /* Mean.pdf */,
+				D69AA86C2439D46F00E6A391 /* meFirst.pdf */,
 				D69200CD2445E76B007A6B8A /* Overwhelmed.pdf */,
+				D69200932445DBC6007A6B8A /* Patient.pdf */,
 				D69200C32445E76A007A6B8A /* Playfulness.pdf */,
 				D69200C62445E76B007A6B8A /* Pleased for Others.pdf */,
+				D69AA86E2439D46F00E6A391 /* protectingMe.pdf */,
 				D69200C72445E76B007A6B8A /* Proud.pdf */,
 				D69200AE2445E769007A6B8A /* Resentful.pdf */,
 				D69200BD2445E76A007A6B8A /* Responsible.pdf */,
 				D69200BA2445E76A007A6B8A /* Sad.pdf */,
 				D69200BB2445E76A007A6B8A /* Self-Doubting.pdf */,
 				D69200AF2445E769007A6B8A /* Shame.pdf */,
+				D69200862445DBC5007A6B8A /* Significant.pdf */,
 				D69200A82445E768007A6B8A /* Spiteful.pdf */,
+				D69AA86F2439D46F00E6A391 /* stretchingMe.pdf */,
 				D69200C42445E76A007A6B8A /* Thankful.pdf */,
 				D69200CA2445E76B007A6B8A /* Trust.pdf */,
-				D69200B02445E769007A6B8A /* Valued.pdf */,
-				D69200C52445E76A007A6B8A /* Worried.pdf */,
-				D69200922445DBC6007A6B8A /* Adventurous.pdf */,
-				D692008F2445DBC6007A6B8A /* Annoyed.pdf */,
-				D692008D2445DBC6007A6B8A /* Appreciative.pdf */,
-				D69200882445DBC5007A6B8A /* Caring.pdf */,
-				D692008C2445DBC6007A6B8A /* Energised.pdf */,
-				D69200912445DBC6007A6B8A /* Fulfilled.pdf */,
-				D69200872445DBC5007A6B8A /* Grudging.pdf */,
-				D69200852445DBC5007A6B8A /* Insecure.pdf */,
-				D692008E2445DBC6007A6B8A /* Low.pdf */,
-				D69200902445DBC6007A6B8A /* Mean.pdf */,
-				D69200932445DBC6007A6B8A /* Patient.pdf */,
-				D69200862445DBC5007A6B8A /* Significant.pdf */,
 				D692008A2445DBC5007A6B8A /* Ungrateful.pdf */,
 				D692008B2445DBC5007A6B8A /* Unworthy.pdf */,
+				D69200B02445E769007A6B8A /* Valued.pdf */,
 				D69200A52445DC53007A6B8A /* Warm.pdf */,
+				D69200C52445E76A007A6B8A /* Worried.pdf */,
 				D69200892445DBC5007A6B8A /* Worthless.pdf */,
-				D69AA86D2439D46F00E6A391 /* connectingMe.pdf */,
-				D69AA86C2439D46F00E6A391 /* meFirst.pdf */,
-				D69AA86E2439D46F00E6A391 /* protectingMe.pdf */,
-				D69AA86F2439D46F00E6A391 /* stretchingMe.pdf */,
-				D66EE104243629D8008DB08A /* Introduction.pdf */,
 			);
 			path = "PDF Raw";
 			sourceTree = "<group>";
@@ -665,6 +674,7 @@
 				D69200E02445E76B007A6B8A /* Inferior.pdf in Resources */,
 				D69200DE2445E76B007A6B8A /* Forgiveness.pdf in Resources */,
 				D69200EC2445E76B007A6B8A /* Thankful.pdf in Resources */,
+				D6A068B7263BF37B0034A1A9 /* EntitledZone.pdf in Resources */,
 				D69200D22445E76B007A6B8A /* Angry.pdf in Resources */,
 				D66EE105243629D9008DB08A /* Introduction.pdf in Resources */,
 				D69200D72445E76B007A6B8A /* Shame.pdf in Resources */,
@@ -691,6 +701,7 @@
 				D69200DA2445E76B007A6B8A /* Frustrated.pdf in Resources */,
 				D64E5F17240E9DF50012DEF4 /* Icon-72.png in Resources */,
 				D64E5F08240E9DF40012DEF4 /* Icon@2x.png in Resources */,
+				D6A068AE263BEB6B0034A1A9 /* Driven.pdf in Resources */,
 				D69200DC2445E76B007A6B8A /* Enthusiastic.pdf in Resources */,
 				D64E5F11240E9DF50012DEF4 /* Icon-Small-40.png in Resources */,
 				D69200F42445E76B007A6B8A /* Belonging.pdf in Resources */,
@@ -705,6 +716,7 @@
 				D69200D92445E76B007A6B8A /* Curious.pdf in Resources */,
 				D65DFF9E240A73A1006E35E5 /* AccessibleInput.storyboard in Resources */,
 				D64E5F10240E9DF50012DEF4 /* iTunesArtwork@2x.png in Resources */,
+				D6A068B1263BEFC30034A1A9 /* Disheartened.pdf in Resources */,
 				D69200F52445E76B007A6B8A /* Overwhelmed.pdf in Resources */,
 				D6DA94252417760D00B31556 /* ChalkDusterRF.ttf in Resources */,
 				D69200F12445E76B007A6B8A /* Confident.pdf in Resources */,

@@ -79,7 +79,14 @@ class Handbook : PDFSuperView{
 		for page in indexEntry{
 			if page.emotion.zone.rawValue != oldZone{
 				oldZone = page.emotion.zone.rawValue
-				if let emotionName = page.emotion.getPDFName(for: page.emotion.zone.rawValue){
+                
+                
+                
+                print("oldZone: \(oldZone) with pdf path \(page.emotion.getPDFName(for: oldZone))")
+
+                
+                
+                if let emotionName = page.emotion.getPDFName(for: page.emotion.zone.rawValue){
 					createPage(destination: page.emotion.zone.rawValue, for: emotionName)
 				}
 			}
@@ -189,6 +196,7 @@ class Handbook : PDFSuperView{
 	}
 	
 	func documentIndex(){
+        print("documentIndex")
 		beginPage = true
 		let inset = CGFloat(40.0)
 		let boxHeightRatio = CGFloat(0.75)//This sets the hight of each box
@@ -239,6 +247,7 @@ class Handbook : PDFSuperView{
 	}
 	
 	func documentIndex(indexEntry : [IndexEntry], topRightCorner : CGPoint, destinationString : String){
+        print("documentIndex indexEntry")
 		let textPositionInQuad = CGPoint(x: topRightCorner.x+20.0, y: topRightCorner.y+60.0)
 		var y_offset = CGFloat(0.0)
 		let zone_offset = CGFloat(0.0)
@@ -255,9 +264,13 @@ class Handbook : PDFSuperView{
 		
 		for page in indexEntry{
 			if page.emotion.zone != oldZone{
+                var patch = page.emotion.zone.rawValue
+                if (page.emotion.zone.rawValue=="Ungrateful"){
+                    patch = "Entitled"
+                }
 				y_offset += indexItem(
 					fontSizeDelta: zoneFontSizeDelta,
-					text: page.emotion.zone.rawValue,
+					text: patch,
 					at: textPositionInQuad.delta(dx: zone_offset, dy: y_offset),
 					additional: "Zone")
 				oldZone = page.emotion.zone
