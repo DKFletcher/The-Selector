@@ -6,7 +6,7 @@ It is a school resource for group and individual work and gets kids to learn abo
 
 Over and above the original code a workbook was added; the ability to set your own  images and a document collation model describing Alan's unique and intuitive emotions taxonomy.
 
-Along with the workbook I coded a good strong print engine that was tested using  the first chapter of *Alice in Wonderland*. I input this text into 240 separate  text Areas. A fault free run covering just under 2000 pages.
+Along with the workbook I coded a good strong print engine that was tested using  the first chapter of *Alice in Wonderland*. I parsed this text into 240 separate  text areas resulting in a fault free run covering just under 2000 pages.
 
 There is an update scheduled for when the school's return after August. The areas  for development are:
 * at the moment each emotion has a stock image and an actor image. A beefed up image server could deliver an open ended image bank.
